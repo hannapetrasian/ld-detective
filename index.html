@@ -963,6 +963,152 @@ main[id],section.case[id]{scroll-margin-top:24px}
   .gt-wrap.compact tr > :nth-child(4){grid-column:3;grid-row:1;font:600 12px/1.6 var(--mono);color:var(--amber-ink);white-space:nowrap}
   .gt-wrap.compact tr > :nth-child(3){grid-column:2/-1;grid-row:2}
 }
+/* ---------- the main case, played ---------- */
+.game-entry{display:flex;align-items:center;gap:18px;margin:18px 0 6px;padding:20px 22px;border-radius:var(--r-lg);background:var(--ink);color:var(--on-ink);box-shadow:var(--shadow)}
+.game-entry[hidden],.no-js .game-entry{display:none}
+.game-entry .ge-ic{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;flex:none;border:1.5px solid var(--amber);color:var(--amber-soft)}
+.game-entry .ge-ic .ico{width:22px;height:22px}
+.game-entry .ge-t{flex:1;min-width:0}
+.game-entry .ge-t p{margin:0;font-size:15.5px;line-height:1.5;color:var(--on-ink-muted)}
+.game-entry .ge-t b{display:block;font-size:18px;font-weight:600;color:var(--on-ink);margin-bottom:2px}
+.game-entry .ge-t .ge-best{font:500 12px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber-soft);margin-top:6px}
+.game-entry .btn{flex:none}
+@media (max-width:640px){.game-entry{flex-wrap:wrap;padding:18px}.game-entry .ge-ic{display:none}.game-entry .btn{flex:1 1 100%;justify-content:center}}
+
+.game{margin:18px 0 6px;border-radius:var(--r-lg);background:var(--ink);color:var(--on-ink);padding:0 0 14px;box-shadow:var(--shadow)}
+.gm-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 10px 0 22px}
+.gm-case{min-width:0;font:500 12px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--amber-soft)}
+.gm-leave{all:unset;box-sizing:border-box;flex:none;white-space:nowrap;min-height:44px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;color:var(--on-ink-muted);cursor:pointer;border-radius:var(--r-sm)}
+.gm-leave:hover{color:var(--on-ink);text-decoration:underline;text-underline-offset:3px}
+.gm-leave:focus-visible{outline:3px solid var(--amber);outline-offset:0}
+.gm-track{list-style:none;margin:6px 0 16px;padding:0 22px;display:flex;counter-reset:none}
+.gm-track li{flex:1;margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.gm-track li::before{content:"";position:absolute;top:14px;right:50%;width:100%;height:1.5px;background:rgba(185,192,201,.3);z-index:0}
+.gm-track li:first-child::before{content:none}
+.gm-track li.done::before,.gm-track li.cur::before{background:var(--amber)}
+.gm-track .bx{position:relative;z-index:1;width:30px;height:30px;border-radius:6px;display:grid;place-items:center;font:600 13px/1 var(--mono);border:1.5px solid rgba(185,192,201,.45);color:var(--on-ink-muted);background:var(--ink);transition:background var(--t),border-color var(--t),color var(--t),box-shadow var(--t)}
+.gm-track .lb{font:500 11px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-muted)}
+.gm-track li.done .bx{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.gm-track li.cur .bx{border-color:var(--amber-soft);color:var(--on-ink);box-shadow:0 0 0 4px rgba(184,134,11,.35)}
+.gm-track li.cur .lb{color:var(--on-ink)}
+@media (max-width:560px){.gm-track{padding:0 12px}.gm-track .lb{display:none}.gm-track .bx{width:28px;height:28px}.gm-track li::before{top:13px}}
+
+.gm-sheet{position:relative;margin:0 14px;padding:26px 30px 28px;border-radius:var(--r);background:var(--paper);color:var(--ink);min-height:340px;overflow:hidden}
+.gm-sheet::after{content:"";position:absolute;top:0;right:0;width:26px;height:26px;background:linear-gradient(225deg,var(--ink) 50%,var(--paper-2) 50%);border-bottom-left-radius:4px;box-shadow:-2px 2px 3px rgba(28,37,48,.08)}
+.gm-closed .gm-h{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media (max-width:640px){.gm-case{font-size:11px;letter-spacing:.08em}.game{padding-bottom:8px}.gm-sheet{margin:0 8px;padding:20px 18px 22px}.gm-top{padding-left:16px}}
+.gm-screen{animation:gmIn 280ms cubic-bezier(.2,.7,.2,1) both}
+@keyframes gmIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.gm-h{font:600 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--amber-ink);margin:0 0 14px}
+.gm-h:focus{outline:none}
+.gm-h:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.gm-lead{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 16px;max-width:62ch}
+.gm-q{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin:22px 0 12px}
+.gm-q:first-of-type{margin-top:0}
+.gm-lead + .gm-q-wrap .gm-q,.gm-mail + .gm-q-wrap .gm-q{margin-top:22px}
+.gm-q:focus{outline:none}
+.gm-mail{position:relative;margin:0 0 6px;padding:18px 22px 18px 24px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:var(--r-sm);box-shadow:var(--shadow);transform:rotate(-.4deg)}
+.gm-mail p{margin:0;font-size:19px;line-height:1.45;font-weight:500;color:var(--ink)}
+.gm-mail .clip{position:absolute;top:-14px;left:28px;width:14px;height:34px;border:2px solid var(--line-2);border-radius:8px;transform:rotate(8deg)}
+
+.gm-opts{display:grid;gap:10px}
+.gm-opt{all:unset;box-sizing:border-box;display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;align-items:center;min-height:56px;padding:12px 16px;background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);font-size:16px;line-height:1.45;color:var(--ink);cursor:pointer;transition:transform var(--t),border-color var(--t),box-shadow var(--t),background var(--t),opacity var(--t)}
+.gm-opt .k{width:30px;height:30px;border-radius:6px;display:grid;place-items:center;border:1px solid var(--line-2);font:600 12.5px/1 var(--mono);color:var(--ink-2);background:var(--paper);transition:background var(--t),color var(--t),border-color var(--t)}
+.gm-opt:hover:not([aria-disabled="true"]){border-color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow)}
+.gm-opt:hover:not([aria-disabled="true"]) .k{border-color:var(--ink);color:var(--ink)}
+.gm-opt:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.gm-opt[aria-disabled="true"]{cursor:default}
+.gm-opt.is-wrong{border-color:#A9553F;background:#FEFBFA}
+.gm-opt.is-wrong .k{background:#A9553F;border-color:#A9553F;color:#fff}
+.gm-opt.is-right{border:2px solid #4A7A50;background:#FCFDFB;padding:11px 15px}
+.gm-opt.is-right .k{background:#4A7A50;border-color:#4A7A50;color:#fff}
+.gm-opts.settled .gm-opt:not(.is-right){opacity:.55}
+.gm-fb{margin:14px 0 0;padding:13px 18px;border-radius:var(--r-sm);background:var(--card);border:1px solid var(--line);border-left:3px solid var(--line-2);font-size:15.5px;line-height:1.55;color:var(--ink-2);animation:gmIn 240ms cubic-bezier(.2,.7,.2,1) both}
+.gm-fb[hidden]{display:none}
+.gm-fb p{margin:0}
+.gm-fb p + p{margin-top:6px}
+.gm-fb b{color:var(--ink);font-weight:600}
+.gm-fb.ok{border-left-color:#4A7A50}
+.gm-fb.no{border-left-color:#A9553F}
+.gm-fb.part{border-left-color:var(--amber);background:var(--amber-tint)}
+.gm-fb .gap{font:600 12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#3F6B45}
+.gm-next{margin-top:18px}
+.gm-next[hidden]{display:none}
+.gm-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
+@media (max-width:640px){.gm-next,.gm-acts .btn{width:100%;justify-content:center}}
+
+/* L: the board */
+.gm-meter{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+.gm-meter .pins{display:flex;gap:6px}
+.gm-meter .pin{width:14px;height:14px;border-radius:50%;background:var(--string);box-shadow:inset -2px -2px 0 rgba(0,0,0,.18);transition:background var(--t),box-shadow var(--t),transform var(--t)}
+.gm-meter .pin.used{background:transparent;box-shadow:inset 0 0 0 1.5px var(--line-2);transform:scale(.85)}
+.gm-meter .ml{font:600 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.gm-board{position:relative;padding:18px;border-radius:var(--r);border:1px solid var(--line);background-color:var(--paper-2);background-image:radial-gradient(rgba(91,102,115,.14) 1px,transparent 1.2px);background-size:14px 14px}
+.gm-srcs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.gm-srcs{grid-template-columns:1fr;gap:12px}.gm-board{padding:12px}}
+.gm-src{all:unset;box-sizing:border-box;position:relative;display:flex;flex-direction:column;gap:6px;min-height:104px;padding:16px 18px;background:var(--card);border:1px solid var(--line-2);border-radius:6px;box-shadow:0 1px 2px rgba(28,37,48,.06);cursor:pointer;transition:transform var(--t),box-shadow var(--t),border-color var(--t),opacity var(--t)}
+.gm-src .tg{display:flex;align-items:center;gap:6px;font:600 11px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.gm-src .nm{font-size:16px;font-weight:600;line-height:1.35;color:var(--ink)}
+.gm-src .fd{display:none;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.gm-src .peek{position:absolute;right:14px;top:14px;color:var(--muted)}
+.gm-src:hover:not([aria-disabled="true"]){transform:translateY(-2px) rotate(-.4deg);box-shadow:var(--shadow);border-color:var(--ink)}
+.gm-src:hover:not([aria-disabled="true"]) .peek{color:var(--amber-ink)}
+.gm-src:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.gm-src[aria-disabled="true"]{cursor:default}
+.gm-src.is-open{padding-top:22px;transform:rotate(var(--rot,0deg));box-shadow:0 2px 3px rgba(28,37,48,.08),0 10px 20px -12px rgba(28,37,48,.3);border-color:var(--line)}
+.gm-src.is-open .fd{display:block;animation:gmIn 260ms cubic-bezier(.2,.7,.2,1) both}
+.gm-src.is-open .peek{display:none}
+.gm-src.is-dead{border-style:dashed;box-shadow:none;background:#FBFAF7}
+.gm-src.is-dead .nm,.gm-src.is-dead .fd{color:var(--muted)}
+.gm-src.spent{opacity:.5;cursor:not-allowed}
+.gm-strings{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+.gm-strings path{fill:none;stroke:var(--string);stroke-width:1.6;stroke-linecap:round;opacity:.65}
+.gm-strings path.new{stroke-dasharray:1;animation:gmDraw 520ms cubic-bezier(.2,.7,.2,1) both}
+@keyframes gmDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.gm-strings circle.p{fill:var(--string)}
+.gm-strings circle.h{fill:#fff;opacity:.55}
+.gm-out{font-size:15px;color:var(--ink-2);margin:14px 0 0}
+
+/* E: the fix */
+.gm-count{display:flex;align-items:center;gap:10px;margin:0 0 12px;font:600 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.gm-count .slots{display:flex;gap:4px}
+.gm-count .slot{width:18px;height:6px;border-radius:3px;background:var(--line);transition:background var(--t)}
+.gm-count .slot.on{background:var(--ink)}
+.gm-fixes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:640px){.gm-fixes{grid-template-columns:1fr}}
+.gm-fix{all:unset;box-sizing:border-box;display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;align-items:start;min-height:56px;padding:14px 16px;background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);font-size:15.5px;line-height:1.45;color:var(--ink);cursor:pointer;transition:transform var(--t),border-color var(--t),background var(--t),box-shadow var(--t),opacity var(--t)}
+.gm-fix .bx{width:22px;height:22px;margin-top:1px;border-radius:5px;border:1.5px solid var(--line-2);display:grid;place-items:center;font:700 12px/1 var(--mono);color:transparent;transition:background var(--t),border-color var(--t),color var(--t)}
+.gm-fix .own{display:none;margin-top:6px;font:600 11px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.gm-fix .why{display:none;margin-top:6px;font-size:14.5px;line-height:1.5;color:#8C4636}
+.gm-fix:hover:not([aria-disabled="true"]){border-color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow)}
+.gm-fix:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.gm-fix[aria-pressed="true"]{background:var(--amber-tint);border-color:var(--ink)}
+.gm-fix[aria-pressed="true"] .bx{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+.gm-fix.full:not([aria-pressed="true"]){opacity:.55}
+.gm-fix[aria-disabled="true"]{cursor:default}
+.gm-fix.is-right{border:2px solid #4A7A50;background:#FCFDFB;padding:13px 15px}
+.gm-fix.is-right .bx{background:#4A7A50;border-color:#4A7A50}
+.gm-fix.is-wrong{border:2px solid #A9553F;background:#FEFBFA;padding:13px 15px}
+.gm-fix.is-wrong .bx{background:#A9553F;border-color:#A9553F}
+.gm-fix.is-right .own,.gm-fix.is-wrong .own,.gm-fix.is-wrong .why{display:block}
+.gm-fixes.locked .gm-fix:not(.is-right){opacity:.45}
+.gm-check[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
+
+/* Closed */
+.gm-closed{position:relative}
+.gm-closed .stamp{position:absolute;right:0;top:-6px;font-size:20px;padding:10px 16px;border-width:3px;letter-spacing:.2em;transform:rotate(-8deg);animation:gmStamp 420ms cubic-bezier(.2,.7,.2,1) 120ms both}
+@keyframes gmStamp{0%{opacity:0;scale:2.2}60%{opacity:.95;scale:.94}100%{opacity:.9;scale:1}}
+.gm-result{font-size:19px;font-weight:600;line-height:1.45;letter-spacing:-.01em;margin:0 0 20px;max-width:34ch}
+.gm-file{background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 20px 14px;max-width:420px;box-shadow:var(--shadow)}
+.gm-file .ft{font:600 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.gm-file dl{margin:0;display:grid;gap:8px}
+.gm-file dl > div{display:flex;align-items:baseline;gap:8px;font-family:var(--mono);font-size:14px}
+.gm-file dt{color:var(--ink-2)}
+.gm-file dd{margin:0;font-weight:600;color:var(--ink);order:3}
+.gm-file dl > div::after{content:"";flex:1;order:2;border-bottom:1.5px dotted var(--line-2);transform:translateY(-3px)}
+.gm-rank{font-size:17px;font-weight:600;margin:20px 0 6px}
+@media (max-width:640px){.gm-src.is-open{transform:rotate(calc(var(--rot,0deg) * .3))}}
+@media (max-width:640px){.gm-closed .stamp{position:static;display:inline-block;margin-bottom:14px;font-size:16px;transform:rotate(-4deg)}}
 </style>
 </head>
 <body>
@@ -1884,6 +2030,12 @@ main[id],section.case[id]{scroll-margin-top:24px}
 
     <div>
     <div class="prose"><h3 id="main-case">The main case: the cascade that never landed</h3><p class="capt">A composite of several cases. The numbers show the shape, not one company's record.</p></div>
+    <div class="game-entry no-print" id="caseEntry">
+      <span class="ge-ic" aria-hidden="true"><svg class="ico"><use href="#i-search"/></svg></span>
+      <div class="ge-t"><p><b>Work it yourself first?</b> The solved case stays folded until you're done. About 4 min.</p><p class="ge-best" id="caseBest" hidden></p></div>
+      <button type="button" class="btn amber" id="takeCase">Take the case <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </div>
+    <div class="game no-print" id="caseGame" role="region" aria-label="Take the case" hidden></div>
     <div class="tl-wrap">
     <table class="tl" role="table" aria-label="The cascade case, step by step">
       <thead role="rowgroup"><tr class="r hdr" role="row">
@@ -2193,7 +2345,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     f.set=function(o){f.open=o;items.forEach(function(el){if(o){el.hidden=false;el.removeAttribute('hidden');}else hideItem(el,soft);});paintBtn();};
     b.addEventListener('click',function(){var y=b.getBoundingClientRect().top;f.set(!f.open);if(!f.open){var d=b.getBoundingClientRect().top-y;if(d<0)window.scrollBy(0,d);}});
     items.forEach(function(el){el.addEventListener('beforematch',function(){f.set(true);});});
-    after.parentNode.insertBefore(b,after.nextSibling);f.set(false);folds.push(f);
+    after.parentNode.insertBefore(b,after.nextSibling);f.set(false);folds.push(f);return f;
   }
   // CLUE steps: keep the one question, fold the rest of the list
   document.querySelectorAll('.clue .ask').forEach(function(ul){
@@ -2226,6 +2378,13 @@ main[id],section.case[id]{scroll-margin-top:24px}
     var how=so.querySelector('.how'),items=[],n=how&&how.nextElementSibling;
     while(n){items.push(n);n=n.nextElementSibling;}
     if(how)makeFold(items,how,'Start the exercise','Close the exercise',true);
+  })();
+  // Main case: the solved table folds under the game, and the game opens it at the end
+  var caseFold=null;
+  (function(){
+    var g=document.getElementById('caseGame');if(!g)return;
+    var items=[],n=g.nextElementSibling;while(n){items.push(n);n=n.nextElementSibling;}
+    caseFold=makeFold(items,g,'Show the solved case','Hide the solved case',true);
   })();
   function openFor(id){
     var el=id&&document.getElementById(id);if(!el)return;
@@ -2429,6 +2588,260 @@ main[id],section.case[id]{scroll-margin-top:24px}
       say.textContent='Stamped. Your line is saved in this browser.';
     });
     copyLine.addEventListener('click',function(){copyText(sentence(),copyLine,'Copied');});
+  }
+
+  // ---- The main case, played: one card walks through C, L, U, E; the solved table stays folded until the end ----
+  var entry=document.getElementById('caseEntry'),game=document.getElementById('caseGame');
+  if(entry&&game){
+    var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+    var STEPS=[['!','Request'],['C','Clarify'],['L','Look'],['U','Uncover'],['E','Execute'],['✓','Closed']];
+    var SRC=[
+      {k:'w',n:'The director whose department scores 78%',f:'She sends her managers a one-pager before every announcement. Nobody asked her to. Nobody else does it.',ev:1},
+      {k:'p',n:'The survey verbatims',f:'The biggest cluster in the open answers: "My manager couldn\'t explain why."',ev:1},
+      {k:'p',n:'LMS records for the manager courses',f:'Almost every manager has finished "Communicating with impact". So this training already ran, and the number didn\'t move. That rules out one fix. It doesn\'t name the cause.'},
+      {k:'w',n:'Three managers from the June pivot',f:'All three heard about it at the all-hands, with their teams. Two improvised in the hallway within the hour. One said: "Honestly, I know as much as you do."',ev:1},
+      {k:'p',n:'HR competency ratings',f:'"Communication: meets expectations" for almost everyone. One adjective, once a year. Nothing here on the cause.',dead:1},
+      {k:'p',n:'The announcement pack and the send log',f:'60 slides, sent to managers at the same moment as their teams. No talk track, nowhere to ask. The manager role profile never mentions cascading.',ev:1}
+    ];
+    var FIX=[
+      {t:'A 48-hour pre-brief. Managers hear it two days before their teams',o:'Head of internal comms',ok:1},
+      {t:'Communication training for all people managers',o:'L&D',fb:'The verdict you were handed. It covers the thin skill need and leaves managers hearing the news last.'},
+      {t:'A one-page talk track, with the why in plain words',o:'The exec making the announcement',ok:1},
+      {t:'A storytelling e-learning module',o:'L&D',fb:'A better story won\'t help if managers get it at the same moment as their teams.'},
+      {t:'A 48-hour Q&A channel, so managers can ask before they\'re asked',o:'The BU\'s HR business partner',ok:1},
+      {t:'A monthly video from the CEO',o:'Head of internal comms',fb:'One more channel that goes around the manager. The verbatims asked for the manager.'},
+      {t:'One 90-minute practice session. Deliver the message, take the hard question',o:'L&D',ok:1}
+    ];
+    var ROT=['-1.2deg','.9deg','-.6deg','1.1deg','-.9deg','.5deg'];
+    var S,sheet,live,track;
+    var entryBtn=document.getElementById('takeCase'),bestLine=document.getElementById('caseBest');
+    function paintBest(){var b=store.get('ldd-case');if(b&&typeof b.best==='number'){bestLine.hidden=false;bestLine.textContent='Your best: '+b.best+' of 6.';}}
+    paintBest();
+    game.innerHTML='<div class="gm-top"><span class="gm-case">The cascade that never landed</span><button type="button" class="gm-leave">Leave the case</button></div>'+
+      '<ol class="gm-track">'+STEPS.map(function(s){return '<li><span class="bx" aria-hidden="true">'+s[0]+'</span><span class="lb">'+s[1]+'</span></li>';}).join('')+'</ol>'+
+      '<div class="gm-sheet"></div><p class="sr-only" aria-live="polite"></p>';
+    sheet=game.querySelector('.gm-sheet');live=game.querySelector('[aria-live]');track=[].slice.call(game.querySelectorAll('.gm-track li'));
+    function say(t){live.textContent='';setTimeout(function(){live.textContent=t;},30);}
+    function paintTrack(i){track.forEach(function(li,j){li.classList.toggle('done',j<i||i===5);li.classList.toggle('cur',j===i&&i<5);if(j===i)li.setAttribute('aria-current','step');else li.removeAttribute('aria-current');});}
+    function screen(i,title){
+      paintTrack(i);sheet.textContent='';
+      var sc=document.createElement('div');sc.className='gm-screen';
+      sc.innerHTML='<h4 class="gm-h" tabindex="-1">'+esc(title)+'</h4>';
+      sheet.appendChild(sc);return sc;
+    }
+    function land(sc){
+      var r=game.getBoundingClientRect();
+      if(r.top<0||r.top>window.innerHeight*.5)game.scrollIntoView({block:'start',behavior:calm.matches?'auto':'smooth'});
+      sc.querySelector('.gm-h').focus({preventScroll:true});
+    }
+    function add(parent,html){parent.insertAdjacentHTML('beforeend',html);return parent.lastElementChild;}
+    function next(parent,label,fn,cls){
+      var b=document.createElement('button');b.type='button';b.className=cls||'btn gm-next';
+      b.innerHTML=esc(label)+' <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg>';
+      b.addEventListener('click',fn);parent.appendChild(b);return b;
+    }
+    // A question with options: a wrong pick shows why and stays open, the right one settles the question
+    function choice(parent,key,q,opts,onRight){
+      var w=add(parent,'<div class="gm-q-wrap"><p class="gm-q" tabindex="-1">'+esc(q)+'</p><div class="gm-opts" role="group"></div><div class="gm-fb" hidden></div></div>');
+      var box=w.querySelector('.gm-opts'),fb=w.querySelector('.gm-fb');box.setAttribute('aria-label',q);
+      opts.forEach(function(o,i){
+        var b=document.createElement('button');b.type='button';b.className='gm-opt';
+        b.innerHTML='<span class="k" aria-hidden="true">'+'ABCD'.charAt(i)+'</span><span class="t">'+esc(o.t)+'</span>';
+        b.addEventListener('click',function(){
+          if(b.getAttribute('aria-disabled')==='true')return;
+          if(!(key in S.first))S.first[key]=!!o.ok;
+          b.setAttribute('aria-disabled','true');b.classList.add(o.ok?'is-right':'is-wrong');b.querySelector('.k').textContent=o.ok?'✓':'✕';
+          fb.hidden=false;
+          if(o.ok){
+            box.classList.add('settled');[].forEach.call(box.children,function(x){x.setAttribute('aria-disabled','true');});
+            fb.className='gm-fb ok';fb.textContent=o.fb||'';
+            if(onRight)onRight(w,fb);
+          }else{fb.className='gm-fb no';fb.textContent=o.fb;}
+          say((o.ok?'Right. ':'Not this one. ')+fb.textContent);
+        });
+        box.appendChild(b);
+      });
+      return w;
+    }
+
+    function sRequest(){
+      var sc=screen(0,'The request');
+      add(sc,'<p class="gm-lead">An email from the executive team:</p>');
+      add(sc,'<blockquote class="gm-mail"><span class="clip" aria-hidden="true"></span><p>"Middle managers can\'t communicate. We need communication training for all people managers."</p></blockquote>');
+      choice(sc,'request','What do you do?',[
+        {t:'Book the training',fb:'Quick yes. Three months later every manager has a certificate and the survey item hasn\'t moved. Ask about the problem first.'},
+        {t:'Ask what made this urgent now',ok:1,fb:'Good. Don\'t argue with the request. Keep asking about the problem until the coat comes off.'},
+        {t:'Tell them training won\'t fix it',fb:'You haven\'t looked yet. That\'s a verdict too, just yours.'}
+      ],function(w){next(w,'Next: Clarify',sClarify);});
+      return sc;
+    }
+    function sClarify(){
+      var sc=screen(1,'C · Clarify');
+      add(sc,'<p class="gm-lead">The answer to your why-now question: the engagement survey just landed. "I understand where the company is going" scored 41%, and the board asked why.</p>');
+      choice(sc,'clarify','Which goal will you work toward?',[
+        {t:'Better communication from managers',fb:'An adjective. On Monday nobody can say whether it happened.'},
+        {t:'Each team hears the update from their own manager within a week',ok:1,fb:'You can count that next month. The survey item stays as the number you check later.'},
+        {t:'A higher survey score next year',fb:'A year is a long wait for a verdict. Keep it as the lagging number and pick one you can count sooner.'}
+      ],function(w){next(w,'Next: Look',sLook);});
+      land(sc);
+    }
+    function sLook(){
+      var sc=screen(2,'L · Look'),total=5+S.extra;
+      add(sc,'<p class="gm-lead">Five moves before the board meets, six places to look. Each look costs a move. Name the cause as soon as you can back it up. You don\'t have to spend them all.</p>');
+      var meter=add(sc,'<div class="gm-meter"><span class="pins" aria-hidden="true"></span><span class="ml"></span></div>');
+      var board=add(sc,'<div class="gm-board"><svg class="gm-strings" aria-hidden="true" focusable="false"></svg><div class="gm-srcs"></div></div>');
+      var svg=board.querySelector('svg'),grid=board.querySelector('.gm-srcs');
+      var out=add(sc,'<p class="gm-out" hidden>That\'s all five. Here\'s what you pinned.</p>');
+      var go=next(sc,'Name the cause',sUncover);go.hidden=!S.opened.length;
+      var cards=SRC.map(function(s,i){
+        var b=document.createElement('button');b.type='button';b.className='gm-src';b.style.setProperty('--rot',ROT[i]);
+        b.innerHTML='<span class="tg"><svg class="ico sm" aria-hidden="true"><use href="#'+(s.k==='w'?'i-chat':'i-notebook')+'"/></svg>'+(s.k==='w'?'Witness':'Paper trail')+'</span>'+
+          '<span class="nm">'+esc(s.n)+'</span><span class="fd">'+esc(s.f)+'</span><svg class="ico sm peek" aria-hidden="true"><use href="#i-eye"/></svg>';
+        b.addEventListener('click',function(){
+          if(b.getAttribute('aria-disabled')==='true')return;
+          S.left--;S.opened.push(i);if(s.dead)S.dead++;
+          paint(true);say(s.n+'. '+s.f+' Moves left: '+S.left+'.');
+        });
+        grid.appendChild(b);return b;
+      });
+      function paint(fresh){
+        var pins='';for(var j=0;j<total;j++)pins+='<span class="pin'+(j<total-S.left?' used':'')+'"></span>';
+        meter.querySelector('.pins').innerHTML=pins;meter.querySelector('.ml').textContent='Moves left: '+S.left;
+        cards.forEach(function(b,i){
+          var open=S.opened.indexOf(i)>=0;
+          b.classList.toggle('is-open',open);b.classList.toggle('is-dead',open&&!!SRC[i].dead);
+          b.classList.toggle('spent',!open&&S.left<=0);
+          if(open||S.left<=0)b.setAttribute('aria-disabled','true');else b.removeAttribute('aria-disabled');
+        });
+        go.hidden=!S.opened.length;out.hidden=!(S.left<=0&&S.extra===0);
+        strings(fresh);
+      }
+      // red string between the pieces of evidence, in the order they were found
+      function strings(fresh){
+        var br=board.getBoundingClientRect(),pts=[],h='',one=getComputedStyle(grid).gridTemplateColumns.split(' ').length<2;
+        S.opened.forEach(function(i){var r=cards[i].getBoundingClientRect();pts.push({x:one?r.left-br.left+1:r.left+r.width/2-br.left,y:r.top-br.top+(one?16:11),ev:!!SRC[i].ev});});
+        var ev=pts.filter(function(p){return p.ev;});
+        for(var j=1;j<ev.length;j++){
+          var a=ev[j-1],c=ev[j],mx=one?a.x-9:(a.x+c.x)/2,my=one?(a.y+c.y)/2:Math.max(a.y,c.y)+28;
+          h+='<path pathLength="1" class="'+(fresh&&j===ev.length-1&&SRC[S.opened[S.opened.length-1]].ev?'new':'')+'" d="M'+a.x.toFixed(1)+' '+a.y.toFixed(1)+' Q'+mx.toFixed(1)+' '+my.toFixed(1)+' '+c.x.toFixed(1)+' '+c.y.toFixed(1)+'"/>';
+        }
+        pts.forEach(function(p){h+='<circle class="p" cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="6"/><circle class="h" cx="'+(p.x-1.8).toFixed(1)+'" cy="'+(p.y-1.8).toFixed(1)+'" r="1.8"/>';});
+        svg.innerHTML=h;
+      }
+      if('ResizeObserver' in window){var ro=new ResizeObserver(function(){if(board.isConnected)strings(false);else ro.disconnect();});ro.observe(board);}
+      paint(false);land(sc);
+    }
+    function sUncover(){
+      var sc=screen(3,'U · Uncover');
+      choice(sc,'uncover','What\'s really going on?',[
+        {t:'Managers can\'t communicate',fb:'That\'s the request again. Managers in the 78% department took the same courses as everyone else. Skill alone doesn\'t explain a 37-point gap.'},
+        {t:'The strategy itself is unclear',fb:'Then the 78% department would be lost too. Same strategy, very different score. What does that director do that the others don\'t?'},
+        {t:'Managers are briefed last and armed with nothing',ok:1},
+        {t:'People don\'t read the updates',fb:'The verbatims say people wanted to hear it from their manager. They asked for more, not less.'}
+      ],function(w,fb){
+        var has=function(k){return S.opened.some(function(i){return SRC[i].ev&&SRC[i].k===k;});};
+        if(has('w')&&has('p')){
+          fb.innerHTML='<p><b>Two independent sources, one cause.</b> Managers hear the news with their teams, with 60 slides, no talk track and nowhere to ask. And nobody told them cascading was their job.</p><p class="gap">Gap: process and expectations, plus a thin, real skill need.</p>';
+          next(w,'Build the fix',sExecute);
+        }else{
+          fb.className='gm-fb part';
+          fb.textContent=has('w')?'Right cause, thin case. Witnesses can end up telling each other\'s story. Find it on paper too.':'Right cause, thin case. Paper shows what happened. It doesn\'t show why. Talk to someone who was there.';
+          next(w,S.left>0?'Look again':'Look again · costs a day',function(){if(S.left<=0){S.extra++;S.left++;}sLook();});
+        }
+      });
+      land(sc);
+    }
+    function sExecute(){
+      var sc=screen(4,'E · Execute');
+      add(sc,'<p class="gm-q">Build the fix. Pick four.</p>');
+      var cnt=add(sc,'<div class="gm-count" aria-hidden="true"><span class="slots"><span class="slot"></span><span class="slot"></span><span class="slot"></span><span class="slot"></span></span><span class="n"></span></div>');
+      var grid=add(sc,'<div class="gm-fixes" role="group" aria-label="Build the fix. Pick four."></div>');
+      var acts=add(sc,'<div class="gm-acts"></div>');
+      var check=next(acts,'Check the fix',function(){
+        if(check.getAttribute('aria-disabled')==='true')return;
+        var picked=cards.filter(function(b){return b.getAttribute('aria-pressed')==='true';});
+        var all=picked.every(function(b){return FIX[+b.dataset.i].ok;});
+        if(!('execute' in S.first))S.first.execute=all;
+        picked.forEach(function(b){var ok=!!FIX[+b.dataset.i].ok;b.classList.toggle('is-right',ok);b.classList.toggle('is-wrong',!ok);b.querySelector('.bx').textContent=ok?'✓':'✕';});
+        if(all){
+          grid.classList.add('locked');cards.forEach(function(b){b.setAttribute('aria-disabled','true');});check.hidden=true;
+          var fb=add(sc,'<div class="gm-fb ok"><p>Four fixes, one of them training. Three of the four owners sit outside L&amp;D. Put their names in the recommendation.</p></div>');
+          next(fb,'Write the hypothesis',sPilot);say('Correct. '+fb.textContent);
+        }else{
+          say(picked.filter(function(b){return !FIX[+b.dataset.i].ok;}).map(function(b){return FIX[+b.dataset.i].t+'. '+FIX[+b.dataset.i].fb;}).join(' '));
+        }
+      },'btn gm-check');
+      var cards=FIX.map(function(f,i){
+        var b=document.createElement('button');b.type='button';b.className='gm-fix';b.dataset.i=i;b.setAttribute('aria-pressed','false');
+        b.innerHTML='<span class="bx" aria-hidden="true">✓</span><span><span class="t">'+esc(f.t)+'</span><span class="own">'+esc(f.o)+'</span>'+(f.fb?'<span class="why">'+esc(f.fb)+'</span>':'')+'</span>';
+        b.addEventListener('click',function(){
+          if(b.getAttribute('aria-disabled')==='true')return;
+          var on=b.getAttribute('aria-pressed')==='true',n=count();
+          if(!on&&n>=4)return;
+          b.setAttribute('aria-pressed',String(!on));b.classList.remove('is-right','is-wrong');b.querySelector('.bx').textContent='✓';
+          paintCount();
+        });
+        grid.appendChild(b);return b;
+      });
+      function count(){return cards.filter(function(b){return b.getAttribute('aria-pressed')==='true';}).length;}
+      function paintCount(){
+        var n=count();[].forEach.call(cnt.querySelectorAll('.slot'),function(s,j){s.classList.toggle('on',j<n);});
+        cnt.querySelector('.n').textContent=n+' of 4';
+        cards.forEach(function(b){b.classList.toggle('full',n>=4);});
+        if(n===4)check.removeAttribute('aria-disabled');else check.setAttribute('aria-disabled','true');
+        check.setAttribute('aria-label','Check the fix, '+n+' of 4 picked');
+      }
+      paintCount();land(sc);
+    }
+    function sPilot(){
+      var sc=screen(4,'Before you ship: the pilot');
+      choice(sc,'scope','How big?',[
+        {t:'Every manager, from next quarter',fb:'If it fails, it fails everywhere, and you won\'t know which fix did the work.'},
+        {t:'One business unit, one quarterly cycle',ok:1,fb:'Small enough to learn from, and the other units become your comparison group.'}
+      ],function(){
+        var w2=choice(sc,'target','What counts as success?',[
+          {t:'Close the 37-point gap to the best department this quarter',fb:'A fantasy, and a sponsor who has read this guide would call it one.'},
+          {t:'80% of teams hold the conversation within a week, and the survey item gains 5 points from 41%',ok:1,fb:'Signed. A behavior you can count in a week, and the survey for later.'},
+          {t:'Managers say they feel more confident',fb:'That\'s a feedback form. What will people be doing differently?'}
+        ],function(w){next(w,'Close the case',sClosed);});
+        setTimeout(function(){w2.querySelector('.gm-q').focus({preventScroll:true});w2.scrollIntoView({block:'nearest',behavior:calm.matches?'auto':'smooth'});},60);
+      });
+      land(sc);
+    }
+    function sClosed(){
+      var sc=screen(5,'Case closed');sc.classList.add('gm-closed');
+      var keys=['request','clarify','uncover','execute','scope','target'];
+      var right=keys.filter(function(k){return S.first[k];}).length,total=5+S.extra,used=total-S.left;
+      var rank=right===6&&!S.dead&&!S.extra?'Clean case. You\'d close this one in a real week.':
+               right>=4&&S.dead<=1&&S.extra<=1?'Closed, with a detour or two. Real cases have them too.':
+               'Closed. Play it again and see how short the path can be.';
+      add(sc,'<span class="stamp" aria-hidden="true">Case closed</span>');
+      add(sc,'<p class="gm-result">9 of 10 pilot teams held the conversation inside a week. The pulse item gained 6 points. The hallway questions stopped.</p>');
+      add(sc,'<div class="gm-file"><p class="ft">Your file</p><dl>'+
+        '<div><dt>Right first time</dt><dd>'+right+' of 6</dd></div>'+
+        '<div><dt>Moves used</dt><dd>'+used+' of '+total+'</dd></div>'+
+        '<div><dt>Dead ends</dt><dd>'+S.dead+'</dd></div>'+
+        '<div><dt>Extra days</dt><dd>'+S.extra+'</dd></div></dl></div>');
+      add(sc,'<p class="gm-rank">'+esc(rank)+'</p>');
+      add(sc,'<p class="capt">Training was a quarter of the fix, and it worked because the other three-quarters shipped first.</p>');
+      var acts=add(sc,'<div class="gm-acts"></div>');
+      next(acts,'See the solved case',function(){
+        if(caseFold)caseFold.set(true);
+        var t=game.parentNode.querySelector('.tl-wrap');
+        t.setAttribute('tabindex','-1');t.scrollIntoView({block:'start',behavior:calm.matches?'auto':'smooth'});t.focus({preventScroll:true});
+      },'btn');
+      var again=document.createElement('button');again.type='button';again.className='tbtn';again.textContent='Play again';again.addEventListener('click',start);acts.appendChild(again);
+      var b=store.get('ldd-case')||{};if(typeof b.best!=='number'||right>b.best){b.best=right;store.set('ldd-case',b);}
+      paintBest();
+      if(caseFold)caseFold.set(true);
+      land(sc);
+    }
+    function start(){
+      S={first:{},extra:0,left:5,opened:[],dead:0};
+      entry.hidden=true;game.hidden=false;land(sRequest());
+    }
+    entryBtn.addEventListener('click',start);
+    game.querySelector('.gm-leave').addEventListener('click',function(){game.hidden=true;entry.hidden=false;paintBest();entryBtn.focus();});
   }
 
   var shareLink=document.getElementById('shareLink');
