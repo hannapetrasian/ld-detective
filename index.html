@@ -192,7 +192,14 @@ section.case + section.case{margin-top:24px}
 /* ---------- footer ---------- */
 footer.credit{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:flex-start}
 footer.credit .who{color:var(--ink);font-weight:600}
-.closing{margin:64px 0 0;padding:26px 28px;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-lg);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.author{margin:72px 0 0;padding-top:36px;border-top:1px solid var(--line);display:grid;grid-template-columns:120px minmax(0,1fr);gap:28px;align-items:start;scroll-margin-top:24px}
+.author img{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;background:var(--paper-2)}
+.author .label{display:block;margin-bottom:8px}
+.author h2{font-size:24px;font-weight:700;margin:0 0 12px}
+.author p{max-width:64ch;color:var(--ink-2);margin:0 0 .8em}
+.author p:last-child{color:var(--ink);font-weight:500;margin-bottom:0}
+@media (max-width:640px){.author{grid-template-columns:1fr;gap:16px}.author img{width:96px;height:96px}}
+.closing{margin:32px 0 0;padding:26px 28px;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-lg);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
 .closing p{margin:0;font-size:19px;font-weight:600;line-height:1.35;max-width:34ch;color:var(--ink)}
 .closing .acts{display:flex;flex-wrap:wrap;gap:12px}
 @media (max-width:640px){.closing{padding:20px 18px}.closing .acts,.closing .btn{flex:1 1 100%;justify-content:center}}
@@ -1004,7 +1011,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <li>Anyone who gets "we need training" from three levels up</li>
   </ul>
   <div class="byline">
-    <span>Hanna Petrasian</span>
+    <span><a href="#author">Hanna Petrasian</a></span>
     <span><a href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn</a></span>
     <span>About 20 minutes, or 3 for the <a href="files/pocket-guide.pdf">Pocket Guide</a></span>
   </div>
@@ -1964,6 +1971,17 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <div class="hyp filled"><span class="l">One filled in</span><em>Before I reply to the next request, I will ask "If we trained everyone tomorrow and the training was perfect, what would still get in the way?" and write down what the current error rate costs us per month.</em></div>
     </div>
     <p class="capt">Pick the question from the <a href="#clue">CLUE table</a> and put it where Monday will find it, the top of your notebook or a sticky on the monitor.</p>
+  </div>
+</section>
+
+<section class="author" id="author" aria-labelledby="h-author">
+  <img src="img/hanna-petrasian.jpg" width="120" height="120" alt="Portrait of Hanna Petrasian" loading="lazy" decoding="async">
+  <div>
+    <span class="label">About the author</span>
+    <h2 id="h-author">Hanna Petrasian</h2>
+    <p>I've spent more than 12 years in learning, split between university lecturing and L&amp;D management in software development and travel tech. I've built training strategies and launched a company-wide mentorship program from a blank page.</p>
+    <p>In between, I've owned needs analysis with everyone from department heads to the C-suite, LMS projects, budgets and vendors, and the step from performance review insights to development plans people use. I borrow freely from software engineering, business analysis and project management, and run learning work the way product teams run products.</p>
+    <p>What I care about most is the gap between "I want to learn this" and "this actually changed how we perform."</p>
   </div>
 </section>
 
