@@ -241,6 +241,7 @@ footer.credit a{color:var(--ink-2)}
 .tbtn{all:unset;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;background:var(--card);transition:background var(--t),border-color var(--t)}
 .tbtn:hover{border-color:var(--ink)}
 .tbtn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.tbtn[hidden]{display:none}
 
 /* ---------- upgrade: CLUE jump pills ---------- */
 .pills{position:sticky;top:12px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;padding:8px;margin:0 0 18px;background:rgba(247,244,238,.97);border-radius:999px;width:max-content;max-width:100%;box-shadow:0 6px 18px -10px rgba(28,37,48,.25)}
@@ -626,7 +627,7 @@ footer.credit a{color:var(--ink-2)}
 .cc li::before{
   content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;
 }
-.cc li .g{display:inline-block;font:600 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:8px;vertical-align:baseline}
+.cc li .g,.file dd .g{display:inline-block;font:600 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:8px;vertical-align:baseline}
 .cc > div.yes li::before{background:#4A7A50}
 .cc > div.no li::before{background:#A9553F}
 @media (max-width:700px){.cc{grid-template-columns:1fr}}
@@ -634,20 +635,28 @@ footer.credit a{color:var(--ink-2)}
 /* --- V15 reveal cards -------------------------------------- */
 .file .back{display:none}
 .file.open .back{display:block}
-.file .rv{
-  display:inline-flex;align-items:center;gap:7px;
-  font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
-  background:var(--ink);color:#fff;border:0;border-radius:7px;
-  padding:9px 13px;min-height:44px;cursor:pointer;margin-top:auto;
-}
-.file .rv:hover{background:#2A3644}
-.file .rv:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
-.file.open .rv{display:none}
-.file .rv .ico{width:13px;height:13px}
+.file dl.pick{grid-template-columns:1fr;gap:6px}
+.file .pick dd{min-width:0}
+.file .pick .chips{margin:0;gap:6px}
+.chips button.ch{font:500 13.5px/1 var(--sans);border:1px solid var(--line-2);background:#fff;border-radius:999px;padding:0 12px;min-height:44px;color:var(--ink);cursor:pointer;transition:background var(--t),border-color var(--t),color var(--t)}
+.chips button.ch:hover{border-color:var(--ink)}
+.chips button.ch:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.chips button.ch[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+.file.guessed .chips button.ch{cursor:default}
+.file.guessed .chips button.ch:hover{border-color:var(--line-2)}
+.file.guessed .chips button.ch.right{border:2px solid #4A7A50}
+.file.guessed .chips button.ch[aria-pressed="true"].wrong{border:2px solid #A9553F}
+.file.open:not(.guessed) .pick{display:none}
+.file .back .vd{display:none}
+.file.guessed .back .vd{display:block}
+.file .back dd.vd{font-weight:600;color:var(--ink)}
+.file .back dd.vd.no{color:#8C4636}
+.file .back dd.vd.yes{color:#3F6B45}
+.capt.tally{margin:-4px 0 18px}
 .toolrow.cases{margin:0 0 14px}
 @media print{
   .file .back{display:block}
-  .file .rv{display:none}
+  .file .pick{display:none}
 }
 
 
@@ -800,7 +809,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
 
 /* without scripting the answers are simply open */
 .no-js .file .back{display:block}
-.no-js .file .rv,.no-js .toolrow.cases{display:none}
+.no-js .file .pick,.no-js .toolrow.cases{display:none}
 
 .skip{position:absolute;left:-9999px;top:0;z-index:60;padding:12px 18px;border-radius:0 0 var(--r) 0;
   background:var(--ink);color:var(--on-ink);font-weight:600;text-decoration:none}
@@ -1739,53 +1748,60 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <button class="tbtn" type="button" id="showAllCases">Show all answers</button>
     </div>
     <div class="cold">
-      <article class="file" id="cold-01"><span class="n">Cold case 01</span><h4>The negotiation course that was a signature</h4>
+      <article class="file" id="cold-01" data-gap="Process"><span class="n">Cold case 01</span><h4>The negotiation course that was a signature</h4>
         <dl><dt>Asked for</dt><dd>Negotiation training; deals dying at the final stretch.</dd>
         <dt>Question</dt><dd>"Show me the last deal we lost. Where exactly did it stall?"</dd></dl>
-        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
-        <dl class="back"><dt>Turned out</dt><dd>Discount approval took five days and two signatures. Buyers cooled off.</dd>
+        <dl class="pick no-print"><dt>Which gap?</dt><dd><div class="chips" role="group" aria-label="Which gap? Pick one to see the answer"><button type="button" class="ch" data-gap="Skill" aria-pressed="false">Skill</button><button type="button" class="ch" data-gap="Process" aria-pressed="false">Process</button><button type="button" class="ch" data-gap="Incentives" aria-pressed="false">Incentives</button></div></dd></dl>
+        <dl class="back"><dt class="vd">Your verdict</dt><dd class="vd"></dd>
+        <dt>Turned out</dt><dd><span class="g">Process</span>Discount approval took five days and two signatures. Buyers cooled off.</dd>
         <dt>Fix</dt><dd class="fix">A pre-approved discount matrix below a threshold. Cycle time down in a week.</dd></dl></article>
 
-      <article class="file" id="cold-02"><span class="n">Cold case 02</span><h4>The empathy problem that was a scorecard</h4>
+      <article class="file" id="cold-02" data-gap="Incentives"><span class="n">Cold case 02</span><h4>The empathy problem that was a scorecard</h4>
         <dl><dt>Asked for</dt><dd>Empathy training for support, after rough NPS.</dd>
         <dt>Question</dt><dd>"What happens to an agent who spends four extra minutes with an upset customer?"</dd></dl>
-        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
-        <dl class="back"><dt>Turned out</dt><dd>The scorecard punished that. Handle time was 40% of the score.</dd>
+        <dl class="pick no-print"><dt>Which gap?</dt><dd><div class="chips" role="group" aria-label="Which gap? Pick one to see the answer"><button type="button" class="ch" data-gap="Incentives" aria-pressed="false">Incentives</button><button type="button" class="ch" data-gap="Skill" aria-pressed="false">Skill</button><button type="button" class="ch" data-gap="Tools" aria-pressed="false">Tools</button></div></dd></dl>
+        <dl class="back"><dt class="vd">Your verdict</dt><dd class="vd"></dd>
+        <dt>Turned out</dt><dd><span class="g">Incentives</span>The scorecard punished that. Handle time was 40% of the score.</dd>
         <dt>Fix</dt><dd class="fix">Reweight it, add one quality criterion. Tone changed in two weeks.</dd></dl></article>
 
-      <article class="file" id="cold-03"><span class="n">Cold case 03</span><h4>The Excel course that was a template</h4>
+      <article class="file" id="cold-03" data-gap="Tools"><span class="n">Cold case 03</span><h4>The Excel course that was a template</h4>
         <dl><dt>Asked for</dt><dd>Excel training for the finance team.</dd>
         <dt>Question</dt><dd>"Could your best analyst do this fast? What is she doing differently?"</dd></dl>
-        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
-        <dl class="back"><dt>Turned out</dt><dd>She had a formula-locked template. Everyone else rebuilt the report by hand, monthly.</dd>
+        <dl class="pick no-print"><dt>Which gap?</dt><dd><div class="chips" role="group" aria-label="Which gap? Pick one to see the answer"><button type="button" class="ch" data-gap="Process" aria-pressed="false">Process</button><button type="button" class="ch" data-gap="Skill" aria-pressed="false">Skill</button><button type="button" class="ch" data-gap="Tools" aria-pressed="false">Tools</button></div></dd></dl>
+        <dl class="back"><dt class="vd">Your verdict</dt><dd class="vd"></dd>
+        <dt>Turned out</dt><dd><span class="g">Tools</span>She had a formula-locked template. Everyone else rebuilt the report by hand, monthly.</dd>
         <dt>Fix</dt><dd class="fix">Her template plus a 15-minute walkthrough video. Done that afternoon.</dd></dl></article>
 
-      <article class="file" id="cold-04"><span class="n">Cold case 04</span><h4>The presentation training that was one slide</h4>
+      <article class="file" id="cold-04" data-gap="Expectations"><span class="n">Cold case 04</span><h4>The presentation training that was one slide</h4>
         <dl><dt>Asked for</dt><dd>Presentation skills for engineers; updates called unclear.</dd>
         <dt>Question</dt><dd>"Think of an update that landed well. What did it look like?"</dd></dl>
-        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
-        <dl class="back"><dt>Turned out</dt><dd>No agreed format. Every engineer was improvising a genre.</dd>
+        <dl class="pick no-print"><dt>Which gap?</dt><dd><div class="chips" role="group" aria-label="Which gap? Pick one to see the answer"><button type="button" class="ch" data-gap="Expectations" aria-pressed="false">Expectations</button><button type="button" class="ch" data-gap="Skill" aria-pressed="false">Skill</button><button type="button" class="ch" data-gap="Tools" aria-pressed="false">Tools</button></div></dd></dl>
+        <dl class="back"><dt class="vd">Your verdict</dt><dd class="vd"></dd>
+        <dt>Turned out</dt><dd><span class="g">Expectations</span>No agreed format. Every engineer was improvising a genre.</dd>
         <dt>Fix</dt><dd class="fix">A one-slide template, <em>what changed / so what / the ask</em>. Complaints stopped that quarter.</dd></dl></article>
 
-      <article class="file" id="cold-05"><span class="n">Cold case 05</span><h4>The time-management course that was a calendar default</h4>
+      <article class="file" id="cold-05" data-gap="Expectations"><span class="n">Cold case 05</span><h4>The time-management course that was a calendar default</h4>
         <dl><dt>Asked for</dt><dd>Time-management training for new managers.</dd>
         <dt>Question</dt><dd>"Walk me through your Tuesday."</dd></dl>
-        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
-        <dl class="back"><dt>Turned out</dt><dd>Every invite defaulted to 60 minutes, and nobody believed they could decline.</dd>
+        <dl class="pick no-print"><dt>Which gap?</dt><dd><div class="chips" role="group" aria-label="Which gap? Pick one to see the answer"><button type="button" class="ch" data-gap="Process" aria-pressed="false">Process</button><button type="button" class="ch" data-gap="Expectations" aria-pressed="false">Expectations</button><button type="button" class="ch" data-gap="Skill" aria-pressed="false">Skill</button></div></dd></dl>
+        <dl class="back"><dt class="vd">Your verdict</dt><dd class="vd"></dd>
+        <dt>Turned out</dt><dd><span class="g">Expectations</span>Every invite defaulted to 60 minutes, and nobody believed they could decline.</dd>
         <dt>Fix</dt><dd class="fix">25- and 50-minute calendar defaults, plus the director saying "decline freely" out loud, in public.</dd></dl></article>
 
-      <article class="file" id="cold-06"><span class="n">Cold case 06</span><h4>The feedback training that was a permission setting</h4>
+      <article class="file" id="cold-06" data-gap="Tools"><span class="n">Cold case 06</span><h4>The feedback training that was a permission setting</h4>
         <dl><dt>Asked for</dt><dd>Teach managers to discuss survey results.</dd>
         <dt>Question</dt><dd>"What do you actually have in front of you when you sit down with the team?"</dd></dl>
-        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
-        <dl class="back"><dt>Turned out</dt><dd>Managers couldn't see their own team's dashboard. They were asked to discuss data they had never seen.</dd>
+        <dl class="pick no-print"><dt>Which gap?</dt><dd><div class="chips" role="group" aria-label="Which gap? Pick one to see the answer"><button type="button" class="ch" data-gap="Skill" aria-pressed="false">Skill</button><button type="button" class="ch" data-gap="Incentives" aria-pressed="false">Incentives</button><button type="button" class="ch" data-gap="Tools" aria-pressed="false">Tools</button></div></dd></dl>
+        <dl class="back"><dt class="vd">Your verdict</dt><dd class="vd"></dd>
+        <dt>Turned out</dt><dd><span class="g">Tools</span>Managers couldn't see their own team's dashboard. They were asked to discuss data they had never seen.</dd>
         <dt>Fix</dt><dd class="fix">A permission change and a one-page talk track.</dd></dl></article>
     </div>
+    <p class="capt tally no-print" id="coldTally" aria-live="polite" hidden></p>
 
     <article class="file lost" id="cold-07"><span class="n">Cold case 07 · still open for two quarters</span><h4>The case we lost</h4>
       <dl><dt>Asked for</dt><dd>Sales enablement for a line nobody was selling.</dd>
       <dt>Question</dt><dd>"What happens to a rep's payout when they sell the new line instead of the old one?"</dd>
-      <dt>Turned out</dt><dd>The new line paid less commission. No course out-argues a paycheck.</dd>
+      <dt>Turned out</dt><dd><span class="g">Incentives</span>The new line paid less commission. No course out-argues a paycheck.</dd>
       <dt>Fix</dt><dd class="fix">Not ours to make. Comp wasn't on the table, the training shipped as requested, and the number stayed flat, as the written hypothesis predicted. Two quarters later, when someone asked why the line still wasn't moving, that hypothesis was the only document in the room with an answer. Comp changed, and the training started working.</dd></dl>
       <ul class="chips" aria-label="What made it recoverable">
         <li>The diagnosis existed on paper before launch</li>
@@ -1936,21 +1952,46 @@ main[id],section.case[id]{scroll-margin-top:24px}
     toast.querySelector('button').addEventListener('click',hide);toast.querySelector('a.go').addEventListener('click',hide);setTimeout(hide,6000);
   }
 
-  // ---- Cold case reveal cards -------------------------------
+  // ---- Cold case reveal cards: guess the gap, then see the answer ----
   var caseCards=[].slice.call(document.querySelectorAll('.cold .file'));
+  var verdicts=store.get('ldd-verdicts')||{};
+  var tally=document.getElementById('coldTally');
+  var showAll=document.getElementById('showAllCases'),showing=false;
+  function paintTally(){
+    var ids=Object.keys(verdicts).filter(function(id){return document.getElementById(id);});
+    var right=ids.filter(function(id){return verdicts[id]===document.getElementById(id).dataset.gap;}).length;
+    if(tally){tally.hidden=!ids.length;tally.textContent=ids.length?'You called '+right+' of '+ids.length+'.':'';}
+    if(showAll)showAll.hidden=ids.length===caseCards.length;
+  }
+  function applyGuess(card,gap){
+    var answer=card.dataset.gap,ok=gap===answer;
+    card.classList.add('guessed','open');
+    card.querySelectorAll('.pick button.ch').forEach(function(b){
+      var mine=b.dataset.gap===gap;
+      b.setAttribute('aria-pressed',String(mine));b.setAttribute('aria-disabled','true');
+      b.classList.toggle('right',b.dataset.gap===answer);b.classList.toggle('wrong',mine&&!ok);
+    });
+    var dd=card.querySelector('.back dd.vd');
+    if(dd){dd.textContent=ok?gap+'. Correct.':gap+'. It was '+answer+'.';dd.classList.toggle('yes',ok);dd.classList.toggle('no',!ok);}
+  }
   caseCards.forEach(function(card){
-    var b=card.querySelector('.rv');
-    if(!b)return;
-    b.addEventListener('click',function(){card.classList.add('open');
-      var back=card.querySelector('.back');
-      if(back){back.setAttribute('tabindex','-1');back.focus({preventScroll:true});}});
+    if(verdicts[card.id])applyGuess(card,verdicts[card.id]);
+    card.querySelectorAll('.pick button.ch').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(card.classList.contains('guessed'))return;
+        verdicts[card.id]=b.dataset.gap;store.set('ldd-verdicts',verdicts);
+        applyGuess(card,b.dataset.gap);paintTally();
+        var back=card.querySelector('.back');
+        if(back){back.setAttribute('tabindex','-1');back.focus({preventScroll:true});}
+      });
+    });
   });
-  var showAll=document.getElementById('showAllCases');
+  paintTally();
   if(showAll){
     showAll.addEventListener('click',function(){
-      var open=caseCards.every(function(c){return c.classList.contains('open');});
-      caseCards.forEach(function(c){c.classList.toggle('open',!open);});
-      showAll.textContent=open?'Show all answers':'Hide the answers';
+      showing=!showing;
+      caseCards.forEach(function(c){c.classList.toggle('open',showing||c.classList.contains('guessed'));});
+      showAll.textContent=showing?'Hide the answers':'Show all answers';
     });
   }
   // A deep link to a cold case opens it

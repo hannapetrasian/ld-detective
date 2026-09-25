@@ -35,10 +35,14 @@ async def main():
         # 3. reveal cards + show all
         await page.goto(f'http://localhost:{PORT}/index.html',wait_until='networkidle')
         r['open_default']=await page.evaluate("document.querySelectorAll('.cold .file.open').length")
-        await page.click('#cold-01 .rv'); r['open_after_click']=await page.evaluate("document.querySelectorAll('.cold .file.open').length")
+        # v8: a verdict chip replaces 'Reveal the cause'; a guessed card stays open when the answers are hidden again
+        await page.click('#cold-01 .pick button.ch[data-gap="Process"]'); r['open_after_click']=await page.evaluate("document.querySelectorAll('.cold .file.open').length")
+        r['verdict_01']=await page.text_content('#cold-01 .back dd.vd'); r['tally']=await page.text_content('#coldTally')
         await page.click('#showAllCases'); r['open_after_showall']=await page.evaluate("document.querySelectorAll('.cold .file.open').length")
         r['showall_label']=await page.text_content('#showAllCases')
-        await page.click('#showAllCases'); r['open_after_hide']=await page.evaluate("document.querySelectorAll('.cold .file.open').length")
+        r['verdict_lines_after_showall']=await page.evaluate("[...document.querySelectorAll('.cold .back dd.vd')].filter(d=>getComputedStyle(d).display!=='none').length")
+        await page.click('#showAllCases'); r['open_after_hide_guessed_stays']=await page.evaluate("document.querySelectorAll('.cold .file.open').length")
+        await page.evaluate("localStorage.removeItem('ldd-verdicts')")
         # 4. deep link opens a case
         await page.goto(f'http://localhost:{PORT}/index.html#cold-03',wait_until='networkidle'); await page.wait_for_timeout(200)
         r['deeplink_cold03_open']=await page.evaluate("document.getElementById('cold-03').classList.contains('open')")
@@ -61,7 +65,9 @@ async def main():
         ctx2=await b.new_context(viewport={'width':1440,'height':900},java_script_enabled=False); p2=await ctx2.new_page()
         await p2.goto(f'http://localhost:{PORT}/index.html',wait_until='load')
         r['nojs_back_visible']=await p2.evaluate("getComputedStyle(document.querySelector('#cold-01 .back')).display")
-        r['nojs_rv_display']=await p2.evaluate("getComputedStyle(document.querySelector('#cold-01 .rv')).display")
+        r['nojs_pick_display']=await p2.evaluate("getComputedStyle(document.querySelector('#cold-01 .pick')).display")
+        r['nojs_verdict_display']=await p2.evaluate("getComputedStyle(document.querySelector('#cold-01 .back dd.vd')).display")
+        r['nojs_tally_hidden']=await p2.evaluate("document.getElementById('coldTally').hidden")
         # 9. mobile menu focus + scroll lock
         ctx3=await b.new_context(viewport={'width':375,'height':800}); p3=await ctx3.new_page()
         await p3.goto(f'http://localhost:{PORT}/index.html',wait_until='networkidle')

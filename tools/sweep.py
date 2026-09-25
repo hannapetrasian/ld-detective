@@ -34,19 +34,27 @@ async def main():
             if f.startswith('http'): st[f]='external'; continue
             resp=await pg.request.get('http://localhost:8780/'+f); st[f]=resp.status
         r['file_links']=st
-        # 3. reveal cards one by one, then show-all toggle twice, keyboard on a card
-        await pg.goto(U,wait_until='networkidle')
+        # 3. v8 cold cases: show-all toggle on a fresh page, then a verdict on every card, then keyboard on a fresh context
+        await pg.goto(U,wait_until='networkidle'); await pg.evaluate("localStorage.removeItem('ldd-verdicts')"); await pg.reload(wait_until='networkidle')
+        await pg.click('#showAllCases'); r['showall_opens_six']=await pg.evaluate("document.querySelectorAll('.cold .file.open').length")==6
+        r['showall_label_open']=await pg.text_content('#showAllCases')
+        r['showall_no_verdicts']=await pg.evaluate("[...document.querySelectorAll('.cold .back dd.vd')].every(d=>getComputedStyle(d).display==='none')")
+        r['chips_hidden_when_shown']=await pg.evaluate("[...document.querySelectorAll('.cold .file .pick')].every(p=>getComputedStyle(p).display==='none')")
+        await pg.click('#showAllCases'); r['closed_after_toggle']=await pg.evaluate("document.querySelectorAll('.cold .file.open').length")==0
         for i in range(1,7):
-            await pg.click(f'#cold-0{i} .rv'); await pg.wait_for_timeout(80)
+            await pg.click(f'#cold-0{i} .pick button.ch >> nth=0'); await pg.wait_for_timeout(80)
         r['all_six_open']=await pg.evaluate("document.querySelectorAll('.cold .file.open').length")==6
-        r['rv_hidden_when_open']=await pg.evaluate("[...document.querySelectorAll('.cold .file.open .rv')].every(b=>getComputedStyle(b).display==='none')")
-        await pg.click('#showAllCases'); r['showall_after_all_open_label']=await pg.text_content('#showAllCases')
-        r['closed_after_toggle']=await pg.evaluate("document.querySelectorAll('.cold .file.open').length")==0
-        await pg.click('#showAllCases'); r['reopened']=await pg.evaluate("document.querySelectorAll('.cold .file.open').length")==6
-        await pg.click('#showAllCases')
-        await pg.focus('#cold-04 .rv'); await pg.keyboard.press('Enter'); await pg.wait_for_timeout(80)
+        r['chips_locked_when_guessed']=await pg.evaluate("[...document.querySelectorAll('.cold .file .pick button.ch')].every(b=>b.getAttribute('aria-disabled')==='true')")
+        r['one_pressed_per_card']=await pg.evaluate("[...document.querySelectorAll('.cold .file')].every(c=>c.querySelectorAll('button.ch[aria-pressed=true]').length===1)")
+        r['verdicts']=await pg.evaluate("[...document.querySelectorAll('.cold .back dd.vd')].map(d=>d.textContent)")
+        r['tally']=await pg.text_content('#coldTally'); r['showall_hidden_when_all_guessed']=await pg.evaluate("getComputedStyle(document.getElementById('showAllCases')).display==='none'")
+        await pg.reload(wait_until='networkidle'); r['verdicts_persist']=await pg.evaluate("document.querySelectorAll('.cold .file.guessed').length")==6
+        await pg.evaluate("localStorage.removeItem('ldd-verdicts')"); await pg.reload(wait_until='networkidle')
+        await pg.locator('#cold-04 .pick button.ch').first.focus()
+        await pg.keyboard.press('Enter'); await pg.wait_for_timeout(80)
         r['keyboard_reveal']=await pg.evaluate("document.getElementById('cold-04').classList.contains('open')")
         r['focus_moved_to_answer']=await pg.evaluate("document.activeElement.closest('#cold-04 .back')!==null")
+        await pg.evaluate("localStorage.removeItem('ldd-verdicts')")
         # 4. copy buttons
         await pg.click('#shareLink'); await pg.wait_for_timeout(100); r['copy_link']=await pg.evaluate("navigator.clipboard.readText()")
         r['copy_post_removed']=await pg.evaluate("document.getElementById('sharePost')===null")
@@ -93,7 +101,7 @@ async def main():
         r['m_menu_closed_outside']=await mp.evaluate("!document.getElementById('nav').classList.contains('open')")
         r['m_body_scroll_restored']=await mp.evaluate("document.body.style.overflow===''")
         r['m_pills_scrollable']=await mp.evaluate("(()=>{const p=document.querySelector('#clue nav.pills');return p.scrollWidth>p.clientWidth})()")
-        await mp.click('#cold-02 .rv'); r['m_reveal']=await mp.evaluate("document.getElementById('cold-02').classList.contains('open')")
+        await mp.click('#cold-02 .pick button.ch >> nth=1'); r['m_reveal']=await mp.evaluate("document.getElementById('cold-02').classList.contains('open')")
         # 11. reduced motion honoured
         rm=await b.new_context(viewport={'width':1440,'height':900},reduced_motion='reduce'); rp=await rm.new_page()
         await rp.goto(U,wait_until='networkidle'); r['reduced_motion_scroll_behavior']=await rp.evaluate("getComputedStyle(document.documentElement).scrollBehavior")
