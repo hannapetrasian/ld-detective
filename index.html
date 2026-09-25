@@ -93,7 +93,7 @@ section.case + section.case{margin-top:24px}
 .masthead{padding:64px 0 40px;border-bottom:1px solid var(--line)}
 .masthead .label{margin-bottom:18px;display:block}
 .masthead h1{font-size:clamp(38px,5vw,60px);font-weight:700;letter-spacing:-.025em;max-width:16ch}
-.masthead .sub{font-size:clamp(19px,2vw,23px);color:var(--ink-2);margin:18px 0 26px;max-width:32ch;line-height:1.35}
+.masthead .sub{font-size:clamp(19px,2vw,24px);color:var(--ink-2);margin:18px 0 26px;max-width:32ch;line-height:1.35}
 .masthead .byline{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:15px;color:var(--muted)}
 .masthead .byline a{color:var(--ink-2);display:inline-flex;align-items:center;min-height:44px}
 .masthead .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
@@ -125,7 +125,7 @@ section.case + section.case{margin-top:24px}
 
 /* ---------- cards & callouts ---------- */
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 28px;box-shadow:var(--shadow)}
-.notes{border:1px dashed var(--line-2);background:var(--paper);padding:14px 18px;border-radius:var(--r);margin:1.2em 0;font-family:var(--mono);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.notes{border:1px dashed var(--line-2);background:var(--paper);padding:14px 18px;border-radius:var(--r);margin:1.2em 0;font-family:var(--sans);font-size:15px;line-height:1.55;color:var(--ink-2)}
 .notes .label{display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .notes .ico{color:var(--amber-ink)}
 
@@ -142,7 +142,7 @@ section.case + section.case{margin-top:24px}
 .clue h3{margin:0 0 6px;font-size:24px}
 .clue .goal{color:var(--ink-2);margin:0 0 1.2em;font-size:17px}
 .clue .goal strong{color:var(--ink)}
-.ask{list-style:none;padding:0;margin:.4em 0 1.2em}
+.ask{list-style:none;padding:0;margin:.4em 0 1.2em;max-width:72ch}
 .ask li{margin:0;padding:12px 0;border-top:1px solid var(--line)}
 .ask li:last-child{border-bottom:1px solid var(--line)}
 .ask .q{display:block;font-weight:500;color:var(--ink);font-size:17px}
@@ -254,8 +254,9 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 
 /* ---------- upgrade: CLUE jump pills ---------- */
 .pills{position:sticky;top:12px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;padding:8px;margin:0 0 18px;background:rgba(247,244,238,.97);border-radius:999px;width:max-content;max-width:100%;box-shadow:0 6px 18px -10px rgba(28,37,48,.25)}
-.pills a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px 0 6px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px;transition:border-color var(--t),background var(--t)}
+.pills a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px;transition:border-color var(--t),background var(--t)}
 .pills a:hover{border-color:var(--ink)}
+.pills a:has(i){padding-left:6px}
 .pills a i{font-family:var(--mono);font-weight:600;font-style:normal;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:var(--on-ink);font-size:13.5px}
 .pills a[aria-current="true"]{border-color:var(--amber);background:var(--amber-tint)}
 @media (min-width:761px){.pills{top:0;width:auto;max-width:none;border-radius:0;background:var(--paper);box-shadow:0 1px 0 var(--line);padding:10px 0}}
@@ -294,7 +295,7 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 
 
 /* ---------- v3: editorial structure ---------- */
-.prose h3{margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.prose h3{margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);width:100cqw}
 .prose h3.plain,.body > .prose:first-child > h3:first-child{border-top:0;padding-top:0}
 
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.2em 0}
@@ -310,12 +311,12 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .cmp .said{font-style:italic;color:var(--ink-2);margin:0 0 .8em}
 .cmp.good .said{color:var(--on-ink-muted)}
 .cmp .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-muted);margin:0 0 8px}
-.cmp.good q{display:block;font-family:var(--mono);font-size:15px;line-height:1.55;color:#fff;quotes:"\201C" "\201D"}
+.cmp.good q{display:block;font-family:var(--sans);font-size:17px;line-height:1.55;color:#fff;quotes:"\201C" "\201D"}
 .cmp p:last-child{margin:0}
 
 .rules3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:1.2em 0}
 @media (min-width:761px){.rules3:has(> .rule3:nth-child(2):last-child){grid-template-columns:1fr 1fr}}
-.rule3 .dothis{margin-top:auto}
+.rule3 .dothis{margin-top:6px}
 .rule3{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px}
 .rule3 .n{font-family:var(--mono);font-weight:600;font-size:13.5px;color:var(--muted);width:32px;height:32px;display:grid;place-items:center;border:1.5px solid var(--line-2);border-radius:var(--r-sm)}
 .rule3 h4{margin:0;font-size:19px;line-height:1.25}
@@ -323,7 +324,7 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .rule3 .punch{color:var(--amber-ink);font-style:italic}
 .rule3 ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:6px}
 .rule3 ul li{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px;color:var(--ink-2)}
-.rule3 ul li .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink);font-weight:600;padding-top:4px;min-width:58px}
+.rule3 ul li .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink);font-weight:600;padding-top:4px;min-width:1.4em}
 .rule3 .pron{display:grid;gap:8px;margin-top:4px}
 .rule3 .pron div{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px;color:var(--ink-2)}
 .rule3 .pron .k{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-top:2px}
@@ -341,7 +342,7 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .fourline i{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--amber-ink);font-weight:600}
 
 .hand{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1em 0 1.4em}
-.hand > div{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.hand > div{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px}
 .hand .mn{width:32px;height:32px;border-radius:var(--r-sm);background:var(--paper-2);color:var(--ink);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:13.5px}
 .hand h4{margin:0 0 4px;font-size:17px}
 .hand p{margin:0;font-size:15px;color:var(--ink-2)}
@@ -360,7 +361,7 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
   .topbar{display:flex;position:fixed;top:0;left:0;right:0;height:56px;background:var(--paper-2);border-bottom:1px solid var(--line);align-items:center;justify-content:space-between;padding:0 12px 0 16px;z-index:30;padding-top:env(safe-area-inset-top)}
   .topbar .t{font-weight:700;font-size:15px;white-space:nowrap;flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;padding:0 8px}
   .topbar .btn{white-space:nowrap}
-  .topbar button{all:unset;display:inline-flex;align-items:center;gap:8px;min-width:44px;min-height:44px;padding:0 10px;border-radius:var(--r);cursor:pointer;color:var(--ink);font:inherit;font-weight:600;font-size:13.5px}
+  .topbar button{all:unset;font:600 13.5px/1 var(--sans);display:inline-flex;align-items:center;gap:8px;min-width:44px;min-height:44px;padding:0 10px;border-radius:var(--r);cursor:pointer;color:var(--ink);font:inherit;font-weight:600;font-size:13.5px}
   .topbar button:hover{background:rgba(28,37,48,.06)}
   .nav{transform:translateX(-100%);transition:transform 260ms cubic-bezier(.2,.7,.2,1);width:min(320px,86vw);padding-top:72px;box-shadow:none}
   .nav.open{transform:none;box-shadow:0 0 0 100vmax rgba(28,37,48,.45)}
@@ -417,14 +418,14 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .gt th,.gt td,.tl th,.tl td{
   text-align:left;vertical-align:top;font-weight:400;
   border-bottom:1px solid var(--line);border-right:1px solid var(--line);
-  overflow-wrap:break-word;hyphens:auto;
+  overflow-wrap:break-word;hyphens:manual;
 }
 .gt th,.gt td{padding:9px 13px}
 .tl th,.tl td{padding:13px 14px}
 .gt tr > :last-child,.tl tr > :last-child{border-right:0}
 .gt tbody tr:last-child > *,.tl tbody tr:last-child > *{border-bottom:0}
 .gt .h,.tl thead th{
-  font:600 12px/1.3 var(--mono);letter-spacing:.04em;text-transform:none;
+  font:600 13.5px/1.3 var(--sans);letter-spacing:0;text-transform:none;
   color:var(--muted);background:#FBF9F4;padding:9px 14px;
 }
 .gt .c.k{font:600 15px/1.5 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink);background:#FCFAF6}
@@ -742,12 +743,15 @@ button.ev[aria-pressed="true"]{border-color:var(--ink);background:var(--amber-ti
 #stealLine.stamped .stamp{display:inline-block;animation:stampIn var(--t) both}
 @keyframes stampIn{from{opacity:0;scale:1.7}to{opacity:.9;scale:1}}
 
+/* --- design review: phrase labels read as sentences, tags stay mono caps */
+.label.ph,.ask li.keep .kb,.toolrow .hint,.cc h4{font:600 13.5px/1.35 var(--sans);letter-spacing:0;text-transform:none}
+.label.ph{color:var(--ink-2)}
+.ask li.keep .kb{color:var(--amber-ink)}
+.toolrow .hint{color:var(--ink-2);font-weight:500}
+.cc h4{font-size:15px}
+
 /* --- density pass: two-column question lists on wide screens */
 @media (min-width:1200px){
-  .ask{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;align-items:start}
-  .ask li{border-bottom:1px solid var(--line)}
-  .ask li.keep{grid-column:1 / -1}
-  .ask li:last-child{border-bottom:1px solid var(--line)}
   .rules3{grid-template-columns:repeat(3,minmax(0,1fr))}
   .movelist{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
   .cc ul{gap:6px}
@@ -850,7 +854,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
 
 /* the one diagram keeps its own scroll rather than shrinking to 4px type */
 .ib-scroll{overflow-x:auto}
-@media (max-width:640px){.ib-scroll svg.ib-wide{display:none}.ib-scroll svg.ib-tall{display:block;max-width:420px}}
+@media (max-width:760px){.ib-scroll svg.ib-wide{display:none}.ib-scroll svg.ib-tall{display:block;max-width:420px}}
 
 @media print{.strip{break-inside:avoid}.body h3,.body h4,.prose h3+p{break-after:avoid}.tpl2,.hyp,.cc > div,.duo > div,.notes,.wo{break-inside:avoid}}
 
@@ -955,7 +959,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
 <div class="topbar">
   <button type="button" id="menuBtn" aria-controls="nav" aria-expanded="false"><svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg> Contents</button>
   <span class="t">L&amp;D Detective</span>
-  <a class="btn ghost" href="files/pocket-guide.pdf" style="min-height:44px;padding:6px 12px;font-size:13px"><svg class="ico sm" aria-hidden="true"><use href="#i-download"/></svg>Pocket Guide</a>
+  <a class="btn ghost" href="files/pocket-guide.pdf" style="min-height:44px;padding:6px 12px;font-size:13.5px"><svg class="ico sm" aria-hidden="true"><use href="#i-download"/></svg>Pocket Guide</a>
 </div>
 
 <div class="progress" aria-hidden="true"><i id="pbar"></i></div>
@@ -1039,7 +1043,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     </div>
 
     <div class="card" style="padding:16px 18px">
-      <span class="label amber">You'll be able to</span>
+      <span class="label amber ph">You'll be able to</span>
       <ul class="outcomes">
         <li><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span>reframe a training request into a business problem in one conversation</span></li>
         <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span>run a 20-minute CLUE intake with any stakeholder</span></li>
@@ -1062,57 +1066,57 @@ main[id],section.case[id]{scroll-margin-top:24px}
         <title id="ib-t">What you are asked for, and what is underneath</title>
         <desc id="ib-d">The request arrives as a training request. Underneath it sit six kinds of gap. A course can close two of them: knowledge and skill. The other four, process, tools, incentives and expectations, belong to whoever can change them.</desc>
         <rect x="214" y="10" width="292" height="52" rx="8" fill="#1C2530"/>
-        <text x="360" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" letter-spacing="1.6" fill="#B8860B">WHAT LANDS IN YOUR INBOX</text>
-        <text x="360" y="51" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="600" fill="#ffffff">"The team needs training on X."</text>
+        <text x="360" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1.2" fill="#B8860B">WHAT LANDS IN YOUR INBOX</text>
+        <text x="360" y="51" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="15" font-weight="600" fill="#ffffff">"The team needs training on X."</text>
         <path d="M360 62 L360 88" stroke="#1C2530" stroke-width="1.5"/>
         <path d="M354 81 L360 89 L366 81" fill="none" stroke="#1C2530" stroke-width="1.5"/>
         <path d="M20 100 H700" stroke="#B3402E" stroke-width="1.5" stroke-dasharray="5 5"/>
-        <text x="20" y="93" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.5" fill="#B3402E">THE WATERLINE</text>
-        <text x="700" y="93" text-anchor="end" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.5" fill="#5B6673">WHAT NOBODY MENTIONED</text>
+        <text x="20" y="93" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#B3402E">THE WATERLINE</text>
+        <text x="700" y="93" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#5B6673">WHAT NOBODY MENTIONED</text>
 
         <rect x="20" y="118" width="268" height="150" rx="10" fill="#FDF8EC" stroke="#E8DBB5" stroke-width="1.5"/>
         <g font-family="Inter,system-ui,sans-serif">
           <rect x="36" y="134" width="236" height="52" rx="7" fill="#FAF3E1" stroke="#B8860B" stroke-width="1.5"/>
-          <text x="52" y="155" font-size="13" font-weight="600" fill="#7A5A08">Knowledge</text>
-          <text x="52" y="173" font-size="11.5" fill="#5B6673">nobody ever told them</text>
+          <text x="52" y="155" font-size="14" font-weight="600" fill="#7A5A08">Knowledge</text>
+          <text x="52" y="173" font-size="12.5" fill="#5B6673">nobody ever told them</text>
           <rect x="36" y="196" width="236" height="52" rx="7" fill="#FAF3E1" stroke="#B8860B" stroke-width="1.5"/>
-          <text x="52" y="217" font-size="13" font-weight="600" fill="#7A5A08">Skill</text>
-          <text x="52" y="235" font-size="11.5" fill="#5B6673">never done under pressure</text>
+          <text x="52" y="217" font-size="14" font-weight="600" fill="#7A5A08">Skill</text>
+          <text x="52" y="235" font-size="12.5" fill="#5B6673">never done under pressure</text>
         </g>
-        <text x="154" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.4" fill="#7A5A08">A COURSE CAN CLOSE THESE TWO</text>
+        <text x="154" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#7A5A08">A COURSE CAN CLOSE THESE TWO</text>
 
         <rect x="308" y="118" width="392" height="150" rx="10" fill="#F7F4EE" stroke="#DCD5C8" stroke-width="1.5"/>
         <g font-family="Inter,system-ui,sans-serif">
           <rect x="324" y="134" width="176" height="52" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
-          <text x="338" y="155" font-size="13" font-weight="600" fill="#3B4756">Process</text>
-          <text x="338" y="173" font-size="11.5" fill="#5B6673">broken upstream</text>
+          <text x="338" y="155" font-size="14" font-weight="600" fill="#3B4756">Process</text>
+          <text x="338" y="173" font-size="12.5" fill="#5B6673">broken upstream</text>
           <rect x="508" y="134" width="176" height="52" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
-          <text x="522" y="155" font-size="13" font-weight="600" fill="#3B4756">Tools</text>
-          <text x="522" y="173" font-size="11.5" fill="#5B6673">fail when used</text>
+          <text x="522" y="155" font-size="14" font-weight="600" fill="#3B4756">Tools</text>
+          <text x="522" y="173" font-size="12.5" fill="#5B6673">fail when used</text>
           <rect x="324" y="196" width="176" height="52" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
-          <text x="338" y="217" font-size="13" font-weight="600" fill="#3B4756">Incentives</text>
-          <text x="338" y="235" font-size="11.5" fill="#5B6673">point the other way</text>
+          <text x="338" y="217" font-size="14" font-weight="600" fill="#3B4756">Incentives</text>
+          <text x="338" y="235" font-size="12.5" fill="#5B6673">point the other way</text>
           <rect x="508" y="196" width="176" height="52" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
-          <text x="522" y="217" font-size="13" font-weight="600" fill="#3B4756">Expectations</text>
-          <text x="522" y="235" font-size="11.5" fill="#5B6673">never said out loud</text>
+          <text x="522" y="217" font-size="14" font-weight="600" fill="#3B4756">Expectations</text>
+          <text x="522" y="235" font-size="12.5" fill="#5B6673">never said out loud</text>
         </g>
         <defs><clipPath id="lensClip"><circle id="lensHole" cx="-200" cy="-200" r="0"/></clipPath></defs>
         <g class="lens-ink" clip-path="url(#lensClip)" aria-hidden="true" font-family="Inter,system-ui,sans-serif">
           <rect x="324" y="134" width="176" height="52" rx="7" fill="#ffffff" stroke="#1C2530" stroke-width="1.5"/>
-          <text x="338" y="155" font-size="13" font-weight="600" fill="#1C2530">Process</text>
-          <text x="338" y="173" font-size="11.5" fill="#3B4756">broken upstream</text>
+          <text x="338" y="155" font-size="14" font-weight="600" fill="#1C2530">Process</text>
+          <text x="338" y="173" font-size="12.5" fill="#3B4756">broken upstream</text>
           <rect x="508" y="134" width="176" height="52" rx="7" fill="#ffffff" stroke="#1C2530" stroke-width="1.5"/>
-          <text x="522" y="155" font-size="13" font-weight="600" fill="#1C2530">Tools</text>
-          <text x="522" y="173" font-size="11.5" fill="#3B4756">fail when used</text>
+          <text x="522" y="155" font-size="14" font-weight="600" fill="#1C2530">Tools</text>
+          <text x="522" y="173" font-size="12.5" fill="#3B4756">fail when used</text>
           <rect x="324" y="196" width="176" height="52" rx="7" fill="#ffffff" stroke="#1C2530" stroke-width="1.5"/>
-          <text x="338" y="217" font-size="13" font-weight="600" fill="#1C2530">Incentives</text>
-          <text x="338" y="235" font-size="11.5" fill="#3B4756">point the other way</text>
+          <text x="338" y="217" font-size="14" font-weight="600" fill="#1C2530">Incentives</text>
+          <text x="338" y="235" font-size="12.5" fill="#3B4756">point the other way</text>
           <rect x="508" y="196" width="176" height="52" rx="7" fill="#ffffff" stroke="#1C2530" stroke-width="1.5"/>
-          <text x="522" y="217" font-size="13" font-weight="600" fill="#1C2530">Expectations</text>
-          <text x="522" y="235" font-size="11.5" fill="#3B4756">never said out loud</text>
+          <text x="522" y="217" font-size="14" font-weight="600" fill="#1C2530">Expectations</text>
+          <text x="522" y="235" font-size="12.5" fill="#3B4756">never said out loud</text>
         </g>
         <circle class="lens-ring" id="lensRing" cx="-200" cy="-200" r="0" fill="none" stroke="#B8860B" stroke-width="2.5" aria-hidden="true"/>
-        <text x="504" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.4" fill="#5B6673">THESE FOUR ARE A HANDOVER, NOT A COURSE</text>
+        <text x="504" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#5B6673">THESE FOUR ARE A HANDOVER, NOT A COURSE</text>
       </svg><svg class="ib-tall" viewBox="0 0 340 640" role="img" aria-labelledby="ib-t2 ib-d2">
         <title id="ib-t2">What you are asked for, and what is underneath</title>
         <desc id="ib-d2">The request arrives as a training request. Underneath it sit six kinds of gap. A course can close two of them: knowledge and skill. The other four, process, tools, incentives and expectations, belong to whoever can change them.</desc>
@@ -1174,7 +1178,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <div class="prose">
       <p class="lead">Here's the uncomfortable part: most business leaders don't care how people learn. They care how people perform. When we talk in learning language, we sound like a cost center explaining its hobby. When we talk in results language, we sound like partners. Same work, different sentences, very different seat at the table.</p>
     </div>
-    <nav class="pills no-print" aria-label="On this page"><a href="#first-interview"><i>1</i>First interview</a><a href="#three-rules"><i>2</i>Three rules</a><a href="#dictionary"><i>3</i>Dictionary</a><a href="#so-what"><i>4</i>So what?</a></nav>
+    <nav class="pills no-print" aria-label="On this page"><a href="#first-interview">First interview</a><a href="#three-rules">Three rules</a><a href="#dictionary">Dictionary</a><a href="#so-what">So what?</a></nav>
 
     <div class="prose"><h3 id="first-interview">The first interview</h3></div>
     <div class="compare">
@@ -1447,7 +1451,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <div class="mono"><span class="letter" aria-hidden="true">E</span></div>
       <div class="content">
         <h3 id="h-e">E — Execute a targeted solution</h3>
-        <span class="label amber">Ask this, of the sponsor and of yourself</span>
+        <span class="label amber ph">Ask this, of the sponsor and of yourself</span>
         <ul class="ask">
           <li class="keep"><span class="kb">If you keep one question</span><span class="q">What's the smallest pilot that would prove, or kill, this idea in six weeks?</span></li>
           <li><span class="q">Who has to reinforce this on Monday morning, and do they know it yet?</span></li>
@@ -1456,7 +1460,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
           <li><span class="q">What part of this will training not fix, and who owns that part?</span><span class="tech">Say it in the recommendation. An unnamed cause becomes your failure.</span></li>
         </ul>
 
-        <span class="label amber">Write the hypothesis before you build anything</span>
+        <span class="label amber ph">Write the hypothesis before you build anything</span>
         <div class="tpl2">
           <div class="hyp"><span class="l">The template</span>If we <b>intervention</b> for <b>audience</b>, then <b>metric</b> will move from <b>baseline</b> to <b>target</b> within <b>time</b>, measured by <b>source</b>.</div>
           <div class="hyp filled"><span class="l">One filled in</span><em>If we pre-brief managers 48 hours before each announcement, then the share of teams hearing it from their own manager within a week moves from a third to 80% in one quarter, measured by a two-question pulse.</em></div>
@@ -1537,12 +1541,12 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <div class="prose">
       <p class="lead">Four tools. Each exists because a stakeholder conversation, left unattended, drifts toward the loudest opinion in the room.</p>
     </div>
-    <nav class="pills no-print" aria-label="On this page"><a href="#g-whys"><i>1</i>5 Whys</a><a href="#g-string"><i>2</i>String Board</a><a href="#g-dust"><i>3</i>Fingerprint Dust</a><a href="#g-witness"><i>4</i>Witness Interview</a></nav>
+    <nav class="pills no-print" aria-label="On this page"><a href="#g-whys">5 Whys</a><a href="#g-string">String Board</a><a href="#g-dust">Fingerprint Dust</a><a href="#g-witness">Witness Interview</a></nav>
 
     <article class="gadget" id="g-whys" aria-labelledby="h-whys">
       <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg></div>
       <div>
-        <header><h3 id="h-whys">1 · The 5 Whys Magnifying Glass</h3><span class="use">use during U</span></header>
+        <header><h3 id="h-whys">The 5 Whys Magnifying Glass</h3><span class="use">use during U</span></header>
         <p class="reach"><strong>Reach for it when</strong> a symptom is on the table and everyone already "knows" the cause.</p>
         <div class="gt-wrap" data-cols="2"><table class="gt whys2" role="table" aria-label="The 5 Whys chain">
       <thead role="rowgroup"><tr role="row">
@@ -1584,7 +1588,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <article class="gadget" id="g-string" aria-labelledby="h-string">
       <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-spool"/></svg></div>
       <div>
-        <header><h3 id="h-string">2 · The String Board</h3><span class="use">use during C and L</span></header>
+        <header><h3 id="h-string">The String Board</h3><span class="use">use during C and L</span></header>
         <p class="reach">Four people, one question each, before you open any case.</p>
         <div class="roles">
           <svg class="string" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -1603,7 +1607,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <article class="gadget" id="g-dust" aria-labelledby="h-dust">
       <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg></div>
       <div>
-        <header><h3 id="h-dust">3 · The Fingerprint Dust</h3><span class="use">use during L</span></header>
+        <header><h3 id="h-dust">The Fingerprint Dust</h3><span class="use">use during L</span></header>
         <p class="reach">Leaders design training around the dream workflow. You dust for the one that actually runs.</p>
         <ol class="movelist">
           <li><span class="mn" aria-hidden="true">1</span><div><h4>Shadow two or three performers for an hour each.</h4><p>Watch, don't demo.</p></div></li>
@@ -1619,7 +1623,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <article class="gadget" id="g-witness" aria-labelledby="h-witness">
       <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-notebook"/></svg></div>
       <div>
-        <header><h3 id="h-witness">4 · The Witness Interview</h3><span class="use">use during C and U</span></header>
+        <header><h3 id="h-witness">The Witness Interview</h3><span class="use">use during C and U</span></header>
         <p class="reach">The technique the rest of the toolkit depends on. Stakeholders are witnesses, not suspects. Ask for 30 minutes and say you're there to fix the process, not to grade anyone.</p>
         <div class="gt-wrap" data-cols="3"><table class="gt" role="table" aria-label="Witness interview: five moves">
       <thead role="rowgroup"><tr role="row">
@@ -1778,7 +1782,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> you want to see the whole method run once, start to verdict.</span></p><div class="meta-row"><span class="chip">About 4 min</span></div>
   </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-closed"/></svg></div></div>
   <div class="body">
-    <nav class="pills no-print" aria-label="On this page"><a href="#main-case"><i>1</i>The main case</a><a href="#cold-cases"><i>2</i>Cold cases</a><a href="#handover"><i>3</i>Who makes the fixes</a><a href="#is-training"><i>4</i>When to build</a><a href="#steal"><i>5</i>What to steal</a></nav>
+    <nav class="pills no-print" aria-label="On this page"><a href="#main-case">The main case</a><a href="#cold-cases">Cold cases</a><a href="#handover">Who makes the fixes</a><a href="#is-training">When to build</a><a href="#steal">What to steal</a></nav>
 
     <div>
     <div class="prose"><h3 id="main-case">The main case: the cascade that never landed</h3><p class="capt">A composite of several cases. The numbers show the shape, not one company's record.</p></div>
@@ -1926,10 +1930,10 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <p>Ops changed the approval rule. The support lead reweighted the scorecard. IT flipped a permission. L&amp;D owned none of those fixes, and that's the job.</p>
     </div>
     <div class="hand">
-      <div><span class="mn" aria-hidden="true">1</span><div><h4>Bring the evidence, not the verdict.</h4><p>"Here's what we saw in six tickets" beats "your scorecard is wrong."</p></div></div>
-      <div><span class="mn" aria-hidden="true">2</span><div><h4>Name one owner, not a department.</h4><p>A fix assigned to Ops is a fix nobody makes (→ <a href="#g-string">String Board</a>).</p></div></div>
-      <div><span class="mn" aria-hidden="true">3</span><div><h4>Ask for the smallest change that tests the diagnosis.</h4><p>One field. One line in a policy. One calendar default.</p></div></div>
-      <div><span class="mn" aria-hidden="true">4</span><div><h4>Let them have the win.</h4><p>The scorecard was their call.</p></div></div>
+      <div><div><h4>Bring the evidence, not the verdict.</h4><p>"Here's what we saw in six tickets" beats "your scorecard is wrong."</p></div></div>
+      <div><div><h4>Name one owner, not a department.</h4><p>A fix assigned to Ops is a fix nobody makes (→ <a href="#g-string">String Board</a>).</p></div></div>
+      <div><div><h4>Ask for the smallest change that tests the diagnosis.</h4><p>One field. One line in a policy. One calendar default.</p></div></div>
+      <div><div><h4>Let them have the win.</h4><p>The scorecard was their call.</p></div></div>
     </div>
     </div>
 
