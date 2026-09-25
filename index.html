@@ -438,6 +438,7 @@ footer.credit a{color:var(--ink-2)}
 }
 .tl .bx{width:24px;height:24px}
 .gt .lb,.tl .lb{display:inline-block;vertical-align:top;overflow-wrap:anywhere}
+.tl .lb{white-space:nowrap}
 .gt .sub{display:block;font:400 13.5px/1.45 var(--sans);letter-spacing:0;text-transform:none;color:var(--muted);margin-top:4px}
 .gt strong,.tl strong{font-weight:600}
 
@@ -730,7 +731,7 @@ footer.credit a{color:var(--ink-2)}
 .hero.lite .when .ico{color:var(--amber)}
 .hero.lite .meta-row{margin-top:10px}
 .hero.lite .chip{color:var(--muted);border-color:var(--line)}
-.hero.lite .art{width:112px;height:84px;color:var(--muted);opacity:.55}
+.hero.lite .art{width:112px;height:84px;color:var(--muted);opacity:.75}
 @media (max-width:760px){
   .hero.lite{padding-left:14px}
   .hero.lite .art{display:none}
@@ -1260,7 +1261,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <div class="mono"><span class="letter" aria-hidden="true">L</span></div>
       <div class="content">
         <h3 id="h-l">L — Look at the environment</h3>
-        <p class="goal"><strong>You leave with the gap classified.</strong> Six kinds, after Gilbert. Usually two or three at once.</p>
+        <p class="goal"><strong>You leave with the gap classified.</strong> Six kinds, adapted from Gilbert. Usually two or three at once.</p>
         <ul class="chips tags" aria-label="Gap types">
           <li>Skill</li><li>Knowledge</li><li>Process</li><li>Tools</li><li>Incentives</li><li>Expectations</li>
         </ul>
@@ -1268,10 +1269,11 @@ main[id],section.case[id]{scroll-margin-top:24px}
         <ul class="ask">
           <li><span class="q">Could your best performer do this today? What do they do differently?</span><span class="tech"><b>The bright-spot contrast.</b> If one person can, it isn't purely skills, and you've found your expert witness.</span></li>
           <li><span class="q">On a scale of 0 to 10, how well does the team do this now? What makes it a 4 and not a 2?</span><span class="tech"><b>The scaling question.</b> The second half names what works, which is where the fix hides.</span></li>
+          <li><span class="q">What do we already have on this: tickets, error logs, CRM notes, survey verbatims?</span><span class="tech"><b>The paper trail.</b> Cheaper than an interview, and it is what the sponsor will believe.</span></li>
           <li class="keep"><span class="kb">If you keep one question</span><span class="q">If we trained everyone tomorrow and the training was perfect, what would still get in the way?</span><span class="tech"><b>The most useful question in this guide.</b> It hands you the environment gaps on a plate.</span></li>
           <li><span class="q">Do people know this is expected of them? And what happens when someone doesn't do it?</span></li>
         </ul>
-        <div class="notes"><span class="label"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg>The field test</span>Could they do it if their livelihood depended on it? If yes, you're not looking at a skill gap. (Mager's classic.)</div>
+        <div class="notes"><span class="label"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg>The field test</span>Could they do it if their livelihood depended on it? If yes, you're not looking at a skill gap. (Mager and Pipe's classic.)</div>
 
         <div class="cc">
           <div class="yes">
@@ -1281,7 +1283,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
               <li><span class="g">Skill</span>Theory known, never done under pressure</li>
               <li><span class="g">Knowledge</span>A new system, process or policy landing next month</li>
               <li><span class="g">Knowledge</span>A product launch where the story is new</li>
-              <li><span class="g">Knowledge</span>Compliance, where the record of telling them is the point</li>
+              <li><span class="g">Knowledge</span>Compliance, where the record of training is the requirement</li>
             </ul>
           </div>
           <div class="no">
@@ -1294,7 +1296,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
               <li><span class="g">Expectations</span>Nobody has said it's expected of them</li>
               <li><span class="g">Expectations</span>Managers who don't manage</li>
               <li><span class="g">Outside the six</span>Too few people for the volume</li>
-              <li><span class="g">Outside the six</span>The wrong hire in the wrong seat</li>
+              <li><span class="g">Outside the six</span>A role that doesn't fit the person in it</li>
               <li><span class="g">Outside the six</span>A culture where naming the problem costs more than living with it</li>
             </ul>
           </div>
@@ -1526,12 +1528,12 @@ main[id],section.case[id]{scroll-margin-top:24px}
         <tr role="row">
           <th scope="row" class="c k" role="rowheader" data-l="The move">The three-second pause</th>
           <td class="c" role="cell" data-l="Say this">After their answer, wait. Count it silently. What comes next is usually the real answer</td>
-          <td class="c why" role="cell" data-l="Not this">—</td>
+          <td class="c why" role="cell" data-l="Not this">Filling the silence yourself. "So would you say it's the tool?" hands them your answer to agree with</td>
         </tr>
         <tr role="row">
           <th scope="row" class="c k" role="rowheader" data-l="The move">Mirror the last few words</th>
           <td class="c" role="cell" data-l="Say this">"…so the handover just doesn't happen." "Doesn't happen?" They keep going. Borrowed from hostage negotiators</td>
-          <td class="c why" role="cell" data-l="Not this">—</td>
+          <td class="c why" role="cell" data-l="Not this">Paraphrasing at length. "So what you're saying is…" turns their story into yours, and they stop telling it</td>
         </tr>
       </tbody>
       </table></div>
@@ -1665,7 +1667,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <div class="tl-wrap">
     <table class="tl" role="table" aria-label="The cascade case, step by step">
       <thead role="rowgroup"><tr class="r hdr" role="row">
-        <th scope="col" role="columnheader" style="width:136px">Step</th>
+        <th scope="col" role="columnheader" style="width:164px">Step</th>
         <th scope="col" role="columnheader">What it revealed</th>
         <th scope="col" role="columnheader">What changed</th>
       </tr></thead>
@@ -1840,7 +1842,6 @@ main[id],section.case[id]{scroll-margin-top:24px}
   <div><span class="who">Hanna Petrasian</span> · <a href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn</a>
     <div class="share no-print">
       <button type="button" id="shareLink"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg>Copy the link</button>
-      <button type="button" id="sharePost"><svg class="ico" aria-hidden="true"><use href="#i-notebook"/></svg>Copy a line to post</button>
     </div>
   </div>
   <div>Downloads: <a href="files/pocket-guide.pdf">Pocket Guide (PDF)</a> · <a href="files/case-file-template.docx">Case File template</a><br><a href="#top">Back to top</a></div>
@@ -1974,12 +1975,6 @@ main[id],section.case[id]{scroll-margin-top:24px}
   }
   var shareLink=document.getElementById('shareLink');
   if(shareLink){shareLink.addEventListener('click',function(){copyText(location.origin+location.pathname,shareLink,'Link copied');});}
-  var sharePost=document.getElementById('sharePost');
-  if(sharePost){
-    sharePost.addEventListener('click',function(){
-      copyText('The L&D Detective Field Guide: most training requests aren\'t training problems. The 20-minute conversation that finds out which one you\'ve got. '+location.origin+location.pathname,sharePost,'Copied');
-    });
-  }
 
 })();
 </script>
