@@ -96,6 +96,8 @@ section.case + section.case{margin-top:24px}
 .masthead .sub{font-size:clamp(19px,2vw,24px);color:var(--ink-2);margin:18px 0 26px;max-width:32ch;line-height:1.35}
 .masthead .byline{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:15px;color:var(--muted)}
 .masthead .byline a{color:var(--ink-2);display:inline-flex;align-items:center;min-height:44px}
+.masthead .byline .by{line-height:1.5}
+.masthead .byline .by a{display:inline;min-height:0;padding:12px 0}
 .masthead .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 @media (max-width:640px){.masthead .cta .btn{flex:1 1 100%;justify-content:center}}
 
@@ -294,7 +296,7 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 @media (max-width:760px){.pills{position:static;flex-wrap:nowrap;overflow-x:auto;width:100%;max-width:100%;border-radius:var(--r);box-shadow:none;background:transparent;padding:4px 0;scrollbar-width:none}.pills::-webkit-scrollbar{display:none}.pills a{white-space:nowrap;flex:none}}
 @media (max-width:760px){
   .hero{grid-template-columns:1fr}.hero .art{width:150px;height:110px;order:-1;margin:0 0 -6px}
-  .masthead{grid-template-columns:1fr}.masthead .mast-art{width:150px;height:110px;order:-1}
+  .masthead{grid-template-columns:1fr}.masthead .mast-art{width:150px;height:110px;order:2}
   .ladder li:nth-child(2){margin-left:10px}.ladder li:nth-child(3){margin-left:20px}.ladder li:nth-child(4){margin-left:30px}
   .totop{right:14px;bottom:14px}
 }
@@ -1248,7 +1250,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <li>Anyone who gets "we need training" from three levels up</li>
   </ul>
   <div class="byline">
-    <span><a href="#author">Hanna Petrasian</a></span>
+    <span class="by">By&nbsp;<a href="#author">Hanna Petrasian</a>, 12 years in L&amp;D, from university lecturing to travel tech</span>
     <span><a href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn</a></span>
     <span>About 20 minutes, or 3 for the <a href="files/pocket-guide.pdf">Pocket Guide</a></span>
   </div>
@@ -1257,6 +1259,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
   <div class="cta">
     <a class="btn" href="#start">Start reading <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a class="btn ghost" href="#clue"><svg class="ico sm" aria-hidden="true"><use href="#i-clock"/></svg>Ten minutes? File 03</a>
+    <a class="btn ghost" href="#main-case"><svg class="ico sm" aria-hidden="true"><use href="#i-search"/></svg>Four minutes? Take the case</a>
   </div>
 </header>
 
@@ -1270,7 +1273,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <a class="toc-card" href="#gadgets"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg></span><span><span class="n">File 04</span><b>The Gadgets</b><span class="d">5 Whys, String Board, Fingerprint Dust, Witness Interview.</span></span></a>
     <a class="toc-card" href="#rules"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></span><span><span class="n">File 05</span><b>The 7 Rules of Evidence</b><span class="d">Operating rules in three habits, each with a do-this line.</span></span></a>
     <a class="toc-card" href="#casefile"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-folder"/></svg></span><span><span class="n">File 06</span><b>The Master Case File</b><span class="d">The template, labeled by CLUE letter.</span></span></a>
-    <a class="toc-card" href="#closed"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-stamp"/></svg></span><span><span class="n">File 07</span><b>Case Closed</b><span class="d">One case start to verdict, and seven to steal from.</span></span></a>
+    <a class="toc-card" href="#closed"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-stamp"/></svg></span><span><span class="n">File 07</span><b>Case Closed</b><span class="d">One case you can play start to verdict, and seven to steal from.</span></span></a>
   </div>
 </nav>
 
@@ -1505,7 +1508,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
           <td class="c why" role="cell" data-l="Why">Insurance against lawsuits and fines</td>
         </tr>
         <tr role="row">
-          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Engagement scores</th>
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Satisfaction scores</th>
           <td class="c" role="cell" data-l="Try saying"><strong>Behavioral adoption</strong></td>
           <td class="c why" role="cell" data-l="Why">Are they using the tools, not did they like the snacks</td>
         </tr>
@@ -1567,21 +1570,21 @@ main[id],section.case[id]{scroll-margin-top:24px}
           <td class="c" role="cell" data-l="Goal">A business problem with a number attached</td>
           <td class="c q" role="cell" data-l="If you keep one question"><q>What's happening in the business that made this urgent <em>now</em>?</q></td>
           <td class="c muted" role="cell" data-l="Done when">"KPI X is at A, needs B, the gap costs Y" and the stakeholder nods</td>
-          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-string">String Board</a><span class="sub">Fills in §1 The Motive</span></td>
+          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-string">String Board</a><span class="sub">Fills in <a href="#casefile">§1 The Motive</a></span></td>
         </tr>
         <tr role="row">
           <th scope="row" class="c let" role="rowheader"><span class="bx" aria-hidden="true">L</span><span class="lb">Look</span></th>
           <td class="c" role="cell" data-l="Goal">The whole system scanned before you assume a skill gap</td>
           <td class="c q" role="cell" data-l="If you keep one question"><q>If we trained everyone tomorrow and the training was perfect, what would still get in the way?</q></td>
           <td class="c muted" role="cell" data-l="Done when">The gap type named out loud and agreed, or corrected with evidence</td>
-          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-dust">Fingerprint Dust</a><span class="sub">Fills in §2 The Targets</span></td>
+          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-dust">Fingerprint Dust</a><span class="sub">Fills in <a href="#casefile">§2 The Targets</a></span></td>
         </tr>
         <tr role="row">
           <th scope="row" class="c let" role="rowheader"><span class="bx" aria-hidden="true">U</span><span class="lb">Uncover</span></th>
           <td class="c" role="cell" data-l="Goal">The hypothesis tested against evidence</td>
           <td class="c q" role="cell" data-l="If you keep one question"><q>Tell me about the <em>last time</em> this went wrong. Walk me through it, step by step.</q></td>
           <td class="c muted" role="cell" data-l="Done when">Two independent sources point at the same cause</td>
-          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-witness">Witness Interview</a>, <a href="#g-whys">5 Whys</a><span class="sub">Fills in §1, evidenced</span></td>
+          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-witness">Witness Interview</a>, <a href="#g-whys">5 Whys</a><span class="sub">Fills in <a href="#casefile">§1</a>, evidenced</span></td>
         </tr>
         <tr role="row">
           <th scope="row" class="c let" role="rowheader"><span class="bx" aria-hidden="true">E</span><span class="lb">Execute</span></th>
@@ -2004,7 +2007,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
         <tr role="row">
           <th scope="row" class="c k" role="rowheader" data-l="§">§5</th>
           <td class="c" role="cell" data-l="Section"><strong>The Chain of Command</strong><span class="sub">RACI</span></td>
-          <td class="c muted" role="cell" data-l="What goes in">Approval, KPI definition, pilot launch, scale decision × Sponsor, L&amp;D PO, HRBP, BU Lead, IT/Data, Finance</td>
+          <td class="c muted" role="cell" data-l="What goes in">Approval, KPI definition, pilot launch, scale decision × Sponsor, L&amp;D product owner, HRBP, BU Lead, IT/Data, Finance</td>
           <td class="c k" role="cell" data-l="CLUE">E</td>
         </tr>
         <tr role="row">
@@ -2029,7 +2032,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <nav class="pills no-print" aria-label="On this page"><a href="#main-case">The main case</a><a href="#cold-cases">Cold cases</a><a href="#handover">Who makes the fixes</a><a href="#is-training">When to build</a><a href="#steal">What to steal</a></nav>
 
     <div>
-    <div class="prose"><h3 id="main-case">The main case: the cascade that never landed</h3><p class="capt">A composite of several cases. The numbers show the shape, not one company's record.</p></div>
+    <div class="prose"><h3 id="main-case">The main case: the cascade that never landed</h3><p class="capt">A composite of cases I've worked. The numbers show the shape, not one company's record.</p></div>
     <div class="game-entry no-print" id="caseEntry">
       <span class="ge-ic" aria-hidden="true"><svg class="ico"><use href="#i-search"/></svg></span>
       <div class="ge-t"><p><b>Work it yourself first?</b> The solved case stays folded until you're done. About 4 min.</p><p class="ge-best" id="caseBest" hidden></p></div>
@@ -2161,7 +2164,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     </div>
     <p class="capt tally no-print" id="coldTally" aria-live="polite" hidden></p>
 
-    <article class="file lost" id="cold-07"><span class="n">Cold case 07 · still open for two quarters</span><h4>The case we lost</h4>
+    <article class="file lost" id="cold-07"><span class="n">Cold case 07 · open for two quarters</span><h4>The case we lost</h4>
       <dl><dt>Asked for</dt><dd>Sales enablement for a line nobody was selling.</dd>
       <dt>Question</dt><dd>"What happens to a rep's payout when they sell the new line instead of the old one?"</dd>
       <dt>Turned out</dt><dd><span class="g">Incentives</span>The new line paid less commission. No course out-argues a paycheck.</dd>
@@ -2274,6 +2277,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(en){visible[en.target.id]=en.isIntersecting?en.intersectionRatio:0;});
       var best=null,bestV=0;sections.forEach(function(s){if((visible[s.id]||0)>bestV){bestV=visible[s.id];best=s.id;}});
+      if(!best){var band=window.innerHeight*.2;sections.forEach(function(s){if(s.getBoundingClientRect().top<band)best=s.id;});}
       if(best)setCurrent(best);
     },{rootMargin:'-20% 0px -60% 0px',threshold:[0,.1,.25,.5,.75,1]});
     sections.forEach(function(s){io.observe(s);});
