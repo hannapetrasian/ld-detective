@@ -1049,7 +1049,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <a href="#closed"><span class="n">File 07</span><b>Close the case</b></a>
     </nav>
 
-    <figure class="iceberg"><div class="ib-scroll" tabindex="0"><svg viewBox="0 0 720 320" role="img" aria-labelledby="ib-t ib-d">
+    <figure class="iceberg"><div class="ib-scroll" tabindex="0"><svg id="waterline" viewBox="0 0 720 320" role="img" aria-labelledby="ib-t ib-d">
         <title id="ib-t">What you are asked for, and what is underneath</title>
         <desc id="ib-d">The request arrives as a training request. Underneath it sit six kinds of gap. A course can close two of them: knowledge and skill. The other four, process, tools, incentives and expectations, belong to whoever can change them.</desc>
         <rect x="214" y="10" width="292" height="52" rx="8" fill="#1C2530"/>
@@ -1087,6 +1087,22 @@ main[id],section.case[id]{scroll-margin-top:24px}
           <text x="522" y="217" font-size="13" font-weight="600" fill="#3B4756">Expectations</text>
           <text x="522" y="235" font-size="11.5" fill="#5B6673">never said out loud</text>
         </g>
+        <defs><clipPath id="lensClip"><circle id="lensHole" cx="-200" cy="-200" r="0"/></clipPath></defs>
+        <g class="lens-ink" clip-path="url(#lensClip)" aria-hidden="true" font-family="Inter,system-ui,sans-serif">
+          <rect x="324" y="134" width="176" height="52" rx="7" fill="#ffffff" stroke="#1C2530" stroke-width="1.5"/>
+          <text x="338" y="155" font-size="13" font-weight="600" fill="#1C2530">Process</text>
+          <text x="338" y="173" font-size="11.5" fill="#3B4756">broken upstream</text>
+          <rect x="508" y="134" width="176" height="52" rx="7" fill="#ffffff" stroke="#1C2530" stroke-width="1.5"/>
+          <text x="522" y="155" font-size="13" font-weight="600" fill="#1C2530">Tools</text>
+          <text x="522" y="173" font-size="11.5" fill="#3B4756">fail when used</text>
+          <rect x="324" y="196" width="176" height="52" rx="7" fill="#ffffff" stroke="#1C2530" stroke-width="1.5"/>
+          <text x="338" y="217" font-size="13" font-weight="600" fill="#1C2530">Incentives</text>
+          <text x="338" y="235" font-size="11.5" fill="#3B4756">point the other way</text>
+          <rect x="508" y="196" width="176" height="52" rx="7" fill="#ffffff" stroke="#1C2530" stroke-width="1.5"/>
+          <text x="522" y="217" font-size="13" font-weight="600" fill="#1C2530">Expectations</text>
+          <text x="522" y="235" font-size="11.5" fill="#3B4756">never said out loud</text>
+        </g>
+        <circle class="lens-ring" id="lensRing" cx="-200" cy="-200" r="0" fill="none" stroke="#B8860B" stroke-width="2.5" aria-hidden="true"/>
         <text x="504" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.4" fill="#5B6673">THESE FOUR ARE A HANDOVER, NOT A COURSE</text>
       </svg></div>
       <figcaption>Every request arrives above the waterline. The job in File 03 is to find out which of the six sits underneath, because four of them will not move however good the course is.</figcaption>
@@ -2062,6 +2078,24 @@ main[id],section.case[id]{scroll-margin-top:24px}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}
     else{var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}
   }
+  // ---- Lens on the waterline picture: hover only, mouse or pen; nothing moves in the layout ----
+  var wl=document.getElementById('waterline'),hole=document.getElementById('lensHole'),ring=document.getElementById('lensRing');
+  if(wl&&hole&&ring&&wl.createSVGPoint){
+    var pt=wl.createSVGPoint(),lensQ=null,lensOn=false;
+    function lensAt(x,y){
+      var m=wl.getScreenCTM();if(!m)return;
+      pt.x=x;pt.y=y;var p=pt.matrixTransform(m.inverse()),r=60/m.a;
+      [hole,ring].forEach(function(c){c.setAttribute('cx',p.x.toFixed(1));c.setAttribute('cy',p.y.toFixed(1));c.setAttribute('r',r.toFixed(1));});
+    }
+    function lensOff(){lensOn=false;lensQ=null;[hole,ring].forEach(function(c){c.setAttribute('r','0');});}
+    wl.addEventListener('pointermove',function(e){
+      if(e.pointerType==='touch'){if(lensOn)lensOff();return;}
+      var first=!lensQ;lensQ=[e.clientX,e.clientY];lensOn=true;
+      if(first)requestAnimationFrame(function(){if(lensQ&&lensOn)lensAt(lensQ[0],lensQ[1]);lensQ=null;});
+    });
+    wl.addEventListener('pointerleave',lensOff);
+  }
+
   // ---- Sort the evidence: drag (mouse, pen), tap a quote then a box, or press 1 / 2 ----
   var sorter=document.getElementById('sortEvidence');
   if(sorter){
