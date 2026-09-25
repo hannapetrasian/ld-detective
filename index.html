@@ -695,6 +695,14 @@ footer.credit a{color:var(--ink-2)}
 .hyp b{font-family:var(--mono);font-size:13.5px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:4px;padding:1px 5px}
 .hyp.filled{background:var(--amber-tint);border-style:solid;border-color:#E8DBB5}
 .hyp.filled em{font-style:italic;color:var(--amber-ink)}
+.hyp .fld{font-family:var(--mono);font-size:13.5px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:4px;padding:3px 6px;outline:0;cursor:text;overflow-wrap:anywhere;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hyp .fld:empty::before{content:attr(data-ph);color:var(--muted)}
+.hyp .fld:focus-visible,.hyp .fld:focus{outline:3px solid var(--amber);outline-offset:2px}
+#stealLine.live{line-height:2;cursor:text}
+#stealLine .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;line-height:1.2}
+#stealLine .stamp{display:none}
+#stealLine.stamped .stamp{display:inline-block;animation:stampIn var(--t) both}
+@keyframes stampIn{from{opacity:0;scale:1.7}to{opacity:.9;scale:1}}
 
 /* --- density pass: two-column question lists on wide screens */
 @media (min-width:1200px){
@@ -1847,7 +1855,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
 
     <div class="prose"><h3 id="steal">What will you steal?</h3><p>One line, written now, gets acted on far more often than a resolution. Fill it in before you close the tab.</p></div>
     <div class="tpl2">
-      <div class="hyp"><span class="l">Before Monday</span>Before I reply to the next request, I will ask <b>this question</b> and write down <b>this cost</b>.</div>
+      <div class="hyp" id="stealLine"><span class="l">Before Monday</span><span class="ln">Before I reply to the next request, I will ask <b>this question</b> and write down <b>this cost</b>.</span></div>
       <div class="hyp filled"><span class="l">One filled in</span><em>Before I reply to the next request, I will ask "If we trained everyone tomorrow and the training was perfect, what would still get in the way?" and write down what the current error rate costs us per month.</em></div>
     </div>
     <p class="capt">Pick the question from the <a href="#clue">CLUE table</a> and put it where Monday will find it, the top of your notebook or a sticky on the monitor.</p>
@@ -2014,6 +2022,45 @@ main[id],section.case[id]{scroll-margin-top:24px}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}
     else{var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}
   }
+  // ---- What will you steal? The two blanks become fields; Stamp it saves the line ----
+  var steal=document.getElementById('stealLine');
+  if(steal){
+    var ln=steal.querySelector('.ln'),boxes=ln.querySelectorAll('b');
+    var labels=['The question you will ask','The cost you will write down'],flds=[];
+    boxes.forEach(function(b,i){
+      var f=document.createElement('span');
+      f.className='fld';f.setAttribute('contenteditable','true');f.setAttribute('role','textbox');
+      f.setAttribute('aria-label',labels[i]);f.setAttribute('aria-placeholder',b.textContent);f.dataset.ph=b.textContent;
+      b.parentNode.replaceChild(f,b);flds.push(f);
+    });
+    var stamp=document.createElement('span');stamp.className='stamp';stamp.setAttribute('aria-hidden','true');stamp.textContent='Case opened';
+    var acts=document.createElement('div');acts.className='acts no-print';
+    acts.innerHTML='<button type="button" class="tbtn" id="stampBtn"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Stamp it</button><button type="button" class="tbtn" id="copyLine" hidden><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg>Copy my line</button><span class="sr-only" aria-live="polite"></span>';
+    steal.insertBefore(stamp,steal.firstChild);steal.appendChild(acts);steal.classList.add('live');
+    var stampBtn=acts.querySelector('#stampBtn'),copyLine=acts.querySelector('#copyLine'),say=acts.querySelector('.sr-only');
+    var val=function(f){return f.textContent.replace(/\s+/g,' ').trim();};
+    var sentence=function(){return 'Before I reply to the next request, I will ask '+val(flds[0])+' and write down '+val(flds[1])+'.';};
+    function setStamped(on){steal.classList.toggle('stamped',on);copyLine.hidden=!on;}
+    var saved=store.get('ldd-steal');
+    if(saved&&saved.q&&saved.c){flds[0].textContent=saved.q;flds[1].textContent=saved.c;setStamped(true);}
+    flds.forEach(function(f,i){
+      f.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();if(i<flds.length-1)flds[i+1].focus();else stampBtn.click();}});
+      f.addEventListener('paste',function(e){e.preventDefault();var t=(e.clipboardData||window.clipboardData).getData('text').replace(/\s+/g,' ');
+        if(!document.execCommand||!document.execCommand('insertText',false,t)){f.textContent+=t;}});
+      f.addEventListener('input',function(){if(!val(f))f.textContent='';if(steal.classList.contains('stamped')){setStamped(false);say.textContent='';}});
+    });
+    // the whole card is the target: a click on its text focuses the first empty field
+    steal.addEventListener('click',function(e){if(e.target.closest('.fld,button'))return;var first=flds.filter(function(f){return !val(f);})[0]||flds[flds.length-1];first.focus();});
+    stampBtn.addEventListener('click',function(){
+      var empty=flds.filter(function(f){return !val(f);})[0];
+      if(empty){empty.focus();return;}
+      store.set('ldd-steal',{q:val(flds[0]),c:val(flds[1])});
+      setStamped(false);void steal.offsetWidth;setStamped(true);
+      say.textContent='Stamped. Your line is saved in this browser.';
+    });
+    copyLine.addEventListener('click',function(){copyText(sentence(),copyLine,'Copied');});
+  }
+
   var shareLink=document.getElementById('shareLink');
   if(shareLink){shareLink.addEventListener('click',function(){copyText(location.origin+location.pathname,shareLink,'Link copied');});}
 
