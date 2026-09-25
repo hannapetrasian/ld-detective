@@ -872,6 +872,97 @@ main[id],section.case[id]{scroll-margin-top:24px}
 .skip{position:absolute;left:-9999px;top:0;z-index:60;padding:12px 18px;border-radius:0 0 var(--r) 0;
   background:var(--ink);color:var(--on-ink);font-weight:600;text-decoration:none}
 .skip:focus{left:0}
+
+
+@media (max-width:640px){
+  /* What's inside: a compact list on phones (the Contents menu carries the same map) */
+  .toc-grid{gap:0;border-top:1px solid var(--line)}
+  .toc-card{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:10px 0;grid-template-columns:1fr}
+  .toc-card .ic,.toc-card span.d{display:none}
+  .toc-card .n{display:inline;margin-right:10px}
+  .toc-card b{display:inline;margin:0}
+  /* The guide in one picture: one swipeable row instead of six stacked rows */
+  .strip{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .strip::-webkit-scrollbar{display:none}
+  .strip a,.strip span.node{flex:0 0 140px;border-right:1px solid var(--line);border-bottom:0}
+}
+/* ===== fold: depth behind a toggle; find-in-page, deep links and print open it ===== */
+.fold-btn{margin:12px 0 4px}
+.fold-btn .chev{display:inline-block;width:8px;height:8px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--t)}
+.fold-btn[aria-expanded="true"] .chev{transform:rotate(-135deg) translate(-2px,0)}
+.gadget .fold-btn{margin-top:4px}
+@media print{.fold-item[hidden]{display:revert!important;content-visibility:visible!important}.fold-btn{display:none!important}}
+/* ===== lighter page: open sections instead of cards in cards, hairline tables, no shadows ===== */
+:root{--shadow:none}
+/* CLUE steps and gadgets: open sections with a hairline, not boxed cards */
+.clue{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;overflow:visible;margin:40px 0 0;padding-top:28px}
+.clue .mono{background:transparent;border-right:0;padding-top:0}
+.clue .content{padding:0 0 0 8px}
+.gadget{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;padding:28px 0 0;margin:40px 0 0}
+.gadget .badge{width:48px;height:48px}
+/* tables: horizontal hairlines only */
+.gt-wrap,.tl-wrap{border:0;border-radius:0;background:transparent;overflow:visible}
+.gt th,.gt td,.tl th,.tl td{border-right:0}
+.gt .h,.tl thead th{background:transparent;border-bottom:1px solid var(--line-2)}
+.gt .c.k{background:transparent}
+.gt .c.let,.tl .st{background:transparent}
+.gt th:first-child,.gt td:first-child,.tl th:first-child,.tl td:first-child{padding-left:0}
+.card.stamped .gt th:first-child,.card.stamped .gt td:first-child{padding-left:13px}
+/* one dark block on the page (the Detective pivot); the ladder's last rung goes amber */
+.ladder li:nth-child(4){background:var(--amber-tint);color:var(--ink);border-color:#E8DBB5}
+.ladder li:nth-child(4) .k{color:var(--amber-ink)}
+/* file headers: the time chip sits beside the title */
+.hero.lite > div:first-child{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:center}
+.hero.lite > div:first-child > .label{grid-column:1/-1}
+.hero.lite > div:first-child > h2{grid-column:1;grid-row:2;margin:0}
+.hero.lite > div:first-child > .meta-row{grid-column:2;grid-row:2;margin:0;justify-self:start}
+.hero.lite > div:first-child > .when{grid-column:1/-1;grid-row:3}
+.hero.lite .art{height:72px;width:96px}
+@media (max-width:640px){
+  .clue .content{padding:0}
+  .clue .mono{padding:0 0 12px;border-bottom:0}
+  .gadget{padding-top:22px}
+  /* stacked tables: rows separated by hairlines, no cards, no dark header bars */
+  .gt-wrap tr,.gt-wrap[data-cols] tr{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;margin:0;padding:12px 0}
+  .gt-wrap tbody tr:last-child,.gt-wrap[data-cols] tbody tr:last-child{border-bottom:0}
+  .gt-wrap th,.gt-wrap td,.gt-wrap[data-cols] th,.gt-wrap[data-cols] td{padding:3px 0;border-bottom:0}
+  .gt-wrap .c.k,.gt-wrap .c.let,.gt-wrap[data-cols] .c.k,.gt-wrap[data-cols] .c.let{background:transparent;color:var(--ink);padding:3px 0 4px;font:600 15px/1.4 var(--sans);letter-spacing:0;text-transform:none}
+  .gt-wrap .c.let,.gt-wrap[data-cols] .c.let{font:600 13.5px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+  .gt-wrap .c.let .bx,.gt-wrap[data-cols] .c.let .bx{border-color:var(--ink);color:var(--ink);background:#fff}
+  .gt-wrap .c.k[data-l]::before,.gt-wrap[data-cols] .c.k[data-l]::before{color:var(--muted)}
+  .gt-wrap .c.q,.gt-wrap[data-cols] .c.q{border-left:0;background:transparent;padding:3px 0}
+  .tl-wrap tr{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent}
+  .hero.lite > div:first-child{grid-template-columns:1fr}
+  .hero.lite > div:first-child > .meta-row{grid-column:1;grid-row:4;margin-top:8px}
+}
+
+/* ===== fold, collapsed state: no leftover padding, borders or fills; table rows stay hidden on phones too ===== */
+@media screen{
+  .fold-item[hidden]{padding:0!important;margin:0!important;border:0!important;background:none!important;box-shadow:none!important;min-height:0!important;height:0!important;overflow:hidden!important}
+  .fold-item[hidden]:not([hidden="until-found"]){display:none!important}
+}
+@media (max-width:640px){
+  .gt-wrap.pairs[data-cols] thead,.gt-wrap.pairs thead{display:none}
+  .gt-wrap.pairs [data-l]::before,.gt-wrap.pairs[data-cols] [data-l]::before{content:none;display:none}
+  .gt-wrap.pairs[data-cols] tr,.gt-wrap.pairs tr{padding:11px 0}
+  .gt-wrap.pairs[data-cols] .c.k,.gt-wrap.pairs .c.k{font:400 15px/1.4 var(--sans);letter-spacing:0;text-transform:none;color:var(--muted);padding:0}
+  .gt-wrap.pairs[data-cols] td:nth-child(2),.gt-wrap.pairs td:nth-child(2){font-weight:600;color:var(--ink);font-size:17px;line-height:1.4;padding:1px 0}
+  .gt-wrap.pairs[data-cols] td:nth-child(2)::before,.gt-wrap.pairs td:nth-child(2)::before{content:"\2192\00a0";display:inline;color:var(--amber-ink);font:600 17px/1 var(--sans);letter-spacing:0;text-transform:none;margin:0}
+  .gt-wrap.pairs[data-cols] td:nth-child(3),.gt-wrap.pairs td:nth-child(3){font-size:13.5px;color:var(--muted);padding:2px 0 0}
+}
+
+/* ===== phones: cold cases swipe sideways; the Case File table reads as compact rows ===== */
+@media (max-width:640px){
+  .cold{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;align-items:flex-start;margin-right:-16px;padding:0 16px 8px 0;scrollbar-width:none;overscroll-behavior-x:contain}
+  .cold::-webkit-scrollbar{display:none}
+  .cold .file{flex:0 0 84%;scroll-snap-align:start}
+  .gt-wrap.compact tr,.gt-wrap.compact[data-cols] tr{display:grid;grid-template-columns:auto minmax(0,1fr) auto;column-gap:12px;row-gap:2px;padding:12px 0}
+  .gt-wrap.compact [data-l]::before,.gt-wrap.compact[data-cols] [data-l]::before{content:none;display:none}
+  .gt-wrap.compact tr > :nth-child(1){grid-column:1;grid-row:1}
+  .gt-wrap.compact tr > :nth-child(2){grid-column:2;grid-row:1}
+  .gt-wrap.compact tr > :nth-child(4){grid-column:3;grid-row:1;font:600 12px/1.6 var(--mono);color:var(--amber-ink);white-space:nowrap}
+  .gt-wrap.compact tr > :nth-child(3){grid-column:2/-1;grid-row:2}
+}
 </style>
 </head>
 <body>
@@ -1200,7 +1291,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <div class="rule3"><span class="n">2</span><h4>Ditch the education jargon.</h4><p>Bloom's, scaffolding, andragogy: keep them in the lab. Say "phased support" instead of scaffolding, "real-world application" instead of andragogy.</p><p class="punch">Nobody has ever bought andragogy.</p></div>
       <div class="rule3"><span class="n">3</span><h4>Use "we", not "you".</h4><div class="pron"><div><span class="k bad">You</span>"Your team needs to learn X" makes you a finger-pointer.</div><div><span class="k good">We</span>"We need ticket-handling speed down so we don't lose our best customers" makes you a co-owner.</div></div></div>
     </div>
-    <div class="gt-wrap" data-cols="2"><table class="gt" role="table" aria-label="The Filter: three buckets">
+    <div class="gt-wrap pairs" data-cols="2"><table class="gt" role="table" aria-label="The Filter: three buckets">
       <thead role="rowgroup"><tr role="row">
         <th scope="col" class="h" role="columnheader" style="width:28%">Bucket</th>
         <th scope="col" class="h" role="columnheader" style="width:72%">Sounds like</th>
@@ -1225,7 +1316,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <h3 id="dictionary">The translation dictionary</h3>
       <p>Your translation layer. The test for the right-hand column: does the phrase end in make, save or protect?</p>
     </div>
-    <div class="gt-wrap" data-cols="3"><table class="gt" role="table" aria-label="Translation dictionary">
+    <div data-fold-rows="5" data-fold-label="phrases" class="gt-wrap pairs" data-cols="3"><table class="gt" role="table" aria-label="Translation dictionary">
       <thead role="rowgroup"><tr role="row">
         <th scope="col" class="h" role="columnheader" style="width:27.396%">Instead of saying</th>
         <th scope="col" class="h" role="columnheader" style="width:36.986%">Try saying</th>
@@ -1499,7 +1590,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <h3 id="push-back">When they push back</h3>
       <p>Sooner or later: "I don't have time for questions. Just build it." If you keep one line from this table, keep the last one. The parallel track costs the sponsor nothing, and it is the move that works when they outrank you by three levels.</p>
     </div>
-    <div class="gt-wrap" data-cols="3"><table class="gt" role="table" aria-label="When they push back">
+    <div data-fold-rows="2" data-fold-keep-last data-fold-label="replies" class="gt-wrap" data-cols="3"><table class="gt" role="table" aria-label="When they push back">
       <thead role="rowgroup"><tr role="row">
         <th scope="col" class="h" role="columnheader" style="width:24.095%">They say</th>
         <th scope="col" class="h" role="columnheader" style="width:48.194%">You say</th>
@@ -1732,7 +1823,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <a class="btn amber" href="files/case-file-template.docx"><svg class="ico sm" aria-hidden="true"><use href="#i-download"/></svg>Blank Case File template <span class="meta">DOCX</span></a>
     </div>
 
-    <div class="gt-wrap" data-cols="4"><table class="gt" role="table" aria-label="The Master Case File template">
+    <div class="gt-wrap compact" data-cols="4"><table class="gt" role="table" aria-label="The Master Case File template">
       <thead role="rowgroup"><tr role="row">
         <th scope="col" class="h" role="columnheader" style="width:58px">§</th>
         <th scope="col" class="h" role="columnheader" style="width:calc((100% - 132px)*.35385)">Section</th>
@@ -2090,6 +2181,63 @@ main[id],section.case[id]{scroll-margin-top:24px}
     var hide=function(){toast.classList.remove('show');setTimeout(function(){toast.hidden=true;},250);};
     toast.querySelector('button').addEventListener('click',hide);toast.querySelector('a.go').addEventListener('click',hide);setTimeout(hide,6000);
   }
+
+  // ---- Fold: the key item stays open, the depth sits behind a toggle ----
+  var canFind='onbeforematch' in document.body,folds=[];
+  function hideItem(el,soft){el.classList.add('fold-item');el.hidden=true;if(canFind&&soft)el.setAttribute('hidden','until-found');}
+  function makeFold(items,after,more,less,soft){
+    if(!items.length)return;
+    var b=document.createElement('button');b.type='button';b.className='tbtn fold-btn no-print';b.setAttribute('aria-expanded','false');
+    var f={items:items,btn:b,open:false,soft:soft};
+    function paintBtn(){b.innerHTML=(f.open?less:more)+' <span class="chev" aria-hidden="true"></span>';b.setAttribute('aria-expanded',String(f.open));}
+    f.set=function(o){f.open=o;items.forEach(function(el){if(o){el.hidden=false;el.removeAttribute('hidden');}else hideItem(el,soft);});paintBtn();};
+    b.addEventListener('click',function(){var y=b.getBoundingClientRect().top;f.set(!f.open);if(!f.open){var d=b.getBoundingClientRect().top-y;if(d<0)window.scrollBy(0,d);}});
+    items.forEach(function(el){el.addEventListener('beforematch',function(){f.set(true);});});
+    after.parentNode.insertBefore(b,after.nextSibling);f.set(false);folds.push(f);
+  }
+  // CLUE steps: keep the one question, fold the rest of the list
+  document.querySelectorAll('.clue .ask').forEach(function(ul){
+    var rest=[].slice.call(ul.children).filter(function(li){return !li.classList.contains('keep');});
+    makeFold(rest,ul,'Show '+rest.length+' more question'+(rest.length>1?'s':''),'Show fewer questions',true);
+  });
+  // Gadgets: keep the header and when to reach for it
+  document.querySelectorAll('.gadget').forEach(function(g){
+    var reach=g.querySelector('.reach');if(!reach)return;var rest=[],n=reach.nextElementSibling;
+    while(n){rest.push(n);n=n.nextElementSibling;}
+    makeFold(rest,reach,'Open the gadget','Close the gadget',true);
+    g.dataset.fold=folds.length-1;
+  });
+  // Long tables: first rows open, the rest behind a toggle (the push-back table keeps its last row)
+  document.querySelectorAll('.gt-wrap[data-fold-rows]').forEach(function(w){
+    var rows=[].slice.call(w.querySelectorAll('tbody tr')),keep=+w.dataset.foldRows,last=w.hasAttribute('data-fold-keep-last');
+    var rest=rows.filter(function(r,i){return i>=keep&&!(last&&i===rows.length-1);});
+    makeFold(rest,w,'Show '+rest.length+' more '+w.dataset.foldLabel,'Show fewer '+w.dataset.foldLabel,false);
+  });
+  // Rules of Evidence: number, rule and Do-this stay open; the reasoning opens for all seven at once
+  (function(){
+    var sec=document.getElementById('rules');if(!sec)return;
+    var items=[].slice.call(sec.querySelectorAll('.rule3 > p, .rule3 > ul, .rule3 > .pron'));
+    var intro=sec.querySelector('.body > .prose');if(!intro||!items.length)return;
+    makeFold(items,intro,'Show the reasoning behind each rule','Hide the reasoning',true);
+  })();
+  // Sort the evidence: the exercise starts on request
+  (function(){
+    var so=document.getElementById('sortEvidence');if(!so)return;
+    var how=so.querySelector('.how'),items=[],n=how&&how.nextElementSibling;
+    while(n){items.push(n);n=n.nextElementSibling;}
+    if(how)makeFold(items,how,'Start the exercise','Close the exercise',true);
+  })();
+  function openFor(id){
+    var el=id&&document.getElementById(id);if(!el)return;
+    folds.forEach(function(f){if(!f.open&&f.items.some(function(it){return it.contains(el);}))f.set(true);});
+    if(el.classList.contains('gadget')&&el.dataset.fold)folds[+el.dataset.fold].set(true);
+  }
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(a)openFor(a.getAttribute('href').slice(1));},true);
+  window.addEventListener('hashchange',function(){openFor(location.hash.slice(1));});
+  if(location.hash){openFor(location.hash.slice(1));var t=document.getElementById(location.hash.slice(1));if(t)requestAnimationFrame(function(){t.scrollIntoView();});}
+  var printState=null;
+  window.addEventListener('beforeprint',function(){printState=folds.map(function(f){return f.open;});folds.forEach(function(f){f.set(true);});});
+  window.addEventListener('afterprint',function(){if(printState)folds.forEach(function(f,i){f.set(printState[i]);});printState=null;});
 
   // ---- Cold case reveal cards: guess the gap, then see the answer ----
   var caseCards=[].slice.call(document.querySelectorAll('.cold .file'));
