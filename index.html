@@ -653,6 +653,34 @@ footer.credit a{color:var(--ink-2)}
 .file .back dd.vd.no{color:#8C4636}
 .file .back dd.vd.yes{color:#3F6B45}
 .capt.tally{margin:-4px 0 18px}
+.sort{margin:26px 0 8px}
+.sort > h4{font-size:19px;font-weight:600;margin:0 0 .4rem}
+.sort .how{font-size:15px;color:var(--ink-2);margin:0 0 12px}
+.no-js .sort .how{display:none}
+.sort .pool{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.sort .pool:empty{display:none}
+.sort .pool li,.sort .zones li{margin:0;padding:0}
+.sort .zones li::before{content:none}
+.sort .zones{margin:0}
+.sort .zones ul{min-height:52px}
+.sort .zones > div{transition:border-color var(--t),background var(--t)}
+.sort.picking .zones > div,.sort .zones > div.over{border-style:dashed;border-color:var(--ink-2)}
+.sort .zones h4{margin:0 0 8px}
+.sort .zt{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:7px;width:100%;min-height:44px;cursor:pointer;border-radius:var(--r-sm)}
+.sort .zt:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.ev{display:block;box-sizing:border-box;width:100%;text-align:left;font:400 15px/1.45 var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;min-height:44px;box-shadow:0 1px 2px rgba(28,37,48,.06)}
+button.ev{cursor:grab;user-select:none;-webkit-user-select:none;transition:border-color var(--t),background var(--t)}
+button.ev:hover{border-color:var(--ink-2)}
+button.ev:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+button.ev[aria-pressed="true"]{border-color:var(--ink);background:var(--amber-tint)}
+.ev .g{display:block;font:600 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.sort .pool .ev .g{display:none}
+.ev.ok{border-left:4px solid #4A7A50}
+.ev.bad{border-left:4px solid #A9553F}
+.ev.lifting{opacity:.4}
+.ev.ghost{position:fixed;left:0;top:0;z-index:60;pointer-events:none;box-shadow:var(--shadow);opacity:.95;cursor:grabbing}
+.sort .fb{min-height:1.6em}
+.sort .acts{margin-top:10px}
 .toolrow.cases{margin:0 0 14px}
 @media print{
   .file .back{display:block}
@@ -1319,6 +1347,18 @@ main[id],section.case[id]{scroll-margin-top:24px}
           </div>
         </div>
         <p class="capt">If the cause sits on the right, the best course you ever built won't move the number. Most of that column belongs to someone who can change it in an afternoon, which makes it your handover list (<a href="#handover">→ 07</a>). Headcount, hiring and culture sit outside all six. Not yours either, and the hardest handover in this guide. For now this is a hypothesis. The verdict version, once you have evidence, is in <a href="#is-training">File 07</a>.</p>
+
+        <div class="sort" id="sortEvidence">
+          <h4 id="sort-evidence">Sort the evidence</h4>
+          <p class="how" id="sortHow">Eight things a stakeholder might tell you. Drag each quote into a box, or tap it and then tap the box. On a keyboard, focus a quote and press 1 or 2.</p>
+          <ul class="pool" aria-label="Quotes to sort"></ul>
+          <div class="cc zones">
+            <div class="yes" data-zone="course"><h4><span class="mk" aria-hidden="true">1</span><span class="zl">A course can fix this</span></h4><ul aria-label="A course can fix this"><li><span class="ev" data-i="1" data-zone="course" data-gap="Knowledge"><span class="g">Knowledge</span><span class="qt">"Nobody has walked the new hires through the returns screen."</span></span></li><li><span class="ev" data-i="2" data-zone="course" data-gap="Skill"><span class="g">Skill</span><span class="qt">"They know the escalation rule. They've just never done it with a customer shouting."</span></span></li><li><span class="ev" data-i="7" data-zone="course" data-gap="Knowledge"><span class="g">Knowledge</span><span class="qt">"The new policy lands next month and nobody has seen it."</span></span></li></ul></div>
+            <div class="no" data-zone="hand"><h4><span class="mk" aria-hidden="true">2</span><span class="zl">Hand it over</span></h4><ul aria-label="Hand it over"><li><span class="ev" data-i="3" data-zone="hand" data-gap="Tools"><span class="g">Tools</span><span class="qt">"The tracker asks for fifteen fields, so people update it at sprint end."</span></span></li><li><span class="ev" data-i="4" data-zone="hand" data-gap="Process"><span class="g">Process</span><span class="qt">"Discount approval takes five days and two signatures."</span></span></li><li><span class="ev" data-i="5" data-zone="hand" data-gap="Incentives"><span class="g">Incentives</span><span class="qt">"Handle time is 40% of the scorecard."</span></span></li><li><span class="ev" data-i="6" data-zone="hand" data-gap="Expectations"><span class="g">Expectations</span><span class="qt">"Nobody ever said the cascade was the manager's job."</span></span></li><li><span class="ev" data-i="8" data-zone="hand" data-gap="Tools"><span class="g">Tools</span><span class="qt">"The best analyst has a template. Everyone else rebuilds the report by hand."</span></span></li></ul></div>
+          </div>
+          <p class="capt fb" aria-live="polite"></p>
+          <p class="capt done">Three of eight belong to a course. That ratio is about right.</p>
+        </div>
 
         <p class="wo"><b>Watch out</b><span>Don't run this step from a meeting room. Leaders describe the workflow they designed. The floor runs the workflow that survived. (<a href="#g-dust">→ Fingerprint Dust</a>)</span></p>
         <p class="capt"><a href="#cold-03">See cold case 03 →</a></p>
@@ -2022,6 +2062,79 @@ main[id],section.case[id]{scroll-margin-top:24px}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}
     else{var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}
   }
+  // ---- Sort the evidence: drag (mouse, pen), tap a quote then a box, or press 1 / 2 ----
+  var sorter=document.getElementById('sortEvidence');
+  if(sorter){
+    var pool=sorter.querySelector('.pool'),fb=sorter.querySelector('.fb'),done=sorter.querySelector('.done');
+    var zones={},lists={};
+    sorter.querySelectorAll('.zones > div[data-zone]').forEach(function(z){
+      zones[z.dataset.zone]=z;lists[z.dataset.zone]=z.querySelector('ul');
+      var h=z.querySelector('h4'),btn=document.createElement('button');btn.type='button';btn.className='zt';
+      while(h.firstChild)btn.appendChild(h.firstChild);h.appendChild(btn);
+    });
+    // turn the static answer cards into buttons and move them to the pool, in their original order
+    var cards=[].slice.call(sorter.querySelectorAll('.ev')).map(function(sp){
+      var b=document.createElement('button');b.type='button';b.className='ev';
+      ['i','zone','gap'].forEach(function(k){b.dataset[k]=sp.dataset[k];});
+      b.setAttribute('aria-pressed','false');b.setAttribute('aria-describedby','sortHow');
+      while(sp.firstChild)b.appendChild(sp.firstChild);
+      var sr=document.createElement('span');sr.className='sr-only';b.appendChild(sr);
+      sp.parentNode.replaceChild(b,sp);return b;
+    }).sort(function(a,b){return a.dataset.i-b.dataset.i;});
+    function toPool(){cards.forEach(function(c){c.classList.remove('ok','bad');c.lastChild.textContent='';pool.appendChild(c.parentNode);});
+      Object.keys(lists).forEach(function(k){lists[k].textContent='';});}
+    toPool();done.hidden=true;
+    var acts=document.createElement('div');acts.className='acts no-print';
+    acts.innerHTML='<button type="button" class="tbtn" id="sortReset">Reset</button>';sorter.appendChild(acts);
+    var picked=null;
+    function pick(c){if(picked)picked.setAttribute('aria-pressed','false');picked=c;if(c)c.setAttribute('aria-pressed','true');sorter.classList.toggle('picking',!!c);}
+    function place(c,zone,fromKey){
+      var ok=c.dataset.zone===zone,g=c.dataset.gap;
+      pick(null);lists[zone].appendChild(c.parentNode);
+      c.classList.toggle('ok',ok);c.classList.toggle('bad',!ok);c.lastChild.textContent=ok?' Right.':' Wrong box.';
+      fb.textContent=ok?(zone==='course'?'Right. '+g+', and a course can fix it.':'Right. '+g+', so hand it over.')
+                       :(zone==='course'?'Not a course. That\'s '+g+', so hand it over.':'A course can fix this one. That\'s '+g+'.');
+      done.hidden=pool.children.length>0;
+      var next=pool.querySelector('.ev');
+      if(fromKey){(next||document.getElementById('sortReset')).focus();}
+    }
+    var drag=null,skipClick=false;
+    function zoneAt(x,y){var el=document.elementFromPoint(x,y);var z=el&&el.closest('.zones > div[data-zone]');return z&&sorter.contains(z)?z.dataset.zone:null;}
+    function hilite(zone){Object.keys(zones).forEach(function(k){zones[k].classList.toggle('over',k===zone);});}
+    cards.forEach(function(c){
+      c.addEventListener('click',function(){if(skipClick){skipClick=false;return;}pick(picked===c?null:c);});
+      c.addEventListener('keydown',function(e){if(e.key==='1'||e.key==='2'){e.preventDefault();place(c,e.key==='1'?'course':'hand',true);}});
+      c.addEventListener('pointerdown',function(e){
+        if(e.pointerType==='touch'||e.button!==0)return;
+        var r=c.getBoundingClientRect();drag={c:c,x:e.clientX,y:e.clientY,dx:e.clientX-r.left,dy:e.clientY-r.top,w:r.width,on:false,id:e.pointerId};
+      });
+    });
+    document.addEventListener('pointermove',function(e){
+      if(!drag||e.pointerId!==drag.id)return;
+      if(!drag.on){if(Math.abs(e.clientX-drag.x)+Math.abs(e.clientY-drag.y)<6)return;
+        drag.on=true;drag.g=drag.c.cloneNode(true);drag.g.classList.add('ghost');drag.g.removeAttribute('id');drag.g.setAttribute('aria-hidden','true');
+        drag.g.style.width=drag.w+'px';document.body.appendChild(drag.g);drag.c.classList.add('lifting');sorter.classList.add('picking');}
+      drag.g.style.transform='translate('+(e.clientX-drag.dx)+'px,'+(e.clientY-drag.dy)+'px)';
+      hilite(zoneAt(e.clientX,e.clientY));
+    });
+    function endDrag(e,drop){
+      if(!drag)return;var d=drag;drag=null;if(!d.on)return;
+      skipClick=true;setTimeout(function(){skipClick=false;},0);
+      d.g.remove();d.c.classList.remove('lifting');sorter.classList.toggle('picking',!!picked);hilite(null);
+      var z=drop?zoneAt(e.clientX,e.clientY):null;if(z)place(d.c,z,false);
+    }
+    document.addEventListener('pointerup',function(e){endDrag(e,true);});
+    document.addEventListener('pointercancel',function(e){endDrag(e,false);});
+    Object.keys(zones).forEach(function(k){
+      zones[k].addEventListener('click',function(e){
+        if(e.target.closest('button.ev'))return;
+        if(picked)place(picked,k,false);
+        else if(e.target.closest('.zt'))fb.textContent='Pick a quote first, then the box.';
+      });
+    });
+    document.getElementById('sortReset').addEventListener('click',function(){pick(null);toPool();fb.textContent='';done.hidden=true;cards[0].focus();});
+  }
+
   // ---- What will you steal? The two blanks become fields; Stamp it saves the line ----
   var steal=document.getElementById('stealLine');
   if(steal){
