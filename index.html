@@ -95,7 +95,7 @@ section.case + section.case{margin-top:24px}
 .masthead h1{font-size:clamp(38px,5vw,60px);font-weight:700;letter-spacing:-.025em;max-width:16ch}
 .masthead .sub{font-size:clamp(19px,2vw,23px);color:var(--ink-2);margin:18px 0 26px;max-width:32ch;line-height:1.35}
 .masthead .byline{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:15px;color:var(--muted)}
-.masthead .byline a{color:var(--ink-2)}
+.masthead .byline a{color:var(--ink-2);display:inline-flex;align-items:center;min-height:44px}
 .masthead .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 
 /* ---------- buttons ---------- */
@@ -191,7 +191,7 @@ section.case + section.case{margin-top:24px}
 /* ---------- footer ---------- */
 footer.credit{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:flex-start}
 footer.credit .who{color:var(--ink);font-weight:600}
-footer.credit a{color:var(--ink-2)}
+footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-height:44px}
 
 
 /* ---------- upgrade: illustrations ---------- */
@@ -249,6 +249,7 @@ footer.credit a{color:var(--ink-2)}
 .pills a:hover{border-color:var(--ink)}
 .pills a i{font-family:var(--mono);font-weight:600;font-style:normal;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:var(--on-ink);font-size:13.5px}
 .pills a[aria-current="true"]{border-color:var(--amber);background:var(--amber-tint)}
+@media (min-width:761px){.pills{top:0;width:auto;max-width:none;border-radius:0;background:var(--paper);box-shadow:0 1px 0 var(--line);padding:10px 0}}
 .chain-verdict{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;margin-top:4px;padding:14px 16px;background:var(--amber-tint);border-radius:var(--r);color:var(--ink-2)}
 .chain-verdict .ico{color:var(--amber-ink);margin-top:2px}
 
@@ -272,7 +273,7 @@ footer.credit a{color:var(--ink-2)}
 .nav a.item .tick{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--amber-ink);opacity:0;transition:opacity var(--t)}
 .nav a.item.read .tick{opacity:1}
 
-@media (max-width:1200px){.progress{left:0;top:56px}.toast{left:16px;right:16px;max-width:none}.pills{top:64px}}
+@media (max-width:1200px){.progress{left:0;top:56px}.toast{left:16px;right:16px;max-width:none}.pills{top:56px}}
 @media (max-width:760px){.pills{position:static;flex-wrap:nowrap;overflow-x:auto;width:100%;max-width:100%;border-radius:var(--r);box-shadow:none;background:transparent;padding:4px 0;scrollbar-width:none}.pills::-webkit-scrollbar{display:none}.pills a{white-space:nowrap;flex:none}}
 @media (max-width:760px){
   .hero{grid-template-columns:1fr}.hero .art{width:150px;height:110px;order:-1;margin:0 0 -6px}
@@ -703,7 +704,7 @@ button.ev[aria-pressed="true"]{border-color:var(--ink);background:var(--amber-ti
 .share{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
 .share button,.share a.sh{
   font:500 13.5px/1 var(--sans);letter-spacing:0;text-transform:none;
-  border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 13px;
+  border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 14px;min-height:44px;
   cursor:pointer;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:7px
 }
 .share button:hover,.share a.sh:hover{border-color:var(--ink);background:var(--amber-tint)}
@@ -815,6 +816,7 @@ button.ev[aria-pressed="true"]{border-color:var(--ink);background:var(--amber-ti
 /* --- the one diagram -------------------------------------- */
 .iceberg{margin:20px 0 8px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:20px 18px 16px}
 .iceberg svg{display:block;width:100%;height:auto;max-width:720px;margin:0 auto}
+.iceberg svg.ib-tall{display:none}
 .iceberg figcaption{margin:12px auto 0;max-width:640px;font-size:13.5px;line-height:1.6;color:var(--muted);text-align:center}
 
 /* light hero: inherited dark-hero colours must not survive */
@@ -839,7 +841,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
 
 /* the one diagram keeps its own scroll rather than shrinking to 4px type */
 .ib-scroll{overflow-x:auto}
-@media (max-width:640px){.ib-scroll svg{min-width:560px}}
+@media (max-width:640px){.ib-scroll svg.ib-wide{display:none}.ib-scroll svg.ib-tall{display:block;max-width:420px}}
 
 @media print{.strip{break-inside:avoid}.body h3,.body h4,.prose h3+p{break-after:avoid}.tpl2,.hyp,.cc > div,.duo > div,.notes,.wo{break-inside:avoid}}
 
@@ -1049,7 +1051,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       <a href="#closed"><span class="n">File 07</span><b>Close the case</b></a>
     </nav>
 
-    <figure class="iceberg"><div class="ib-scroll" tabindex="0"><svg id="waterline" viewBox="0 0 720 320" role="img" aria-labelledby="ib-t ib-d">
+    <figure class="iceberg"><div class="ib-scroll"><svg id="waterline" class="ib-wide" viewBox="0 0 720 320" role="img" aria-labelledby="ib-t ib-d">
         <title id="ib-t">What you are asked for, and what is underneath</title>
         <desc id="ib-d">The request arrives as a training request. Underneath it sit six kinds of gap. A course can close two of them: knowledge and skill. The other four, process, tools, incentives and expectations, belong to whoever can change them.</desc>
         <rect x="214" y="10" width="292" height="52" rx="8" fill="#1C2530"/>
@@ -1104,6 +1106,43 @@ main[id],section.case[id]{scroll-margin-top:24px}
         </g>
         <circle class="lens-ring" id="lensRing" cx="-200" cy="-200" r="0" fill="none" stroke="#B8860B" stroke-width="2.5" aria-hidden="true"/>
         <text x="504" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.4" fill="#5B6673">THESE FOUR ARE A HANDOVER, NOT A COURSE</text>
+      </svg><svg class="ib-tall" viewBox="0 0 340 640" role="img" aria-labelledby="ib-t2 ib-d2">
+        <title id="ib-t2">What you are asked for, and what is underneath</title>
+        <desc id="ib-d2">The request arrives as a training request. Underneath it sit six kinds of gap. A course can close two of them: knowledge and skill. The other four, process, tools, incentives and expectations, belong to whoever can change them.</desc>
+        <rect x="10" y="6" width="320" height="60" rx="8" fill="#1C2530"/>
+        <text x="170" y="30" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1.2" fill="#B8860B">WHAT LANDS IN YOUR INBOX</text>
+        <text x="170" y="52" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="600" fill="#ffffff">"The team needs training on X."</text>
+        <path d="M170 66 L170 80" stroke="#1C2530" stroke-width="1.5"/>
+        <path d="M164 74 L170 82 L176 74" fill="none" stroke="#1C2530" stroke-width="1.5"/>
+        <path d="M10 108 H330" stroke="#B3402E" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <text x="10" y="101" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#B3402E">THE WATERLINE</text>
+        <text x="330" y="101" text-anchor="end" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#5B6673">WHAT NOBODY MENTIONED</text>
+        <rect x="10" y="122" width="320" height="156" rx="10" fill="#FDF8EC" stroke="#E8DBB5" stroke-width="1.5"/>
+        <g font-family="Inter,system-ui,sans-serif">
+          <rect x="26" y="138" width="288" height="54" rx="7" fill="#FAF3E1" stroke="#B8860B" stroke-width="1.5"/>
+          <text x="42" y="160" font-size="15" font-weight="600" fill="#7A5A08">Knowledge</text>
+          <text x="42" y="179" font-size="13" fill="#5B6673">nobody ever told them</text>
+          <rect x="26" y="204" width="288" height="54" rx="7" fill="#FAF3E1" stroke="#B8860B" stroke-width="1.5"/>
+          <text x="42" y="226" font-size="15" font-weight="600" fill="#7A5A08">Skill</text>
+          <text x="42" y="245" font-size="13" fill="#5B6673">never done under pressure</text>
+        </g>
+        <text x="170" y="298" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1" fill="#7A5A08">A COURSE CAN CLOSE THESE TWO</text>
+        <rect x="10" y="314" width="320" height="288" rx="10" fill="#F7F4EE" stroke="#DCD5C8" stroke-width="1.5"/>
+        <g font-family="Inter,system-ui,sans-serif">
+                    <rect x="26" y="330" width="288" height="54" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
+          <text x="42" y="352" font-size="15" font-weight="600" fill="#3B4756">Process</text>
+          <text x="42" y="371" font-size="13" fill="#5B6673">broken upstream</text>
+          <rect x="26" y="396" width="288" height="54" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
+          <text x="42" y="418" font-size="15" font-weight="600" fill="#3B4756">Tools</text>
+          <text x="42" y="437" font-size="13" fill="#5B6673">fail when used</text>
+          <rect x="26" y="462" width="288" height="54" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
+          <text x="42" y="484" font-size="15" font-weight="600" fill="#3B4756">Incentives</text>
+          <text x="42" y="503" font-size="13" fill="#5B6673">point the other way</text>
+          <rect x="26" y="528" width="288" height="54" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
+          <text x="42" y="550" font-size="15" font-weight="600" fill="#3B4756">Expectations</text>
+          <text x="42" y="569" font-size="13" fill="#5B6673">never said out loud</text>
+        </g>
+        <text x="170" y="622" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" letter-spacing=".8" fill="#5B6673">THESE FOUR ARE A HANDOVER, NOT A COURSE</text>
       </svg></div>
       <figcaption>Every request arrives above the waterline. The job in File 03 is to find out which of the six sits underneath, because four of them will not move however good the course is.</figcaption>
     </figure>
@@ -1980,11 +2019,12 @@ main[id],section.case[id]{scroll-margin-top:24px}
 
   // Progress bar
   var pbar=document.getElementById('pbar');
-  var totopBtn=document.getElementById('totop'),ticking=false;
+  var totopBtn=document.getElementById('totop'),ticking=false,lastY=0,narrow=window.matchMedia('(max-width:760px)');
   function paint(){ticking=false;var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;
     pbar.style.transform='scaleX('+(max>0?h.scrollTop/max:0)+')';
     paintPills();
-    totopBtn.classList.toggle('show',h.scrollTop>900);}
+    var up=h.scrollTop<lastY;lastY=h.scrollTop;
+    totopBtn.classList.toggle('show',h.scrollTop>900&&(!narrow.matches||up));}
   function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(paint);}}
   window.addEventListener('scroll',onScroll,{passive:true});paint();
   var calm=window.matchMedia('(prefers-reduced-motion:reduce)');
@@ -2000,14 +2040,12 @@ main[id],section.case[id]{scroll-margin-top:24px}
   var read=store.get('ldd-read')||[];
   function markRead(id){if(read.indexOf(id)<0){read.push(id);store.set('ldd-read',read);}if(byId[id])byId[id].classList.add('read');}
   read.forEach(function(id){if(byId[id])byId[id].classList.add('read');});
-  if('IntersectionObserver' in window){
-    // a section counts as read once its end has been on screen
-    var endIO=new IntersectionObserver(function(es){es.forEach(function(en){
-      var rb=en.rootBounds?en.rootBounds.bottom:window.innerHeight;
-      if(en.isIntersecting&&en.boundingClientRect.bottom<=rb)markRead(en.target.id);});},
-      {threshold:[0,.01,.5,1]});
-    sections.forEach(function(s){endIO.observe(s);});
-  }
+  // a section counts as read once its end has been on screen (works for sections many screens tall)
+  var readTick=false;
+  function checkRead(){readTick=false;var vh=window.innerHeight;
+    sections.forEach(function(sec){var b=sec.getBoundingClientRect().bottom;if(b>0&&b<=vh+2)markRead(sec.id);});}
+  window.addEventListener('scroll',function(){if(!readTick){readTick=true;requestAnimationFrame(checkRead);}},{passive:true});
+  checkRead();
   var last=store.get('ldd-last');var toast=document.getElementById('toast');
   if(last&&last!=='start'&&!location.hash&&titles[last]){
     toast.innerHTML='<span class="t">Welcome back. Continue from <b>'+titles[last]+'</b>?</span><a class="go" href="#'+last+'">Continue →</a><button type="button" aria-label="Dismiss"><svg class="ico sm" aria-hidden="true"><use href="#i-close"/></svg></button>';
@@ -2119,7 +2157,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       Object.keys(lists).forEach(function(k){lists[k].textContent='';});}
     toPool();done.hidden=true;
     var acts=document.createElement('div');acts.className='acts no-print';
-    acts.innerHTML='<button type="button" class="tbtn" id="sortReset">Reset</button>';sorter.appendChild(acts);
+    acts.innerHTML='<button type="button" class="tbtn" id="sortReset">Reset</button>';acts.hidden=true;sorter.appendChild(acts);
     var picked=null;
     function pick(c){if(picked)picked.setAttribute('aria-pressed','false');picked=c;if(c)c.setAttribute('aria-pressed','true');sorter.classList.toggle('picking',!!c);}
     function place(c,zone,fromKey){
@@ -2128,7 +2166,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       c.classList.toggle('ok',ok);c.classList.toggle('bad',!ok);c.lastChild.textContent=ok?' Right.':' Wrong box.';
       fb.textContent=ok?(zone==='course'?'Right. '+g+', and a course can fix it.':'Right. '+g+', so hand it over.')
                        :(zone==='course'?'Not a course. That\'s '+g+', so hand it over.':'A course can fix this one. That\'s '+g+'.');
-      done.hidden=pool.children.length>0;
+      done.hidden=pool.children.length>0;acts.hidden=false;
       var next=pool.querySelector('.ev');
       if(fromKey){(next||document.getElementById('sortReset')).focus();}
     }
@@ -2166,7 +2204,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
         else if(e.target.closest('.zt'))fb.textContent='Pick a quote first, then the box.';
       });
     });
-    document.getElementById('sortReset').addEventListener('click',function(){pick(null);toPool();fb.textContent='';done.hidden=true;cards[0].focus();});
+    document.getElementById('sortReset').addEventListener('click',function(){pick(null);toPool();fb.textContent='';done.hidden=true;cards[0].focus();acts.hidden=true;});
   }
 
   // ---- What will you steal? The two blanks become fields; Stamp it saves the line ----
