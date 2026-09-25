@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The L&amp;D Detective Field Guide</title>
+<meta name="description" content="Most training requests aren't training problems. A field guide for L&D partners: the 20-minute CLUE conversation that finds the real gap, four gadgets, seven rules of evidence, a Case File template and seven solved cases.">
+<meta name="author" content="Hanna Petrasian">
+<meta property="og:title" content="The L&D Detective Field Guide">
+<meta property="og:description" content="Most training requests aren't training problems. A course closes two of six gaps. The 20-minute CLUE conversation that finds the real one, four gadgets, seven rules of evidence, a Case File template and seven solved cases.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hannapetrasian.github.io/ld-detective/">
+<meta property="og:image" content="https://hannapetrasian.github.io/ld-detective/og-image.png?v=7">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%231C2530%27/%3E%3Cg fill=%27none%27 stroke=%27%23B8860B%27 stroke-width=%275%27 stroke-linecap=%27round%27%3E%3Ccircle cx=%2727%27 cy=%2727%27 r=%2713%27/%3E%3Cpath d=%27M37 37 L49 49%27/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ---------- fonts ---------- */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/inter-latin-400-italic.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/ibm-plex-mono-latin-600-normal.woff2") format("woff2")}
+
+/* ---------- tokens ---------- */
+:root{
+  --paper:#F7F4EE; --paper-2:#EFEAE0; --card:#FFFFFF;
+  --ink:#1C2530; --ink-2:#3B4756; --muted:#5B6673;
+  --line:#DCD5C8; --line-2:#C9C1B2;
+  --amber:#B8860B; --amber-ink:#7A5A08; --amber-soft:#F3E7C6; --amber-tint:#FAF3E1;
+  --string:#B3402E;
+  --on-ink:#F7F4EE; --on-ink-muted:#B9C0C9;
+  --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-sm:4px; --r:8px; --r-lg:12px;
+  --shadow:0 1px 2px rgba(28,37,48,.06),0 6px 20px -8px rgba(28,37,48,.12);
+  --nav-w:272px; --measure:72ch; --wide:960px;
+  --t:200ms cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *,*::before,*::after{transition-duration:0ms!important;animation-duration:0ms!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased}
+a{color:var(--amber-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:var(--r-sm)}
+img,svg{max-width:100%}
+p{margin:0 0 1em}
+strong{font-weight:600}
+em{font-style:italic}
+h1,h2,h3,h4{line-height:1.2;margin:0;letter-spacing:-.01em}
+ul,ol{margin:0 0 1.1em;padding-left:1.3em}
+li{margin:.35em 0}
+li::marker{color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-4px}
+.ico.sm{width:16px;height:16px}
+
+/* ---------- mono labels ---------- */
+.label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.label.amber{color:var(--ink-2)}
+
+
+/* ---------- layout ---------- */
+.topbar{display:none}
+.nav{position:fixed;inset:0 auto 0 0;width:var(--nav-w);background:var(--paper-2);border-right:1px solid var(--line);padding:28px 20px 24px;overflow-y:auto;z-index:20}
+.nav .brand{display:block;color:var(--ink);text-decoration:none;padding:4px 8px 18px;border-bottom:1px solid var(--line-2);margin-bottom:14px}
+.nav .brand .label{display:block;margin-bottom:6px}
+.nav .brand strong{display:block;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.nav ol{list-style:none;margin:0;padding:0}
+.nav li{margin:0}
+.nav a.item{display:flex;align-items:baseline;gap:12px;padding:10px 10px;border-radius:var(--r);color:var(--ink-2);text-decoration:none;font-size:15px;font-weight:500;line-height:1.3;min-height:44px;transition:background var(--t),color var(--t)}
+.nav a.item .num{font-family:var(--mono);font-size:12px;color:var(--muted);width:2.2ch;flex:none;letter-spacing:.04em}
+.nav a.item:hover{background:rgba(28,37,48,.05);color:var(--ink)}
+.nav a.item[aria-current="true"]{background:var(--card);color:var(--ink);box-shadow:inset 3px 0 0 var(--amber)}
+.nav a.item[aria-current="true"] .num{color:var(--amber-ink)}
+.nav .downloads{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2)}
+.nav .foot{margin-top:22px;padding:0 10px;font-size:12px;color:var(--muted);line-height:1.5}
+.nav .foot a{color:var(--muted)}
+main{margin-left:var(--nav-w);padding:0 clamp(20px,5vw,72px) 80px}
+.wrap{max-width:var(--wide);margin:0 auto}
+.prose{max-width:var(--measure)}
+section.case{padding-top:40px}
+section.case + section.case{margin-top:24px}
+
+/* ---------- masthead ---------- */
+.masthead{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.masthead .label{margin-bottom:18px;display:block}
+.masthead h1{font-size:clamp(38px,5vw,60px);font-weight:700;letter-spacing:-.025em;max-width:16ch}
+.masthead .sub{font-size:clamp(19px,2vw,23px);color:var(--ink-2);margin:18px 0 26px;max-width:32ch;line-height:1.35}
+.masthead .byline{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:15px;color:var(--muted)}
+.masthead .byline a{color:var(--ink-2)}
+.masthead .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border-radius:var(--r);border:1px solid var(--ink);background:var(--ink);color:var(--on-ink);font:inherit;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;transition:background var(--t),color var(--t),box-shadow var(--t)}
+.btn:hover{background:#2B3745;color:var(--on-ink)}
+.btn:active{box-shadow:inset 0 2px 4px rgba(0,0,0,.25)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn.ghost:hover{background:var(--card);border-color:var(--ink)}
+.btn.amber{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.btn.amber:hover{background:#C9961A;color:var(--ink)}
+.btn .meta{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;opacity:.8}
+
+/* ---------- section hero (ink band) ---------- */
+.hero{background:var(--ink);color:var(--on-ink);border-radius:var(--r-lg);padding:34px 36px 30px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(closest-side,rgba(184,134,11,.22),transparent 70%)}
+.hero .label{margin-bottom:12px;display:block}
+.hero h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;color:#fff}
+.hero .when{margin:18px 0 0;font-size:15px;color:var(--on-ink-muted);max-width:60ch;display:flex;gap:10px;align-items:flex-start}
+.hero .when .ico{margin-top:3px;color:var(--amber)}
+.hero .when strong{color:var(--on-ink);font-weight:600}
+.body{padding-top:36px}
+.body h3{font-size:24px;font-weight:700;margin:2.2rem 0 .8rem;letter-spacing:-.015em}
+.body > .prose:first-child > h3:first-child{margin-top:0}
+.body h4{font-size:19px;font-weight:600;margin:1.6rem 0 .5rem}
+.lead{font-size:19px;line-height:1.55;color:var(--ink-2)}
+
+/* ---------- cards & callouts ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 28px;box-shadow:var(--shadow)}
+.notes{border:1px dashed var(--line-2);background:var(--paper);padding:14px 18px;border-radius:var(--r);margin:1.2em 0;font-family:var(--mono);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.notes .label{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.notes .ico{color:var(--amber-ink)}
+
+/* rubber stamp */
+.stamp{display:inline-block;font-family:var(--mono);font-weight:600;font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-ink);border:2px solid var(--amber-ink);border-radius:6px;padding:6px 12px;transform:rotate(-6deg);opacity:.9;user-select:none}
+.stamped{position:relative}
+.stamped .stamp{position:absolute;right:20px;top:-16px}
+
+/* ---------- question lists (CLUE) ---------- */
+.clue{display:grid;grid-template-columns:72px 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden;margin:20px 0}
+.clue .mono{background:var(--paper-2);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding-top:26px}
+.clue .mono .letter{font-family:var(--mono);font-weight:600;font-size:34px;line-height:1;color:var(--ink);width:48px;height:48px;display:grid;place-items:center;border:2px solid var(--ink);border-radius:var(--r)}
+.clue .content{padding:26px 30px 26px}
+.clue h3{margin:0 0 6px;font-size:24px}
+.clue .goal{color:var(--ink-2);margin:0 0 1.2em;font-size:17px}
+.clue .goal strong{color:var(--ink)}
+.ask{list-style:none;padding:0;margin:.4em 0 1.2em}
+.ask li{margin:0;padding:12px 0;border-top:1px solid var(--line)}
+.ask li:last-child{border-bottom:1px solid var(--line)}
+.ask .q{display:block;font-weight:500;color:var(--ink);font-size:17px}
+.ask .q::before{content:"\201C";color:var(--amber);font-weight:700;margin-right:2px}
+.ask .q::after{content:"\201D";color:var(--amber);font-weight:700;margin-left:1px}
+.ask .q.plain::before,.ask .q.plain::after{content:none}
+.ask .tech{display:block;margin-top:4px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.ask .tech b{font-weight:600;color:var(--ink-2)}
+.ask li.keep{position:relative;padding-left:14px;border-left:3px solid var(--amber)}
+.ask li.keep .kb{display:block;margin-bottom:5px;font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--amber-ink)}
+.dothis{display:flex;gap:10px;align-items:flex-start;margin-top:.8em;padding:10px 14px;background:var(--amber-tint);border-radius:var(--r);font-size:15px;color:var(--ink)}
+.dothis .ico{color:var(--amber-ink);margin-top:3px}
+.cluster{margin-top:2rem}
+.cluster h3{display:flex;align-items:center;gap:12px}
+.cluster h3 .label{font-size:11px}
+
+/* ---------- gadgets ---------- */
+.gadget{display:grid;grid-template-columns:56px 1fr;gap:20px;margin:26px 0;padding:26px 28px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.gadget .badge{width:56px;height:56px;border-radius:var(--r);background:var(--paper-2);display:grid;place-items:center;color:var(--ink)}
+.gadget .badge .ico{width:26px;height:26px}
+.gadget header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:8px}
+.gadget header h3{margin:0;font-size:24px}
+.gadget header .use{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.gadget .reach{color:var(--ink-2);font-size:15px;margin-bottom:1em}
+.roles{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:1.2em 0;padding:8px 0}
+.role{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px}
+.role .pin{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--string);box-shadow:0 1px 2px rgba(0,0,0,.35),inset 0 -3px 0 rgba(0,0,0,.2);z-index:3}
+.role .who{font-weight:700;font-size:17px;margin-bottom:2px}
+.role .what{font-size:13.5px;color:var(--muted);margin-bottom:8px}
+.role .ask1{font-size:15px;color:var(--ink);font-style:italic}
+.roles svg.string{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.roles svg.string path{fill:none;stroke:var(--string);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.cold{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin:1.2em 0}
+.file{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 22px 20px;position:relative;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.file::before{content:"";position:absolute;top:-1px;left:22px;width:44px;height:5px;background:var(--amber);border-radius:0 0 3px 3px}
+.file .n{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted);font-weight:600;text-transform:uppercase}
+.file h4{margin:0;font-size:19px;line-height:1.3}
+.file dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:15px;line-height:1.5}
+.file dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px;white-space:nowrap}
+.file dd{margin:0;color:var(--ink-2)}
+.file dd.fix{color:var(--ink)}
+.file.lost{grid-column:1/-1;border-color:var(--line-2);background:var(--paper)}
+.file.lost dl{grid-template-columns:auto 1fr}
+.dl{display:flex;flex-wrap:wrap;gap:12px;margin:1.2em 0}
+
+/* ---------- footer ---------- */
+footer.credit{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:flex-start}
+footer.credit .who{color:var(--ink);font-weight:600}
+footer.credit a{color:var(--ink-2)}
+
+
+/* ---------- upgrade: illustrations ---------- */
+:root{--nav-w:292px}
+.illo{stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.illo text{font-family:var(--mono);font-weight:600;fill:currentColor;stroke:none}
+.hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.hero::after{display:none}
+.hero .art{width:200px;height:150px;color:var(--on-ink-muted);opacity:.95;margin-right:-6px}
+.hero .art svg{width:100%;height:100%;overflow:visible}
+.hero .meta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+.hero .chip{font-family:var(--mono);font-size:12px;letter-spacing:.02em;text-transform:none;color:var(--on-ink-muted);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 10px}
+.masthead{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.masthead .mast-art{width:300px;height:220px;color:var(--ink-2)}
+.masthead .mast-art svg{width:100%;height:100%;overflow:visible}
+.masthead .cta{grid-column:1/-1}
+
+/* ---------- upgrade: contents grid ---------- */
+.toc{margin:44px 0 8px}
+.toc .label{display:block;margin-bottom:14px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.toc-card{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 16px 14px;text-decoration:none;color:var(--ink);transition:transform var(--t),box-shadow var(--t),border-color var(--t);min-height:44px}
+.toc-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--line-2);color:var(--ink)}
+.toc-card .ic{width:40px;height:40px;border-radius:var(--r);background:var(--paper-2);display:grid;place-items:center;color:var(--ink)}
+.toc-card .ic .ico{width:22px;height:22px}
+.toc-card .n{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:600;display:block;margin-bottom:2px}
+.toc-card b{display:block;font-size:15px;line-height:1.3;margin-bottom:3px}
+.toc-card span.d{display:block;font-size:13.5px;color:var(--muted);line-height:1.45}
+
+/* ---------- upgrade: progress + back to top + toast ---------- */
+.progress{position:fixed;top:0;left:var(--nav-w);right:0;height:3px;background:transparent;z-index:40;pointer-events:none}
+.progress i{display:block;height:100%;width:100%;background:var(--amber);transition:transform 120ms linear;transform:scaleX(0);transform-origin:0 50%}
+.totop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--on-ink);border:0;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px -8px rgba(28,37,48,.5);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity var(--t),transform var(--t);z-index:35}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{background:#2B3745}
+.toast{position:fixed;left:calc(var(--nav-w) + 24px);bottom:24px;background:var(--card);border:1px solid var(--line-2);border-left:4px solid var(--amber);border-radius:var(--r);box-shadow:var(--shadow);padding:12px 14px 12px 16px;display:flex;align-items:center;gap:14px;max-width:min(520px,calc(100vw - 48px));z-index:36;transform:translateY(20px);opacity:0;transition:opacity var(--t),transform var(--t)}
+.toast.show{opacity:1;transform:none}
+.toast .t{font-size:15px;color:var(--ink-2)}
+.toast .t b{color:var(--ink)}
+.toast a.go{font-weight:600;color:var(--ink);white-space:nowrap}
+.toast button{all:unset;cursor:pointer;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;color:var(--muted)}
+.toast button:hover{background:var(--paper-2);color:var(--ink)}
+
+/* ---------- upgrade: toggles ---------- */
+.toolrow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 10px}
+.toolrow .hint{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;gap:8px}
+.tbtn{all:unset;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;background:var(--card);transition:background var(--t),border-color var(--t)}
+.tbtn:hover{border-color:var(--ink)}
+.tbtn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+
+/* ---------- upgrade: CLUE jump pills ---------- */
+.pills{position:sticky;top:12px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;padding:8px;margin:0 0 18px;background:rgba(247,244,238,.97);border-radius:999px;width:max-content;max-width:100%;box-shadow:0 6px 18px -10px rgba(28,37,48,.25)}
+.pills a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px 0 6px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px;transition:border-color var(--t),background var(--t)}
+.pills a:hover{border-color:var(--ink)}
+.pills a i{font-family:var(--mono);font-weight:600;font-style:normal;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:var(--on-ink);font-size:13.5px}
+.pills a[aria-current="true"]{border-color:var(--amber);background:var(--amber-tint)}
+.chain-verdict{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;margin-top:4px;padding:14px 16px;background:var(--amber-tint);border-radius:var(--r);color:var(--ink-2)}
+.chain-verdict .ico{color:var(--amber-ink);margin-top:2px}
+
+/* ---------- upgrade: so-what ladder ---------- */
+.ladder{list-style:none;margin:1.2em 0;padding:0;display:grid;gap:8px}
+.ladder li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;position:relative}
+.ladder li:nth-child(2){margin-left:24px}.ladder li:nth-child(3){margin-left:48px}.ladder li:nth-child(4){margin-left:72px;background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.ladder li .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;width:auto;white-space:nowrap;min-width:84px}
+.ladder li:nth-child(4) .k{color:var(--amber)}
+.ladder li em{color:inherit}
+.ladder li::after{content:"";position:absolute;left:40px;bottom:-9px;width:2px;height:9px;background:var(--line-2)}
+.ladder li:last-child::after{display:none}
+
+/* ---------- upgrade: micro polish ---------- */
+.card,.gadget,.file,.clue{transition:box-shadow var(--t),transform var(--t)}
+.file:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(28,37,48,.06),0 14px 30px -12px rgba(28,37,48,.2)}
+.outcomes{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.outcomes li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;margin:0}
+.outcomes li .ico{color:var(--ink-2);margin-top:3px}
+.nav a.item{position:relative;padding-right:30px;font-size:15px}
+.nav a.item .tick{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--amber-ink);opacity:0;transition:opacity var(--t)}
+.nav a.item.read .tick{opacity:1}
+
+@media (max-width:1200px){.progress{left:0;top:56px}.toast{left:16px;right:16px;max-width:none}.pills{top:64px}}
+@media (max-width:760px){.pills{position:static;flex-wrap:nowrap;overflow-x:auto;width:100%;max-width:100%;border-radius:var(--r);box-shadow:none;background:transparent;padding:4px 0;scrollbar-width:none}.pills::-webkit-scrollbar{display:none}.pills a{white-space:nowrap;flex:none}}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}.hero .art{width:150px;height:110px;order:-1;margin:0 0 -6px}
+  .masthead{grid-template-columns:1fr}.masthead .mast-art{width:220px;height:160px;order:-1}
+  .ladder li:nth-child(2){margin-left:10px}.ladder li:nth-child(3){margin-left:20px}.ladder li:nth-child(4){margin-left:30px}
+  .totop{right:14px;bottom:14px}
+}
+@media print{.progress,.totop,.toast,.pills,.toolrow{display:none!important}.hero .art{color:#555}}
+
+
+/* ---------- v3: editorial structure ---------- */
+.prose h3{margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.prose h3.plain,.body > .prose:first-child > h3:first-child{border-top:0;padding-top:0}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.2em 0}
+.cmp{border-radius:var(--r-lg);padding:22px 24px;position:relative}
+.cmp.bad{background:var(--card);border:1px solid var(--line)}
+.cmp.good{background:var(--ink);color:var(--on-ink)}
+.cmp .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.cmp.bad .tag{color:var(--string)}
+.cmp.good .tag{color:var(--amber)}
+.cmp .tag .mark{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600}
+.cmp.bad .tag .mark{background:var(--string);color:#fff}
+.cmp.good .tag .mark{background:var(--amber);color:var(--ink)}
+.cmp .said{font-style:italic;color:var(--ink-2);margin:0 0 .8em}
+.cmp.good .said{color:var(--on-ink-muted)}
+.cmp .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-muted);margin:0 0 8px}
+.cmp.good q{display:block;font-family:var(--mono);font-size:15px;line-height:1.55;color:#fff;quotes:"\201C" "\201D"}
+.cmp p:last-child{margin:0}
+
+.rules3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:1.2em 0}
+@media (min-width:761px){.rules3:has(> .rule3:nth-child(2):last-child){grid-template-columns:1fr 1fr}}
+.rule3 .dothis{margin-top:auto}
+.rule3{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px}
+.rule3 .n{font-family:var(--mono);font-weight:600;font-size:13.5px;color:var(--muted);width:32px;height:32px;display:grid;place-items:center;border:1.5px solid var(--line-2);border-radius:var(--r-sm)}
+.rule3 h4{margin:0;font-size:19px;line-height:1.25}
+.rule3 p{margin:0;font-size:15px;color:var(--ink-2)}
+.rule3 .punch{color:var(--amber-ink);font-style:italic}
+.rule3 ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.rule3 ul li{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px;color:var(--ink-2)}
+.rule3 ul li .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink);font-weight:600;padding-top:4px;min-width:58px}
+.rule3 .pron{display:grid;gap:8px;margin-top:4px}
+.rule3 .pron div{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px;color:var(--ink-2)}
+.rule3 .pron .k{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-top:2px}
+.rule3 .pron .k.bad{background:#F3DDD8;color:#7A2A1D}
+.rule3 .pron .k.good{background:var(--amber-soft);color:var(--amber-ink)}
+
+.movelist{list-style:none;margin:1em 0 1.2em;padding:0;display:grid;gap:10px}
+.movelist li{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px}
+.movelist .mn{width:36px;height:36px;border-radius:var(--r-sm);background:var(--paper-2);display:grid;place-items:center;font-family:var(--mono);font-weight:600;color:var(--ink);font-size:13.5px}
+.movelist h4{margin:0 0 6px;font-size:17px}
+.movelist p{margin:0;color:var(--ink-2);font-size:15px}
+
+.fourline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:.6em 0 1.2em}
+.fourline span{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;font-weight:600;font-size:15px}
+.fourline i{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--amber-ink);font-weight:600}
+
+.hand{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1em 0 1.4em}
+.hand > div{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.hand .mn{width:32px;height:32px;border-radius:var(--r-sm);background:var(--paper-2);color:var(--ink);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:13.5px}
+.hand h4{margin:0 0 4px;font-size:17px}
+.hand p{margin:0;font-size:15px;color:var(--ink-2)}
+
+@media (max-width:760px){
+  .compare,.rules3,.hand{grid-template-columns:1fr}
+  .fourline{grid-template-columns:1fr 1fr}
+  .movelist li{grid-template-columns:1fr;gap:8px}
+  
+}
+@media print{.cmp,.rule3,.movelist li,.hand > div{break-inside:avoid;box-shadow:none}.cmp.good{background:#fff;color:#000;border:1.5px solid #000}.cmp.good q{color:#000}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1200px){
+  :root{--nav-w:0px}
+  .topbar{display:flex;position:fixed;top:0;left:0;right:0;height:56px;background:var(--paper-2);border-bottom:1px solid var(--line);align-items:center;justify-content:space-between;padding:0 12px 0 16px;z-index:30;padding-top:env(safe-area-inset-top)}
+  .topbar .t{font-weight:700;font-size:15px;white-space:nowrap;flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;padding:0 8px}
+  .topbar .btn{white-space:nowrap}
+  .topbar button{all:unset;display:inline-flex;align-items:center;gap:8px;min-width:44px;min-height:44px;padding:0 10px;border-radius:var(--r);cursor:pointer;color:var(--ink);font:inherit;font-weight:600;font-size:13.5px}
+  .topbar button:hover{background:rgba(28,37,48,.06)}
+  .nav{transform:translateX(-100%);transition:transform 260ms cubic-bezier(.2,.7,.2,1);width:min(320px,86vw);padding-top:72px;box-shadow:none}
+  .nav.open{transform:none;box-shadow:0 0 0 100vmax rgba(28,37,48,.45)}
+  main{margin-left:0;padding-top:56px}
+  
+  .masthead{padding-top:40px}
+}
+@media (max-width:760px){
+  body{font-size:17px}
+  .topbar .t{display:none}
+  .hero{padding:26px 22px 24px;border-radius:var(--r)}
+  .card,.gadget{padding:20px 18px}
+  .clue{grid-template-columns:1fr}
+  .clue .mono{flex-direction:row;border-right:0;border-bottom:1px solid var(--line);padding:14px 18px;justify-content:flex-start}
+  .clue .content{padding:20px 18px}
+  .gadget{grid-template-columns:1fr;gap:12px}
+  .roles{grid-template-columns:1fr}
+  .roles svg.string{display:none}
+  .stamped .stamp{position:static;display:inline-block;margin-bottom:12px;transform:rotate(-3deg)}
+  .file.lost dl{grid-template-columns:1fr}
+  .file.lost dt{padding-top:6px}
+}
+
+/* ---------- print ---------- */
+@media print{
+  @page{margin:16mm}
+  body{background:#fff;font-size:11.5pt;color:#000}
+  .nav,.topbar,.masthead .cta,.no-print{display:none!important}
+  main{margin:0;padding:0}
+  section.case{page-break-before:always;padding-top:0}
+  section.case:first-of-type{page-break-before:auto}
+  .hero{background:#fff;color:#000;border:1.5px solid #000;border-radius:0}
+  .hero h2{color:#000}.hero .when{color:#333}.hero .label{color:#555}
+  .hero::after{display:none}
+  .card,.gadget,.clue,.file{box-shadow:none;break-inside:avoid}
+  a{color:#000}
+  .btn{display:none}
+}
+
+/* A table stacks into cards when the table itself runs out of room, not when
+   the window does. The side nav disappears at 1080px, so viewport breakpoints
+   get this wrong in both directions; container queries do not. */
+.body,.clue .content,.gadget > div,.card{container-type:inline-size}
+
+/* --- one table component for the whole guide ---------------
+   Real table markup, so screen readers and print both get a table. The stacked
+   card view below is a display switch on top of it; the ARIA roles are spelled
+   out in the markup because display:block drops native table semantics in
+   Chrome and Safari. */
+.gt-wrap,.tl-wrap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;margin:14px 0 6px}
+.gt-wrap.flush{margin:0;border:0;border-radius:0}
+.gt,.tl{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;background:#fff}
+.gt{font-size:15px}
+.gt th,.gt td,.tl th,.tl td{
+  text-align:left;vertical-align:top;font-weight:400;
+  border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+  overflow-wrap:break-word;hyphens:auto;
+}
+.gt th,.gt td{padding:9px 13px}
+.tl th,.tl td{padding:13px 14px}
+.gt tr > :last-child,.tl tr > :last-child{border-right:0}
+.gt tbody tr:last-child > *,.tl tbody tr:last-child > *{border-bottom:0}
+.gt .h,.tl thead th{
+  font:600 12px/1.3 var(--mono);letter-spacing:.04em;text-transform:none;
+  color:var(--muted);background:#FBF9F4;padding:9px 14px;
+}
+.gt .c.k{font:600 15px/1.5 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink);background:#FCFAF6}
+.gt .c.muted,.gt .c.why{color:var(--muted);font-size:13.5px}
+.gt .c.q{color:var(--ink)}
+.gt .c.q q{font-style:normal}
+.gt q,.tl q{quotes:none}
+.gt q::before,.gt q::after,.tl q::before,.tl q::after{content:'"';color:var(--amber);font-weight:700}
+.gt .c.let,.tl .st{
+  background:var(--paper);color:var(--ink);
+  font:600 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+}
+.tl .st{font-size:13.5px;letter-spacing:.06em}
+.tl .rev{font-size:15px;line-height:1.55;color:var(--ink-2)}
+.tl .chg{font-size:15px;line-height:1.55;color:var(--ink)}
+.tl .last .chg{font-weight:600}
+.gt .bx,.tl .bx{
+  display:inline-flex;align-items:center;justify-content:center;vertical-align:top;
+  width:26px;height:26px;margin-right:8px;
+  border:1.5px solid var(--ink);border-radius:5px;background:#fff;
+  font:600 13.5px/1 var(--mono);
+}
+.tl .bx{width:24px;height:24px}
+.gt .lb,.tl .lb{display:inline-block;vertical-align:top;overflow-wrap:anywhere}
+.gt .sub{display:block;font:400 13.5px/1.45 var(--sans);letter-spacing:0;text-transform:none;color:var(--muted);margin-top:4px}
+.gt strong,.tl strong{font-weight:600}
+
+/* A table stacks when the table itself runs out of room, not when the window
+   does: the side nav disappears mid-range, so viewport breakpoints get this
+   wrong in both directions. Print never stacks, hence @media screen. */
+@media screen{
+@container (max-width:900px){
+  .gt-wrap[data-cols="5"]{border:0;background:transparent;overflow:visible}
+  .gt-wrap[data-cols="5"] .gt{display:block}
+  .gt-wrap[data-cols="5"] thead{display:none}
+  .gt-wrap[data-cols="5"] tbody,.gt-wrap[data-cols="5"] tr,.gt-wrap[data-cols="5"] th,.gt-wrap[data-cols="5"] td{display:block}
+  .gt-wrap[data-cols="5"] tr{margin-bottom:16px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .gt-wrap[data-cols="5"] tbody tr:last-child{margin-bottom:0}
+  .gt-wrap[data-cols="5"] th,.gt-wrap[data-cols="5"] td{border-right:0;padding:10px 13px}
+  .gt-wrap[data-cols="5"] tr > :last-child{border-bottom:0}
+  .gt-wrap[data-cols="5"] [data-l]::before{content:attr(data-l);display:block;font:600 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .gt-wrap[data-cols="5"] .c.k,.gt-wrap[data-cols="5"] .c.let{background:var(--ink);color:#fff;font:600 13.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;border-bottom:0}
+  .gt-wrap[data-cols="5"] .c.k[data-l]::before{color:var(--on-ink-muted)}
+  .gt-wrap[data-cols="5"] .c.let .bx{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+  .gt-wrap[data-cols="5"] .c.q{border-left:3px solid var(--amber);background:#FFFDF8;font-size:15px;line-height:1.5;color:var(--ink)}
+  .gt-wrap[data-cols="5"] .c.q[data-l]::before{color:var(--amber-ink)}
+  .gt-wrap[data-cols="5"] .c.muted,.gt-wrap[data-cols="5"] .c.why{font-size:13.5px}
+  .gt-wrap[data-cols="5"] .c.muted[data-l]::before,.gt-wrap[data-cols="5"] .c.why[data-l]::before{display:inline;margin-right:7px;margin-bottom:0}
+}
+@container (max-width:760px){
+  .gt-wrap[data-cols="4"]{border:0;background:transparent;overflow:visible}
+  .gt-wrap[data-cols="4"] .gt{display:block}
+  .gt-wrap[data-cols="4"] thead{display:none}
+  .gt-wrap[data-cols="4"] tbody,.gt-wrap[data-cols="4"] tr,.gt-wrap[data-cols="4"] th,.gt-wrap[data-cols="4"] td{display:block}
+  .gt-wrap[data-cols="4"] tr{margin-bottom:16px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .gt-wrap[data-cols="4"] tbody tr:last-child{margin-bottom:0}
+  .gt-wrap[data-cols="4"] th,.gt-wrap[data-cols="4"] td{border-right:0;padding:10px 13px}
+  .gt-wrap[data-cols="4"] tr > :last-child{border-bottom:0}
+  .gt-wrap[data-cols="4"] [data-l]::before{content:attr(data-l);display:block;font:600 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .gt-wrap[data-cols="4"] .c.k,.gt-wrap[data-cols="4"] .c.let{background:var(--ink);color:#fff;font:600 13.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;border-bottom:0}
+  .gt-wrap[data-cols="4"] .c.k[data-l]::before{color:var(--on-ink-muted)}
+  .gt-wrap[data-cols="4"] .c.let .bx{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+  .gt-wrap[data-cols="4"] .c.q{border-left:3px solid var(--amber);background:#FFFDF8;font-size:15px;line-height:1.5;color:var(--ink)}
+  .gt-wrap[data-cols="4"] .c.q[data-l]::before{color:var(--amber-ink)}
+  .gt-wrap[data-cols="4"] .c.muted,.gt-wrap[data-cols="4"] .c.why{font-size:13.5px}
+  .gt-wrap[data-cols="4"] .c.muted[data-l]::before,.gt-wrap[data-cols="4"] .c.why[data-l]::before{display:inline;margin-right:7px;margin-bottom:0}
+}
+@container (max-width:700px){
+  .gt-wrap[data-cols="3"]{border:0;background:transparent;overflow:visible}
+  .gt-wrap[data-cols="3"] .gt{display:block}
+  .gt-wrap[data-cols="3"] thead{display:none}
+  .gt-wrap[data-cols="3"] tbody,.gt-wrap[data-cols="3"] tr,.gt-wrap[data-cols="3"] th,.gt-wrap[data-cols="3"] td{display:block}
+  .gt-wrap[data-cols="3"] tr{margin-bottom:16px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .gt-wrap[data-cols="3"] tbody tr:last-child{margin-bottom:0}
+  .gt-wrap[data-cols="3"] th,.gt-wrap[data-cols="3"] td{border-right:0;padding:10px 13px}
+  .gt-wrap[data-cols="3"] tr > :last-child{border-bottom:0}
+  .gt-wrap[data-cols="3"] [data-l]::before{content:attr(data-l);display:block;font:600 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .gt-wrap[data-cols="3"] .c.k,.gt-wrap[data-cols="3"] .c.let{background:var(--ink);color:#fff;font:600 13.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;border-bottom:0}
+  .gt-wrap[data-cols="3"] .c.k[data-l]::before{color:var(--on-ink-muted)}
+  .gt-wrap[data-cols="3"] .c.let .bx{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+  .gt-wrap[data-cols="3"] .c.q{border-left:3px solid var(--amber);background:#FFFDF8;font-size:15px;line-height:1.5;color:var(--ink)}
+  .gt-wrap[data-cols="3"] .c.q[data-l]::before{color:var(--amber-ink)}
+  .gt-wrap[data-cols="3"] .c.muted,.gt-wrap[data-cols="3"] .c.why{font-size:13.5px}
+  .gt-wrap[data-cols="3"] .c.muted[data-l]::before,.gt-wrap[data-cols="3"] .c.why[data-l]::before{display:inline;margin-right:7px;margin-bottom:0}
+}
+@container (max-width:460px){
+  .gt-wrap[data-cols="2"]{border:0;background:transparent;overflow:visible}
+  .gt-wrap[data-cols="2"] .gt{display:block}
+  .gt-wrap[data-cols="2"] thead{display:none}
+  .gt-wrap[data-cols="2"] tbody,.gt-wrap[data-cols="2"] tr,.gt-wrap[data-cols="2"] th,.gt-wrap[data-cols="2"] td{display:block}
+  .gt-wrap[data-cols="2"] tr{margin-bottom:16px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .gt-wrap[data-cols="2"] tbody tr:last-child{margin-bottom:0}
+  .gt-wrap[data-cols="2"] th,.gt-wrap[data-cols="2"] td{border-right:0;padding:10px 13px}
+  .gt-wrap[data-cols="2"] tr > :last-child{border-bottom:0}
+  .gt-wrap[data-cols="2"] [data-l]::before{content:attr(data-l);display:block;font:600 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .gt-wrap[data-cols="2"] .c.k,.gt-wrap[data-cols="2"] .c.let{background:var(--ink);color:#fff;font:600 13.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;border-bottom:0}
+  .gt-wrap[data-cols="2"] .c.k[data-l]::before{color:var(--on-ink-muted)}
+  .gt-wrap[data-cols="2"] .c.let .bx{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+  .gt-wrap[data-cols="2"] .c.q{border-left:3px solid var(--amber);background:#FFFDF8;font-size:15px;line-height:1.5;color:var(--ink)}
+  .gt-wrap[data-cols="2"] .c.q[data-l]::before{color:var(--amber-ink)}
+  .gt-wrap[data-cols="2"] .c.muted,.gt-wrap[data-cols="2"] .c.why{font-size:13.5px}
+  .gt-wrap[data-cols="2"] .c.muted[data-l]::before,.gt-wrap[data-cols="2"] .c.why[data-l]::before{display:inline;margin-right:7px;margin-bottom:0}
+}
+/* fallback for browsers without container queries */
+@media (max-width:640px){
+  .gt-wrap{border:0;background:transparent;overflow:visible}
+  .gt-wrap .gt{display:block}
+  .gt-wrap thead{display:none}
+  .gt-wrap tbody,.gt-wrap tr,.gt-wrap th,.gt-wrap td{display:block}
+  .gt-wrap tr{margin-bottom:16px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff}
+  .gt-wrap tbody tr:last-child{margin-bottom:0}
+  .gt-wrap th,.gt-wrap td{border-right:0;padding:10px 13px}
+  .gt-wrap tr > :last-child{border-bottom:0}
+  .gt-wrap [data-l]::before{content:attr(data-l);display:block;font:600 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .gt-wrap .c.k,.gt-wrap .c.let{background:var(--ink);color:#fff;font:600 13.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;border-bottom:0}
+  .gt-wrap .c.k[data-l]::before{color:var(--on-ink-muted)}
+  .gt-wrap .c.let .bx{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+  .gt-wrap .c.q{border-left:3px solid var(--amber);background:#FFFDF8;font-size:15px;line-height:1.5;color:var(--ink)}
+  .gt-wrap .c.q[data-l]::before{color:var(--amber-ink)}
+  .gt-wrap .c.muted,.gt-wrap .c.why{font-size:13.5px}
+  .gt-wrap .c.muted[data-l]::before,.gt-wrap .c.why[data-l]::before{display:inline;margin-right:7px;margin-bottom:0}
+}
+@container (max-width:720px){
+  .tl-wrap{overflow:visible}
+  .tl{display:block}
+  .tl thead{display:none}
+  .tl tbody,.tl tr,.tl th,.tl td{display:block}
+  .tl th,.tl td{border-right:0}
+  .tl .st{border-bottom:1px solid var(--line)}
+  .tl .rev{border-bottom:1px dashed var(--line)}
+  .tl .rev::before,.tl .chg::before{content:attr(data-l);display:block;font:600 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+}
+@media (max-width:640px){
+  .tl-wrap{overflow:visible}
+  .tl{display:block}
+  .tl thead{display:none}
+  .tl tbody,.tl tr,.tl th,.tl td{display:block}
+  .tl th,.tl td{border-right:0}
+  .tl .st{border-bottom:1px solid var(--line)}
+}
+}
+
+/* print keeps the columns: the page width is fixed and the type is smaller */
+@media print{
+  .gt thead,.tl thead{display:table-header-group}
+  .gt tr,.tl tr{break-inside:avoid}
+  .iceberg{break-inside:avoid}
+}
+
+/* --- chips ------------------------------------------------- */
+.chips{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:7px;margin:10px 0 4px;padding:0;list-style:none}
+.chips li,.chips span.ch{
+  font:500 13.5px/1 var(--sans);
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:999px;
+  padding:7px 13px;
+  color:var(--ink-2);
+}
+.chips.tags li{font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.chips.tags li b{color:var(--amber-ink);font-weight:700}
+
+/* --- V1 the guide in one picture --------------------------- */
+.strip{
+  display:flex;align-items:stretch;gap:0;flex-wrap:wrap;
+  border:1px solid var(--line);border-radius:10px;background:#fff;
+  margin:20px 0 6px;overflow:hidden;
+}
+.strip a,.strip span.node{
+  flex:1 1 120px;min-width:0;
+  padding:13px 12px;
+  text-decoration:none;color:var(--ink);
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;gap:3px;
+  transition:background .15s ease;
+}
+.strip a:last-child,.strip span.node:last-child{border-right:0}
+.strip a:hover{background:var(--amber-tint)}
+.strip .n{font:600 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.strip b{font-size:13.5px;font-weight:600;line-height:1.3}
+.strip span.node{background:var(--paper);color:var(--muted)}
+.strip span.node b{color:var(--ink-2)}
+@media (max-width:640px){
+  .strip a,.strip span.node{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--line)}
+  .strip a:last-child{border-bottom:0}
+}
+
+/* --- V6 / V16 check-and-cross columns ---------------------- */
+.cc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 8px;align-items:start}
+.cc > div{
+  border:1px solid var(--line);border-radius:10px;background:#fff;padding:15px 16px;
+}
+.cc > div.yes{border-color:#CFD9CB;background:#FCFDFB}
+.cc > div.no{border-color:#E3D3CE;background:#FEFBFA}
+.cc h4{
+  font:600 11px/1.3 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+  margin:0 0 10px;display:flex;align-items:center;gap:7px;
+}
+.cc > div.yes h4{color:#3F6B45}
+.cc > div.no h4{color:#8C4636}
+.cc h4 .mk{
+  width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;
+  font:700 11px/1 var(--sans);color:#fff;flex:0 0 auto;
+}
+.cc > div.yes h4 .mk{background:#4A7A50}
+.cc > div.no h4 .mk{background:#A9553F}
+.cc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.cc li{display:block;position:relative;padding-left:16px;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.cc li::before{
+  content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;
+}
+.cc li .g{display:inline-block;font:600 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:8px;vertical-align:baseline}
+.cc > div.yes li::before{background:#4A7A50}
+.cc > div.no li::before{background:#A9553F}
+@media (max-width:700px){.cc{grid-template-columns:1fr}}
+
+/* --- V15 reveal cards -------------------------------------- */
+.file .back{display:none}
+.file.open .back{display:block}
+.file .rv{
+  display:inline-flex;align-items:center;gap:7px;
+  font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  background:var(--ink);color:#fff;border:0;border-radius:7px;
+  padding:9px 13px;min-height:44px;cursor:pointer;margin-top:auto;
+}
+.file .rv:hover{background:#2A3644}
+.file .rv:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.file.open .rv{display:none}
+.file .rv .ico{width:13px;height:13px}
+.toolrow.cases{margin:0 0 14px}
+@media print{
+  .file .back{display:block}
+  .file .rv{display:none}
+}
+
+
+/* --- two-up strip (used for the two sizes of investigation) - */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 8px}
+.duo > div{border:1px solid var(--line);border-radius:10px;background:#fff;padding:15px 16px}
+.duo h4{margin:0 0 6px;font-size:15px;font-weight:600}
+.duo h4 .t{
+  display:block;font:600 11px/1.3 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:5px
+}
+.duo p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+@media (max-width:700px){.duo{grid-template-columns:1fr}}
+
+/* --- footer share ------------------------------------------ */
+.share{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.share button,.share a.sh{
+  font:500 13.5px/1 var(--sans);letter-spacing:0;text-transform:none;
+  border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 13px;
+  cursor:pointer;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:7px
+}
+.share button:hover,.share a.sh:hover{border-color:var(--ink);background:var(--amber-tint)}
+.share button:focus-visible,.share a.sh:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.share .ico{width:13px;height:13px}
+
+/* --- small helpers ----------------------------------------- */
+.capt{font-size:13.5px;line-height:1.6;color:var(--muted);margin:8px 0 0}
+.capt em{font-style:italic}
+.tpl2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 6px}
+@media (max-width:700px){.tpl2{grid-template-columns:1fr}}
+.hyp{
+  background:#FCFAF6;border:1px dashed var(--line);border-radius:9px;padding:13px 15px;
+  font:400 15px/1.65 var(--sans);color:var(--ink)
+}
+.hyp .l{display:block;font:600 11px/1.3 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.hyp b{font-family:var(--mono);font-size:13.5px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+.hyp.filled{background:var(--amber-tint);border-style:solid;border-color:#E8DBB5}
+.hyp.filled em{font-style:italic;color:var(--amber-ink)}
+
+/* --- density pass: two-column question lists on wide screens */
+@media (min-width:1200px){
+  .ask{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;align-items:start}
+  .ask li{border-bottom:1px solid var(--line)}
+  .ask li.keep{grid-column:1 / -1}
+  .ask li:last-child{border-bottom:1px solid var(--line)}
+  .rules3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .movelist{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+  .cc ul{gap:6px}
+}
+/* tighter vertical rhythm */
+
+.hero{padding-top:22px;padding-bottom:22px}
+.hero h2{margin-bottom:6px}
+.body > * + *{margin-top:14px}
+.clue{margin-top:14px}
+.gadget{margin-top:14px}
+.ladder li{padding-top:6px;padding-bottom:6px}
+
+/* grid-template-columns overrides need the stacked fallback too */
+
+
+/* ============================================================
+   v6 — one version, lighter page
+   ============================================================ */
+
+/* --- light section headers (dark stays only for the closing block) */
+.hero.lite{
+  background:transparent;color:var(--ink);
+  border-radius:0;
+  padding:0 0 0 18px;
+  border-left:3px solid var(--amber);
+  overflow:visible;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  align-items:start;
+}
+.hero.lite::after{display:none}
+.hero.lite h2{color:var(--ink);font-size:clamp(25px,2.6vw,32px);margin:0 0 4px}
+
+.hero.lite .when{color:var(--ink-2);margin:8px 0 0;font-size:15px}
+.hero.lite .when .ico{color:var(--amber)}
+.hero.lite .meta-row{margin-top:10px}
+.hero.lite .chip{color:var(--muted);border-color:var(--line)}
+.hero.lite .art{width:112px;height:84px;color:var(--muted);opacity:.55}
+@media (max-width:760px){
+  .hero.lite{padding-left:14px}
+  .hero.lite .art{display:none}
+}
+
+/* --- part dividers ---------------------------------------- */
+.part{
+  display:flex;align-items:baseline;gap:14px;
+  margin:52px 0 6px;padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+}
+.part .pn{
+  font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);background:var(--paper-2);
+  border-radius:5px;padding:6px 9px;flex:0 0 auto;
+}
+.part h2{font-size:19px;font-weight:600;margin:0;letter-spacing:-.01em}
+.part .pd{font-size:15px;color:var(--muted);margin-left:auto;text-align:right}
+@media (max-width:760px){.part{flex-wrap:wrap}.part .pd{margin-left:0;text-align:left;width:100%}}
+
+/* --- watch-out as a slim line, not a box ------------------- */
+.wo{
+  display:flex;gap:10px;align-items:flex-start;
+  margin:12px 0 4px;padding-left:12px;
+  border-left:2px solid var(--amber-soft,#E8DBB5);
+  font-size:15px;line-height:1.55;color:var(--ink-2);
+}
+.wo b{
+  font:600 11px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber-ink);flex:0 0 auto;padding-top:1px;
+}
+.wo span{min-width:0}
+.body > .wo{margin:16px 0 26px}
+@media (max-width:640px){.wo{flex-direction:column;gap:3px}}
+
+/* --- the one diagram -------------------------------------- */
+.iceberg{margin:20px 0 8px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:20px 18px 16px}
+.iceberg svg{display:block;width:100%;height:auto;max-width:720px;margin:0 auto}
+.iceberg figcaption{margin:12px auto 0;max-width:640px;font-size:13.5px;line-height:1.6;color:var(--muted);text-align:center}
+
+/* light hero: inherited dark-hero colours must not survive */
+.hero.lite .when strong{color:var(--ink)}
+.hero.lite .when span{color:var(--ink-2)}
+.hero.lite .chip{color:var(--muted)}
+
+/* --- print: keep tables as tables (the page width is fixed and the type is
+       smaller, so columns are fine and save a lot of paper) --------------- */
+@media print{
+  .iceberg{break-inside:avoid}
+}
+
+
+/* anchors: clear the sticky jump pills, and the mobile bar below 1200px */
+[id]{scroll-margin-top:84px}
+main[id],section.case[id]{scroll-margin-top:24px}
+@media (max-width:1200px){
+  [id]{scroll-margin-top:128px}
+  main[id],section.case[id]{scroll-margin-top:72px}
+}
+
+/* the one diagram keeps its own scroll rather than shrinking to 4px type */
+.ib-scroll{overflow-x:auto}
+@media (max-width:640px){.ib-scroll svg{min-width:560px}}
+
+@media print{.strip{break-inside:avoid}.body h3,.body h4,.prose h3+p{break-after:avoid}.tpl2,.hyp,.cc > div,.duo > div,.notes,.wo{break-inside:avoid}}
+
+/* without scripting the answers are simply open */
+.no-js .file .back{display:block}
+.no-js .file .rv,.no-js .toolrow.cases{display:none}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:60;padding:12px 18px;border-radius:0 0 var(--r) 0;
+  background:var(--ink);color:var(--on-ink);font-weight:600;text-decoration:none}
+.skip:focus{left:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#start">Skip to the guide</a>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h5l2 2h8A1.5 1.5 0 0 1 21 9.5v8A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/></symbol>
+  <symbol id="i-spool" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M6 8h12M6 12h12M6 16h12"/><path d="M18 12c2.5 0 3 1.2 3 3.5"/></symbol>
+  <symbol id="i-stamp" viewBox="0 0 24 24"><path d="M9 11V6.5a3 3 0 0 1 6 0V11"/><path d="M5 15.5A1.5 1.5 0 0 1 6.5 14h11a1.5 1.5 0 0 1 1.5 1.5V17H5z"/><path d="M6 20h12"/></symbol>
+  <symbol id="i-lamp" viewBox="0 0 24 24"><path d="M8 3h8l3 9H5z"/><path d="M12 12v6"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-notebook" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 3v18"/><path d="M12 8h4M12 12h4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="M7.5 10.5 12 15l4.5-4.5"/><path d="M4 19h16"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V4h10v4"/><rect x="4" y="8" width="16" height="9" rx="1.5"/><path d="M7 14h10v6H7z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
+
+  <!-- illustrations: 160x120 viewBox, monoline -->
+  <symbol id="illo-start" viewBox="0 0 160 120">
+    <path fill="#B8860B" fill-opacity=".22" stroke="none" d="M118 40 L40 110 L156 110 Z"/>
+    <path d="M152 6 L114 30"/><path d="M104 22 L124 12 L134 30 L114 40 Z"/>
+    <circle fill="#B8860B" fill-opacity=".92" stroke="none" cx="120" cy="35" r="3"/>
+    <path d="M24 110 h112"/>
+    <path d="M52 110 v-24 a3 3 0 0 1 3 -3 h44 a3 3 0 0 1 3 3 v24"/>
+    <path stroke-width="1.1" d="M60 90 h30 M60 97 h22 M60 104 h36"/>
+  </symbol>
+  <symbol id="illo-mindset" viewBox="0 0 160 120">
+    <path d="M18 26 a8 8 0 0 1 8 -8 h52 a8 8 0 0 1 8 8 v28 a8 8 0 0 1 -8 8 h-30 l-14 12 v-12 h-8 a8 8 0 0 1 -8 -8z"/>
+    <path stroke-width="1.1" d="M30 30 c6 -4 10 4 16 0 s10 4 16 0 s10 4 16 0"/>
+    <path stroke-width="1.1" d="M30 42 c6 -4 10 4 16 0 s10 4 16 0"/>
+    <path d="M74 66 a8 8 0 0 1 8 -8 h52 a8 8 0 0 1 8 8 v28 a8 8 0 0 1 -8 8 h-8 v12 l-14 -12 h-30 a8 8 0 0 1 -8 -8z"/>
+    <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M86 92 h8 v-12 h-8z M98 92 h8 v-20 h-8z M110 92 h8 v-26 h-8z"/>
+    <path d="M84 96 h44"/>
+    <path d="M62 78 l8 -6 M70 72 l-2 8 M70 72 l-8 -2"/>
+  </symbol>
+  <symbol id="illo-clue" viewBox="-10 0 180 120">
+    <g transform="rotate(-14 40 70)"><rect x="16" y="34" width="44" height="60" rx="5" fill="#F7F4EE" fill-opacity=".14" stroke="none"/><rect x="16" y="34" width="44" height="60" rx="5"/><text font-family="IBM Plex Mono, ui-monospace, Menlo, monospace" font-weight="600" fill="currentColor" stroke="none" x="38" y="72" font-size="22" text-anchor="middle">C</text></g>
+    <g transform="rotate(-5 72 66)"><rect x="50" y="28" width="44" height="60" rx="5" fill="#F7F4EE" fill-opacity=".14" stroke="none"/><rect x="50" y="28" width="44" height="60" rx="5"/><text font-family="IBM Plex Mono, ui-monospace, Menlo, monospace" font-weight="600" fill="currentColor" stroke="none" x="72" y="66" font-size="22" text-anchor="middle">L</text></g>
+    <g transform="rotate(5 104 66)"><rect x="82" y="28" width="44" height="60" rx="5" fill="#F7F4EE" fill-opacity=".14" stroke="none"/><rect x="82" y="28" width="44" height="60" rx="5"/><text font-family="IBM Plex Mono, ui-monospace, Menlo, monospace" font-weight="600" fill="currentColor" stroke="none" x="104" y="66" font-size="22" text-anchor="middle">U</text></g>
+    <g transform="rotate(14 136 70)"><rect x="114" y="34" width="44" height="60" rx="5" fill="#F7F4EE" fill-opacity=".14" stroke="none"/><rect x="114" y="34" width="44" height="60" rx="5"/><text font-family="IBM Plex Mono, ui-monospace, Menlo, monospace" font-weight="600" fill="currentColor" stroke="none" x="136" y="72" font-size="22" text-anchor="middle">E</text><path fill="#B8860B" fill-opacity=".92" stroke="none" d="M114 34 h44 v6 h-44z"/></g>
+  </symbol>
+  <symbol id="illo-gadgets" viewBox="0 0 160 120">
+    <circle cx="52" cy="48" r="24"/><circle cx="52" cy="48" r="17" stroke-width="1.1"/><path d="M70 66 l26 26" stroke-width="5"/>
+    <rect x="98" y="22" width="40" height="52" rx="4"/><path d="M110 22 v52 M118 34 h12 M118 44 h12"/>
+    <path d="M104 88 h32 M108 96 h24 M112 104 h16" stroke-width="1.1"/>
+    <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M46 42 l6 -6 l6 6 l-6 6z"/>
+  </symbol>
+  <symbol id="illo-rules" viewBox="0 0 160 120">
+    <path d="M80 18 v78"/><path d="M40 34 h80"/><path d="M60 104 h40"/>
+    <path d="M40 34 l-16 34 h32z"/><path d="M120 34 l-16 34 h32z"/>
+    <path fill="#B8860B" fill-opacity=".22" stroke="none" d="M24 68 a16 8 0 0 0 32 0z"/><path fill="#B8860B" fill-opacity=".22" stroke="none" d="M104 68 a16 8 0 0 0 32 0z"/>
+    <rect x="70" y="42" width="20" height="26" rx="2" fill="#F7F4EE" fill-opacity=".14" stroke="none"/><rect x="70" y="42" width="20" height="26" rx="2"/><path stroke-width="1.1" d="M74 50 h12 M74 56 h12 M74 62 h8"/>
+    <circle fill="#B8860B" fill-opacity=".92" stroke="none" cx="80" cy="18" r="3.5"/>
+  </symbol>
+  <symbol id="illo-casefile" viewBox="0 0 160 120">
+    <path d="M22 40 a4 4 0 0 1 4 -4 h26 l8 8 h72 a4 4 0 0 1 4 4 v54 a4 4 0 0 1 -4 4 h-106 a4 4 0 0 1 -4 -4z"/>
+    <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M52 36 h20 v-8 a3 3 0 0 0 -3 -3 h-14 a3 3 0 0 0 -3 3z"/>
+    <path d="M80 44 h22 v-8 a3 3 0 0 0 -3 -3 h-16 a3 3 0 0 0 -3 3z"/>
+    <path d="M108 44 h22 v-8 a3 3 0 0 0 -3 -3 h-16 a3 3 0 0 0 -3 3z"/>
+    <path stroke-width="1.1" d="M40 62 h56 M40 72 h44 M40 82 h62"/>
+    <text font-family="IBM Plex Mono, ui-monospace, Menlo, monospace" font-weight="600" fill="currentColor" stroke="none" x="118" y="86" font-size="12">§</text>
+  </symbol>
+  <symbol id="illo-closed" viewBox="0 0 160 120">
+    <path d="M70 18 h20 v22 h-20z"/><path d="M50 40 h60 a6 6 0 0 1 6 6 v8 h-72 v-8 a6 6 0 0 1 6 -6z"/>
+    <g transform="rotate(-8 80 86)"><rect x="34" y="72" width="92" height="28" rx="4" fill="#B8860B" fill-opacity=".22" stroke="none"/><rect x="34" y="72" width="92" height="28" rx="4"/><text font-family="IBM Plex Mono, ui-monospace, Menlo, monospace" font-weight="600" fill="currentColor" stroke="none" x="80" y="91" font-size="13" text-anchor="middle" letter-spacing="3">CLOSED</text></g>
+  </symbol>
+  <symbol id="illo-mast" viewBox="0 0 300 220">
+    <path fill="#B8860B" fill-opacity=".22" stroke="none" d="M242 56 L104 204 L300 204 Z"/>
+    <path d="M292 8 L232 44"/><path d="M220 34 L248 20 L262 44 L234 58 Z"/>
+    <circle fill="#B8860B" fill-opacity=".92" stroke="none" cx="246" cy="48" r="4"/>
+    <path d="M20 204 h270"/>
+    <path d="M52 204 v-78 a5 5 0 0 1 5 -5 h40 l10 10 h96 a5 5 0 0 1 5 5 v68"/>
+    <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M97 131 h30 v-12 a4 4 0 0 0 -4 -4 h-22 a4 4 0 0 0 -4 4z"/>
+    <path stroke-width="1.1" d="M72 148 h80 M72 160 h60 M72 172 h96 M72 184 h50"/>
+    <g transform="rotate(8 216 150)"><rect x="180" y="118" width="72" height="50" rx="4" fill="#F7F4EE" fill-opacity=".14" stroke="none"/><rect x="180" y="118" width="72" height="50" rx="4"/><path stroke-width="1.1" d="M190 132 h44 M190 142 h30 M190 152 h52"/></g>
+    <circle cx="216" cy="118" r="5" fill="currentColor" stroke="none"/>
+    <circle cx="150" cy="70" r="26"/><circle cx="150" cy="70" r="19" stroke-width="1.1"/><path d="M169 89 l28 28" stroke-width="6"/>
+    <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M144 64 l6 -6 l6 6 l-6 6z"/>
+  </symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M5 8h14M4 20h16"/><path d="M5 8l-3 7h6zM19 8l-3 7h6z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-5 4z"/></symbol>
+  <symbol id="i-cards" viewBox="0 0 24 24"><rect x="3" y="6" width="10" height="14" rx="1.5"/><path d="M8 4h11a2 2 0 0 1 2 2v11"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol>
+</svg>
+
+<div class="topbar">
+  <button type="button" id="menuBtn" aria-controls="nav" aria-expanded="false"><svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg> Contents</button>
+  <span class="t">L&amp;D Detective</span>
+  <a class="btn ghost" href="files/pocket-guide.pdf" style="min-height:44px;padding:6px 12px;font-size:13px"><svg class="ico sm" aria-hidden="true"><use href="#i-download"/></svg>Pocket Guide</a>
+</div>
+
+<div class="progress" aria-hidden="true"><i id="pbar"></i></div>
+<button class="totop no-print" id="totop" type="button" aria-label="Back to top"><svg class="ico" aria-hidden="true"><use href="#i-up"/></svg></button>
+<div class="toast no-print" id="toast" role="status" aria-live="polite" hidden></div>
+
+<nav class="nav" id="nav" aria-label="Guide contents">
+  <a class="brand" href="#top">
+    <span class="label">Field guide</span>
+    <strong>The L&amp;D Detective</strong>
+  </a>
+  <ol>
+    <li><a class="item" href="#start"><span class="num">01</span>Start Here<svg class="ico tick" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+    <li><a class="item" href="#mindset"><span class="num">02</span>The Detective Mindset<svg class="ico tick" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+    <li><a class="item" href="#clue"><span class="num">03</span>The CLUE Method<svg class="ico tick" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+    <li><a class="item" href="#gadgets"><span class="num">04</span>The Gadgets<svg class="ico tick" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+    <li><a class="item" href="#rules"><span class="num">05</span>The 7 Rules of Evidence<svg class="ico tick" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+    <li><a class="item" href="#casefile"><span class="num">06</span>The Master Case File<svg class="ico tick" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+    <li><a class="item" href="#closed"><span class="num">07</span>Case Closed<svg class="ico tick" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+  </ol>
+  <div class="downloads">
+    <span class="label" style="padding:0 10px;display:block;margin-bottom:6px">Downloads</span>
+    <ol>
+      <li><a class="item" href="files/pocket-guide.pdf"><svg class="ico sm" aria-hidden="true" style="align-self:center"><use href="#i-download"/></svg>Pocket Guide (PDF)</a></li>
+      <li><a class="item" href="files/case-file-template.docx"><svg class="ico sm" aria-hidden="true" style="align-self:center"><use href="#i-download"/></svg>Case File template (Word)</a></li>
+    </ol>
+  </div>
+  <p class="foot">Hanna Petrasian · <a href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn</a></p>
+</nav>
+
+<main id="top">
+<div class="wrap">
+
+<header class="masthead">
+  <div>
+  <span class="label amber">Field guide · Files 01–07</span>
+  <h1>The L&amp;D Detective Field Guide</h1>
+  <p class="sub">Most training requests aren't training problems. A course closes two of six gaps. This is the 20-minute conversation that finds out which one you've got.</p>
+  <ul class="chips" aria-label="Written for">
+    <li>L&amp;D partners</li>
+    <li>HRBPs</li>
+    <li>Anyone who gets "we need training" from three levels up</li>
+  </ul>
+  <div class="byline">
+    <span>Hanna Petrasian</span>
+    <span><a href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn</a></span>
+    <span>About 20 minutes, or 3 for the Pocket Guide</span>
+  </div>
+  </div>
+  <div class="mast-art" aria-hidden="true"><svg class="illo"><use href="#illo-mast"/></svg></div>
+  <div class="cta">
+    <a class="btn" href="#start">Start reading <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="btn ghost" href="#clue"><svg class="ico sm" aria-hidden="true"><use href="#i-clock"/></svg>Ten minutes? File 03</a>
+    <a class="btn ghost" href="files/pocket-guide.pdf"><svg class="ico sm" aria-hidden="true"><use href="#i-download"/></svg>Pocket Guide <span class="meta">PDF</span></a>
+    <button class="btn ghost no-print" type="button" onclick="window.print()"><svg class="ico sm" aria-hidden="true"><use href="#i-print"/></svg>Print or save as PDF</button>
+  </div>
+</header>
+
+
+<nav class="toc" aria-label="What's inside">
+  <span class="label">What's inside</span>
+  <div class="toc-grid">
+    <a class="toc-card" href="#start"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg></span><span><span class="n">File 01</span><b>Start Here</b><span class="d">Who it's for and what you'll be able to do.</span></span></a>
+    <a class="toc-card" href="#mindset"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span><span><span class="n">File 02</span><b>The Detective Mindset</b><span class="d">The first interview, the Filter, the translation dictionary.</span></span></a>
+    <a class="toc-card" href="#clue"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-cards"/></svg></span><span><span class="n">File 03</span><b>The CLUE Method</b><span class="d">Four moves and the exact questions for each. The spine.</span></span></a>
+    <a class="toc-card" href="#gadgets"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg></span><span><span class="n">File 04</span><b>The Gadgets</b><span class="d">5 Whys, String Board, Fingerprint Dust, Witness Interview.</span></span></a>
+    <a class="toc-card" href="#rules"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></span><span><span class="n">File 05</span><b>The 7 Rules of Evidence</b><span class="d">Operating rules in three habits, each with a do-this line.</span></span></a>
+    <a class="toc-card" href="#casefile"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-folder"/></svg></span><span><span class="n">File 06</span><b>The Master Case File</b><span class="d">The template, labeled by CLUE letter.</span></span></a>
+    <a class="toc-card" href="#closed"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-stamp"/></svg></span><span><span class="n">File 07</span><b>Case Closed</b><span class="d">One case start to verdict, and seven to steal from.</span></span></a>
+  </div>
+</nav>
+
+<!-- ============ 01 START HERE ============ -->
+<section class="case" id="start" aria-labelledby="h-start">
+  <div class="hero lite"><div>
+    <span class="label amber">File 01</span>
+    <h2 id="h-start">Start Here</h2>
+    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> you just opened the guide.</span></p><div class="meta-row"><span class="chip">About 1 min</span></div>
+  </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-start"/></svg></div></div>
+  <div class="body">
+    <div class="prose">
+      <p class="lead">You know the message. "The team needs training on X. Can we get something running by next month?" The next conversation decides whether you spend the quarter as an order-taker or as the person who solved a business problem.</p>
+    </div>
+
+    <div class="card" style="padding:16px 18px">
+      <span class="label amber">You'll be able to</span>
+      <ul class="outcomes">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span>reframe a training request into a business problem in one conversation</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span>run a 20-minute CLUE intake with any stakeholder</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-target"/></svg><span>write an impact hypothesis a CFO would sign</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-folder"/></svg><span>open a Case File that survives a steering committee</span></li>
+      </ul>
+    </div>
+
+    <div class="prose"><h3 class="plain">The guide in one picture</h3></div>
+    <nav class="strip" aria-label="The guide in one picture">
+      <span class="node"><span class="n">You get</span><b>A training request</b></span>
+      <a href="#mindset"><span class="n">File 02</span><b>Change the language</b></a>
+      <a href="#clue"><span class="n">File 03</span><b>Run CLUE</b></a>
+      <a href="#gadgets"><span class="n">Files 04–05</span><b>Get evidence</b></a>
+      <a href="#casefile"><span class="n">File 06</span><b>Open the file</b></a>
+      <a href="#closed"><span class="n">File 07</span><b>Close the case</b></a>
+    </nav>
+
+    <figure class="iceberg"><div class="ib-scroll" tabindex="0"><svg viewBox="0 0 720 320" role="img" aria-labelledby="ib-t ib-d">
+        <title id="ib-t">What you are asked for, and what is underneath</title>
+        <desc id="ib-d">The request arrives as a training request. Underneath it sit six kinds of gap. A course can close two of them: knowledge and skill. The other four, process, tools, incentives and expectations, belong to whoever can change them.</desc>
+        <rect x="214" y="10" width="292" height="52" rx="8" fill="#1C2530"/>
+        <text x="360" y="34" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" letter-spacing="1.6" fill="#B8860B">WHAT LANDS IN YOUR INBOX</text>
+        <text x="360" y="51" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="600" fill="#ffffff">"The team needs training on X."</text>
+        <path d="M360 62 L360 88" stroke="#1C2530" stroke-width="1.5"/>
+        <path d="M354 81 L360 89 L366 81" fill="none" stroke="#1C2530" stroke-width="1.5"/>
+        <path d="M20 100 H700" stroke="#B3402E" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <text x="20" y="93" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.5" fill="#B3402E">THE WATERLINE</text>
+        <text x="700" y="93" text-anchor="end" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.5" fill="#5B6673">WHAT NOBODY MENTIONED</text>
+
+        <rect x="20" y="118" width="268" height="150" rx="10" fill="#FDF8EC" stroke="#E8DBB5" stroke-width="1.5"/>
+        <g font-family="Inter,system-ui,sans-serif">
+          <rect x="36" y="134" width="236" height="52" rx="7" fill="#FAF3E1" stroke="#B8860B" stroke-width="1.5"/>
+          <text x="52" y="155" font-size="13" font-weight="600" fill="#7A5A08">Knowledge</text>
+          <text x="52" y="173" font-size="11.5" fill="#5B6673">nobody ever told them</text>
+          <rect x="36" y="196" width="236" height="52" rx="7" fill="#FAF3E1" stroke="#B8860B" stroke-width="1.5"/>
+          <text x="52" y="217" font-size="13" font-weight="600" fill="#7A5A08">Skill</text>
+          <text x="52" y="235" font-size="11.5" fill="#5B6673">never done under pressure</text>
+        </g>
+        <text x="154" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.4" fill="#7A5A08">A COURSE CAN CLOSE THESE TWO</text>
+
+        <rect x="308" y="118" width="392" height="150" rx="10" fill="#F7F4EE" stroke="#DCD5C8" stroke-width="1.5"/>
+        <g font-family="Inter,system-ui,sans-serif">
+          <rect x="324" y="134" width="176" height="52" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
+          <text x="338" y="155" font-size="13" font-weight="600" fill="#3B4756">Process</text>
+          <text x="338" y="173" font-size="11.5" fill="#5B6673">broken upstream</text>
+          <rect x="508" y="134" width="176" height="52" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
+          <text x="522" y="155" font-size="13" font-weight="600" fill="#3B4756">Tools</text>
+          <text x="522" y="173" font-size="11.5" fill="#5B6673">fail when used</text>
+          <rect x="324" y="196" width="176" height="52" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
+          <text x="338" y="217" font-size="13" font-weight="600" fill="#3B4756">Incentives</text>
+          <text x="338" y="235" font-size="11.5" fill="#5B6673">point the other way</text>
+          <rect x="508" y="196" width="176" height="52" rx="7" fill="#ffffff" stroke="#DCD5C8" stroke-width="1.5"/>
+          <text x="522" y="217" font-size="13" font-weight="600" fill="#3B4756">Expectations</text>
+          <text x="522" y="235" font-size="11.5" fill="#5B6673">never said out loud</text>
+        </g>
+        <text x="504" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9.5" letter-spacing="1.4" fill="#5B6673">THESE FOUR ARE A HANDOVER, NOT A COURSE</text>
+      </svg></div>
+      <figcaption>Every request arrives above the waterline. The job in File 03 is to find out which of the six sits underneath, because four of them will not move however good the course is.</figcaption>
+    </figure>
+
+    <p class="capt">Ten minutes today? Read <a href="#clue">File 03</a> and take the <a href="files/pocket-guide.pdf">Pocket Guide</a>.</p>
+  </div>
+</section>
+
+<div class="part">
+  <span class="pn">Part one</span>
+  <h2>Talk about it so the business listens</h2>
+  <span class="pd">File 02</span>
+</div>
+
+<!-- ============ 02 THE DETECTIVE MINDSET ============ -->
+<section class="case" id="mindset" aria-labelledby="h-mindset">
+  <div class="hero lite"><div>
+    <span class="label amber">File 02</span>
+    <h2 id="h-mindset">The Detective Mindset</h2>
+    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> before any conversation with a business leader about learning.</span></p><div class="meta-row"><span class="chip">About 2 min</span></div>
+  </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-mindset"/></svg></div></div>
+  <div class="body">
+    <div class="prose">
+      <p class="lead">Here's the uncomfortable part: most business leaders don't care how people learn. They care how people perform. When we talk in learning language, we sound like a cost center explaining its hobby. When we talk in results language, we sound like partners. Same work, different sentences, very different seat at the table.</p>
+    </div>
+    <nav class="pills no-print" aria-label="On this page"><a href="#first-interview"><i>1</i>First interview</a><a href="#three-rules"><i>2</i>Three rules</a><a href="#dictionary"><i>3</i>Dictionary</a><a href="#so-what"><i>4</i>So what?</a></nav>
+
+    <div class="prose"><h3 id="first-interview">The first interview</h3></div>
+    <div class="compare">
+      <div class="cmp bad"><span class="tag"><span class="mark" aria-hidden="true">✕</span>The order-taker trap</span><p class="said">"My new managers are struggling. We need a leadership workshop ASAP."</p><p>The wrong reply asks about headcount and start dates, which locks you into a solution before anyone has named the problem.</p></div>
+      <div class="cmp good"><span class="tag"><span class="mark" aria-hidden="true">✓</span>The detective pivot</span><p class="lbl">Say this instead:</p><q>I can help with that. Before we book anything, give me twenty minutes on what's happening on the ground. I want to know what this is costing us before I propose what fixes it.</q></div>
+    </div>
+    <p class="capt">Vendors take orders. Consultants ask what it costs.</p>
+
+    <div class="prose"><h3 id="three-rules">Three rules for talking to executives</h3></div>
+    <div class="rules3">
+      <div class="rule3"><span class="n">1</span><h4>The Filter.</h4><p>Does this make money, save money, or protect money? If it fits none of those, the business won't value it, however good the design.</p></div>
+      <div class="rule3"><span class="n">2</span><h4>Ditch the education jargon.</h4><p>Bloom's, scaffolding, andragogy: keep them in the lab. Say "phased support" instead of scaffolding, "real-world application" instead of andragogy.</p><p class="punch">Nobody has ever bought andragogy.</p></div>
+      <div class="rule3"><span class="n">3</span><h4>Use "we", not "you".</h4><div class="pron"><div><span class="k bad">You</span>"Your team needs to learn X" makes you a finger-pointer.</div><div><span class="k good">We</span>"We need ticket-handling speed down so we don't lose our best customers" makes you a co-owner.</div></div></div>
+    </div>
+    <div class="gt-wrap" data-cols="2"><table class="gt" role="table" aria-label="The Filter: three buckets">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader" style="width:28%">Bucket</th>
+        <th scope="col" class="h" role="columnheader" style="width:72%">Sounds like</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Bucket">Make</th>
+          <td class="c q" role="cell" data-l="Sounds like"><q>We're cutting ramp-up time to speed up the sales cycle.</q></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Bucket">Save</th>
+          <td class="c q" role="cell" data-l="Sounds like"><q>We're reducing error rates to cut rework.</q></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Bucket">Protect</th>
+          <td class="c q" role="cell" data-l="Sounds like"><q>We're closing the compliance gap before an auditor finds it.</q></td>
+        </tr>
+      </tbody>
+      </table></div>
+
+    <div class="prose">
+      <h3 id="dictionary">The translation dictionary</h3>
+      <p>Your translation layer. The test for the right-hand column: does the phrase end in make, save or protect?</p>
+    </div>
+    <div class="gt-wrap" data-cols="3"><table class="gt" role="table" aria-label="Translation dictionary">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader" style="width:27.396%">Instead of saying</th>
+        <th scope="col" class="h" role="columnheader" style="width:36.986%">Try saying</th>
+        <th scope="col" class="h" role="columnheader" style="width:35.618%">Why it works</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Training needs analysis</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Performance gap analysis</strong></td>
+          <td class="c why" role="cell" data-l="Why">Where the business is bleeding</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Learning objectives</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Performance outcomes</strong></td>
+          <td class="c why" role="cell" data-l="Why">What the team does differently on Monday</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Upskilling / reskilling</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Building capacity</strong></td>
+          <td class="c why" role="cell" data-l="Why">Work the team couldn't take on yesterday</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Soft skills</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>The behaviors:</strong> giving feedback, running meetings, writing clearly</td>
+          <td class="c why" role="cell" data-l="Why">Leaders buy behaviors, not categories</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Seat time / hours</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Time to proficiency</strong></td>
+          <td class="c why" role="cell" data-l="Why">Every learning hour is a non-working hour</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Updating content</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Keeping company knowledge current</strong></td>
+          <td class="c why" role="cell" data-l="Why">The right answer, first time</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Compliance training</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Risk mitigation</strong></td>
+          <td class="c why" role="cell" data-l="Why">Insurance against lawsuits and fines</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Engagement scores</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Behavioral adoption</strong></td>
+          <td class="c why" role="cell" data-l="Why">Are they using the tools, not did they like the snacks</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Completion rates</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Operational readiness</strong></td>
+          <td class="c why" role="cell" data-l="Why">Ready to run the next launch</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Instead of">Gamification</th>
+          <td class="c" role="cell" data-l="Try saying"><strong>Practice with a scoreboard</strong></td>
+          <td class="c why" role="cell" data-l="Why">Names the practice. "Gamification" sounds like games to a CFO</td>
+        </tr>
+      </tbody>
+      </table></div>
+    <p class="capt">A direction, not a script. Every row ends at their number.</p>
+
+    <div class="prose"><h3 id="so-what">The "So what?" reality check</h3></div>
+    <ol class="ladder">
+      <li><span class="k">The clue</span><span>"We want to launch a communication skills path."</span></li>
+      <li><span class="k">So what?</span><span>"So project updates are clearer."</span></li>
+      <li><span class="k">So what?</span><span>"So PMs stop spending half their day chasing status."</span></li>
+      <li><span class="k">The hook</span><span>"So we free up 20% of PM time for billable client work."</span></li>
+    </ol>
+    <p class="capt">Keep asking until you hit make, save or protect. Run whatever is top of your queue through it now. No hook in four steps is worth knowing before the meeting.</p>
+  </div>
+</section>
+
+<div class="part">
+  <span class="pn">Part two</span>
+  <h2>Investigate before you build</h2>
+  <span class="pd">Files 03–05</span>
+</div>
+
+<!-- ============ 03 THE CLUE METHOD ============ -->
+<section class="case" id="clue" aria-labelledby="h-clue">
+  <div class="hero lite"><div>
+    <span class="label amber">File 03</span>
+    <h2 id="h-clue">The CLUE Method</h2>
+    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> a training request just landed and you have one conversation before the scope gets locked.</span></p><div class="meta-row"><span class="chip">About 6 min</span></div>
+  </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-clue"/></svg></div></div>
+  <div class="body">
+    <div class="prose">
+      <p class="lead">Four moves, in order, 20 minutes if you're sharp.</p>
+    </div>
+    <nav class="pills no-print" aria-label="On this page"><a href="#clue-c"><i>C</i>Clarify</a><a href="#clue-l"><i>L</i>Look</a><a href="#clue-u"><i>U</i>Uncover</a><a href="#clue-e"><i>E</i>Execute</a><a href="#push-back"><i>!</i>When they push back</a></nav>
+
+    <div class="gt-wrap" data-cols="5"><table class="gt" role="table" aria-label="The CLUE method at a glance">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader" style="width:13.792%">Step</th>
+        <th scope="col" class="h" role="columnheader" style="width:18.621%">Goal</th>
+        <th scope="col" class="h" role="columnheader" style="width:28.277%">If you keep one question</th>
+        <th scope="col" class="h" role="columnheader" style="width:22.067%">Done when</th>
+        <th scope="col" class="h" role="columnheader" style="width:17.243%">Then reach for</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <th scope="row" class="c let" role="rowheader"><span class="bx" aria-hidden="true">C</span><span class="lb">Clarify</span></th>
+          <td class="c" role="cell" data-l="Goal">A business problem with a number attached</td>
+          <td class="c q" role="cell" data-l="If you keep one question"><q>What's happening in the business that made this urgent <em>now</em>?</q></td>
+          <td class="c muted" role="cell" data-l="Done when">"KPI X is at A, needs B, the gap costs Y" and the stakeholder nods</td>
+          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-string">String Board</a><span class="sub">Fills in §1 The Motive</span></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c let" role="rowheader"><span class="bx" aria-hidden="true">L</span><span class="lb">Look</span></th>
+          <td class="c" role="cell" data-l="Goal">The whole system scanned before you assume a skill gap</td>
+          <td class="c q" role="cell" data-l="If you keep one question"><q>If we trained everyone tomorrow and the training was perfect, what would still get in the way?</q></td>
+          <td class="c muted" role="cell" data-l="Done when">The gap type named out loud and agreed, or corrected with evidence</td>
+          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-dust">Fingerprint Dust</a><span class="sub">Fills in §2 The Targets</span></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c let" role="rowheader"><span class="bx" aria-hidden="true">U</span><span class="lb">Uncover</span></th>
+          <td class="c" role="cell" data-l="Goal">The hypothesis tested against evidence</td>
+          <td class="c q" role="cell" data-l="If you keep one question"><q>Tell me about the <em>last time</em> this went wrong. Walk me through it, step by step.</q></td>
+          <td class="c muted" role="cell" data-l="Done when">Two independent sources point at the same cause</td>
+          <td class="c muted" role="cell" data-l="Then reach for"><a href="#g-witness">Witness Interview</a>, <a href="#g-whys">5 Whys</a><span class="sub">Fills in §1, evidenced</span></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c let" role="rowheader"><span class="bx" aria-hidden="true">E</span><span class="lb">Execute</span></th>
+          <td class="c" role="cell" data-l="Goal">The fix matched to the cause, small enough to prove</td>
+          <td class="c q" role="cell" data-l="If you keep one question"><q>What's the smallest pilot that would prove, or kill, this idea in six weeks?</q></td>
+          <td class="c muted" role="cell" data-l="Done when">The hypothesis written, threshold and gate signed</td>
+          <td class="c muted" role="cell" data-l="Then reach for"><a href="#casefile">The Case File</a><span class="sub">Fills in §3–6</span></td>
+        </tr>
+      </tbody>
+      </table></div>
+    <p class="wo"><b>Try it now</b><span>Take the last request in your inbox. Fill the C row in one sentence with a number in it. If you can't, that is Monday's first question.</span></p>
+
+    <article class="clue" id="clue-c" aria-labelledby="h-c">
+      <div class="mono"><span class="letter" aria-hidden="true">C</span></div>
+      <div class="content">
+        <h3 id="h-c">C — Clarify the business goal</h3>
+        <span class="label amber">Ask this</span>
+        <ul class="ask">
+          <li class="keep"><span class="kb">If you keep one question</span><span class="q">What's happening in the business that made this urgent <em>now</em>?</span><span class="tech"><b>The why-now probe.</b> Urgency names the real trigger, often the real sponsor.</span></li>
+          <li><span class="q">Imagine it's 90 days from now and this worked perfectly. What are people doing differently on Monday morning, and which number moved?</span><span class="tech"><b>The miracle question,</b> borrowed from solution-focused coaching. Pulls a picture from a vague ask.</span></li>
+          <li><span class="q">What is this costing us today: time, money, risk, or customers?</span></li>
+          <li><span class="q">Who's losing sleep over that metric?</span></li>
+          <li><span class="q">What have you already tried?</span></li>
+        </ul>
+        <p class="wo"><b>Watch out</b><span>"We need training" is a solution wearing a goal's coat. Don't argue with it, keep asking about the problem until the coat comes off. And some requests are about visibility, not performance. "What does your leadership need to see, and by when?" is a legitimate C question, and a fix that also gives the sponsor something to show wins twice.</span></p>
+        <p class="capt"><a href="#cold-01">See cold case 01 →</a></p>
+      </div>
+    </article>
+
+    <article class="clue" id="clue-l" aria-labelledby="h-l">
+      <div class="mono"><span class="letter" aria-hidden="true">L</span></div>
+      <div class="content">
+        <h3 id="h-l">L — Look at the environment</h3>
+        <p class="goal"><strong>You leave with the gap classified.</strong> Six kinds, after Gilbert. Usually two or three at once.</p>
+        <ul class="chips tags" aria-label="Gap types">
+          <li>Skill</li><li>Knowledge</li><li>Process</li><li>Tools</li><li>Incentives</li><li>Expectations</li>
+        </ul>
+        <span class="label amber">Ask this</span>
+        <ul class="ask">
+          <li><span class="q">Could your best performer do this today? What do they do differently?</span><span class="tech"><b>The bright-spot contrast.</b> If one person can, it isn't purely skills, and you've found your expert witness.</span></li>
+          <li><span class="q">On a scale of 0 to 10, how well does the team do this now? What makes it a 4 and not a 2?</span><span class="tech"><b>The scaling question.</b> The second half names what works, which is where the fix hides.</span></li>
+          <li class="keep"><span class="kb">If you keep one question</span><span class="q">If we trained everyone tomorrow and the training was perfect, what would still get in the way?</span><span class="tech"><b>The most useful question in this guide.</b> It hands you the environment gaps on a plate.</span></li>
+          <li><span class="q">Do people know this is expected of them? And what happens when someone doesn't do it?</span></li>
+        </ul>
+        <div class="notes"><span class="label"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg>The field test</span>Could they do it if their livelihood depended on it? If yes, you're not looking at a skill gap. (Mager's classic.)</div>
+
+        <div class="cc">
+          <div class="yes">
+            <h4><span class="mk" aria-hidden="true">✓</span>Training fixes this</h4>
+            <ul>
+              <li><span class="g">Knowledge</span>Nobody has shown them how</li>
+              <li><span class="g">Skill</span>Theory known, never done under pressure</li>
+              <li><span class="g">Knowledge</span>A new system, process or policy landing next month</li>
+              <li><span class="g">Knowledge</span>A product launch where the story is new</li>
+              <li><span class="g">Knowledge</span>Compliance, where the record of telling them is the point</li>
+            </ul>
+          </div>
+          <div class="no">
+            <h4><span class="mk" aria-hidden="true">✕</span>Training does not fix this</h4>
+            <ul>
+              <li><span class="g">Process</span>A step broken upstream</li>
+              <li><span class="g">Tools</span>Tools that fail at the moment of use</li>
+              <li><span class="g">Incentives</span>Pay or targets that reward the wrong thing, or no consequence either way</li>
+              <li><span class="g">Incentives</span>Work nobody is held to</li>
+              <li><span class="g">Expectations</span>Nobody has said it's expected of them</li>
+              <li><span class="g">Expectations</span>Managers who don't manage</li>
+              <li><span class="g">Outside the six</span>Too few people for the volume</li>
+              <li><span class="g">Outside the six</span>The wrong hire in the wrong seat</li>
+              <li><span class="g">Outside the six</span>A culture where naming the problem costs more than living with it</li>
+            </ul>
+          </div>
+        </div>
+        <p class="capt">If the cause sits on the right, the best course you ever built won't move the number. Most of that column belongs to someone who can change it in an afternoon, which makes it your handover list (<a href="#handover">→ 07</a>). Headcount, hiring and culture sit outside all six. Not yours either, and the hardest handover in this guide. For now this is a hypothesis. The verdict version, once you have evidence, is in <a href="#is-training">File 07</a>.</p>
+
+        <p class="wo"><b>Watch out</b><span>Don't run this step from a meeting room. Leaders describe the workflow they designed. The floor runs the workflow that survived. (<a href="#g-dust">→ Fingerprint Dust</a>)</span></p>
+        <p class="capt"><a href="#cold-03">See cold case 03 →</a></p>
+      </div>
+    </article>
+
+    <article class="clue" id="clue-u" aria-labelledby="h-u">
+      <div class="mono"><span class="letter" aria-hidden="true">U</span></div>
+      <div class="content">
+        <h3 id="h-u">U — Uncover the root cause</h3>
+        <span class="label amber">Ask this</span>
+        <ul class="ask">
+          <li class="keep"><span class="kb">If you keep one question</span><span class="q">Tell me about the <em>last time</em> this went wrong. Walk me through it, step by step.</span><span class="tech"><b>The last-time question.</b> One real episode beats ten opinions about "usually".</span></li>
+          <li><span class="q">Say more about that.</span><span class="tech"><b>The probe and the pause.</b> Then count three seconds of silence. The answer after the silence is the better one.</span></li>
+          <li><span class="q">If that were the cause, what would we expect to see in the data?</span></li>
+          <li><span class="q">Who would disagree with this explanation?</span><span class="tech"><b>Triangulation.</b> Now go talk to that person.</span></li>
+          <li><span class="q plain">Run the 5 Whys chain (<a href="#g-whys">→ File 04</a>)</span></li>
+        </ul>
+        <p class="wo"><b>Watch out</b><span>The first plausible cause, and especially the cause your sponsor prefers. A detective doesn't close the case on the suspect who confesses fastest.</span></p>
+        <p class="capt"><a href="#cold-02">See cold case 02 →</a></p>
+      </div>
+    </article>
+
+    <article class="clue" id="clue-e" aria-labelledby="h-e">
+      <div class="mono"><span class="letter" aria-hidden="true">E</span></div>
+      <div class="content">
+        <h3 id="h-e">E — Execute a targeted solution</h3>
+        <span class="label amber">Ask this, of the sponsor and of yourself</span>
+        <ul class="ask">
+          <li class="keep"><span class="kb">If you keep one question</span><span class="q">What's the smallest pilot that would prove, or kill, this idea in six weeks?</span></li>
+          <li><span class="q">Who has to reinforce this on Monday morning, and do they know it yet?</span></li>
+          <li><span class="q">What do we measure, from what baseline, and who owns that number?</span></li>
+          <li><span class="q">At the gate: what result means scale, what means adjust, what means stop?</span></li>
+          <li><span class="q">What part of this will training not fix, and who owns that part?</span><span class="tech">Say it in the recommendation. An unnamed cause becomes your failure.</span></li>
+        </ul>
+
+        <span class="label amber">Write the hypothesis before you build anything</span>
+        <div class="tpl2">
+          <div class="hyp"><span class="l">The template</span>If we <b>intervention</b> for <b>audience</b>, then <b>metric</b> will move from <b>baseline</b> to <b>target</b> within <b>time</b>, measured by <b>source</b>.</div>
+          <div class="hyp filled"><span class="l">One filled in</span><em>If we pre-brief managers 48 hours before each announcement, then the share of teams hearing it from their own manager within a week moves from a third to 80% in one quarter, measured by a two-question pulse.</em></div>
+        </div>
+
+        <p class="wo"><b>Watch out</b><span>Scope creeping back toward "a full course". The targeted fix you designed in week one grows modules by week four.</span></p>
+      </div>
+    </article>
+
+    <div class="prose"><h3 id="close-the-case">Close the case</h3></div>
+    <div class="fourline">
+      <span><i>01</i>What we found</span>
+      <span><i>02</i>What we did</span>
+      <span><i>03</i>What moved</span>
+      <span><i>04</i>What we recommend next</span>
+    </div>
+    <p class="capt">Ten minutes of work, after the solution ships. The difference between "the training team" and "the people who fixed our discount problem".</p>
+
+    <div>
+    <div class="prose"><h3 id="two-sizes">Two sizes of investigation</h3></div>
+    <div class="duo">
+      <div><h4><span class="t">Size one</span>The quick read, 20 minutes.</h4><p>The C questions plus one L question, inside the conversation you were already having. Covers most requests.</p></div>
+      <div><h4><span class="t">Size two</span>The full investigation, one to two weeks.</h4><p>Interviews, shadowing, a look at the data, a Case File. For a big audience, real budget, an executive sponsor, or a monthly number.</p></div>
+    </div>
+    <p class="capt">Say which one you're doing. The quick read is a gate, not a verdict. Upgrade it the moment it turns up something expensive.</p>
+    </div>
+
+<div class="prose">
+      <h3 id="push-back">When they push back</h3>
+      <p>Sooner or later: "I don't have time for questions. Just build it." If you keep one line from this table, keep the last one. The parallel track costs the sponsor nothing, and it is the move that works when they outrank you by three levels.</p>
+    </div>
+    <div class="gt-wrap" data-cols="3"><table class="gt" role="table" aria-label="When they push back">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader" style="width:24.095%">They say</th>
+        <th scope="col" class="h" role="columnheader" style="width:48.194%">You say</th>
+        <th scope="col" class="h" role="columnheader" style="width:27.711%">Why it works</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="They say">"Just build it."</th>
+          <td class="c q" role="cell" data-l="You say"><q>Makes sense, you need this moving. What's driving the date?</q></td>
+          <td class="c why" role="cell" data-l="Why">A deadline you understand you can design around</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="They say">"I don't have two days."</th>
+          <td class="c q" role="cell" data-l="You say"><q>Two ways to go. We build exactly what you asked for, ready in three weeks. Or I spend two days with the team first and we build something narrower that's more likely to move your number. Your call.</q></td>
+          <td class="c why" role="cell" data-l="Why">People defend the plan they picked</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="They say">"That's your job, not mine."</th>
+          <td class="c q" role="cell" data-l="You say"><q>You own the date. I own whether this works. Give me two days and I'll own both.</q></td>
+          <td class="c why" role="cell" data-l="Why">Ownership named plainly beats method defended at length</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="They say">"We'll see how it goes."</th>
+          <td class="c q" role="cell" data-l="You say"><q>Let's build it. Can we look at the number together in six weeks and decide if it needs a second round?</q></td>
+          <td class="c why" role="cell" data-l="Why">Turns a delivery into a case with a follow-up</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="They say">"The date is fixed, full stop."</th>
+          <td class="c q" role="cell" data-l="You say"><q>Then we run a parallel track. Design starts today, and in the same week I get three short conversations with the people who do the work.</q></td>
+          <td class="c why" role="cell" data-l="Why">You lose nothing and the build lands closer to the problem</td>
+        </tr>
+      </tbody>
+      </table></div>
+    <p class="capt">And if they still say build it? Build it well, and write the hypothesis down anyway. If the number doesn't move, you hold the opening of the next conversation. If it moves, you were wrong and learned something. Both beat being right in private.</p>
+  </div>
+</section>
+
+<!-- ============ 04 THE GADGETS ============ -->
+<section class="case" id="gadgets" aria-labelledby="h-gadgets">
+  <div class="hero lite"><div>
+    <span class="label amber">File 04</span>
+    <h2 id="h-gadgets">The Gadgets</h2>
+    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> the conversation is drifting toward opinions and you need it back on evidence.</span></p><div class="meta-row"><span class="chip">About 3 min</span></div>
+  </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-gadgets"/></svg></div></div>
+  <div class="body">
+    <div class="prose">
+      <p class="lead">Four tools. Each exists because a stakeholder conversation, left unattended, drifts toward the loudest opinion in the room.</p>
+    </div>
+    <nav class="pills no-print" aria-label="On this page"><a href="#g-whys"><i>1</i>5 Whys</a><a href="#g-string"><i>2</i>String Board</a><a href="#g-dust"><i>3</i>Fingerprint Dust</a><a href="#g-witness"><i>4</i>Witness Interview</a></nav>
+
+    <article class="gadget" id="g-whys" aria-labelledby="h-whys">
+      <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg></div>
+      <div>
+        <header><h3 id="h-whys">1 · The 5 Whys Magnifying Glass</h3><span class="use">use during U</span></header>
+        <p class="reach"><strong>Reach for it when</strong> a symptom is on the table and everyone already "knows" the cause.</p>
+        <div class="gt-wrap" data-cols="2"><table class="gt whys2" role="table" aria-label="The 5 Whys chain">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader">Ask</th>
+        <th scope="col" class="h" role="columnheader">They answer</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Ask">The symptom</th>
+          <td class="c q" role="cell" data-l="They answer"><q>We need communication training.</q></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Ask">Why is communication the problem?</th>
+          <td class="c q" role="cell" data-l="They answer"><q>Status reports arrive late and leadership gets blindsided.</q></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Ask">Why do reports arrive late?</th>
+          <td class="c q" role="cell" data-l="They answer"><q>PMs wait days for engineers' status data.</q></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Ask">Why do they wait?</th>
+          <td class="c q" role="cell" data-l="They answer"><q>Engineers only update the tracker at sprint end.</q></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Ask">Why only at sprint end?</th>
+          <td class="c q" role="cell" data-l="They answer"><q>The tracker demands 15 fields and duplicates the dev tool.</q></td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="Ask">Why the duplication?</th>
+          <td class="c q" role="cell" data-l="They answer"><q>The two systems were never integrated after the reorg.</q></td>
+        </tr>
+      </tbody>
+      </table></div>
+        <div class="chain-verdict"><svg class="ico" aria-hidden="true"><use href="#i-stamp"/></svg><span><strong>Verdict:</strong> a tooling and process case. Training PMs to "communicate better" would have treated the witness statement, not the crime.</span></div>
+        <p class="wo"><b>Before you trust it</b><span>When a why has two answers, follow both. If a why lands on a person, you asked the wrong why, so back up and ask what makes that mistake easy. Verify the final why against data: the 5 Whys finds <em>a</em> thread, not the whole truth.</span></p>
+      </div>
+    </article>
+
+    <article class="gadget" id="g-string" aria-labelledby="h-string">
+      <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-spool"/></svg></div>
+      <div>
+        <header><h3 id="h-string">2 · The String Board</h3><span class="use">use during C and L</span></header>
+        <p class="reach">Four people, one question each, before you open any case.</p>
+        <div class="roles">
+          <svg class="string" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path d="M25 2.6 C 40 5.2, 60 5.2, 75 2.6"/>
+            <path d="M25 54.6 C 40 57.2, 60 57.2, 75 54.6"/>
+          </svg>
+          <div class="role"><span class="pin" aria-hidden="true"></span><div class="who">The Sponsor</div><div class="what">buys the solution</div><div class="ask1">"What does success look like on your dashboard?"</div></div>
+          <div class="role"><span class="pin" aria-hidden="true"></span><div class="who">The KPI Owner</div><div class="what">bleeds from the problem</div><div class="ask1">"Which number keeps you up at night, and where is it today?"</div></div>
+          <div class="role"><span class="pin" aria-hidden="true"></span><div class="who">The Performer</div><div class="what">does the work</div><div class="ask1">"Walk me through where this gets hard."</div></div>
+          <div class="role"><span class="pin" aria-hidden="true"></span><div class="who">The Reinforcer</div><div class="what">their direct manager</div><div class="ask1">"What would you need to see to coach this every week?"</div></div>
+        </div>
+        <p class="wo"><b>Red flag</b><span>If you can't name the Reinforcer, the case isn't ready to open.</span></p>
+      </div>
+    </article>
+
+    <article class="gadget" id="g-dust" aria-labelledby="h-dust">
+      <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg></div>
+      <div>
+        <header><h3 id="h-dust">3 · The Fingerprint Dust</h3><span class="use">use during L</span></header>
+        <p class="reach">Leaders design training around the dream workflow. You dust for the one that actually runs.</p>
+        <ol class="movelist">
+          <li><span class="mn" aria-hidden="true">1</span><div><h4>Shadow two or three performers for an hour each.</h4><p>Watch, don't demo.</p></div></li>
+          <li><span class="mn" aria-hidden="true">2</span><div><h4>Log every workaround.</h4><p>A workaround is someone already solving a process failure, informally and invisibly.</p></div></li>
+          <li><span class="mn" aria-hidden="true">3</span><div><h4>Put the official process doc beside what you observed.</h4><p>Mark every difference.</p></div></li>
+          <li><span class="mn" aria-hidden="true">4</span><div><h4>Note what the top performer skips.</h4><p>What experts skip is usually what the process got wrong.</p></div></li>
+        </ol>
+        <p>If the environment is broken, training people on the perfect way just teaches them to be frustrated accurately.</p>
+        <p class="wo"><b>Dust in daylight</b><span>Say what you're looking for and why, check that now is a good moment, and show people what you noticed before you show anyone else. "I'm looking at the process, not at you" usually covers it.</span></p>
+      </div>
+    </article>
+
+    <article class="gadget" id="g-witness" aria-labelledby="h-witness">
+      <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-notebook"/></svg></div>
+      <div>
+        <header><h3 id="h-witness">4 · The Witness Interview</h3><span class="use">use during C and U</span></header>
+        <p class="reach">The technique the rest of the toolkit depends on. Stakeholders are witnesses, not suspects. Ask for 30 minutes and say you're there to fix the process, not to grade anyone.</p>
+        <div class="gt-wrap" data-cols="3"><table class="gt" role="table" aria-label="Witness interview: five moves">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader" style="width:25%">The move</th>
+        <th scope="col" class="h" role="columnheader" style="width:37.5%">Say this</th>
+        <th scope="col" class="h" role="columnheader" style="width:37.5%">Not this</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The move">Open, don't lead</th>
+          <td class="c q" role="cell" data-l="Say this"><q>What's getting in the way?</q></td>
+          <td class="c why" role="cell" data-l="Not this">"Is it the new tool?" A leading question returns your hypothesis in their voice</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The move">Ask for the last time</th>
+          <td class="c q" role="cell" data-l="Say this"><q>Tell me about the last late report.</q></td>
+          <td class="c why" role="cell" data-l="Not this">"Are reports usually late?" That gets a mood, not a fact</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The move">Listen for verbs</th>
+          <td class="c" role="cell" data-l="Say this">"They stopped raising risks in standup" is evidence</td>
+          <td class="c why" role="cell" data-l="Not this">"The team is disengaged" is a verdict. Ask: "What did that look like?"</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The move">The three-second pause</th>
+          <td class="c" role="cell" data-l="Say this">After their answer, wait. Count it silently. What comes next is usually the real answer</td>
+          <td class="c why" role="cell" data-l="Not this">—</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The move">Mirror the last few words</th>
+          <td class="c" role="cell" data-l="Say this">"…so the handover just doesn't happen." "Doesn't happen?" They keep going. Borrowed from hostage negotiators</td>
+          <td class="c why" role="cell" data-l="Not this">—</td>
+        </tr>
+      </tbody>
+      </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 05 THE 7 RULES OF EVIDENCE ============ -->
+<section class="case" id="rules" aria-labelledby="h-rules">
+  <div class="hero lite"><div>
+    <span class="label amber">File 05</span>
+    <h2 id="h-rules">The 7 Rules of Evidence</h2>
+    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> you're about to design, pitch or report on a solution and want it to hold up under cross-examination.</span></p><div class="meta-row"><span class="chip">About 2 min</span></div>
+  </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-rules"/></svg></div></div>
+  <div class="body">
+    <div class="prose">
+      <p class="lead">Seven rules that keep a recommendation standing when the room turns hostile. Borrowed from how product teams ship, in three habits.</p>
+    </div>
+
+    <div class="cluster">
+      <h3><span class="label amber">Habit one</span>Prove it</h3>
+      <div class="rules3">
+        <div class="rule3"><span class="n">01</span><h4>Outcome over output.</h4><p>Celebrate "onboarding time down 18%", never "10 modules delivered". (→ the <a href="#three-rules">Filter</a>, File 02.)</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> write the outcome sentence before the kickoff.</span></div></div>
+        <div class="rule3"><span class="n">02</span><h4>Hypothesis-driven.</h4><p>Not "we need leadership training" but a testable bet: <em>if we give managers structured feedback practice, escalation cases drop 25% within 3 months, measured in the case tracker.</em></p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> if you can't fill the template, you're not ready to build.</span></div></div>
+        <div class="rule3"><span class="n">03</span><h4>Data first.</h4><p>Capture the baseline before anything ships. Screenshot the dashboard, that picture is your before-and-after story. A true control group is usually a fantasy in L&amp;D, so use the realistic substitutes:</p><ul><li><span class="k">1</span>a staggered rollout, pilot group against not-yet group</li><li><span class="k">2</span>a before-and-after on a stable metric</li><li><span class="k">3</span>a comparison against the trend line</li></ul><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> no baseline, no launch.</span></div></div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <h3><span class="label amber">Habit two</span>Ship it small</h3>
+      <div class="rules3">
+        <div class="rule3"><span class="n">04</span><h4>Ship the smallest pilot.</h4><p>One that produces a verdict. Iterate on behavior, not on feedback forms.</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> one cohort, six weeks, one metric.</span></div></div>
+        <div class="rule3"><span class="n">05</span><h4>Give every asset a sunset date.</h4><p>Treat learning like a product: discovery → validation → launch → growth → optimization → sunset. Yes, sunset. Undead courses cost credibility every day they stay open.</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> every asset gets a review date and an owner at birth.</span></div></div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <h3><span class="label amber">Habit three</span>Design the system, not the course</h3>
+      <div class="rules3">
+        <div class="rule3"><span class="n">06</span><h4>Design the reinforcement loop.</h4><p>Training alone rarely survives the workplace. The manager's role, the tool changes and the workflow integration are part of the solution, or the solution fails.</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> name the Reinforcer in the plan (→ <a href="#g-string">String Board</a>). If that box is empty, stop.</span></div></div>
+        <div class="rule3"><span class="n">07</span><h4>User and buyer.</h4><p>The user is the employee, the buyer is the business leader. Delight learners and move no metric, you lose the budget. Move the metric and torture learners, you lose the users.</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> one sentence of value for each, side by side (→ <a href="#casefile">Case File §2</a>).</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="part">
+  <span class="pn">Part three</span>
+  <h2>Write it up, then hand over what isn't yours</h2>
+  <span class="pd">Files 06–07</span>
+</div>
+
+<!-- ============ 06 THE MASTER CASE FILE ============ -->
+<section class="case" id="casefile" aria-labelledby="h-casefile">
+  <div class="hero lite"><div>
+    <span class="label amber">File 06</span>
+    <h2 id="h-casefile">The Master Case File</h2>
+    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> the investigation is real and it's time to open a formal file.</span></p><div class="meta-row"><span class="chip">About 2 min</span></div>
+  </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-casefile"/></svg></div></div>
+  <div class="body">
+    <div class="prose">
+      <p class="lead">Six sections, each labeled with the CLUE letter it serves. Every one answers a question a steering committee will put to you, so write it before they do.</p>
+    </div>
+
+    <div class="dl">
+      <a class="btn amber" href="files/case-file-template.docx"><svg class="ico sm" aria-hidden="true"><use href="#i-download"/></svg>Blank Case File template <span class="meta">DOCX</span></a>
+    </div>
+
+    <div class="gt-wrap" data-cols="4"><table class="gt" role="table" aria-label="The Master Case File template">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader" style="width:58px">§</th>
+        <th scope="col" class="h" role="columnheader" style="width:calc((100% - 132px)*.35385)">Section</th>
+        <th scope="col" class="h" role="columnheader" style="width:calc((100% - 132px)*.64615)">What goes in</th>
+        <th scope="col" class="h" role="columnheader" style="width:74px">CLUE</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="§">§1</th>
+          <td class="c" role="cell" data-l="Section"><strong>The Motive</strong><span class="sub">Business case &amp; problem definition</span></td>
+          <td class="c muted" role="cell" data-l="What goes in">Strategy link · the gap and its KPI · root cause · ROI hypothesis · cost of inaction</td>
+          <td class="c k" role="cell" data-l="CLUE">C</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="§">§2</th>
+          <td class="c" role="cell" data-l="Section"><strong>The Targets</strong><span class="sub">Audience &amp; success criteria</span></td>
+          <td class="c muted" role="cell" data-l="What goes in">Persona · jobs to be done · value for employee and business · KPIs baseline → target → time · leading indicators · threshold</td>
+          <td class="c k" role="cell" data-l="CLUE">C, L</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="§">§3</th>
+          <td class="c" role="cell" data-l="Section"><strong>The Blueprint</strong><span class="sub">Solution architecture</span></td>
+          <td class="c muted" role="cell" data-l="What goes in">Components and format · reinforcement and practice loop · measurement · scalability and sunset plan</td>
+          <td class="c k" role="cell" data-l="CLUE">E</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="§">§4</th>
+          <td class="c" role="cell" data-l="Section"><strong>The Investigation Plan</strong><span class="sub">Roadmap</span></td>
+          <td class="c muted" role="cell" data-l="What goes in">Discovery → business case · Design → MVP · Pilot → the gate: scale / adjust / stop · Rollout · Optimization</td>
+          <td class="c k" role="cell" data-l="CLUE">U, E</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="§">§5</th>
+          <td class="c" role="cell" data-l="Section"><strong>The Chain of Command</strong><span class="sub">RACI</span></td>
+          <td class="c muted" role="cell" data-l="What goes in">Approval, KPI definition, pilot launch, scale decision × Sponsor, L&amp;D PO, HRBP, BU Lead, IT/Data, Finance</td>
+          <td class="c k" role="cell" data-l="CLUE">E</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="§">§6</th>
+          <td class="c" role="cell" data-l="Section"><strong>Risk &amp; Resources</strong><span class="sub">Budget &amp; reporting</span></td>
+          <td class="c muted" role="cell" data-l="What goes in">Investment · return · payback · risks with probability, impact, mitigation · reporting on KPI movement and adoption, never seat time</td>
+          <td class="c k" role="cell" data-l="CLUE">E</td>
+        </tr>
+      </tbody>
+      </table></div>
+  </div>
+</section>
+
+<!-- ============ 07 CASE CLOSED ============ -->
+<section class="case" id="closed" aria-labelledby="h-closed">
+  <div class="hero lite"><div>
+    <span class="label amber">File 07</span>
+    <h2 id="h-closed">Case Closed</h2>
+    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> you want to see the whole method run once, start to verdict.</span></p><div class="meta-row"><span class="chip">About 4 min</span></div>
+  </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-closed"/></svg></div></div>
+  <div class="body">
+    <nav class="pills no-print" aria-label="On this page"><a href="#main-case"><i>1</i>The main case</a><a href="#cold-cases"><i>2</i>Cold cases</a><a href="#handover"><i>3</i>Who makes the fixes</a><a href="#is-training"><i>4</i>When to build</a><a href="#steal"><i>5</i>What to steal</a></nav>
+
+    <div>
+    <div class="prose"><h3 id="main-case">The main case: the cascade that never landed</h3><p class="capt">A composite of several cases. The numbers show the shape, not one company's record.</p></div>
+    <div class="tl-wrap">
+    <table class="tl" role="table" aria-label="The cascade case, step by step">
+      <thead role="rowgroup"><tr class="r hdr" role="row">
+        <th scope="col" role="columnheader" style="width:136px">Step</th>
+        <th scope="col" role="columnheader">What it revealed</th>
+        <th scope="col" role="columnheader">What changed</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr class="r" role="row">
+          <th scope="row" class="st" role="rowheader"><span class="bx" aria-hidden="true">!</span><span class="lb">The request</span></th>
+          <td class="rev" role="cell" data-l="What it revealed"><q>Middle managers can't communicate. We need communication training for all people managers.</q> Leadership arrived with the verdict already written</td>
+          <td class="chg" role="cell" data-l="What changed">Nothing yet</td>
+        </tr>
+        <tr class="r" role="row">
+          <th scope="row" class="st" role="rowheader"><span class="bx" aria-hidden="true">C</span><span class="lb">Clarify</span></th>
+          <td class="rev" role="cell" data-l="What it revealed">The survey had just landed, "I understand where the company is going" at 41%, and the board asked why</td>
+          <td class="chg" role="cell" data-l="What changed">A behavior instead of an adjective: each team hears the update from their own manager within a week</td>
+        </tr>
+        <tr class="r" role="row">
+          <th scope="row" class="st" role="rowheader"><span class="bx" aria-hidden="true">L</span><span class="lb">Look</span></th>
+          <td class="rev" role="cell" data-l="What it revealed">One department scores 78%. Its director pre-briefs her managers with a one-pager. Everyone else gets 60 slides at the same moment as their teams, no talk track, nowhere to ask, and nobody had said cascading was their job</td>
+          <td class="chg" role="cell" data-l="What changed">Gap classified: process and expectations, plus a thin, real skill need</td>
+        </tr>
+        <tr class="r" role="row">
+          <th scope="row" class="st" role="rowheader"><span class="bx" aria-hidden="true">U</span><span class="lb">Uncover</span></th>
+          <td class="rev" role="cell" data-l="What it revealed">Three managers on the June pivot all learned it in the all-hands with their teams. Two improvised in the hallway within the hour (<q>honestly, I know as much as you do</q>). Verbatims clustered on "my manager couldn't explain why"</td>
+          <td class="chg" role="cell" data-l="What changed">Two independent sources, one cause</td>
+        </tr>
+        <tr class="r" role="row">
+          <th scope="row" class="st" role="rowheader"><span class="bx" aria-hidden="true">E</span><span class="lb">Execute</span></th>
+          <td class="rev" role="cell" data-l="What it revealed">One BU, one quarterly cycle: a 48-hour pre-brief, a one-page talk track, a 48-hour Q&amp;A channel, one 90-minute practice session</td>
+          <td class="chg" role="cell" data-l="What changed">Hypothesis signed: 80% of teams hold the conversation within a week, survey item +5 from 41%</td>
+        </tr>
+        <tr class="r last" role="row">
+          <th scope="row" class="st" role="rowheader"><span class="bx" aria-hidden="true">✓</span><span class="lb">Verdict</span></th>
+          <td class="rev" role="cell" data-l="What it revealed">9 of 10 pilot teams held the conversation inside a week. The pulse item gained 6 points. The hallway questions stopped</td>
+          <td class="chg" role="cell" data-l="What changed">Make the pre-brief permanent</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+    <p class="capt">The primary metric is a behavior you can count next month, not a survey you wait a year for. Closing the 37-point gap to the best department in one quarter is a fantasy, and a sponsor who has read this guide would call it one.</p>
+
+    <div class="card stamped" style="padding:18px 20px;margin:16px 0 6px">
+      <span class="stamp" aria-hidden="true">Case closed</span>
+      <div class="gt-wrap flush" data-cols="4"><table class="gt" role="table" aria-label="Case closed summary">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader">Found</th>
+        <th scope="col" class="h" role="columnheader">Did</th>
+        <th scope="col" class="h" role="columnheader">Moved</th>
+        <th scope="col" class="h" role="columnheader">Next</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <td class="c" role="cell" data-l="Found">Briefed last and armed with nothing</td>
+          <td class="c" role="cell" data-l="Did">Four fixes, one of them training</td>
+          <td class="c" role="cell" data-l="Moved">9 of 10 teams, +6 points</td>
+          <td class="c" role="cell" data-l="Next">Make the pre-brief permanent</td>
+        </tr>
+      </tbody>
+      </table></div>
+    </div>
+    <p class="capt">Training was a quarter of the fix, and it worked because the other three-quarters shipped first.</p>
+    </div>
+
+    <div>
+    <div class="prose">
+      <h3 id="cold-cases">The cold case files</h3>
+      <p>Same plot twist every time: the fix was upstream of skill. Steal the question.</p>
+    </div>
+    <div class="toolrow cases no-print">
+      <span class="hint">Guess the cause before you look.</span>
+      <button class="tbtn" type="button" id="showAllCases">Show all answers</button>
+    </div>
+    <div class="cold">
+      <article class="file" id="cold-01"><span class="n">Cold case 01</span><h4>The negotiation course that was a signature</h4>
+        <dl><dt>Asked for</dt><dd>Negotiation training; deals dying at the final stretch.</dd>
+        <dt>Question</dt><dd>"Show me the last deal we lost. Where exactly did it stall?"</dd></dl>
+        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
+        <dl class="back"><dt>Turned out</dt><dd>Discount approval took five days and two signatures. Buyers cooled off.</dd>
+        <dt>Fix</dt><dd class="fix">A pre-approved discount matrix below a threshold. Cycle time down in a week.</dd></dl></article>
+
+      <article class="file" id="cold-02"><span class="n">Cold case 02</span><h4>The empathy problem that was a scorecard</h4>
+        <dl><dt>Asked for</dt><dd>Empathy training for support, after rough NPS.</dd>
+        <dt>Question</dt><dd>"What happens to an agent who spends four extra minutes with an upset customer?"</dd></dl>
+        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
+        <dl class="back"><dt>Turned out</dt><dd>The scorecard punished that. Handle time was 40% of the score.</dd>
+        <dt>Fix</dt><dd class="fix">Reweight it, add one quality criterion. Tone changed in two weeks.</dd></dl></article>
+
+      <article class="file" id="cold-03"><span class="n">Cold case 03</span><h4>The Excel course that was a template</h4>
+        <dl><dt>Asked for</dt><dd>Excel training for the finance team.</dd>
+        <dt>Question</dt><dd>"Could your best analyst do this fast? What is she doing differently?"</dd></dl>
+        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
+        <dl class="back"><dt>Turned out</dt><dd>She had a formula-locked template. Everyone else rebuilt the report by hand, monthly.</dd>
+        <dt>Fix</dt><dd class="fix">Her template plus a 15-minute walkthrough video. Done that afternoon.</dd></dl></article>
+
+      <article class="file" id="cold-04"><span class="n">Cold case 04</span><h4>The presentation training that was one slide</h4>
+        <dl><dt>Asked for</dt><dd>Presentation skills for engineers; updates called unclear.</dd>
+        <dt>Question</dt><dd>"Think of an update that landed well. What did it look like?"</dd></dl>
+        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
+        <dl class="back"><dt>Turned out</dt><dd>No agreed format. Every engineer was improvising a genre.</dd>
+        <dt>Fix</dt><dd class="fix">A one-slide template, <em>what changed / so what / the ask</em>. Complaints stopped that quarter.</dd></dl></article>
+
+      <article class="file" id="cold-05"><span class="n">Cold case 05</span><h4>The time-management course that was a calendar default</h4>
+        <dl><dt>Asked for</dt><dd>Time-management training for new managers.</dd>
+        <dt>Question</dt><dd>"Walk me through your Tuesday."</dd></dl>
+        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
+        <dl class="back"><dt>Turned out</dt><dd>Every invite defaulted to 60 minutes, and nobody believed they could decline.</dd>
+        <dt>Fix</dt><dd class="fix">25- and 50-minute calendar defaults, plus the director saying "decline freely" out loud, in public.</dd></dl></article>
+
+      <article class="file" id="cold-06"><span class="n">Cold case 06</span><h4>The feedback training that was a permission setting</h4>
+        <dl><dt>Asked for</dt><dd>Teach managers to discuss survey results.</dd>
+        <dt>Question</dt><dd>"What do you actually have in front of you when you sit down with the team?"</dd></dl>
+        <button type="button" class="rv no-print"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg>Reveal the cause</button>
+        <dl class="back"><dt>Turned out</dt><dd>Managers couldn't see their own team's dashboard. They were asked to discuss data they had never seen.</dd>
+        <dt>Fix</dt><dd class="fix">A permission change and a one-page talk track.</dd></dl></article>
+    </div>
+
+    <article class="file lost" id="cold-07"><span class="n">Cold case 07 · still open for two quarters</span><h4>The case we lost</h4>
+      <dl><dt>Asked for</dt><dd>Sales enablement for a line nobody was selling.</dd>
+      <dt>Question</dt><dd>"What happens to a rep's payout when they sell the new line instead of the old one?"</dd>
+      <dt>Turned out</dt><dd>The new line paid less commission. No course out-argues a paycheck.</dd>
+      <dt>Fix</dt><dd class="fix">Not ours to make. Comp wasn't on the table, the training shipped as requested, and the number stayed flat, as the written hypothesis predicted. Two quarters later, when someone asked why the line still wasn't moving, that hypothesis was the only document in the room with an answer. Comp changed, and the training started working.</dd></dl>
+      <ul class="chips" aria-label="What made it recoverable">
+        <li>The diagnosis existed on paper before launch</li>
+        <li>The prediction was specific enough to check</li>
+        <li>Nobody said I told you so</li>
+      </ul>
+    </article>
+    </div>
+
+    <div>
+    <div class="prose">
+      <h3 id="handover">Who actually makes these fixes</h3>
+      <p>Ops changed the approval rule. The support lead reweighted the scorecard. IT flipped a permission. L&amp;D owned none of those fixes, and that's the job.</p>
+    </div>
+    <div class="hand">
+      <div><span class="mn" aria-hidden="true">1</span><div><h4>Bring the evidence, not the verdict.</h4><p>"Here's what we saw in six tickets" beats "your scorecard is wrong."</p></div></div>
+      <div><span class="mn" aria-hidden="true">2</span><div><h4>Name one owner, not a department.</h4><p>A fix assigned to Ops is a fix nobody makes (→ <a href="#g-string">String Board</a>).</p></div></div>
+      <div><span class="mn" aria-hidden="true">3</span><div><h4>Ask for the smallest change that tests the diagnosis.</h4><p>One field. One line in a policy. One calendar default.</p></div></div>
+      <div><span class="mn" aria-hidden="true">4</span><div><h4>Let them have the win.</h4><p>The scorecard was their call.</p></div></div>
+    </div>
+    </div>
+
+    <div class="prose"><h3 id="is-training">When training is the answer</h3><p>You ran L. Now you have evidence, not a hunch. Build only if all three "build" conditions hold.</p></div>
+    <div class="cc">
+      <div class="yes">
+        <h4><span class="mk" aria-hidden="true">✓</span>Build the course when</h4>
+        <ul>
+          <li>The bright-spot performer succeeds because she <em>knows</em> something the others don't</li>
+          <li>The environment would let everyone do the same</li>
+          <li>Nobody has tried teaching it properly</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h4><span class="mk" aria-hidden="true">✕</span>Don't when</h4>
+        <ul>
+          <li>This exact training has already run and the number didn't move</li>
+          <li>Everybody knows the process and nobody follows it</li>
+          <li>The managers who would reinforce it aren't reinforcing anything today</li>
+        </ul>
+      </div>
+    </div>
+    <p class="capt">When the left column lines up, build it, and pilot it small anyway. And when the answer is training, you stand in front of people who have watched you turn down work that wouldn't have helped.</p>
+
+    <div class="prose"><h3 id="steal">What will you steal?</h3><p>One line, written now, gets acted on far more often than a resolution. Fill it in before you close the tab.</p></div>
+    <div class="tpl2">
+      <div class="hyp"><span class="l">Before Monday</span>Before I reply to the next request, I will ask <b>this question</b> and write down <b>this cost</b>.</div>
+      <div class="hyp filled"><span class="l">One filled in</span><em>Before I reply to the next request, I will ask "If we trained everyone tomorrow and the training was perfect, what would still get in the way?" and write down what the current error rate costs us per month.</em></div>
+    </div>
+    <p class="capt">Pick the question from the <a href="#clue">CLUE table</a> and put it where Monday will find it, the top of your notebook or a sticky on the monitor.</p>
+  </div>
+</section>
+
+<footer class="credit">
+  <div><span class="who">Hanna Petrasian</span> · <a href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn</a>
+    <div class="share no-print">
+      <button type="button" id="shareLink"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg>Copy the link</button>
+      <button type="button" id="sharePost"><svg class="ico" aria-hidden="true"><use href="#i-notebook"/></svg>Copy a line to post</button>
+    </div>
+  </div>
+  <div>Downloads: <a href="files/pocket-guide.pdf">Pocket Guide (PDF)</a> · <a href="files/case-file-template.docx">Case File template</a><br><a href="#top">Back to top</a></div>
+</footer>
+
+</div><!-- /.wrap -->
+
+</main>
+
+<script>
+(function(){
+  document.documentElement.classList.remove('no-js');
+  // Mobile menu
+  var nav=document.getElementById('nav'),btn=document.getElementById('menuBtn');
+  function setOpen(o){nav.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));
+    btn.innerHTML=(o?'<svg class="ico" aria-hidden="true"><use href="#i-close"/></svg> Close':'<svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg> Contents');
+    document.body.style.overflow=o?'hidden':'';
+    if(o){var first=nav.querySelector('a');if(first)first.focus();}}
+  btn.addEventListener('click',function(){setOpen(!nav.classList.contains('open'));});
+  nav.addEventListener('click',function(e){if(e.target.closest('a')&&nav.classList.contains('open'))setOpen(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){setOpen(false);btn.focus();}});
+  document.addEventListener('click',function(e){if(nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))setOpen(false);});
+
+  // Current section in nav
+  var links=[].slice.call(nav.querySelectorAll('ol a.item[href^="#"]'));
+  var byId={};links.forEach(function(a){byId[a.getAttribute('href').slice(1)]=a;});
+  var sections=[].slice.call(document.querySelectorAll('section.case'));
+  function setCurrent(id){links.forEach(function(a){a.removeAttribute('aria-current');});if(byId[id])byId[id].setAttribute('aria-current','true');if(window.__rememberLast)window.__rememberLast(id);}
+  if('IntersectionObserver' in window){
+    var visible={};
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){visible[en.target.id]=en.isIntersecting?en.intersectionRatio:0;});
+      var best=null,bestV=0;sections.forEach(function(s){if((visible[s.id]||0)>bestV){bestV=visible[s.id];best=s.id;}});
+      if(best)setCurrent(best);
+    },{rootMargin:'-20% 0px -60% 0px',threshold:[0,.1,.25,.5,.75,1]});
+    sections.forEach(function(s){io.observe(s);});
+  }
+
+
+  // Section pills: the last target that has passed the reading line is current;
+  // nothing is current once the reading line has left the section.
+  var pillSets=[];
+  document.querySelectorAll('nav.pills').forEach(function(pills){
+    var items=[];pills.querySelectorAll('a').forEach(function(a){var el=document.getElementById(a.getAttribute('href').slice(1));if(el)items.push({a:a,el:el});});
+    var sec=pills.closest('section');if(items.length&&sec)pillSets.push({sec:sec,items:items});
+  });
+  function paintPills(){
+    var line=window.innerHeight*0.45;
+    pillSets.forEach(function(set){
+      var cur=null,sr=set.sec.getBoundingClientRect();
+      if(sr.top<line&&sr.bottom>line){set.items.forEach(function(it){if(it.el.getBoundingClientRect().top<=line)cur=it;});}
+      set.items.forEach(function(it){if(it===cur)it.a.setAttribute('aria-current','true');else it.a.removeAttribute('aria-current');});
+    });
+  }
+  paintPills();
+
+  // Progress bar
+  var pbar=document.getElementById('pbar');
+  var totopBtn=document.getElementById('totop'),ticking=false;
+  function paint(){ticking=false;var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;
+    pbar.style.transform='scaleX('+(max>0?h.scrollTop/max:0)+')';
+    paintPills();
+    totopBtn.classList.toggle('show',h.scrollTop>900);}
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(paint);}}
+  window.addEventListener('scroll',onScroll,{passive:true});paint();
+  var calm=window.matchMedia('(prefers-reduced-motion:reduce)');
+  totopBtn.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:calm.matches?'auto':'smooth'});
+    var h1=document.querySelector('.masthead h1');h1.setAttribute('tabindex','-1');h1.focus({preventScroll:true});});
+
+  // Read ticks + resume (localStorage, best effort)
+  var store={get:function(k){try{return JSON.parse(localStorage.getItem(k));}catch(e){return null;}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+  var titles={};links.forEach(function(a){titles[a.getAttribute('href').slice(1)]=a.textContent.replace(/^\s*(\d\d|PG)\s*/,'').trim();});
+  // the section the nav marks as current is the one to resume from (works for sections taller than the viewport)
+  window.__rememberLast=function(id){store.set('ldd-last',id);};
+  var read=store.get('ldd-read')||[];
+  function markRead(id){if(read.indexOf(id)<0){read.push(id);store.set('ldd-read',read);}if(byId[id])byId[id].classList.add('read');}
+  read.forEach(function(id){if(byId[id])byId[id].classList.add('read');});
+  if('IntersectionObserver' in window){
+    // a section counts as read once its end has been on screen
+    var endIO=new IntersectionObserver(function(es){es.forEach(function(en){
+      var rb=en.rootBounds?en.rootBounds.bottom:window.innerHeight;
+      if(en.isIntersecting&&en.boundingClientRect.bottom<=rb)markRead(en.target.id);});},
+      {threshold:[0,.01,.5,1]});
+    sections.forEach(function(s){endIO.observe(s);});
+  }
+  var last=store.get('ldd-last');var toast=document.getElementById('toast');
+  if(last&&last!=='start'&&!location.hash&&titles[last]){
+    toast.innerHTML='<span class="t">Welcome back. Continue from <b>'+titles[last]+'</b>?</span><a class="go" href="#'+last+'">Continue →</a><button type="button" aria-label="Dismiss"><svg class="ico sm" aria-hidden="true"><use href="#i-close"/></svg></button>';
+    toast.hidden=false;requestAnimationFrame(function(){toast.classList.add('show');});
+    var hide=function(){toast.classList.remove('show');setTimeout(function(){toast.hidden=true;},250);};
+    toast.querySelector('button').addEventListener('click',hide);toast.querySelector('a.go').addEventListener('click',hide);setTimeout(hide,6000);
+  }
+
+  // ---- Cold case reveal cards -------------------------------
+  var caseCards=[].slice.call(document.querySelectorAll('.cold .file'));
+  caseCards.forEach(function(card){
+    var b=card.querySelector('.rv');
+    if(!b)return;
+    b.addEventListener('click',function(){card.classList.add('open');
+      var back=card.querySelector('.back');
+      if(back){back.setAttribute('tabindex','-1');back.focus({preventScroll:true});}});
+  });
+  var showAll=document.getElementById('showAllCases');
+  if(showAll){
+    showAll.addEventListener('click',function(){
+      var open=caseCards.every(function(c){return c.classList.contains('open');});
+      caseCards.forEach(function(c){c.classList.toggle('open',!open);});
+      showAll.textContent=open?'Show all answers':'Hide the answers';
+    });
+  }
+  // A deep link to a cold case opens it
+  function openCaseFromHash(){
+    var id=location.hash.slice(1);if(!id)return;
+    var el=document.getElementById(id);
+    if(el&&el.classList&&el.classList.contains('file'))el.classList.add('open');
+  }
+  window.addEventListener('hashchange',openCaseFromHash);openCaseFromHash();
+
+  // ---- Share -------------------------------------------------
+  function flash(btn,label){
+    if(!btn.dataset.idle)btn.dataset.idle=btn.innerHTML;      // capture once
+    clearTimeout(btn._t);
+    btn.innerHTML='<svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>'+label;
+    btn._t=setTimeout(function(){btn.innerHTML=btn.dataset.idle;},1800);
+  }
+  function copyText(text,btn,label){
+    var done=function(){flash(btn,label);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,done);}
+    else{var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}
+  }
+  var shareLink=document.getElementById('shareLink');
+  if(shareLink){shareLink.addEventListener('click',function(){copyText(location.origin+location.pathname,shareLink,'Link copied');});}
+  var sharePost=document.getElementById('sharePost');
+  if(sharePost){
+    sharePost.addEventListener('click',function(){
+      copyText('The L&D Detective Field Guide: most training requests aren\'t training problems. The 20-minute conversation that finds out which one you\'ve got. '+location.origin+location.pathname,sharePost,'Copied');
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
