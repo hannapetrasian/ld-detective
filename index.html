@@ -1181,7 +1181,7 @@ section.case + section.case{margin-top:0}
 .wo.do b{color:var(--amber-ink)}
 .wo.do b::before{content:"✓";background:var(--amber-ink)}
 
-/* Open a case: the four questions as a sheet you fill in */
+/* The intake: the four questions as a sheet you fill in */
 .oc .oc-intro{margin:0}
 .oc-form{margin-top:14px;padding:22px 24px 18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);display:grid;gap:18px}
 .oc fieldset{border:0;margin:0;padding:0;min-width:0}
@@ -1216,6 +1216,7 @@ section.case + section.case{margin-top:0}
 .oc-acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-top:16px;border-top:1px solid var(--line)}
 .oc-acts .tbtn{margin-left:auto}
 .oc-note{margin:-8px 0 0}
+.oc-note + .oc-next{margin:-14px 0 0}
 .oc-chip span{-webkit-tap-highlight-color:transparent}
 .oc textarea{field-sizing:content}
 .fm-l{display:block;margin-top:18px}
@@ -1230,7 +1231,7 @@ section.case + section.case{margin-top:0}
   .oc-acts .btn{flex:1 1 100%;justify-content:center}
   .oc-acts .tbtn{margin-left:0}
 }
-/* Whole-page print skips the sheet; "Print the case" prints only the filled case */
+/* Whole-page print skips the sheet; "Print the notes" prints only the filled notes */
 @media print{
   html:not(.print-case) .oc{display:none!important}
   html.print-case main .wrap > :not(#clue),
@@ -1393,7 +1394,7 @@ section.case + section.case{margin-top:0}
   <div class="mast-art" aria-hidden="true"><svg class="illo"><use href="#illo-mast"/></svg></div>
   <div class="cta">
     <a class="btn" href="#start">Start reading <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a class="btn ghost" href="#open-case"><svg class="ico sm" aria-hidden="true"><use href="#i-folder"/></svg>Got a request? Open a case</a>
+    <a class="btn ghost" href="#intake"><svg class="ico sm" aria-hidden="true"><use href="#i-folder"/></svg>Got a request? Run the intake</a>
     <a class="btn ghost" href="#main-case"><svg class="ico sm" aria-hidden="true"><use href="#i-search"/></svg>Four minutes? Take the case</a>
     <p class="readtime"><svg class="ico sm" aria-hidden="true"><use href="#i-clock"/></svg><span>About 20 minutes, or 3 for the <a href="files/pocket-guide.pdf">Pocket Guide</a></span></p>
   </div>
@@ -1688,7 +1689,7 @@ section.case + section.case{margin-top:0}
   </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-clue"/></svg></div></div>
   <div class="body">
     <div class="prose">
-      <p class="lead">Four moves, in order, 20 minutes if you're sharp.</p>
+      <p class="lead">Four moves, in order. C and L fit in the first 20-minute conversation. U and E need evidence.</p>
     </div>
     <nav class="pills no-print" aria-label="On this page"><a href="#clue-c"><i>C</i>Clarify</a><a href="#clue-l"><i>L</i>Look</a><a href="#clue-u"><i>U</i>Uncover</a><a href="#clue-e"><i>E</i>Execute</a><a href="#push-back"><i>!</i>When they push back</a></nav>
 
@@ -1741,9 +1742,9 @@ section.case + section.case{margin-top:0}
     </div>
 
     <div class="oc" id="openCase">
-      <div class="prose"><h3 id="open-case">Open a case</h3>
-      <p class="oc-intro">A request just landed? Fill this in during the conversation or straight after it. If you can't put a number in the C line, that is Monday's first question.</p></div>
-      <div class="oc-form" role="group" aria-labelledby="open-case">
+      <div class="prose"><h3 id="intake">Run the intake</h3>
+      <p class="oc-intro">A request just landed? Fill this in during the conversation or straight after it. For a quick read, C and L are enough. If you can't put a number in the C line, that is Monday's first question.</p></div>
+      <div class="oc-form" role="group" aria-labelledby="intake">
         <fieldset class="oc-size"><legend class="oc-l">How deep?</legend>
           <div class="oc-chips"><label class="oc-chip"><input type="radio" name="oc-size" value="Quick read, 20 minutes"><span>Quick read, 20 minutes</span></label><label class="oc-chip"><input type="radio" name="oc-size" value="Full investigation, 1–2 weeks"><span>Full investigation, 1–2 weeks</span></label></div>
         </fieldset>
@@ -1751,7 +1752,7 @@ section.case + section.case{margin-top:0}
         <div class="oc-step">
           <span class="bx" aria-hidden="true">C</span>
           <div class="oc-f"><label class="oc-q" for="oc-c"><span class="sr-only">C, Clarify: </span>What's happening in the business that made this urgent now?</label>
-          <span class="oc-hint" id="oc-c-h">Put the number in: where it is, where it needs to be.</span>
+          <span class="oc-hint" id="oc-c-h">Put the number in: where it is, where it needs to be, what the gap costs.</span>
           <textarea id="oc-c" data-k="c" rows="2" aria-describedby="oc-c-h" placeholder="e.g. The survey item on direction is at 41%, and the board asked why"></textarea></div>
         </div>
         <div class="oc-step">
@@ -1782,11 +1783,12 @@ section.case + section.case{margin-top:0}
           <p class="hyp filled oc-sentence" aria-hidden="true"></p></div>
         </div>
         <div class="oc-acts">
-          <button type="button" class="btn" id="ocCopy"><svg class="ico sm" aria-hidden="true"><use href="#i-copy"/></svg>Copy the case</button>
-          <button type="button" class="btn ghost" id="ocPrint"><svg class="ico sm" aria-hidden="true"><use href="#i-print"/></svg>Print the case</button>
+          <button type="button" class="btn" id="ocCopy"><svg class="ico sm" aria-hidden="true"><use href="#i-copy"/></svg>Copy the notes</button>
+          <button type="button" class="btn ghost" id="ocPrint"><svg class="ico sm" aria-hidden="true"><use href="#i-print"/></svg>Print the notes</button>
           <button type="button" class="tbtn" id="ocClear">Clear</button>
         </div>
         <p class="capt oc-note">It stays in this browser. Nothing is sent anywhere.</p>
+        <p class="capt oc-next">Size two? Move it into the <a href="files/case-file-template.docx">Case File template</a>.</p>
       </div>
       <div class="oc-print" aria-hidden="true"></div>
     </div>
@@ -2616,7 +2618,7 @@ section.case + section.case{margin-top:0}
     var items=[],n=g.nextElementSibling;while(n){items.push(n);n=n.nextElementSibling;}
     caseFold=makeFold(items,g,'Show the solved case','Hide the solved case',true);
   })();
-  // ---- Open a case: the four questions as a sheet, saved in this browser only ----
+  // ---- The intake: the four questions as a sheet, saved in this browser only ----
   var foldAnchors={};
   (function(){
     var box=document.getElementById('openCase');if(!box)return;
@@ -2651,7 +2653,7 @@ section.case + section.case{margin-top:0}
       });
     }
     function caseText(d){
-      var L=['Case file · The L&D Detective'];
+      var L=['Intake notes · The L&D Detective'];
       if(d.asked)L.push('Asked for: '+d.asked);
       if(d.size)L.push('Size: '+d.size);
       if(d.c)L.push('C · Why now, and the number: '+d.c);
@@ -2665,7 +2667,7 @@ section.case + section.case{margin-top:0}
     function paintPrint(d){
       printBox.textContent='';
       var add=function(tag,cls,text,parent){var el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;(parent||printBox).appendChild(el);return el;};
-      add('p','pt','The L&D Detective · Case file');
+      add('p','pt','The L&D Detective · Intake notes');
       add('p','ph',d.asked||'Asked for:');
       var dl=add('dl');
       [['Size',d.size],['C · Why now, and the number',d.c],['L · What would still get in the way',d.l],['Gap',d.gaps.join(', ')],['U · The last time it went wrong',d.u],['E · Hypothesis',hasHyp(d)?hypText(d):'']].forEach(function(r){
@@ -2680,7 +2682,7 @@ section.case + section.case{margin-top:0}
     document.getElementById('ocCopy').addEventListener('click',function(){
       var d=read();
       if(!hasAny(d)){say('Nothing to copy yet. Start with what they asked for.');document.getElementById('oc-asked').focus();return;}
-      copyText(caseText(d),this,'Case copied');say('Case copied.');
+      copyText(caseText(d),this,'Notes copied');say('Notes copied.');
     });
     var caseAt=0;
     document.getElementById('ocPrint').addEventListener('click',function(){
@@ -2693,13 +2695,15 @@ section.case + section.case{margin-top:0}
     var clr=document.getElementById('ocClear'),armed=null;
     function disarm(){clearTimeout(armed);armed=null;clr.textContent='Clear';}
     clr.addEventListener('click',function(){
-      if(!armed){clr.textContent='Clear it all? Press again';say('Press again to clear this case.');armed=setTimeout(disarm,4000);return;}
+      if(!armed){clr.textContent='Clear it all? Press again';say('Press again to clear the notes.');armed=setTimeout(disarm,4000);return;}
       disarm();fill({gaps:[]});changed();try{localStorage.removeItem(KEY);}catch(e){}
-      say('Case cleared.');document.getElementById('oc-asked').focus();
+      say('Notes cleared.');document.getElementById('oc-asked').focus();
     });
     fill(store.get(KEY)||{gaps:[]});paintSentence(read());
-    var f=makeFold([form],intro,'Start a case','Hide the form',true);
-    foldAnchors['open-case']=f;
+    var f=makeFold([form],intro,'Start the intake','Hide the form',true);
+    foldAnchors['intake']=f;
+    // the sheet was first published as #open-case
+    if(location.hash==='#open-case')history.replaceState(null,'','#intake');
     if(hasAny(read()))f.set(true);
   })();
   function openFor(id){

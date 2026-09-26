@@ -57,7 +57,7 @@ async def main():
         # 6. keyboard: tab reaches skip link, ten-minute CTA is a link
         await page.goto(f'http://localhost:{PORT}/index.html',wait_until='networkidle')
         await page.keyboard.press('Tab'); r['first_tab']=await page.evaluate("document.activeElement.textContent")
-        r['open_case_href']=await page.get_attribute('.masthead .cta a[href="#open-case"]','href')
+        r['intake_href']=await page.get_attribute('.masthead .cta a[href="#intake"]','href')
         # 7. read ticks after scrolling to the end
         await page.evaluate("window.scrollTo(0,document.body.scrollHeight)"); await page.wait_for_timeout(500)
         r['read_store']=await page.evaluate("localStorage.getItem('ldd-read')")
