@@ -96,8 +96,6 @@ section.case + section.case{margin-top:24px}
 .masthead .sub{font-size:clamp(19px,2vw,24px);color:var(--ink-2);margin:18px 0 26px;max-width:32ch;line-height:1.35}
 .masthead .byline{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:15px;color:var(--muted)}
 .masthead .byline a{color:var(--ink-2);display:inline-flex;align-items:center;min-height:44px}
-.masthead .byline .by{line-height:1.5}
-.masthead .byline .by a{display:inline;min-height:0;padding:12px 0}
 .masthead .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 @media (max-width:640px){.masthead .cta .btn{flex:1 1 100%;justify-content:center}}
 
@@ -1111,6 +1109,74 @@ main[id],section.case[id]{scroll-margin-top:24px}
 .gm-rank{font-size:17px;font-weight:600;margin:20px 0 6px}
 @media (max-width:640px){.gm-src.is-open{transform:rotate(calc(var(--rot,0deg) * .3))}}
 @media (max-width:640px){.gm-closed .stamp{position:static;display:inline-block;margin-bottom:14px;font-size:16px;transform:rotate(-4deg)}}
+
+/* ============================================================
+   v9: clearer structure and unmistakable feedback
+   ============================================================ */
+/* hero: author as a person, LinkedIn as a button, reading time with the buttons */
+.masthead .byline{gap:12px 16px;margin-top:22px}
+.masthead .byline .who{display:inline-flex;align-items:center;gap:12px;min-height:48px;text-decoration:none;color:var(--ink);border-radius:999px;padding-right:6px}
+.masthead .byline .who img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--card);box-shadow:0 0 0 1px var(--line-2)}
+.masthead .byline .who b{display:block;font-size:16px;font-weight:600;line-height:1.3;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px;transition:text-decoration-color var(--t)}
+.masthead .byline .who:hover b{text-decoration-color:var(--ink)}
+.masthead .byline .who .cred{display:block;font-size:14px;line-height:1.4;color:var(--muted)}
+.masthead .byline .btn.li{min-height:44px;padding:8px 14px;font-size:14px;color:var(--ink)}
+.masthead .readtime{flex:1 1 100%;display:flex;align-items:center;gap:8px;margin:4px 0 0;font-size:14px;color:var(--muted)}
+.masthead .readtime .ico{color:var(--muted)}
+.masthead .readtime a{color:var(--ink-2)}
+@media (max-width:640px){.masthead .byline .btn.li{flex:none}.masthead .readtime{justify-content:center}}
+
+/* chapters: every File opens on its own panel, parts are bands */
+section.case{padding-top:72px}
+section.case + section.case{margin-top:0}
+.hero.lite{background:var(--paper-2);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:var(--r-lg);padding:24px 28px 22px}
+.hero.lite .label{font-size:13px;color:var(--amber-ink)}
+@media (max-width:760px){.hero.lite{padding:18px 18px 16px 16px}}
+.part{margin:96px 0 0;padding:22px 26px;border:0;border-radius:var(--r-lg);background:var(--ink);color:var(--on-ink);align-items:center}
+.part .pn{background:transparent;color:var(--amber-soft);border:1px solid rgba(243,231,198,.35)}
+.part h2{font-size:clamp(19px,2vw,23px);color:#fff}
+.part .pd{color:var(--on-ink-muted);font-family:var(--mono);font-size:13px;letter-spacing:.04em}
+.part + section.case{padding-top:28px}
+@media print{.part{background:#fff;color:#000;border:1.5px solid #000;margin:24px 0 0;padding:12px 16px}.hero.lite{padding:14px 16px}section.case{padding-top:0}.part h2{color:#000}.part .pn,.part .pd{color:#333;border-color:#999}.hero.lite{background:#fff}}
+
+/* cold cases: your pick, the answer, and the card itself all say right or wrong */
+.file.guessed .chips button.ch{opacity:.5}
+.file.guessed .chips button.ch.right,.file.guessed .chips button.ch[aria-pressed="true"]{opacity:1}
+.file.guessed .chips button.ch.right{background:#FCFDFB;border:2px solid #4A7A50;color:#3F6B45;font-weight:600}
+.file.guessed .chips button.ch.right::before{content:"✓\00a0"}
+.file.guessed .chips button.ch[aria-pressed="true"].right{background:#4A7A50;color:#fff}
+.file.guessed .chips button.ch[aria-pressed="true"].wrong{background:#A9553F;border:2px solid #A9553F;color:#fff;font-weight:600}
+.file.guessed .chips button.ch[aria-pressed="true"].wrong::before{content:"✕\00a0"}
+.file.hit::before{background:#4A7A50;width:100%;left:0;border-radius:var(--r-lg) var(--r-lg) 0 0;height:4px}
+.file.miss::before{background:#A9553F;width:100%;left:0;border-radius:var(--r-lg) var(--r-lg) 0 0;height:4px}
+.file .back dd.vd{display:none}
+.file.guessed .back dd.vd{display:flex;align-items:center;gap:8px}
+.file .back dd.vd.yes::before,.file .back dd.vd.no::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font:700 12px/1 var(--mono);color:#fff;background:#4A7A50}
+.file .back dd.vd.no::before{content:"✕";background:#A9553F}
+
+/* sort the evidence: the boxes are neutral, the verdict sits on each quote */
+.sort .zones > div.yes,.sort .zones > div.no{border-color:var(--line-2);background:var(--card)}
+.sort .zones > div.yes h4,.sort .zones > div.no h4{color:var(--ink)}
+.sort .zones > div.yes h4 .mk,.sort .zones > div.no h4 .mk{background:var(--ink)}
+.sort .ev.ok,.sort button.ev.ok:hover{border:1px solid #4A7A50;border-left:4px solid #4A7A50;background:#FCFDFB}
+.sort .ev.bad,.sort button.ev.bad:hover{border:1px solid #A9553F;border-left:4px solid #A9553F;background:#FEFBFA}
+.ev.ok .g{color:#3F6B45}.ev.bad .g{color:#8C4636}
+.ev.ok .g::before,.ev.bad .g::before{content:"✓";display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;margin-right:6px;background:#4A7A50;color:#fff;font-size:10px;vertical-align:-3px}
+.ev.bad .g::before{content:"✕";background:#A9553F}
+.sort .sorted{font:600 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:14px 0 10px}
+.sort .fb{margin:12px 0 0;font-size:15px;color:var(--ink-2)}
+.sort .fb.ok,.sort .fb.no{padding:10px 14px;background:var(--card);border:1px solid var(--line);border-left:3px solid #4A7A50;border-radius:var(--r-sm)}
+.sort .fb.no{border-left-color:#A9553F}
+
+/* what will you steal: the blanks look like blanks */
+#stealLine .fld{font:600 15px/1.5 var(--sans);background:var(--amber-tint);border:0;border-bottom:2px solid var(--amber-ink);border-radius:3px 3px 0 0;padding:2px 8px;color:var(--ink)}
+#stealLine .fld:empty::before{color:var(--amber-ink);font-weight:500}
+
+/* the played case: every verdict carries a mark, not only a colour */
+.gm-fb{position:relative;padding-left:48px}
+.gm-fb::before{content:"✓";position:absolute;left:14px;top:13px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font:700 12px/1 var(--mono);color:#fff;background:#4A7A50}
+.gm-fb.no::before{content:"✕";background:#A9553F}
+.gm-fb.part::before{content:"!";background:var(--amber);color:var(--ink)}
 </style>
 </head>
 <body>
@@ -1250,9 +1316,8 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <li>Anyone who gets "we need training" from three levels up</li>
   </ul>
   <div class="byline">
-    <span class="by">By&nbsp;<a href="#author">Hanna Petrasian</a>, 12 years in L&amp;D, from university lecturing to travel tech</span>
-    <span><a href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn</a></span>
-    <span>About 20 minutes, or 3 for the <a href="files/pocket-guide.pdf">Pocket Guide</a></span>
+    <a class="who" href="#author"><img src="img/hanna-petrasian.jpg" width="48" height="48" alt="" decoding="async"><span><b>Hanna Petrasian</b><span class="cred">12 years in L&amp;D, from university lecturing to travel tech</span></span></a>
+    <a class="btn ghost li" href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
   </div>
   <div class="mast-art" aria-hidden="true"><svg class="illo"><use href="#illo-mast"/></svg></div>
@@ -1260,6 +1325,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
     <a class="btn" href="#start">Start reading <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a class="btn ghost" href="#clue"><svg class="ico sm" aria-hidden="true"><use href="#i-clock"/></svg>Ten minutes? File 03</a>
     <a class="btn ghost" href="#main-case"><svg class="ico sm" aria-hidden="true"><use href="#i-search"/></svg>Four minutes? Take the case</a>
+    <p class="readtime"><svg class="ico sm" aria-hidden="true"><use href="#i-clock"/></svg><span>About 20 minutes, or 3 for the <a href="files/pocket-guide.pdf">Pocket Guide</a></span></p>
   </div>
 </header>
 
@@ -2415,7 +2481,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
   }
   function applyGuess(card,gap){
     var answer=card.dataset.gap,ok=gap===answer;
-    card.classList.add('guessed','open');
+    card.classList.add('guessed','open');card.classList.toggle('hit',ok);card.classList.toggle('miss',!ok);
     card.querySelectorAll('.pick button.ch').forEach(function(b){
       var mine=b.dataset.gap===gap;
       b.setAttribute('aria-pressed',String(mine));b.setAttribute('aria-disabled','true');
@@ -2503,7 +2569,9 @@ main[id],section.case[id]{scroll-margin-top:24px}
     }).sort(function(a,b){return a.dataset.i-b.dataset.i;});
     function toPool(){cards.forEach(function(c){c.classList.remove('ok','bad');c.lastChild.textContent='';pool.appendChild(c.parentNode);});
       Object.keys(lists).forEach(function(k){lists[k].textContent='';});}
-    toPool();done.hidden=true;
+    var sorted=document.createElement('p');sorted.className='sorted no-print';sorted.setAttribute('aria-hidden','true');pool.parentNode.insertBefore(sorted,pool);
+    function paintSorted(){var n=cards.length-pool.querySelectorAll('.ev').length;sorted.textContent=n+' of '+cards.length+' sorted';sorted.hidden=!n;}
+    toPool();paintSorted();done.hidden=true;
     var acts=document.createElement('div');acts.className='acts no-print';
     acts.innerHTML='<button type="button" class="tbtn" id="sortReset">Reset</button>';acts.hidden=true;sorter.appendChild(acts);
     var picked=null;
@@ -2512,6 +2580,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
       var ok=c.dataset.zone===zone,g=c.dataset.gap;
       pick(null);lists[zone].appendChild(c.parentNode);
       c.classList.toggle('ok',ok);c.classList.toggle('bad',!ok);c.lastChild.textContent=ok?' Right.':' Wrong box.';
+      fb.className='fb '+(ok?'ok':'no');paintSorted();
       fb.textContent=ok?(zone==='course'?'Right. '+g+', and a course can fix it.':'Right. '+g+', so hand it over.')
                        :(zone==='course'?'Not a course. That\'s '+g+', so hand it over.':'A course can fix this one. That\'s '+g+'.');
       done.hidden=pool.children.length>0;acts.hidden=false;
@@ -2552,7 +2621,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
         else if(e.target.closest('.zt'))fb.textContent='Pick a quote first, then the box.';
       });
     });
-    document.getElementById('sortReset').addEventListener('click',function(){pick(null);toPool();fb.textContent='';done.hidden=true;cards[0].focus();acts.hidden=true;});
+    document.getElementById('sortReset').addEventListener('click',function(){pick(null);toPool();fb.textContent='';fb.className='fb';paintSorted();done.hidden=true;cards[0].focus();acts.hidden=true;});
   }
 
   // ---- What will you steal? The two blanks become fields; Stamp it saves the line ----
