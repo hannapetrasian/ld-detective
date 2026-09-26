@@ -1198,8 +1198,8 @@ section.case + section.case{margin-top:0}
 .oc-step{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;padding-top:16px;border-top:1px solid var(--line)}
 .oc .bx{display:grid;place-items:center;width:28px;height:28px;margin-top:1px;border:1.5px solid var(--ink);border-radius:5px;background:#fff;font:600 13.5px/1 var(--mono);color:var(--ink)}
 .oc-q{display:block;margin:0 0 4px;font-size:17px;font-weight:500;line-height:1.45;color:var(--ink)}
-.oc-q::before{content:"\201C";color:var(--amber);font-weight:700;margin-right:2px}
-.oc-q::after{content:"\201D";color:var(--amber);font-weight:700;margin-left:1px}
+.oc-q::before{content:"\201C";content:"\201C" / "";color:var(--amber);font-weight:700;margin-right:2px}
+.oc-q::after{content:"\201D";content:"\201D" / "";color:var(--amber);font-weight:700;margin-left:1px}
 .oc-hint{display:block;margin:0 0 8px;font-size:13.5px;line-height:1.5;color:var(--muted)}
 .oc input[type=text],.oc textarea{display:block;width:100%;box-sizing:border-box;min-height:44px;margin:0;padding:10px 12px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:#fff;font:400 16px/1.45 var(--sans);color:var(--ink)}
 .oc textarea{resize:vertical;min-height:70px}
@@ -2682,9 +2682,12 @@ section.case + section.case{margin-top:0}
       if(!hasAny(d)){say('Nothing to copy yet. Start with what they asked for.');document.getElementById('oc-asked').focus();return;}
       copyText(caseText(d),this,'Case copied');say('Case copied.');
     });
+    var caseAt=0;
     document.getElementById('ocPrint').addEventListener('click',function(){
-      paintPrint(read());document.documentElement.classList.add('print-case');window.print();
+      paintPrint(read());caseAt=Date.now();document.documentElement.classList.add('print-case');window.print();
     });
+    // if a browser never sent afterprint, a later Cmd+P must print the whole guide again
+    window.addEventListener('beforeprint',function(){if(Date.now()-caseAt>5000)document.documentElement.classList.remove('print-case');});
     window.addEventListener('afterprint',function(){document.documentElement.classList.remove('print-case');printBox.textContent='';});
     // Clear asks twice, so a stray tap does not wipe the case
     var clr=document.getElementById('ocClear'),armed=null;
@@ -3127,6 +3130,17 @@ section.case + section.case{margin-top:0}
       document.getElementById('main-case').scrollIntoView({block:'start',behavior:calm.matches?'auto':'smooth'});});
     game.querySelector('.gm-leave').addEventListener('click',function(){game.hidden=true;entry.hidden=false;paintBest();entryBtn.focus();});
   }
+
+  // Keyboard focus never lands under the sticky pill bar or the phone top bar (WCAG 2.4.11)
+  var bars=[].slice.call(document.querySelectorAll('.topbar,nav.pills'));
+  document.addEventListener('focusin',function(e){
+    var t=e.target;if(!t||!t.getBoundingClientRect||t.closest('.nav,.topbar,.pills,.toast,.totop'))return;
+    if(t.matches('input[type=checkbox],input[type=radio]')&&t.nextElementSibling)t=t.nextElementSibling;
+    var cover=0;
+    bars.forEach(function(bar){var st=getComputedStyle(bar);if((st.position!=='fixed'&&st.position!=='sticky')||st.display==='none')return;
+      var r=bar.getBoundingClientRect();if(r.bottom>0&&r.top<=(parseFloat(st.top)||0)+1&&r.bottom>cover)cover=r.bottom;});
+    var top=t.getBoundingClientRect().top;if(top<cover+8)window.scrollBy({top:top-cover-8,behavior:'auto'});
+  });
 
   // #steal pointed at a section that was removed; send old links to the end of File 07
   if(location.hash==='#steal'){history.replaceState(null,'','#is-training');var it=document.getElementById('is-training');if(it)it.scrollIntoView();}
