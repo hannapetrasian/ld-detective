@@ -1168,6 +1168,85 @@ section.case + section.case{margin-top:0}
 .gm-fb::before{content:"✓";position:absolute;left:14px;top:13px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font:700 12px/1 var(--mono);color:#fff;background:#4A7A50}
 .gm-fb.no::before{content:"✕";background:#A9553F}
 .gm-fb.part::before{content:"!";background:var(--amber);color:var(--ink)}
+
+/* ============================================================
+   v10: a place to act on a request, and four kinds of callout
+   ============================================================ */
+/* Four kinds of callout, each with its own look: Ask (amber bar, quote marks),
+   Do (amber tint, check), Watch out (red-brown line, !), Think (dashed note). */
+.wo{border-left-color:#E3D3CE}
+.wo b{display:inline-flex;align-items:center;gap:7px;color:#8C4636}
+.wo b::before{content:"!";flex:none;width:16px;height:16px;border-radius:50%;display:inline-grid;place-items:center;background:#A9553F;color:#fff;font:700 10px/1 var(--mono);letter-spacing:0}
+.wo.do{padding:10px 14px;border-left:0;border-radius:var(--r);background:var(--amber-tint);color:var(--ink)}
+.wo.do b{color:var(--amber-ink)}
+.wo.do b::before{content:"✓";background:var(--amber-ink)}
+
+/* Open a case: the four questions as a sheet you fill in */
+.oc .oc-intro{margin:0}
+.oc-form{margin-top:14px;padding:22px 24px 18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);display:grid;gap:18px}
+.oc fieldset{border:0;margin:0;padding:0;min-width:0}
+.oc legend{padding:0}
+.oc-l{display:block;font:600 13.5px/1.35 var(--sans);color:var(--ink-2);margin:0 0 8px}
+.oc-chips{display:flex;flex-wrap:wrap;gap:7px}
+.oc-chip{position:relative;display:inline-flex}
+.oc-chip input{position:absolute;left:0;top:0;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+.oc-chip span{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 13px;border:1px solid var(--line-2);border-radius:999px;background:#fff;font:500 13.5px/1.2 var(--sans);color:var(--ink);cursor:pointer;transition:background var(--t),border-color var(--t),color var(--t)}
+.oc-chip:hover span{border-color:var(--ink)}
+.oc-chip input:focus-visible + span{outline:3px solid var(--amber);outline-offset:2px}
+.oc-chip input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+.oc-chip input[type=checkbox]:checked + span::before{content:"✓";font-weight:700}
+.oc-step{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;padding-top:16px;border-top:1px solid var(--line)}
+.oc .bx{display:grid;place-items:center;width:28px;height:28px;margin-top:1px;border:1.5px solid var(--ink);border-radius:5px;background:#fff;font:600 13.5px/1 var(--mono);color:var(--ink)}
+.oc-q{display:block;margin:0 0 4px;font-size:17px;font-weight:500;line-height:1.45;color:var(--ink)}
+.oc-q::before{content:"\201C";color:var(--amber);font-weight:700;margin-right:2px}
+.oc-q::after{content:"\201D";color:var(--amber);font-weight:700;margin-left:1px}
+.oc-hint{display:block;margin:0 0 8px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.oc input[type=text],.oc textarea{display:block;width:100%;box-sizing:border-box;min-height:44px;margin:0;padding:10px 12px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:#fff;font:400 16px/1.45 var(--sans);color:var(--ink)}
+.oc textarea{resize:vertical;min-height:70px}
+.oc-step .oc-q + textarea{margin-top:8px}
+.oc input::placeholder,.oc textarea::placeholder{color:var(--muted);opacity:1}
+.oc input[type=text]:hover,.oc textarea:hover{border-color:var(--ink-2)}
+.oc input[type=text]:focus,.oc textarea:focus{outline:3px solid var(--amber);outline-offset:1px;border-color:var(--ink)}
+.oc-gaps{margin-top:12px}
+.oc-gaps legend{margin-bottom:8px}
+.oc-hyp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
+.oc-hyp label{display:block;margin:0 0 5px;font:600 11px/1.3 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-2)}
+.oc-hyp .oc-f:nth-child(3){grid-column:1/-1}
+.oc-sentence{margin:12px 0 0}
+.oc-acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-top:16px;border-top:1px solid var(--line)}
+.oc-acts .tbtn{margin-left:auto}
+.oc-note{margin:-8px 0 0}
+.oc-chip span{-webkit-tap-highlight-color:transparent}
+.oc textarea{field-sizing:content}
+.fm-l{display:block;margin-top:18px}
+@media (max-width:640px){#fix-map.pairs td:nth-child(3)::before{content:attr(data-l);display:inline;margin-right:7px;font:600 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}}
+.oc-print{display:none}
+.no-js .oc-acts,.no-js .oc-sentence{display:none}
+@media (max-width:640px){
+  .oc-form{padding:18px 16px 14px}
+  .oc-step{grid-template-columns:24px minmax(0,1fr);gap:10px}
+  .oc .bx{width:24px;height:24px}
+  .oc-hyp{grid-template-columns:1fr}
+  .oc-acts .btn{flex:1 1 100%;justify-content:center}
+  .oc-acts .tbtn{margin-left:0}
+}
+/* Whole-page print skips the sheet; "Print the case" prints only the filled case */
+@media print{
+  html:not(.print-case) .oc{display:none!important}
+  html.print-case main .wrap > :not(#clue),
+  html.print-case #clue > .hero,
+  html.print-case #clue > .body > :not(#openCase),
+  html.print-case #openCase > :not(.oc-print){display:none!important}
+  html.print-case #clue{break-before:auto!important;page-break-before:auto!important;padding:0!important}
+  html.print-case .oc-print{display:block!important}
+  .oc-print .pt{margin:0 0 6pt;font:600 9pt/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#555}
+  .oc-print .ph{margin:0 0 16pt;font:700 18pt/1.25 var(--sans);color:#000}
+  .oc-print dl{margin:0;display:grid;grid-template-columns:36mm 1fr;gap:10pt 12pt}
+  .oc-print dt{padding-top:2pt;font:600 8.5pt/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#555}
+  .oc-print dd{margin:0;font-size:11pt;line-height:1.5;color:#000;white-space:pre-wrap}
+  .oc-print dd.blank{min-height:16mm;border-bottom:1px solid #999}
+  .oc-print .src{margin:18pt 0 0;font-size:8.5pt;color:#555}
+}
 </style>
 </head>
 <body>
@@ -1314,7 +1393,7 @@ section.case + section.case{margin-top:0}
   <div class="mast-art" aria-hidden="true"><svg class="illo"><use href="#illo-mast"/></svg></div>
   <div class="cta">
     <a class="btn" href="#start">Start reading <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a class="btn ghost" href="#clue"><svg class="ico sm" aria-hidden="true"><use href="#i-clock"/></svg>Ten minutes? File 03</a>
+    <a class="btn ghost" href="#open-case"><svg class="ico sm" aria-hidden="true"><use href="#i-folder"/></svg>Got a request? Open a case</a>
     <a class="btn ghost" href="#main-case"><svg class="ico sm" aria-hidden="true"><use href="#i-search"/></svg>Four minutes? Take the case</a>
     <p class="readtime"><svg class="ico sm" aria-hidden="true"><use href="#i-clock"/></svg><span>About 20 minutes, or 3 for the <a href="files/pocket-guide.pdf">Pocket Guide</a></span></p>
   </div>
@@ -1480,7 +1559,7 @@ section.case + section.case{margin-top:0}
   </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-mindset"/></svg></div></div>
   <div class="body">
     <div class="prose">
-      <p class="lead">Here's the uncomfortable part: most business leaders don't care how people learn. They care how people perform. When we talk in learning language, we sound like a cost center explaining its hobby. When we talk in results language, we sound like partners. Same work, different sentences, very different seat at the table.</p>
+      <p class="lead">Here's the uncomfortable part: most business leaders don't ask how people learn. They ask how people perform. When we talk in learning language, we sound like a cost center explaining its hobby. When we talk in results language, we sound like partners. Same work, different sentences, very different seat at the table.</p>
     </div>
     <nav class="pills no-print" aria-label="On this page"><a href="#first-interview">First interview</a><a href="#three-rules">Three rules</a><a href="#dictionary">Dictionary</a><a href="#so-what">So what?</a></nav>
 
@@ -1493,7 +1572,7 @@ section.case + section.case{margin-top:0}
 
     <div class="prose"><h3 id="three-rules">Three rules for talking to executives</h3></div>
     <div class="rules3">
-      <div class="rule3"><span class="n">1</span><h4>The Filter.</h4><p>Does this make money, save money, or protect money? If it fits none of those, the business won't value it, however good the design.</p></div>
+      <div class="rule3"><span class="n">1</span><h4>The Filter.</h4><p>Does this make money, save money, or protect money? If you can't trace it to one of those, expect it to be treated as a nice-to-have, however good the design.</p></div>
       <div class="rule3"><span class="n">2</span><h4>Ditch the education jargon.</h4><p>Bloom's, scaffolding, andragogy: keep them in the lab. Say "phased support" instead of scaffolding, "real-world application" instead of andragogy.</p><p class="punch">Nobody has ever bought andragogy.</p></div>
       <div class="rule3"><span class="n">3</span><h4>Use "we", not "you".</h4><div class="pron"><div><span class="k bad">You</span>"Your team needs to learn X" makes you a finger-pointer.</div><div><span class="k good">We</span>"We need ticket-handling speed down so we don't lose our best customers" makes you a co-owner.</div></div></div>
     </div>
@@ -1652,7 +1731,65 @@ section.case + section.case{margin-top:0}
         </tr>
       </tbody>
       </table></div>
-    <p class="wo"><b>Try it now</b><span>Take the last request in your inbox. Fill the C row in one sentence with a number in it. If you can't, that is Monday's first question.</span></p>
+    <div>
+    <div class="prose"><h3 id="two-sizes">Two sizes of investigation</h3></div>
+    <div class="duo">
+      <div><h4><span class="t">Size one</span>The quick read, 20 minutes.</h4><p>The C questions plus one L question, inside the conversation you were already having. Covers most requests.</p></div>
+      <div><h4><span class="t">Size two</span>The full investigation, one to two weeks.</h4><p>Interviews, shadowing, a look at the data, a Case File. For a big audience, real budget, an executive sponsor, or a monthly number.</p></div>
+    </div>
+    <p class="capt">Say which one you're doing. The quick read is a gate, not a verdict. Upgrade it the moment it turns up something expensive.</p>
+    </div>
+
+    <div class="oc" id="openCase">
+      <div class="prose"><h3 id="open-case">Open a case</h3>
+      <p class="oc-intro">A request just landed? Fill this in during the conversation or straight after it. If you can't put a number in the C line, that is Monday's first question.</p></div>
+      <div class="oc-form" role="group" aria-labelledby="open-case">
+        <fieldset class="oc-size"><legend class="oc-l">How deep?</legend>
+          <div class="oc-chips"><label class="oc-chip"><input type="radio" name="oc-size" value="Quick read, 20 minutes"><span>Quick read, 20 minutes</span></label><label class="oc-chip"><input type="radio" name="oc-size" value="Full investigation, 1–2 weeks"><span>Full investigation, 1–2 weeks</span></label></div>
+        </fieldset>
+        <div class="oc-f oc-asked"><label class="oc-l" for="oc-asked">They asked for</label><input id="oc-asked" data-k="asked" type="text" autocomplete="off" placeholder="e.g. Communication training for all people managers"></div>
+        <div class="oc-step">
+          <span class="bx" aria-hidden="true">C</span>
+          <div class="oc-f"><label class="oc-q" for="oc-c"><span class="sr-only">C, Clarify: </span>What's happening in the business that made this urgent now?</label>
+          <span class="oc-hint" id="oc-c-h">Put the number in: where it is, where it needs to be.</span>
+          <textarea id="oc-c" data-k="c" rows="2" aria-describedby="oc-c-h" placeholder="e.g. The survey item on direction is at 41%, and the board asked why"></textarea></div>
+        </div>
+        <div class="oc-step">
+          <span class="bx" aria-hidden="true">L</span>
+          <div class="oc-f"><label class="oc-q" for="oc-l"><span class="sr-only">L, Look: </span>If we trained everyone tomorrow and the training was perfect, what would still get in the way?</label>
+          <textarea id="oc-l" data-k="l" rows="2" placeholder="e.g. Managers hear the news at the same moment as their teams"></textarea>
+          <fieldset class="oc-gaps"><legend class="oc-hint">Which gaps? Pick all that fit.</legend><div class="oc-chips"><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Skill"><span>Skill</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Knowledge"><span>Knowledge</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Process"><span>Process</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Tools"><span>Tools</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Incentives"><span>Incentives</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Expectations"><span>Expectations</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Outside the six"><span>Outside the six</span></label></div></fieldset></div>
+        </div>
+        <div class="oc-step">
+          <span class="bx" aria-hidden="true">U</span>
+          <div class="oc-f"><label class="oc-q" for="oc-u"><span class="sr-only">U, Uncover: </span>Tell me about the last time this went wrong.</label>
+          <span class="oc-hint" id="oc-u-h">What you saw, and the two sources that agree.</span>
+          <textarea id="oc-u" data-k="u" rows="2" aria-describedby="oc-u-h" placeholder="e.g. Three managers learned about the June pivot at the all-hands, with their teams"></textarea></div>
+        </div>
+        <div class="oc-step">
+          <span class="bx" aria-hidden="true">E</span>
+          <div class="oc-f"><p class="oc-q" id="oc-e"><span class="sr-only">E, Execute: </span>What's the smallest pilot that would prove, or kill, this idea in six weeks?</p>
+          <span class="oc-hint">Write it as the hypothesis.</span>
+          <div class="oc-hyp" role="group" aria-labelledby="oc-e">
+            <div class="oc-f"><label for="oc-hi">Intervention</label><input id="oc-hi" data-k="hi" type="text" autocomplete="off" placeholder="e.g. pre-brief managers 48 hours ahead"></div>
+            <div class="oc-f"><label for="oc-ha">Audience</label><input id="oc-ha" data-k="ha" type="text" autocomplete="off" placeholder="e.g. one business unit"></div>
+            <div class="oc-f"><label for="oc-hm">Metric</label><input id="oc-hm" data-k="hm" type="text" autocomplete="off" placeholder="e.g. teams hearing it from their own manager within a week"></div>
+            <div class="oc-f"><label for="oc-hb">Baseline</label><input id="oc-hb" data-k="hb" type="text" autocomplete="off" placeholder="e.g. a third"></div>
+            <div class="oc-f"><label for="oc-ht">Target</label><input id="oc-ht" data-k="ht" type="text" autocomplete="off" placeholder="e.g. 80%"></div>
+            <div class="oc-f"><label for="oc-hw">Time</label><input id="oc-hw" data-k="hw" type="text" autocomplete="off" placeholder="e.g. one quarter"></div>
+            <div class="oc-f"><label for="oc-hs">Source</label><input id="oc-hs" data-k="hs" type="text" autocomplete="off" placeholder="e.g. a two-question pulse"></div>
+          </div>
+          <p class="hyp filled oc-sentence" aria-hidden="true"></p></div>
+        </div>
+        <div class="oc-acts">
+          <button type="button" class="btn" id="ocCopy"><svg class="ico sm" aria-hidden="true"><use href="#i-copy"/></svg>Copy the case</button>
+          <button type="button" class="btn ghost" id="ocPrint"><svg class="ico sm" aria-hidden="true"><use href="#i-print"/></svg>Print the case</button>
+          <button type="button" class="tbtn" id="ocClear">Clear</button>
+        </div>
+        <p class="capt oc-note">It stays in this browser. Nothing is sent anywhere.</p>
+      </div>
+      <div class="oc-print" aria-hidden="true"></div>
+    </div>
 
     <article class="clue" id="clue-c" aria-labelledby="h-c">
       <div class="mono"><span class="letter" aria-hidden="true">C</span></div>
@@ -1764,6 +1901,54 @@ section.case + section.case{margin-top:0}
           <li><span class="q">What part of this will training not fix, and who owns that part?</span><span class="tech">Say it in the recommendation. An unnamed cause becomes your failure.</span></li>
         </ul>
 
+        <span class="label amber ph fm-l">Match the fix to the cause</span>
+        <div class="gt-wrap pairs" data-cols="3" id="fix-map"><table class="gt" role="table" aria-label="Match the fix to the cause">
+      <thead role="rowgroup"><tr role="row">
+        <th scope="col" class="h" role="columnheader" style="width:22%">The cause</th>
+        <th scope="col" class="h" role="columnheader" style="width:44%">What usually fixes it</th>
+        <th scope="col" class="h" role="columnheader" style="width:34%">Who usually owns it</th>
+      </tr></thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The cause">Knowledge</th>
+          <td class="c" role="cell" data-l="What usually fixes it">Show them how: a short course, a job aid, a walkthrough</td>
+          <td class="c why" role="cell" data-l="Who usually owns it">L&amp;D</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The cause">Skill</th>
+          <td class="c" role="cell" data-l="What usually fixes it">Practice with feedback on real cases, until it holds under pressure</td>
+          <td class="c why" role="cell" data-l="Who usually owns it">L&amp;D builds it, the manager keeps it going</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The cause">Process</th>
+          <td class="c" role="cell" data-l="What usually fixes it">Fix the broken step</td>
+          <td class="c why" role="cell" data-l="Who usually owns it">Whoever owns the process</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The cause">Tools</th>
+          <td class="c" role="cell" data-l="What usually fixes it">Fix the system, or give everyone the tool the best performer built</td>
+          <td class="c why" role="cell" data-l="Who usually owns it">IT, or the team that owns the system</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The cause">Incentives</th>
+          <td class="c" role="cell" data-l="What usually fixes it">Change what the target or the scorecard rewards</td>
+          <td class="c why" role="cell" data-l="Who usually owns it">Whoever sets the target</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The cause">Expectations</th>
+          <td class="c" role="cell" data-l="What usually fixes it">Say it out loud, then write it into the role</td>
+          <td class="c why" role="cell" data-l="Who usually owns it">The manager, and the leader above them</td>
+        </tr>
+        <tr role="row">
+          <th scope="row" class="c k" role="rowheader" data-l="The cause">Outside the six</th>
+          <td class="c" role="cell" data-l="What usually fixes it">A staffing, hiring or culture decision</td>
+          <td class="c why" role="cell" data-l="Who usually owns it">HR and leadership</td>
+        </tr>
+      </tbody>
+      </table></div>
+        <p class="capt">Most cases need two or three rows at once. Put every owner's name in the recommendation, not only yours (<a href="#handover">→ 07</a>).</p>
+
+
         <span class="label amber ph">Write the hypothesis before you build anything</span>
         <div class="tpl2">
           <div class="hyp"><span class="l">The template</span>If we <b>intervention</b> for <b>audience</b>, then <b>metric</b> will move from <b>baseline</b> to <b>target</b> within <b>time</b>, measured by <b>source</b>.</div>
@@ -1782,15 +1967,6 @@ section.case + section.case{margin-top:0}
       <span><i>04</i>What we recommend next</span>
     </div>
     <p class="capt">Ten minutes of work, after the solution ships. The difference between "the training team" and "the people who fixed our discount problem".</p>
-
-    <div>
-    <div class="prose"><h3 id="two-sizes">Two sizes of investigation</h3></div>
-    <div class="duo">
-      <div><h4><span class="t">Size one</span>The quick read, 20 minutes.</h4><p>The C questions plus one L question, inside the conversation you were already having. Covers most requests.</p></div>
-      <div><h4><span class="t">Size two</span>The full investigation, one to two weeks.</h4><p>Interviews, shadowing, a look at the data, a Case File. For a big audience, real budget, an executive sponsor, or a monthly number.</p></div>
-    </div>
-    <p class="capt">Say which one you're doing. The quick read is a gate, not a verdict. Upgrade it the moment it turns up something expensive.</p>
-    </div>
 
 <div class="prose">
       <h3 id="push-back">When they push back</h3>
@@ -1892,7 +2068,7 @@ section.case + section.case{margin-top:0}
     <article class="gadget" id="g-string" aria-labelledby="h-string">
       <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-spool"/></svg></div>
       <div>
-        <header><h3 id="h-string">The String Board</h3><span class="use">use during C and L</span></header>
+        <header><h3 id="h-string">The String Board</h3><span class="use">Stakeholder map · use during C and L</span></header>
         <p class="reach">Four people, one question each, before you open any case.</p>
         <div class="roles">
           <svg class="string" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -1911,7 +2087,7 @@ section.case + section.case{margin-top:0}
     <article class="gadget" id="g-dust" aria-labelledby="h-dust">
       <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg></div>
       <div>
-        <header><h3 id="h-dust">The Fingerprint Dust</h3><span class="use">use during L</span></header>
+        <header><h3 id="h-dust">The Fingerprint Dust</h3><span class="use">Job shadowing · use during L</span></header>
         <p class="reach">Leaders design training around the dream workflow. You dust for the one that actually runs.</p>
         <ol class="movelist">
           <li><span class="mn" aria-hidden="true">1</span><div><h4>Shadow two or three performers for an hour each.</h4><p>Watch, don't demo.</p></div></li>
@@ -1920,7 +2096,7 @@ section.case + section.case{margin-top:0}
           <li><span class="mn" aria-hidden="true">4</span><div><h4>Note what the top performer skips.</h4><p>What experts skip is usually what the process got wrong.</p></div></li>
         </ol>
         <p>If the environment is broken, training people on the perfect way just teaches them to be frustrated accurately.</p>
-        <p class="wo"><b>Dust in daylight</b><span>Say what you're looking for and why, check that now is a good moment, and show people what you noticed before you show anyone else. "I'm looking at the process, not at you" usually covers it.</span></p>
+        <p class="wo do"><b>Dust in daylight</b><span>Say what you're looking for and why, check that now is a good moment, and show people what you noticed before you show anyone else. "I'm looking at the process, not at you" usually covers it.</span></p>
       </div>
     </article>
 
@@ -2440,7 +2616,91 @@ section.case + section.case{margin-top:0}
     var items=[],n=g.nextElementSibling;while(n){items.push(n);n=n.nextElementSibling;}
     caseFold=makeFold(items,g,'Show the solved case','Hide the solved case',true);
   })();
+  // ---- Open a case: the four questions as a sheet, saved in this browser only ----
+  var foldAnchors={};
+  (function(){
+    var box=document.getElementById('openCase');if(!box)return;
+    var form=box.querySelector('.oc-form'),intro=box.querySelector('.prose'),KEY='ldd-open-case';
+    var texts=[].slice.call(form.querySelectorAll('[data-k]'));
+    var sizes=[].slice.call(form.querySelectorAll('input[name="oc-size"]'));
+    var gaps=[].slice.call(form.querySelectorAll('input[name="oc-gap"]'));
+    var sentence=form.querySelector('.oc-sentence'),printBox=box.querySelector('.oc-print');
+    var live=document.createElement('p');live.className='sr-only';live.setAttribute('aria-live','polite');form.appendChild(live);
+    function say(t){live.textContent='';setTimeout(function(){live.textContent=t;},30);}
+    // the hypothesis template: the words between the fields, the field, its blank name
+    var HYP=[['If we ','hi','intervention'],[' for ','ha','audience'],[', then ','hm','metric'],[' will move from ','hb','baseline'],[' to ','ht','target'],[' within ','hw','time'],[', measured by ','hs','source'],['.','','']];
+    var bare=function(v){return v.replace(/[.\s]+$/,'');};
+    function read(){
+      var d={size:'',gaps:[]};texts.forEach(function(el){d[el.dataset.k]=el.value.trim();});
+      sizes.forEach(function(r){if(r.checked)d.size=r.value;});gaps.forEach(function(c){if(c.checked)d.gaps.push(c.value);});
+      return d;
+    }
+    function fill(d){
+      texts.forEach(function(el){el.value=typeof d[el.dataset.k]==='string'?d[el.dataset.k]:'';});
+      sizes.forEach(function(r){r.checked=r.value===d.size;});
+      gaps.forEach(function(c){c.checked=Array.isArray(d.gaps)&&d.gaps.indexOf(c.value)>=0;});
+    }
+    function hasHyp(d){return HYP.some(function(p){return p[1]&&d[p[1]];});}
+    function hasAny(d){return !!(d.size||d.gaps.length||texts.some(function(el){return d[el.dataset.k];}));}
+    function hypText(d){return HYP.map(function(p){return p[0]+(p[1]?(d[p[1]]?bare(d[p[1]]):'['+p[2]+']'):'');}).join('');}
+    function paintSentence(d){
+      sentence.textContent='';
+      HYP.forEach(function(p){
+        sentence.appendChild(document.createTextNode(p[0]));if(!p[1])return;
+        var v=d[p[1]],el=document.createElement(v?'em':'b');el.textContent=v?bare(v):p[2];sentence.appendChild(el);
+      });
+    }
+    function caseText(d){
+      var L=['Case file · The L&D Detective'];
+      if(d.asked)L.push('Asked for: '+d.asked);
+      if(d.size)L.push('Size: '+d.size);
+      if(d.c)L.push('C · Why now, and the number: '+d.c);
+      if(d.l)L.push('L · What would still get in the way: '+d.l);
+      if(d.gaps.length)L.push('Gap: '+d.gaps.join(', '));
+      if(d.u)L.push('U · The last time it went wrong: '+d.u);
+      if(hasHyp(d))L.push('E · Hypothesis: '+hypText(d));
+      L.push('','From The L&D Detective Field Guide: '+location.origin+location.pathname);
+      return L.join('\n');
+    }
+    function paintPrint(d){
+      printBox.textContent='';
+      var add=function(tag,cls,text,parent){var el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;(parent||printBox).appendChild(el);return el;};
+      add('p','pt','The L&D Detective · Case file');
+      add('p','ph',d.asked||'Asked for:');
+      var dl=add('dl');
+      [['Size',d.size],['C · Why now, and the number',d.c],['L · What would still get in the way',d.l],['Gap',d.gaps.join(', ')],['U · The last time it went wrong',d.u],['E · Hypothesis',hasHyp(d)?hypText(d):'']].forEach(function(r){
+        add('dt','',r[0],dl);add('dd',r[1]?'':'blank',r[1],dl);
+      });
+      add('p','src','From The L&D Detective Field Guide · '+location.host+location.pathname);
+    }
+    var tSave=null;
+    function save(){clearTimeout(tSave);tSave=setTimeout(function(){var d=read();if(hasAny(d))store.set(KEY,d);else{try{localStorage.removeItem(KEY);}catch(e){}}},250);}
+    function changed(){paintSentence(read());save();}
+    form.addEventListener('input',changed);form.addEventListener('change',changed);
+    document.getElementById('ocCopy').addEventListener('click',function(){
+      var d=read();
+      if(!hasAny(d)){say('Nothing to copy yet. Start with what they asked for.');document.getElementById('oc-asked').focus();return;}
+      copyText(caseText(d),this,'Case copied');say('Case copied.');
+    });
+    document.getElementById('ocPrint').addEventListener('click',function(){
+      paintPrint(read());document.documentElement.classList.add('print-case');window.print();
+    });
+    window.addEventListener('afterprint',function(){document.documentElement.classList.remove('print-case');printBox.textContent='';});
+    // Clear asks twice, so a stray tap does not wipe the case
+    var clr=document.getElementById('ocClear'),armed=null;
+    function disarm(){clearTimeout(armed);armed=null;clr.textContent='Clear';}
+    clr.addEventListener('click',function(){
+      if(!armed){clr.textContent='Clear it all? Press again';say('Press again to clear this case.');armed=setTimeout(disarm,4000);return;}
+      disarm();fill({gaps:[]});changed();try{localStorage.removeItem(KEY);}catch(e){}
+      say('Case cleared.');document.getElementById('oc-asked').focus();
+    });
+    fill(store.get(KEY)||{gaps:[]});paintSentence(read());
+    var f=makeFold([form],intro,'Start a case','Hide the form',true);
+    foldAnchors['open-case']=f;
+    if(hasAny(read()))f.set(true);
+  })();
   function openFor(id){
+    if(foldAnchors[id])foldAnchors[id].set(true);
     var el=id&&document.getElementById(id);if(!el)return;
     folds.forEach(function(f){if(!f.open&&f.items.some(function(it){return it.contains(el);}))f.set(true);});
     if(el.classList.contains('gadget')&&el.dataset.fold)folds[+el.dataset.fold].set(true);
