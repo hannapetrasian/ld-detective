@@ -75,7 +75,7 @@ async def main():
             await pg2.click('#toast button'); await pg2.wait_for_timeout(400); r['toast_dismissed']=await pg2.evaluate("document.getElementById('toast').hidden")
         # 8. deep links to every section and cold case in fresh pages
         deep={}
-        for hsh in ['#start','#mindset','#clue','#gadgets','#rules','#casefile','#closed','#cold-05','#push-back','#steal']:
+        for hsh in ['#start','#mindset','#clue','#gadgets','#rules','#casefile','#closed','#cold-05','#push-back','#is-training']:
             p3=await ctx.new_page(); p3.on('pageerror',lambda e:errs.append('pageerror(deep): '+str(e)))
             await p3.goto(U+hsh,wait_until='networkidle'); await p3.wait_for_timeout(500)
             deep[hsh]=await p3.evaluate(f"Math.round(document.querySelector('{hsh}').getBoundingClientRect().top)")

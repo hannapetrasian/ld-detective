@@ -28,7 +28,7 @@ async def main():
         r['pills03_sequence']=seq
         # 2. anchors land clear of sticky pills: target top >= 84
         lands={}
-        for h in ['#clue-c','#push-back','#steal','#is-training','#clue']:
+        for h in ['#clue-c','#push-back','#is-training','#clue']:
             await page.goto(f'http://localhost:{PORT}/index.html{h}',wait_until='networkidle'); await page.wait_for_timeout(300)
             lands[h]=await page.evaluate(f"document.querySelector('{h}').getBoundingClientRect().top")
         r['anchor_top_px']=lands
