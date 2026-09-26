@@ -1083,6 +1083,8 @@ main[id],section.case[id]{scroll-margin-top:24px}
 .gm-fix.is-wrong{border:2px solid #A9553F;background:#FEFBFA;padding:13px 15px}
 .gm-fix.is-wrong .bx{background:#A9553F;border-color:#A9553F}
 .gm-fix.is-right .own,.gm-fix.is-wrong .own,.gm-fix.is-wrong .why{display:block}
+.gm-fix.is-right .bx,.gm-fix.is-wrong .bx{color:#fff}
+.gm-fix.is-wrong .t{text-decoration:line-through;text-decoration-color:rgba(169,85,63,.6)}
 .gm-fixes.locked .gm-fix:not(.is-right){opacity:.45}
 .gm-check[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
 
@@ -2779,7 +2781,9 @@ section.case + section.case{margin-top:0}
         var picked=cards.filter(function(b){return b.getAttribute('aria-pressed')==='true';});
         var all=picked.every(function(b){return FIX[+b.dataset.i].ok;});
         if(!('execute' in S.first))S.first.execute=all;
-        picked.forEach(function(b){var ok=!!FIX[+b.dataset.i].ok;b.classList.toggle('is-right',ok);b.classList.toggle('is-wrong',!ok);b.querySelector('.bx').textContent=ok?'✓':'✕';});
+        picked.forEach(function(b){var ok=!!FIX[+b.dataset.i].ok;b.classList.toggle('is-right',ok);b.classList.toggle('is-wrong',!ok);b.querySelector('.bx').textContent=ok?'✓':'✕';
+          if(!ok){b.setAttribute('aria-pressed','false');b.setAttribute('aria-disabled','true');}});
+        paintCount();
         if(all){
           grid.classList.add('locked');cards.forEach(function(b){b.setAttribute('aria-disabled','true');});check.hidden=true;
           var fb=add(sc,'<div class="gm-fb ok"><p>Four fixes, one of them training. Three of the four owners sit outside L&amp;D. Put their names in the recommendation.</p></div>');
@@ -2858,6 +2862,9 @@ section.case + section.case{margin-top:0}
       entry.hidden=true;game.hidden=false;land(sRequest());
     }
     entryBtn.addEventListener('click',start);
+    var heroCase=document.querySelector('.masthead a[href="#main-case"]');
+    if(heroCase)heroCase.addEventListener('click',function(e){e.preventDefault();history.pushState(null,'','#main-case');start();
+      document.getElementById('main-case').scrollIntoView({block:'start',behavior:calm.matches?'auto':'smooth'});});
     game.querySelector('.gm-leave').addEventListener('click',function(){game.hidden=true;entry.hidden=false;paintBest();entryBtn.focus();});
   }
 
