@@ -1338,6 +1338,50 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
   .gm-sheet{overflow:clip}
   .gm-meter{position:sticky;top:108px;z-index:3;margin:0 -18px 12px;padding:8px 18px;background:var(--paper);box-shadow:0 1px 0 var(--line)}
 }
+
+/* ---------- detective touches, each plays once ---------- */
+/* Cold cases: a verdict carries a stamp; a fresh one is declassified first (black bars wipe off, then the stamp lands) */
+.file.hit::after,.file.miss::after{content:"\2713";content:"\2713" / "";position:absolute;top:13px;right:15px;width:30px;height:30px;display:grid;place-items:center;
+  font:700 18px/1 var(--mono);color:#3F6B45;border:2px solid currentColor;border-radius:6px;transform:rotate(-8deg);opacity:.85;pointer-events:none}
+.file.miss::after{content:"\2715";content:"\2715" / "";color:#8C4636}
+.file.declassify .back dd:not(.vd){position:relative}
+.file.declassify .back dd:not(.vd)::after{content:"";position:absolute;inset:0 -3px;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,transparent 0 .2em,var(--ink) .2em 1.3em,transparent 1.3em 1.5em);
+  animation:unredact 560ms cubic-bezier(.77,0,.175,1) 160ms both}
+.file.declassify .back dd.fix::after{animation-delay:280ms}
+.file.declassify.hit::after,.file.declassify.miss::after{animation:caseStamp 380ms cubic-bezier(.2,.7,.2,1) 640ms both}
+@keyframes unredact{from{clip-path:inset(0 0 0 0)}to{clip-path:inset(0 0 0 100%)}}
+@keyframes caseStamp{0%{opacity:0;transform:rotate(-8deg) scale(2)}60%{opacity:.9;transform:rotate(-8deg) scale(.94)}100%{opacity:.85;transform:rotate(-8deg) scale(1)}}
+
+/* String Board: the pins go in one by one, then the red string runs between them */
+.roles.await .pin{opacity:0}
+.roles.await svg.string{clip-path:inset(0 100% 0 0)}
+.roles.drawn .pin{animation:pinIn 420ms cubic-bezier(.23,1,.32,1) both}
+.roles.drawn .role:nth-of-type(2) .pin{animation-delay:90ms}
+.roles.drawn .role:nth-of-type(3) .pin{animation-delay:180ms}
+.roles.drawn .role:nth-of-type(4) .pin{animation-delay:270ms}
+.roles.drawn svg.string{animation:runString 760ms cubic-bezier(.77,0,.175,1) 380ms both}
+@keyframes pinIn{from{opacity:0;transform:translate(-50%,-16px) scale(1.5)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes runString{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* Masthead: on a first visit the magnifier sweeps the papers once and comes back to rest */
+.mast-art .lens{transform-box:fill-box;transform-origin:36% 36%}
+.mast-art.sweep .lens{animation:lensSweep 1900ms 250ms both}
+@keyframes lensSweep{
+  0%{transform:none;animation-timing-function:cubic-bezier(.45,0,.2,1)}
+  34%{transform:translate(-52px,80px) rotate(-7deg);animation-timing-function:cubic-bezier(.45,0,.55,1)}
+  68%{transform:translate(50px,58px) rotate(5deg);animation-timing-function:cubic-bezier(.45,0,.2,1)}
+  100%{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .file.declassify .back dd:not(.vd)::after{display:none}
+  .roles.await .pin{opacity:1}.roles.await svg.string{clip-path:none}
+  .mast-art.sweep .lens{animation:none}
+}
+@media print{
+  .file.hit::after,.file.miss::after{display:none}
+  .roles.await .pin{opacity:1}.roles.await svg.string{clip-path:none}
+}
 </style>
 </head>
 <body>
@@ -1407,19 +1451,6 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
     <path d="M70 18 h20 v22 h-20z"/><path d="M50 40 h60 a6 6 0 0 1 6 6 v8 h-72 v-8 a6 6 0 0 1 6 -6z"/>
     <g transform="rotate(-8 80 86)"><rect x="34" y="72" width="92" height="28" rx="4" fill="#B8860B" fill-opacity=".22" stroke="none"/><rect x="34" y="72" width="92" height="28" rx="4"/><text font-family="IBM Plex Mono, ui-monospace, Menlo, monospace" font-weight="600" fill="currentColor" stroke="none" x="80" y="91" font-size="13" text-anchor="middle" letter-spacing="3">CLOSED</text></g>
   </symbol>
-  <symbol id="illo-mast" viewBox="0 0 300 220">
-    <path fill="#B8860B" fill-opacity=".22" stroke="none" d="M242 56 L104 204 L300 204 Z"/>
-    <path d="M292 8 L232 44"/><path d="M220 34 L248 20 L262 44 L234 58 Z"/>
-    <circle fill="#B8860B" fill-opacity=".92" stroke="none" cx="246" cy="48" r="4"/>
-    <path d="M20 204 h270"/>
-    <path d="M52 204 v-78 a5 5 0 0 1 5 -5 h40 l10 10 h96 a5 5 0 0 1 5 5 v68"/>
-    <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M97 131 h30 v-12 a4 4 0 0 0 -4 -4 h-22 a4 4 0 0 0 -4 4z"/>
-    <path stroke-width="1.1" d="M72 148 h80 M72 160 h60 M72 172 h96 M72 184 h50"/>
-    <g transform="rotate(8 216 150)"><rect x="180" y="118" width="72" height="50" rx="4" fill="#F7F4EE" fill-opacity=".14" stroke="none"/><rect x="180" y="118" width="72" height="50" rx="4"/><path stroke-width="1.1" d="M190 132 h44 M190 142 h30 M190 152 h52"/></g>
-    <circle cx="216" cy="118" r="5" fill="currentColor" stroke="none"/>
-    <circle cx="150" cy="70" r="26"/><circle cx="150" cy="70" r="19" stroke-width="1.1"/><path d="M169 89 l28 28" stroke-width="6"/>
-    <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M144 64 l6 -6 l6 6 l-6 6z"/>
-  </symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
   <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
@@ -1481,7 +1512,21 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
     <a class="btn ghost li" href="https://www.linkedin.com/in/hanna-petrasian/" rel="author">LinkedIn <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
   </div>
-  <div class="mast-art" aria-hidden="true"><svg class="illo"><use href="#illo-mast"/></svg></div>
+  <div class="mast-art" aria-hidden="true"><svg class="illo" viewBox="0 0 300 220" focusable="false">
+      <path fill="#B8860B" fill-opacity=".22" stroke="none" d="M242 56 L104 204 L300 204 Z"/>
+      <path d="M292 8 L232 44"/><path d="M220 34 L248 20 L262 44 L234 58 Z"/>
+      <circle fill="#B8860B" fill-opacity=".92" stroke="none" cx="246" cy="48" r="4"/>
+      <path d="M20 204 h270"/>
+      <path d="M52 204 v-78 a5 5 0 0 1 5 -5 h40 l10 10 h96 a5 5 0 0 1 5 5 v68"/>
+      <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M97 131 h30 v-12 a4 4 0 0 0 -4 -4 h-22 a4 4 0 0 0 -4 4z"/>
+      <path stroke-width="1.1" d="M72 148 h80 M72 160 h60 M72 172 h96 M72 184 h50"/>
+      <g transform="rotate(8 216 150)"><rect x="180" y="118" width="72" height="50" rx="4" fill="#F7F4EE" fill-opacity=".14" stroke="none"/><rect x="180" y="118" width="72" height="50" rx="4"/><path stroke-width="1.1" d="M190 132 h44 M190 142 h30 M190 152 h52"/></g>
+      <circle cx="216" cy="118" r="5" fill="currentColor" stroke="none"/>
+      <g class="lens">
+        <circle cx="150" cy="70" r="26"/><circle cx="150" cy="70" r="19" stroke-width="1.1"/><path d="M169 89 l28 28" stroke-width="6"/>
+        <path fill="#B8860B" fill-opacity=".92" stroke="none" d="M144 64 l6 -6 l6 6 l-6 6z"/>
+      </g>
+  </svg></div>
   <div class="cta">
     <a class="btn" href="#start">Start reading <svg class="ico sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a class="btn ghost" href="#intake"><svg class="ico sm" aria-hidden="true"><use href="#i-folder"/></svg>Got a request? Run the intake</a>
@@ -2852,6 +2897,8 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
         if(card.classList.contains('guessed'))return;
         verdicts[card.id]=b.dataset.gap;store.set('ldd-verdicts',verdicts);
         applyGuess(card,b.dataset.gap);paintTally();
+        // a fresh verdict is declassified: the answer comes out from under the black bars, then the stamp lands
+        if(!calm.matches){card.classList.add('declassify');setTimeout(function(){card.classList.remove('declassify');},1500);}
         var back=card.querySelector('.back');
         if(back){back.setAttribute('tabindex','-1');back.focus({preventScroll:true});}
       });
@@ -3238,6 +3285,17 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
     if(heroCase)heroCase.addEventListener('click',function(e){e.preventDefault();history.pushState(null,'','#main-case');start();
       document.getElementById('main-case').scrollIntoView({block:'start',behavior:calm.matches?'auto':'smooth'});});
     game.querySelector('.gm-leave').addEventListener('click',function(){game.hidden=true;entry.hidden=false;paintBest();entryBtn.focus();});
+  }
+
+  // Detective touches that play once, when they come into view: the String Board pins its people and runs the string,
+  // and on a first visit the magnifier sweeps the papers in the masthead. Reduced motion shows the finished picture.
+  if('IntersectionObserver' in window&&!calm.matches){
+    var once=function(el,ratio,fn){var o=new IntersectionObserver(function(en){if(en[0].isIntersecting){o.disconnect();fn();}},{threshold:ratio});o.observe(el);};
+    [].forEach.call(document.querySelectorAll('.roles'),function(r){
+      r.classList.add('await');once(r,.35,function(){r.classList.remove('await');r.classList.add('drawn');});
+    });
+    var art=document.querySelector('.masthead .mast-art');
+    if(art&&!store.get('ldd-lens')){once(art,.6,function(){art.classList.add('sweep');store.set('ldd-lens',1);});}
   }
 
   // Keyboard focus never lands under the sticky pill bar or the phone top bar (WCAG 2.4.11)
