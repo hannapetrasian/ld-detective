@@ -2589,7 +2589,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
 
 
   // Section pills: the last target that has passed the reading line is current;
-  // nothing is current once the reading line has left the section.
+  // a File stays current while any of it is on screen (its pills stick until its end), so a short last part still lights up.
   var pillSets=[];
   document.querySelectorAll('nav.pills').forEach(function(pills){
     var items=[];pills.querySelectorAll('a').forEach(function(a){var el=document.getElementById(a.getAttribute('href').slice(1));if(el)items.push({a:a,el:el});});
@@ -2599,9 +2599,10 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
     var line=window.innerHeight*0.45;
     pillSets.forEach(function(set){
       var cur=null,sr=set.sec.getBoundingClientRect();
-      if(sr.top<line&&sr.bottom>line){set.items.forEach(function(it){if(it.el.getBoundingClientRect().top<=line)cur=it;});}
+      if(sr.top<line&&sr.bottom>0){set.items.forEach(function(it){if(it.el.getBoundingClientRect().top<=line)cur=it;});}
       set.items.forEach(function(it){if(it===cur)it.a.setAttribute('aria-current','true');else it.a.removeAttribute('aria-current');});
       if(cur&&cur!==set.cur)showPill(set.el,cur.a);
+      else if(!cur&&set.cur&&set.el.scrollLeft>0)set.el.scrollTo({left:0,behavior:'auto'}); // back above the first part: the strip starts at its start again
       set.cur=cur;
     });
   }
