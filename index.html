@@ -47,8 +47,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *,*::before,*::after{transition-duration:0ms!important;animation-duration:0ms!important}}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased}
 a{color:var(--amber-ink);text-decoration-thickness:1px;text-underline-offset:3px}
-a:hover{color:var(--ink)}
-:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:var(--r-sm)}
+@media (hover:hover) and (pointer:fine){a:hover{color:var(--ink)}}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:var(--r-sm)}
 img,svg{max-width:100%}
 p{margin:0 0 1em}
 strong{font-weight:600}
@@ -77,7 +77,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .nav li{margin:0}
 .nav a.item{display:flex;align-items:baseline;gap:12px;padding:10px 10px;border-radius:var(--r);color:var(--ink-2);text-decoration:none;font-size:15px;font-weight:500;line-height:1.3;min-height:44px;transition:background var(--t),color var(--t)}
 .nav a.item .num{font-family:var(--mono);font-size:12px;color:var(--muted);width:2.2ch;flex:none;letter-spacing:.04em}
-.nav a.item:hover{background:rgba(28,37,48,.05);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.nav a.item:hover{background:rgba(28,37,48,.05);color:var(--ink)}}
 .nav a.item[aria-current="true"]{background:var(--card);color:var(--ink);box-shadow:inset 3px 0 0 var(--amber)}
 .nav a.item[aria-current="true"] .num{color:var(--amber-ink)}
 .nav .downloads{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2)}
@@ -101,12 +101,12 @@ section.case + section.case{margin-top:24px}
 
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border-radius:var(--r);border:1px solid var(--ink);background:var(--ink);color:var(--on-ink);font:inherit;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;transition:background var(--t),color var(--t),box-shadow var(--t)}
-.btn:hover{background:#2B3745;color:var(--on-ink)}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:#2B3745;color:var(--on-ink)}}
 .btn:active{box-shadow:inset 0 2px 4px rgba(0,0,0,.25)}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
-.btn.ghost:hover{background:var(--card);border-color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.btn.ghost:hover{background:var(--card);border-color:var(--ink)}}
 .btn.amber{background:var(--amber);border-color:var(--amber);color:var(--ink)}
-.btn.amber:hover{background:#C9961A;color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.btn.amber:hover{background:#C9961A;color:var(--ink)}}
 .btn .meta{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;opacity:.8}
 
 /* ---------- section hero (ink band) ---------- */
@@ -227,7 +227,7 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .toc .label{display:block;margin-bottom:14px}
 .toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
 .toc-card{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 16px 14px;text-decoration:none;color:var(--ink);transition:transform var(--t),box-shadow var(--t),border-color var(--t);min-height:44px}
-.toc-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--line-2);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.toc-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--line-2);color:var(--ink)}}
 .toc-card .ic{width:40px;height:40px;border-radius:var(--r);background:var(--paper-2);display:grid;place-items:center;color:var(--ink)}
 .toc-card .ic .ico{width:22px;height:22px}
 .toc-card{padding:13px 14px 12px}
@@ -242,27 +242,27 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .progress i{display:block;height:100%;width:100%;background:var(--amber);transition:transform 120ms linear;transform:scaleX(0);transform-origin:0 50%}
 .totop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--on-ink);border:0;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px -8px rgba(28,37,48,.5);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity var(--t),transform var(--t);z-index:35}
 .totop.show{opacity:1;transform:none;pointer-events:auto}
-.totop:hover{background:#2B3745}
+@media (hover:hover) and (pointer:fine){.totop:hover{background:#2B3745}}
 .toast{position:fixed;left:calc(var(--nav-w) + 24px);bottom:24px;background:var(--card);border:1px solid var(--line-2);border-left:4px solid var(--amber);border-radius:var(--r);box-shadow:var(--shadow);padding:12px 14px 12px 16px;display:flex;align-items:center;gap:14px;max-width:min(520px,calc(100vw - 48px));z-index:36;transform:translateY(20px);opacity:0;transition:opacity var(--t),transform var(--t)}
 .toast.show{opacity:1;transform:none}
 .toast .t{font-size:15px;color:var(--ink-2)}
 .toast .t b{color:var(--ink)}
 .toast a.go{font-weight:600;color:var(--ink);white-space:nowrap}
 .toast button{all:unset;cursor:pointer;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;color:var(--muted)}
-.toast button:hover{background:var(--paper-2);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.toast button:hover{background:var(--paper-2);color:var(--ink)}}
 
 /* ---------- upgrade: toggles ---------- */
 .toolrow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 10px}
 .toolrow .hint{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;gap:8px}
 .tbtn{all:unset;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;background:var(--card);transition:background var(--t),border-color var(--t)}
-.tbtn:hover{border-color:var(--ink)}
-.tbtn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.tbtn:hover{border-color:var(--ink)}}
+.tbtn:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .tbtn[hidden]{display:none}
 
 /* ---------- upgrade: CLUE jump pills ---------- */
 .pills{position:sticky;top:12px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;padding:8px;margin:0 0 18px;background:rgba(247,244,238,.97);border-radius:999px;width:max-content;max-width:100%;box-shadow:0 6px 18px -10px rgba(28,37,48,.25)}
 .pills a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px;transition:border-color var(--t),background var(--t)}
-.pills a:hover{border-color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.pills a:hover{border-color:var(--ink)}}
 .pills a:has(i){padding-left:6px}
 .pills a i{font-family:var(--mono);font-weight:600;font-style:normal;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:var(--on-ink);font-size:13.5px}
 .pills a[aria-current="true"]{border-color:var(--amber);background:var(--amber-tint)}
@@ -282,7 +282,7 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 
 /* ---------- upgrade: micro polish ---------- */
 .card,.gadget,.file,.clue{transition:box-shadow var(--t),transform var(--t)}
-.file:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(28,37,48,.06),0 14px 30px -12px rgba(28,37,48,.2)}
+@media (hover:hover) and (pointer:fine){.file:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(28,37,48,.06),0 14px 30px -12px rgba(28,37,48,.2)}}
 .outcomes{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .outcomes li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;margin:0}
 .outcomes li .ico{color:var(--ink-2);margin-top:3px}
@@ -369,7 +369,7 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
   .topbar .t{font-weight:700;font-size:15px;white-space:nowrap;flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;padding:0 8px}
   .topbar .btn{white-space:nowrap}
   .topbar button{all:unset;font:600 13.5px/1 var(--sans);display:inline-flex;align-items:center;gap:8px;min-width:44px;min-height:44px;padding:0 10px;border-radius:var(--r);cursor:pointer;color:var(--ink);font:inherit;font-weight:600;font-size:13.5px}
-  .topbar button:hover{background:rgba(28,37,48,.06)}
+  @media (hover:hover) and (pointer:fine){.topbar button:hover{background:rgba(28,37,48,.06)}}
   .nav{transform:translateX(-100%);transition:transform 260ms cubic-bezier(.2,.7,.2,1);width:min(320px,86vw);padding-top:72px;box-shadow:none}
   .nav.open{transform:none;box-shadow:0 0 0 100vmax rgba(28,37,48,.45)}
   main{margin-left:0;padding-top:56px}
@@ -608,10 +608,10 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
   text-decoration:none;color:var(--ink);
   border-right:1px solid var(--line);
   display:flex;flex-direction:column;gap:3px;
-  transition:background .15s ease;
+  transition:background var(--t);
 }
 .strip a:last-child,.strip span.node:last-child{border-right:0}
-.strip a:hover{background:var(--amber-tint)}
+@media (hover:hover) and (pointer:fine){.strip a:hover{background:var(--amber-tint)}}
 .strip .n{font:600 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .strip b{font-size:13.5px;font-weight:600;line-height:1.3}
 .strip span.node{background:var(--paper);color:var(--muted)}
@@ -657,11 +657,11 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .file .pick dd{min-width:0}
 .file .pick .chips{margin:0;gap:6px}
 .chips button.ch{font:500 13.5px/1 var(--sans);border:1px solid var(--line-2);background:#fff;border-radius:999px;padding:0 12px;min-height:44px;color:var(--ink);cursor:pointer;transition:background var(--t),border-color var(--t),color var(--t)}
-.chips button.ch:hover{border-color:var(--ink)}
-.chips button.ch:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.chips button.ch:hover{border-color:var(--ink)}}
+.chips button.ch:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .chips button.ch[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
 .file.guessed .chips button.ch{cursor:default}
-.file.guessed .chips button.ch:hover{border-color:var(--line-2)}
+@media (hover:hover) and (pointer:fine){.file.guessed .chips button.ch:hover{border-color:var(--line-2)}}
 .file.guessed .chips button.ch.right{border:2px solid #4A7A50}
 .file.guessed .chips button.ch[aria-pressed="true"].wrong{border:2px solid #A9553F}
 .file.open:not(.guessed) .pick{display:none}
@@ -685,11 +685,11 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .sort.picking .zones > div,.sort .zones > div.over{border-style:dashed;border-color:var(--ink-2)}
 .sort .zones h4{margin:0 0 8px}
 .sort .zt{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:7px;width:100%;min-height:44px;cursor:pointer;border-radius:var(--r-sm)}
-.sort .zt:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.sort .zt:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .ev{display:block;box-sizing:border-box;width:100%;text-align:left;font:400 15px/1.45 var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;min-height:44px;box-shadow:0 1px 2px rgba(28,37,48,.06)}
 button.ev{cursor:grab;user-select:none;-webkit-user-select:none;transition:border-color var(--t),background var(--t)}
-button.ev:hover{border-color:var(--ink-2)}
-button.ev:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){button.ev:hover{border-color:var(--ink-2)}}
+button.ev:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 button.ev[aria-pressed="true"]{border-color:var(--ink);background:var(--amber-tint)}
 .ev .g{display:block;font:600 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
 .sort .pool .ev .g{display:none}
@@ -724,8 +724,8 @@ button.ev[aria-pressed="true"]{border-color:var(--ink);background:var(--amber-ti
   border:1px solid var(--line);background:#fff;border-radius:7px;padding:9px 14px;min-height:44px;
   cursor:pointer;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:7px
 }
-.share button:hover,.share a.sh:hover{border-color:var(--ink);background:var(--amber-tint)}
-.share button:focus-visible,.share a.sh:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.share button:hover,.share a.sh:hover{border-color:var(--ink);background:var(--amber-tint)}}
+.share button:focus-visible,.share a.sh:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .share .ico{width:13px;height:13px}
 
 /* --- small helpers ----------------------------------------- */
@@ -971,8 +971,8 @@ main[id],section.case[id]{scroll-margin-top:24px}
 .gm-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 10px 0 22px}
 .gm-case{min-width:0;font:500 12px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--amber-soft)}
 .gm-leave{all:unset;box-sizing:border-box;flex:none;white-space:nowrap;min-height:44px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;color:var(--on-ink-muted);cursor:pointer;border-radius:var(--r-sm)}
-.gm-leave:hover{color:var(--on-ink);text-decoration:underline;text-underline-offset:3px}
-.gm-leave:focus-visible{outline:3px solid var(--amber);outline-offset:0}
+@media (hover:hover) and (pointer:fine){.gm-leave:hover{color:var(--on-ink);text-decoration:underline;text-underline-offset:3px}}
+.gm-leave:focus-visible{outline:3px solid var(--focus);outline-offset:0}
 .gm-track{list-style:none;margin:6px 0 16px;padding:0 22px;display:flex;counter-reset:none}
 .gm-track li{flex:1;margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
 .gm-track li::before{content:"";position:absolute;top:14px;right:50%;width:100%;height:1.5px;background:rgba(185,192,201,.3);z-index:0}
@@ -993,7 +993,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
 @keyframes gmIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .gm-h{font:600 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--amber-ink);margin:0 0 14px}
 .gm-h:focus{outline:none}
-.gm-h:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.gm-h:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 .gm-lead{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 16px;max-width:62ch}
 .gm-q{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin:22px 0 12px}
 .gm-q:first-of-type{margin-top:0}
@@ -1006,9 +1006,9 @@ main[id],section.case[id]{scroll-margin-top:24px}
 .gm-opts{display:grid;gap:10px}
 .gm-opt{all:unset;box-sizing:border-box;display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;align-items:center;min-height:56px;padding:12px 16px;background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);font-size:16px;line-height:1.45;color:var(--ink);cursor:pointer;transition:transform var(--t),border-color var(--t),box-shadow var(--t),background var(--t),opacity var(--t)}
 .gm-opt .k{width:30px;height:30px;border-radius:6px;display:grid;place-items:center;border:1px solid var(--line-2);font:600 12.5px/1 var(--mono);color:var(--ink-2);background:var(--paper);transition:background var(--t),color var(--t),border-color var(--t)}
-.gm-opt:hover:not([aria-disabled="true"]){border-color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow)}
-.gm-opt:hover:not([aria-disabled="true"]) .k{border-color:var(--ink);color:var(--ink)}
-.gm-opt:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.gm-opt:hover:not([aria-disabled="true"]){border-color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow)}}
+@media (hover:hover) and (pointer:fine){.gm-opt:hover:not([aria-disabled="true"]) .k{border-color:var(--ink);color:var(--ink)}}
+.gm-opt:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .gm-opt[aria-disabled="true"]{cursor:default}
 .gm-opt.is-wrong{border-color:#A9553F;background:#FEFBFA}
 .gm-opt.is-wrong .k{background:#A9553F;border-color:#A9553F;color:#fff}
@@ -1043,9 +1043,9 @@ main[id],section.case[id]{scroll-margin-top:24px}
 .gm-src .nm{font-size:16px;font-weight:600;line-height:1.35;color:var(--ink)}
 .gm-src .fd{display:none;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
 .gm-src .peek{position:absolute;right:14px;top:14px;color:var(--muted)}
-.gm-src:hover:not([aria-disabled="true"]){transform:translateY(-2px) rotate(-.4deg);box-shadow:var(--shadow);border-color:var(--ink)}
-.gm-src:hover:not([aria-disabled="true"]) .peek{color:var(--amber-ink)}
-.gm-src:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.gm-src:hover:not([aria-disabled="true"]){transform:translateY(-2px) rotate(-.4deg);box-shadow:var(--shadow);border-color:var(--ink)}}
+@media (hover:hover) and (pointer:fine){.gm-src:hover:not([aria-disabled="true"]) .peek{color:var(--amber-ink)}}
+.gm-src:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .gm-src[aria-disabled="true"]{cursor:default}
 .gm-src.is-open{padding-top:22px;transform:rotate(var(--rot,0deg));box-shadow:0 2px 3px rgba(28,37,48,.08),0 10px 20px -12px rgba(28,37,48,.3);border-color:var(--line)}
 .gm-src.is-open .fd{display:block;animation:gmIn 260ms cubic-bezier(.2,.7,.2,1) both}
@@ -1072,8 +1072,8 @@ main[id],section.case[id]{scroll-margin-top:24px}
 .gm-fix .bx{width:22px;height:22px;margin-top:1px;border-radius:5px;border:1.5px solid var(--line-2);display:grid;place-items:center;font:700 12px/1 var(--mono);color:transparent;transition:background var(--t),border-color var(--t),color var(--t)}
 .gm-fix .own{display:none;margin-top:6px;font:600 11px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .gm-fix .why{display:none;margin-top:6px;font-size:14.5px;line-height:1.5;color:#8C4636}
-.gm-fix:hover:not([aria-disabled="true"]){border-color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow)}
-.gm-fix:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.gm-fix:hover:not([aria-disabled="true"]){border-color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow)}}
+.gm-fix:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .gm-fix[aria-pressed="true"]{background:var(--amber-tint);border-color:var(--ink)}
 .gm-fix[aria-pressed="true"] .bx{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
 .gm-fix.full:not([aria-pressed="true"]){opacity:.55}
@@ -1112,7 +1112,7 @@ main[id],section.case[id]{scroll-margin-top:24px}
 .masthead .byline .who{display:inline-flex;align-items:center;gap:12px;min-height:48px;text-decoration:none;color:var(--ink);border-radius:999px;padding-right:6px}
 .masthead .byline .who img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--card);box-shadow:0 0 0 1px var(--line-2)}
 .masthead .byline .who b{display:block;font-size:16px;font-weight:600;line-height:1.3;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px;transition:text-decoration-color var(--t)}
-.masthead .byline .who:hover b{text-decoration-color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.masthead .byline .who:hover b{text-decoration-color:var(--ink)}}
 .masthead .byline .who .cred{display:block;font-size:14px;line-height:1.4;color:var(--muted)}
 .masthead .byline .btn.li{min-height:44px;padding:8px 14px;font-size:14px;color:var(--ink)}
 .masthead .readtime{flex:1 1 100%;display:flex;align-items:center;gap:8px;margin:4px 0 0;font-size:14px;color:var(--muted)}
@@ -1191,8 +1191,8 @@ section.case + section.case{margin-top:0}
 .oc-chip{position:relative;display:inline-flex}
 .oc-chip input{position:absolute;left:0;top:0;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
 .oc-chip span{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 13px;border:1px solid var(--line-2);border-radius:999px;background:#fff;font:500 13.5px/1.2 var(--sans);color:var(--ink);cursor:pointer;transition:background var(--t),border-color var(--t),color var(--t)}
-.oc-chip:hover span{border-color:var(--ink)}
-.oc-chip input:focus-visible + span{outline:3px solid var(--amber);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.oc-chip:hover span{border-color:var(--ink)}}
+.oc-chip input:focus-visible + span{outline:3px solid var(--focus);outline-offset:2px}
 .oc-chip input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
 .oc-chip input[type=checkbox]:checked + span::before{content:"✓";font-weight:700}
 .oc-step{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;padding-top:16px;border-top:1px solid var(--line)}
@@ -1205,8 +1205,8 @@ section.case + section.case{margin-top:0}
 .oc textarea{resize:vertical;min-height:70px}
 .oc-step .oc-q + textarea{margin-top:8px}
 .oc input::placeholder,.oc textarea::placeholder{color:var(--muted);opacity:1}
-.oc input[type=text]:hover,.oc textarea:hover{border-color:var(--ink-2)}
-.oc input[type=text]:focus,.oc textarea:focus{outline:3px solid var(--amber);outline-offset:1px;border-color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.oc input[type=text]:hover,.oc textarea:hover{border-color:var(--ink-2)}}
+.oc input[type=text]:focus,.oc textarea:focus{outline:3px solid var(--focus);outline-offset:1px;border-color:var(--ink)}
 .oc-gaps{margin-top:12px}
 .oc-gaps legend{margin-bottom:8px}
 .oc-hyp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
@@ -1247,6 +1247,96 @@ section.case + section.case{margin-top:0}
   .oc-print dd{margin:0;font-size:11pt;line-height:1.5;color:#000;white-space:pre-wrap}
   .oc-print dd.blank{min-height:16mm;border-bottom:1px solid #999}
   .oc-print .src{margin:18pt 0 0;font-size:8.5pt;color:#555}
+}
+
+/* ============================================================
+   v11: the finishing pass (touch, focus, type, phone, case folders)
+   ============================================================ */
+/* --line-3: form field edges, 3.6:1 on white. --focus: the ring colour for the surface it sits on */
+:root{--line-3:#8E8577;--focus:var(--amber-ink);--press:140ms cubic-bezier(.23,1,.32,1)}
+.game,.game-entry,.part,.cmp.good{--focus:var(--amber)}
+.gm-sheet{--focus:var(--amber-ink)}
+
+/* browser surfaces carry the palette too */
+::selection{background:var(--amber-soft);color:var(--ink)}
+input,textarea{caret-color:var(--amber-ink)}
+.skip:hover{color:var(--on-ink)}
+
+/* File headers are case folders: "File 0N" sits on the folder's tab */
+.hero.lite{position:relative;margin-top:30px;border-left:1px solid var(--line);border-top-left-radius:0}
+.hero.lite > div:first-child > .label{position:absolute;left:-1px;bottom:100%;margin:0;padding:7px 14px 5px;line-height:1.3;background:var(--paper-2);border:1px solid var(--line);border-bottom:0;border-radius:var(--r) var(--r) 0 0}
+@media (max-width:760px){
+  .hero.lite{grid-template-columns:minmax(0,1fr)}
+  .hero.lite .art{display:block;position:absolute;top:18px;right:16px;width:60px;height:45px;margin:0}
+  .hero.lite h2{padding-right:68px}
+}
+@media print{
+  .hero.lite{margin-top:0;border-top-left-radius:var(--r-lg)}
+  .hero.lite > div:first-child > .label{position:static;padding:0;border:0;background:none}
+}
+
+/* press feedback: everything you tap answers at once */
+.btn{transition:background var(--t),color var(--t),box-shadow var(--t),transform var(--press)}
+.tbtn{transition:background var(--t),border-color var(--t),transform var(--press)}
+.chips button.ch,.oc-chip span{transition:background var(--t),border-color var(--t),color var(--t),transform var(--press)}
+button.ev,.pills a,.share button,.share a.sh{transition:border-color var(--t),background var(--t),transform var(--press)}
+.btn:active:not([aria-disabled="true"]),.tbtn:active,.pills a:active,.share button:active,.share a.sh:active{transform:scale(.97)}
+.chips button.ch:active,.oc-chip:active span{transform:scale(.96)}
+.file.guessed .chips button.ch:active{transform:none}
+button.ev:active,.gm-fix:active:not([aria-disabled="true"]){transform:scale(.98)}
+.gm-opt:active:not([aria-disabled="true"]),.gm-src:active:not([aria-disabled="true"]),.toc-card:active{transform:scale(.985)}
+.totop.show:active{transform:scale(.94)}
+/* hidden "back to top" is out of the tab order until it shows */
+.totop{visibility:hidden;transition:opacity var(--t),transform var(--t),visibility 0s linear 200ms}
+.totop.show{visibility:visible;transition:opacity var(--t),transform var(--t),visibility 0s}
+.nav a.item:active,.strip a:active{background:var(--amber-tint)}
+.topbar button:active{background:rgba(28,37,48,.1)}
+.gm-leave:active{color:var(--on-ink)}
+.btn,.tbtn,.pills a,.share button,.share a.sh,.chips button.ch,.oc-chip span,button.ev,.gm-opt,.gm-fix,.gm-src,.toc-card,.totop{-webkit-tap-highlight-color:transparent}
+
+/* the phone menu: closed means gone, for the keyboard and screen readers too */
+@media (max-width:1200px){
+  .nav{visibility:hidden;transition:transform 280ms cubic-bezier(.32,.72,0,1),visibility 0s linear 280ms}
+  .nav.open{visibility:visible;transition:transform 280ms cubic-bezier(.32,.72,0,1),visibility 0s}
+}
+
+/* form fields show their edges */
+.oc input[type=text],.oc textarea{border-color:var(--line-3)}
+
+/* type: no stranded last words, clear steps between levels, readable caption lines */
+h1,h2,h3,h4,.masthead .sub,.gm-q,.gm-result,.closing p{text-wrap:balance}
+p,li,dd,figcaption,.capt,.lead{text-wrap:pretty}
+.hero.lite h2{font-size:clamp(28px,2.6vw,32px)}
+.duo h4{font-size:17px}
+.capt{max-width:56ch}
+.capt.tally{font-variant-numeric:tabular-nums}
+.masthead .chips li{line-height:1.3;padding:5px 13px}
+.ask .q::before{content:"\201C" / ""}
+.ask .q::after{content:"\201D" / ""}
+.iceberg svg text[font-family^="ui-monospace"]{font-family:var(--mono)}
+
+/* small links get a finger-sized target without moving the text */
+p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
+
+/* phones: the three ways in come first, then the author */
+@media (max-width:640px){
+  .masthead{row-gap:0}
+  .masthead > div:first-child{display:contents}
+  .masthead .cta{order:2}
+  .masthead .byline{order:3}
+  .masthead .mast-art{order:4;margin-top:24px}
+}
+/* phones: the in-file pills stay under the top bar while you read that File */
+@media (max-width:760px){
+  .pills{position:sticky;top:56px;width:auto;max-width:none;margin:0 calc(-1 * clamp(20px,5vw,72px)) 18px;padding:4px clamp(20px,5vw,72px);scroll-padding-inline:clamp(20px,5vw,72px);border-radius:0;background:var(--paper);box-shadow:0 1px 0 var(--line)}
+  .iceberg{padding:16px 12px 14px}
+  .iceberg svg.ib-tall text[font-size="11"]{font-size:12.5px;letter-spacing:.6px}
+}
+@media (max-width:640px){
+  .gt-wrap .gt{background:transparent}
+  /* the played case: moves left stays in view while you work down the board (below the top bar and the pills) */
+  .gm-sheet{overflow:clip}
+  .gm-meter{position:sticky;top:108px;z-index:3;margin:0 -18px 12px;padding:8px 18px;background:var(--paper);box-shadow:0 1px 0 var(--line)}
 }
 </style>
 </head>
@@ -1735,8 +1825,8 @@ section.case + section.case{margin-top:0}
     <div>
     <div class="prose"><h3 id="two-sizes">Two sizes of investigation</h3></div>
     <div class="duo">
-      <div><h4><span class="t">Size one</span>The quick read, 20 minutes.</h4><p>The C questions plus one L question, inside the conversation you were already having. Covers most requests.</p></div>
-      <div><h4><span class="t">Size two</span>The full investigation, one to two weeks.</h4><p>Interviews, shadowing, a look at the data, a Case File. For a big audience, real budget, an executive sponsor, or a monthly number.</p></div>
+      <div><h4><span class="t">Size one</span> The quick read, 20 minutes.</h4><p>The C questions plus one L question, inside the conversation you were already having. Covers most requests.</p></div>
+      <div><h4><span class="t">Size two</span> The full investigation, one to two weeks.</h4><p>Interviews, shadowing, a look at the data, a Case File. For a big audience, real budget, an executive sponsor, or a monthly number.</p></div>
     </div>
     <p class="capt">Say which one you're doing. The quick read is a gate, not a verdict. Upgrade it the moment it turns up something expensive.</p>
     </div>
@@ -2159,7 +2249,7 @@ section.case + section.case{margin-top:0}
     </div>
 
     <div class="cluster">
-      <h3><span class="label amber">Habit one</span>Prove it</h3>
+      <h3><span class="label amber">Habit one</span> Prove it</h3>
       <div class="rules3">
         <div class="rule3"><span class="n">01</span><h4>Outcome over output.</h4><p>Celebrate "onboarding time down 18%", never "10 modules delivered". (→ the <a href="#three-rules">Filter</a>, File 02.)</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> write the outcome sentence before the kickoff.</span></div></div>
         <div class="rule3"><span class="n">02</span><h4>Hypothesis-driven.</h4><p>Not "we need leadership training" but a testable bet: <em>if we give managers structured feedback practice, escalation cases drop 25% within three months, measured in the case tracker.</em></p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> if you can't fill the template, you're not ready to build.</span></div></div>
@@ -2168,7 +2258,7 @@ section.case + section.case{margin-top:0}
     </div>
 
     <div class="cluster">
-      <h3><span class="label amber">Habit two</span>Ship it small</h3>
+      <h3><span class="label amber">Habit two</span> Ship it small</h3>
       <div class="rules3">
         <div class="rule3"><span class="n">04</span><h4>Ship the smallest pilot.</h4><p>One that produces a verdict. Iterate on behavior, not on feedback forms.</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> one cohort, six weeks, one metric.</span></div></div>
         <div class="rule3"><span class="n">05</span><h4>Give every asset a sunset date.</h4><p>Treat learning like a product: discovery → validation → launch → growth → optimization → sunset. Yes, sunset. Undead courses cost credibility every day they stay open.</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> every asset gets a review date and an owner at birth.</span></div></div>
@@ -2176,7 +2266,7 @@ section.case + section.case{margin-top:0}
     </div>
 
     <div class="cluster">
-      <h3><span class="label amber">Habit three</span>Design the system, not the course</h3>
+      <h3><span class="label amber">Habit three</span> Design the system, not the course</h3>
       <div class="rules3">
         <div class="rule3"><span class="n">06</span><h4>Design the reinforcement loop.</h4><p>Training alone rarely survives the workplace. The manager's role, the tool changes and the workflow integration are part of the solution, or the solution fails.</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> name the Reinforcer in the plan (→ <a href="#g-string">String Board</a>). If that box is empty, stop.</span></div></div>
         <div class="rule3"><span class="n">07</span><h4>User and buyer.</h4><p>The user is the employee, the buyer is the business leader. Delight learners and move no metric, you lose the budget. Move the metric and torture learners, you lose the users.</p><div class="dothis"><svg class="ico sm" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Do this:</strong> one sentence of value for each, side by side (→ <a href="#casefile">Case File §2</a>).</span></div></div>
@@ -2499,7 +2589,13 @@ section.case + section.case{margin-top:0}
     if(o){var first=nav.querySelector('a');if(first)first.focus();}}
   btn.addEventListener('click',function(){setOpen(!nav.classList.contains('open'));});
   nav.addEventListener('click',function(e){if(e.target.closest('a')&&nav.classList.contains('open'))setOpen(false);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){setOpen(false);btn.focus();}});
+  document.addEventListener('keydown',function(e){
+    if(!nav.classList.contains('open'))return;
+    if(e.key==='Escape'){setOpen(false);btn.focus();return;}
+    // while the menu is open, Tab cycles through Close and the menu links only
+    if(e.key==='Tab'){var f=[btn].concat([].slice.call(nav.querySelectorAll('a'))),i=f.indexOf(document.activeElement);
+      e.preventDefault();f[i<0?0:(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();}
+  });
   document.addEventListener('click',function(e){if(nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))setOpen(false);});
 
   // Current section in nav
@@ -2579,6 +2675,7 @@ section.case + section.case{margin-top:0}
   function makeFold(items,after,more,less,soft){
     if(!items.length)return;
     var b=document.createElement('button');b.type='button';b.className='tbtn fold-btn no-print';b.setAttribute('aria-expanded','false');
+    b.setAttribute('aria-controls',items.map(function(el,i){if(!el.id)el.id='fold'+folds.length+'-'+i;return el.id;}).join(' '));
     var f={items:items,btn:b,open:false,soft:soft};
     function paintBtn(){b.innerHTML=(f.open?less:more)+' <span class="chev" aria-hidden="true"></span>';b.setAttribute('aria-expanded',String(f.open));}
     f.set=function(o){f.open=o;items.forEach(function(el){if(o){el.hidden=false;el.removeAttribute('hidden');}else hideItem(el,soft);});paintBtn();};
@@ -2762,10 +2859,11 @@ section.case + section.case{margin-top:0}
   });
   paintTally();
   if(showAll){
+    showAll.setAttribute('aria-expanded','false');
     showAll.addEventListener('click',function(){
       showing=!showing;
       caseCards.forEach(function(c){c.classList.toggle('open',showing||c.classList.contains('guessed'));});
-      showAll.textContent=showing?'Hide the answers':'Show all answers';
+      showAll.textContent=showing?'Hide the answers':'Show all answers';showAll.setAttribute('aria-expanded',String(showing));
     });
   }
   // A deep link to a cold case opens it
@@ -2897,12 +2995,12 @@ section.case + section.case{margin-top:0}
       {k:'p',n:'The announcement pack and the send log',f:'60 slides, sent to managers at the same moment as their teams. No talk track, nowhere to ask. The manager role profile never mentions cascading.',ev:1}
     ];
     var FIX=[
-      {t:'A 48-hour pre-brief. Managers hear it two days before their teams',o:'Head of internal comms',ok:1},
       {t:'Communication training for all people managers',o:'L&D',fb:'The verdict you were handed. It covers the thin skill need and leaves managers hearing the news last.'},
+      {t:'A 48-hour pre-brief. Managers hear it two days before their teams',o:'Head of internal comms',ok:1},
       {t:'A one-page talk track, with the why in plain words',o:'The exec making the announcement',ok:1},
+      {t:'A monthly video from the CEO',o:'Head of internal comms',fb:'One more channel that goes around the manager. The verbatims asked for the manager.'},
       {t:'A storytelling e-learning module',o:'L&D',fb:'A better story won\'t help if managers get it at the same moment as their teams.'},
       {t:'A 48-hour Q&A channel, so managers can ask before they\'re asked',o:'The BU\'s HR business partner',ok:1},
-      {t:'A monthly video from the CEO',o:'Head of internal comms',fb:'One more channel that goes around the manager. The verbatims asked for the manager.'},
       {t:'One 90-minute practice session. Deliver the message, take the hard question',o:'L&D',ok:1}
     ];
     var ROT=['-1.2deg','.9deg','-.6deg','1.1deg','-.9deg','.5deg'];
@@ -2963,8 +3061,8 @@ section.case + section.case{margin-top:0}
       add(sc,'<blockquote class="gm-mail"><span class="clip" aria-hidden="true"></span><p>"Middle managers can\'t communicate. We need communication training for all people managers."</p></blockquote>');
       choice(sc,'request','What do you do?',[
         {t:'Book the training',fb:'Quick yes. Three months later every manager has a certificate and the survey item hasn\'t moved. Ask about the problem first.'},
-        {t:'Ask what made this urgent now',ok:1,fb:'Good. Don\'t argue with the request. Keep asking about the problem until the coat comes off.'},
-        {t:'Tell them training won\'t fix it',fb:'You haven\'t looked yet. That\'s a verdict too, just yours.'}
+        {t:'Tell them training won\'t fix it',fb:'You haven\'t looked yet. That\'s a verdict too, just yours.'},
+        {t:'Ask what made this urgent now',ok:1,fb:'Good. Don\'t argue with the request. Keep asking about the problem until the coat comes off.'}
       ],function(w){next(w,'Next: Clarify',sClarify);});
       return sc;
     }
@@ -2972,8 +3070,8 @@ section.case + section.case{margin-top:0}
       var sc=screen(1,'C · Clarify');
       add(sc,'<p class="gm-lead">The answer to your why-now question: the engagement survey just landed. "I understand where the company is going" scored 41%, and the board asked why.</p>');
       choice(sc,'clarify','Which goal will you work toward?',[
-        {t:'Better communication from managers',fb:'An adjective. On Monday nobody can say whether it happened.'},
         {t:'Each team hears the update from their own manager within a week',ok:1,fb:'You can count that next month. The survey item stays as the number you check later.'},
+        {t:'Better communication from managers',fb:'An adjective. On Monday nobody can say whether it happened.'},
         {t:'A higher survey score next year',fb:'A year is a long wait for a verdict. Keep it as the lagging number and pick one you can count sooner.'}
       ],function(w){next(w,'Next: Look',sLook);});
       land(sc);
@@ -2988,8 +3086,8 @@ section.case + section.case{margin-top:0}
       var go=next(sc,'Name the cause',sUncover);go.hidden=!S.opened.length;
       var cards=SRC.map(function(s,i){
         var b=document.createElement('button');b.type='button';b.className='gm-src';b.style.setProperty('--rot',ROT[i]);
-        b.innerHTML='<span class="tg"><svg class="ico sm" aria-hidden="true"><use href="#'+(s.k==='w'?'i-chat':'i-notebook')+'"/></svg>'+(s.k==='w'?'Witness':'Paper trail')+'</span>'+
-          '<span class="nm">'+esc(s.n)+'</span><span class="fd">'+esc(s.f)+'</span><svg class="ico sm peek" aria-hidden="true"><use href="#i-eye"/></svg>';
+        b.innerHTML='<span class="tg"><svg class="ico sm" aria-hidden="true"><use href="#'+(s.k==='w'?'i-chat':'i-notebook')+'"/></svg>'+(s.k==='w'?'Witness':'Paper trail')+'</span> '+
+          '<span class="nm">'+esc(s.n)+'</span> <span class="fd">'+esc(s.f)+'</span><svg class="ico sm peek" aria-hidden="true"><use href="#i-eye"/></svg>';
         b.addEventListener('click',function(){
           if(b.getAttribute('aria-disabled')==='true')return;
           S.left--;S.opened.push(i);if(s.dead)S.dead++;
@@ -3029,8 +3127,8 @@ section.case + section.case{margin-top:0}
       choice(sc,'uncover','What\'s really going on?',[
         {t:'Managers can\'t communicate',fb:'That\'s the request again. Managers in the 78% department took the same courses as everyone else. Skill alone doesn\'t explain a 37-point gap.'},
         {t:'The strategy itself is unclear',fb:'Then the 78% department would be lost too. Same strategy, very different score. What does that director do that the others don\'t?'},
-        {t:'Managers are briefed last and armed with nothing',ok:1},
-        {t:'People don\'t read the updates',fb:'The verbatims say people wanted to hear it from their manager. They asked for more, not less.'}
+        {t:'People don\'t read the updates',fb:'The verbatims say people wanted to hear it from their manager. They asked for more, not less.'},
+        {t:'Managers are briefed last and armed with nothing',ok:1}
       ],function(w,fb){
         var has=function(k){return S.opened.some(function(i){return SRC[i].ev&&SRC[i].k===k;});};
         if(has('w')&&has('p')){
@@ -3068,7 +3166,7 @@ section.case + section.case{margin-top:0}
       },'btn gm-check');
       var cards=FIX.map(function(f,i){
         var b=document.createElement('button');b.type='button';b.className='gm-fix';b.dataset.i=i;b.setAttribute('aria-pressed','false');
-        b.innerHTML='<span class="bx" aria-hidden="true">✓</span><span><span class="t">'+esc(f.t)+'</span><span class="own">'+esc(f.o)+'</span>'+(f.fb?'<span class="why">'+esc(f.fb)+'</span>':'')+'</span>';
+        b.innerHTML='<span class="bx" aria-hidden="true">✓</span><span><span class="t">'+esc(f.t)+'</span> <span class="own">'+esc(f.o)+'</span>'+(f.fb?' <span class="why">'+esc(f.fb)+'</span>':'')+'</span>';
         b.addEventListener('click',function(){
           if(b.getAttribute('aria-disabled')==='true')return;
           var on=b.getAttribute('aria-pressed')==='true',n=count();
@@ -3091,13 +3189,13 @@ section.case + section.case{margin-top:0}
     function sPilot(){
       var sc=screen(4,'Before you ship: the pilot');
       choice(sc,'scope','How big?',[
-        {t:'Every manager, from next quarter',fb:'If it fails, it fails everywhere, and you won\'t know which fix did the work.'},
-        {t:'One business unit, one quarterly cycle',ok:1,fb:'Small enough to learn from, and the other units become your comparison group.'}
+        {t:'One business unit, one quarterly cycle',ok:1,fb:'Small enough to learn from, and the other units become your comparison group.'},
+        {t:'Every manager, from next quarter',fb:'If it fails, it fails everywhere, and you won\'t know which fix did the work.'}
       ],function(){
         var w2=choice(sc,'target','What counts as success?',[
           {t:'Close the 37-point gap to the best department this quarter',fb:'A fantasy, and a sponsor who has read this guide would call it one.'},
-          {t:'80% of teams hold the conversation within a week, and the survey item gains 5 points from 41%',ok:1,fb:'Signed. A behavior you can count in a week, and the survey for later.'},
-          {t:'Managers say they feel more confident',fb:'That\'s a feedback form. What will people be doing differently?'}
+          {t:'Managers say they feel more confident',fb:'That\'s a feedback form. What will people be doing differently?'},
+          {t:'80% of teams hold the conversation within a week, and the survey item gains 5 points from 41%',ok:1,fb:'Signed. A behavior you can count in a week, and the survey for later.'}
         ],function(w){next(w,'Close the case',sClosed);});
         setTimeout(function(){w2.querySelector('.gm-q').focus({preventScroll:true});w2.scrollIntoView({block:'nearest',behavior:calm.matches?'auto':'smooth'});},60);
       });

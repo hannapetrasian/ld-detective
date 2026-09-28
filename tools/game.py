@@ -19,7 +19,7 @@ async def play(pg):
     for i in [0,1,3,5]: await pg.locator('.gm-src').nth(i).click(); await pg.wait_for_timeout(60)
     await nxt('Name the cause'); await head()
     await opt('Managers are briefed last'); await nxt('Build the fix'); await head()
-    for i in [0,2,4,6]: await pg.locator('.gm-fix').nth(i).click()
+    for t in ['A 48-hour pre-brief','A one-page talk track','A 48-hour Q&A channel','One 90-minute practice']: await pg.locator('.gm-fix',has_text=t).click()
     await nxt('Check the fix'); await nxt('Write the hypothesis'); await head()
     await opt('One business unit'); await pg.wait_for_timeout(150); await opt('80% of teams'); await nxt('Close the case'); await head()
     res=await pg.evaluate("(()=>({rank:document.querySelector('.gm-rank').textContent,file:[...document.querySelectorAll('.gm-file dd')].map(d=>d.textContent),best:localStorage.getItem('ldd-case'),solvedOpen:!document.querySelector('#closed .tl-wrap').closest('[hidden]')}))()")
