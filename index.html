@@ -1880,58 +1880,6 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
     <p class="capt">Say which one you're doing. The quick read is a gate, not a verdict. Upgrade it the moment it turns up something expensive.</p>
     </div>
 
-    <div class="oc" id="openCase">
-      <div class="prose"><h3 id="intake">Run the intake</h3>
-      <p class="oc-intro">A request just landed? Fill this in during the conversation or straight after it. For a quick read, C and L are enough. If you can't put a number in the C line, that is Monday's first question.</p></div>
-      <div class="oc-form" role="group" aria-labelledby="intake">
-        <fieldset class="oc-size"><legend class="oc-l">How deep?</legend>
-          <div class="oc-chips"><label class="oc-chip"><input type="radio" name="oc-size" value="Quick read, 20 minutes"><span>Quick read, 20 minutes</span></label><label class="oc-chip"><input type="radio" name="oc-size" value="Full investigation, 1–2 weeks"><span>Full investigation, 1–2 weeks</span></label></div>
-        </fieldset>
-        <div class="oc-f oc-asked"><label class="oc-l" for="oc-asked">They asked for</label><input id="oc-asked" data-k="asked" type="text" autocomplete="off" placeholder="e.g. Communication training for all people managers"></div>
-        <div class="oc-step">
-          <span class="bx" aria-hidden="true">C</span>
-          <div class="oc-f"><label class="oc-q" for="oc-c"><span class="sr-only">C, Clarify: </span>What's happening in the business that made this urgent now?</label>
-          <span class="oc-hint" id="oc-c-h">Put the number in: where it is, where it needs to be, what the gap costs.</span>
-          <textarea id="oc-c" data-k="c" rows="2" aria-describedby="oc-c-h" placeholder="e.g. The survey item on direction is at 41%, and the board asked why"></textarea></div>
-        </div>
-        <div class="oc-step">
-          <span class="bx" aria-hidden="true">L</span>
-          <div class="oc-f"><label class="oc-q" for="oc-l"><span class="sr-only">L, Look: </span>If we trained everyone tomorrow and the training was perfect, what would still get in the way?</label>
-          <textarea id="oc-l" data-k="l" rows="2" placeholder="e.g. Managers hear the news at the same moment as their teams"></textarea>
-          <fieldset class="oc-gaps"><legend class="oc-hint">Which gaps? Pick all that fit.</legend><div class="oc-chips"><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Skill"><span>Skill</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Knowledge"><span>Knowledge</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Process"><span>Process</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Tools"><span>Tools</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Incentives"><span>Incentives</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Expectations"><span>Expectations</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Outside the six"><span>Outside the six</span></label></div></fieldset></div>
-        </div>
-        <div class="oc-step">
-          <span class="bx" aria-hidden="true">U</span>
-          <div class="oc-f"><label class="oc-q" for="oc-u"><span class="sr-only">U, Uncover: </span>Tell me about the last time this went wrong.</label>
-          <span class="oc-hint" id="oc-u-h">What you saw, and the two sources that agree.</span>
-          <textarea id="oc-u" data-k="u" rows="2" aria-describedby="oc-u-h" placeholder="e.g. Three managers learned about the June pivot at the all-hands, with their teams"></textarea></div>
-        </div>
-        <div class="oc-step">
-          <span class="bx" aria-hidden="true">E</span>
-          <div class="oc-f"><p class="oc-q" id="oc-e"><span class="sr-only">E, Execute: </span>What's the smallest pilot that would prove, or kill, this idea in six weeks?</p>
-          <span class="oc-hint">Write it as the hypothesis.</span>
-          <div class="oc-hyp" role="group" aria-labelledby="oc-e">
-            <div class="oc-f"><label for="oc-hi">Intervention</label><input id="oc-hi" data-k="hi" type="text" autocomplete="off" placeholder="e.g. pre-brief managers 48 hours ahead"></div>
-            <div class="oc-f"><label for="oc-ha">Audience</label><input id="oc-ha" data-k="ha" type="text" autocomplete="off" placeholder="e.g. one business unit"></div>
-            <div class="oc-f"><label for="oc-hm">Metric</label><input id="oc-hm" data-k="hm" type="text" autocomplete="off" placeholder="e.g. teams hearing it from their own manager within a week"></div>
-            <div class="oc-f"><label for="oc-hb">Baseline</label><input id="oc-hb" data-k="hb" type="text" autocomplete="off" placeholder="e.g. a third"></div>
-            <div class="oc-f"><label for="oc-ht">Target</label><input id="oc-ht" data-k="ht" type="text" autocomplete="off" placeholder="e.g. 80%"></div>
-            <div class="oc-f"><label for="oc-hw">Time</label><input id="oc-hw" data-k="hw" type="text" autocomplete="off" placeholder="e.g. one quarter"></div>
-            <div class="oc-f"><label for="oc-hs">Source</label><input id="oc-hs" data-k="hs" type="text" autocomplete="off" placeholder="e.g. a two-question pulse"></div>
-          </div>
-          <p class="hyp filled oc-sentence" aria-hidden="true"></p></div>
-        </div>
-        <div class="oc-acts">
-          <button type="button" class="btn" id="ocCopy"><svg class="ico sm" aria-hidden="true"><use href="#i-copy"/></svg>Copy the notes</button>
-          <button type="button" class="btn ghost" id="ocPrint"><svg class="ico sm" aria-hidden="true"><use href="#i-print"/></svg>Print the notes</button>
-          <button type="button" class="tbtn" id="ocClear">Clear</button>
-        </div>
-        <p class="capt oc-note">It stays in this browser. Nothing is sent anywhere.</p>
-        <p class="capt oc-next">Size two? Move it into the <a href="files/case-file-template.docx">Case File template</a>.</p>
-      </div>
-      <div class="oc-print" aria-hidden="true"></div>
-    </div>
-
     <article class="clue" id="clue-c" aria-labelledby="h-c">
       <div class="mono"><span class="letter" aria-hidden="true">C</span></div>
       <div class="content">
@@ -2148,6 +2096,58 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
       </tbody>
       </table></div>
     <p class="capt">And if they still say build it? Build it well, and write the hypothesis down anyway. If the number doesn't move, you hold the opening of the next conversation. If it moves, you were wrong and learned something. Both beat being right in private.</p>
+
+    <div class="oc" id="openCase">
+      <div class="prose"><h3 id="intake">Run the intake</h3>
+      <p class="oc-intro">A request just landed? Fill this in during the conversation or straight after it. For a quick read, C and L are enough. If you can't put a number in the C line, that is Monday's first question.</p></div>
+      <div class="oc-form" role="group" aria-labelledby="intake">
+        <fieldset class="oc-size"><legend class="oc-l">How deep?</legend>
+          <div class="oc-chips"><label class="oc-chip"><input type="radio" name="oc-size" value="Quick read, 20 minutes"><span>Quick read, 20 minutes</span></label><label class="oc-chip"><input type="radio" name="oc-size" value="Full investigation, 1–2 weeks"><span>Full investigation, 1–2 weeks</span></label></div>
+        </fieldset>
+        <div class="oc-f oc-asked"><label class="oc-l" for="oc-asked">They asked for</label><input id="oc-asked" data-k="asked" type="text" autocomplete="off" placeholder="e.g. Communication training for all people managers"></div>
+        <div class="oc-step">
+          <span class="bx" aria-hidden="true">C</span>
+          <div class="oc-f"><label class="oc-q" for="oc-c"><span class="sr-only">C, Clarify: </span>What's happening in the business that made this urgent now?</label>
+          <span class="oc-hint" id="oc-c-h">Put the number in: where it is, where it needs to be, what the gap costs.</span>
+          <textarea id="oc-c" data-k="c" rows="2" aria-describedby="oc-c-h" placeholder="e.g. The survey item on direction is at 41%, and the board asked why"></textarea></div>
+        </div>
+        <div class="oc-step">
+          <span class="bx" aria-hidden="true">L</span>
+          <div class="oc-f"><label class="oc-q" for="oc-l"><span class="sr-only">L, Look: </span>If we trained everyone tomorrow and the training was perfect, what would still get in the way?</label>
+          <textarea id="oc-l" data-k="l" rows="2" placeholder="e.g. Managers hear the news at the same moment as their teams"></textarea>
+          <fieldset class="oc-gaps"><legend class="oc-hint">Which gaps? Pick all that fit.</legend><div class="oc-chips"><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Skill"><span>Skill</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Knowledge"><span>Knowledge</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Process"><span>Process</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Tools"><span>Tools</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Incentives"><span>Incentives</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Expectations"><span>Expectations</span></label><label class="oc-chip"><input type="checkbox" name="oc-gap" value="Outside the six"><span>Outside the six</span></label></div></fieldset></div>
+        </div>
+        <div class="oc-step">
+          <span class="bx" aria-hidden="true">U</span>
+          <div class="oc-f"><label class="oc-q" for="oc-u"><span class="sr-only">U, Uncover: </span>Tell me about the last time this went wrong.</label>
+          <span class="oc-hint" id="oc-u-h">What you saw, and the two sources that agree.</span>
+          <textarea id="oc-u" data-k="u" rows="2" aria-describedby="oc-u-h" placeholder="e.g. Three managers learned about the June pivot at the all-hands, with their teams"></textarea></div>
+        </div>
+        <div class="oc-step">
+          <span class="bx" aria-hidden="true">E</span>
+          <div class="oc-f"><p class="oc-q" id="oc-e"><span class="sr-only">E, Execute: </span>What's the smallest pilot that would prove, or kill, this idea in six weeks?</p>
+          <span class="oc-hint">Write it as the hypothesis.</span>
+          <div class="oc-hyp" role="group" aria-labelledby="oc-e">
+            <div class="oc-f"><label for="oc-hi">Intervention</label><input id="oc-hi" data-k="hi" type="text" autocomplete="off" placeholder="e.g. pre-brief managers 48 hours ahead"></div>
+            <div class="oc-f"><label for="oc-ha">Audience</label><input id="oc-ha" data-k="ha" type="text" autocomplete="off" placeholder="e.g. one business unit"></div>
+            <div class="oc-f"><label for="oc-hm">Metric</label><input id="oc-hm" data-k="hm" type="text" autocomplete="off" placeholder="e.g. teams hearing it from their own manager within a week"></div>
+            <div class="oc-f"><label for="oc-hb">Baseline</label><input id="oc-hb" data-k="hb" type="text" autocomplete="off" placeholder="e.g. a third"></div>
+            <div class="oc-f"><label for="oc-ht">Target</label><input id="oc-ht" data-k="ht" type="text" autocomplete="off" placeholder="e.g. 80%"></div>
+            <div class="oc-f"><label for="oc-hw">Time</label><input id="oc-hw" data-k="hw" type="text" autocomplete="off" placeholder="e.g. one quarter"></div>
+            <div class="oc-f"><label for="oc-hs">Source</label><input id="oc-hs" data-k="hs" type="text" autocomplete="off" placeholder="e.g. a two-question pulse"></div>
+          </div>
+          <p class="hyp filled oc-sentence" aria-hidden="true"></p></div>
+        </div>
+        <div class="oc-acts">
+          <button type="button" class="btn" id="ocCopy"><svg class="ico sm" aria-hidden="true"><use href="#i-copy"/></svg>Copy the notes</button>
+          <button type="button" class="btn ghost" id="ocPrint"><svg class="ico sm" aria-hidden="true"><use href="#i-print"/></svg>Print the notes</button>
+          <button type="button" class="tbtn" id="ocClear">Clear</button>
+        </div>
+        <p class="capt oc-note">It stays in this browser. Nothing is sent anywhere.</p>
+        <p class="capt oc-next">Size two? Move it into the <a href="files/case-file-template.docx">Case File template</a>.</p>
+      </div>
+      <div class="oc-print" aria-hidden="true"></div>
+    </div>
   </div>
 </section>
 
