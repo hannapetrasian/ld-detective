@@ -222,21 +222,6 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .masthead .mast-art svg{width:100%;height:100%;overflow:visible}
 .masthead .cta{grid-column:1/-1}
 
-/* ---------- upgrade: contents grid ---------- */
-.toc{margin:44px 0 8px}
-.toc .label{display:block;margin-bottom:14px}
-.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
-.toc-card{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 16px 14px;text-decoration:none;color:var(--ink);transition:transform var(--t),box-shadow var(--t),border-color var(--t);min-height:44px}
-@media (hover:hover) and (pointer:fine){.toc-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--line-2);color:var(--ink)}}
-.toc-card .ic{width:40px;height:40px;border-radius:var(--r);background:var(--paper-2);display:grid;place-items:center;color:var(--ink)}
-.toc-card .ic .ico{width:22px;height:22px}
-.toc-card{padding:13px 14px 12px}
-@media (min-width:1201px){.toc-card{grid-template-columns:1fr}.toc-card .ic{display:none}}
-@media (max-width:1200px){.toc-card .ic{width:34px;height:34px}.toc-card .ic .ico{width:19px;height:19px}}
-.toc-card .n{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:600;display:block;margin-bottom:2px}
-.toc-card b{display:block;font-size:15px;line-height:1.3;margin-bottom:3px}
-.toc-card span.d{display:block;font-size:13.5px;color:var(--muted);line-height:1.45}
-
 /* ---------- upgrade: progress + back to top + toast ---------- */
 .progress{position:fixed;top:0;left:var(--nav-w);right:0;height:3px;background:transparent;z-index:40;pointer-events:none}
 .progress i{display:block;height:100%;width:100%;background:var(--amber);transition:transform 120ms linear;transform:scaleX(0);transform-origin:0 50%}
@@ -344,10 +329,6 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 .movelist h4{margin:0 0 6px;font-size:17px}
 .movelist p{margin:0;color:var(--ink-2);font-size:15px}
 
-.fourline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:.6em 0 1.2em}
-.fourline span{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;font-weight:600;font-size:15px}
-.fourline i{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--amber-ink);font-weight:600}
-
 .hand{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1em 0 1.4em}
 .hand > div{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px}
 .hand .mn{width:32px;height:32px;border-radius:var(--r-sm);background:var(--paper-2);color:var(--ink);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:13.5px}
@@ -356,7 +337,6 @@ footer.credit a{color:var(--ink-2);display:inline-flex;align-items:center;min-he
 
 @media (max-width:760px){
   .compare,.rules3,.hand{grid-template-columns:1fr}
-  .fourline{grid-template-columns:1fr 1fr}
   .movelist li{grid-template-columns:1fr;gap:8px}
   
 }
@@ -867,17 +847,23 @@ main[id],section.case[id]{scroll-margin-top:24px}
 
 
 @media (max-width:640px){
-  /* What's inside: a compact list on phones (the Contents menu carries the same map) */
-  .toc-grid{gap:0;border-top:1px solid var(--line)}
-  .toc-card{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:10px 0;grid-template-columns:1fr}
-  .toc-card .ic,.toc-card span.d{display:none}
-  .toc-card .n{display:inline;margin-right:10px}
-  .toc-card b{display:inline;margin:0}
   /* The guide in one picture: one swipeable row instead of six stacked rows */
   .strip{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
   .strip::-webkit-scrollbar{display:none}
   .strip a,.strip span.node{flex:0 0 140px;border-right:1px solid var(--line);border-bottom:0}
 }
+/* Done when: each CLUE step ends on its finish line (the Do style of the watch-out line) */
+.clue .wo.done{margin:16px 0 4px}
+.clue .wo.done + .wo{margin-top:14px}
+/* L: the six gaps with their one-line meaning, the same words as the waterline in File 01 */
+.chips.tags.defs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.chips.tags.defs li{border-radius:var(--r);padding:9px 12px 10px;line-height:1.2}
+.chips.tags.defs li span{display:block;margin-top:4px;font:400 13.5px/1.35 var(--sans);letter-spacing:0;text-transform:none;color:var(--muted)}
+@media (max-width:640px){.chips.tags.defs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* The guide in one picture on phones: a soft right edge says the row goes on */
+@media screen and (max-width:640px){.strip.more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 48px),transparent)}}
+/* without the script the Contents menu cannot open, so its button stays out of the way */
+.no-js #menuBtn{display:none}
 /* ===== fold: depth behind a toggle; find-in-page, deep links and print open it ===== */
 .fold-btn{margin:12px 0 4px}
 .fold-btn .chev{display:inline-block;width:8px;height:8px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--t)}
@@ -1284,7 +1270,7 @@ button.ev,.pills a,.share button,.share a.sh{transition:border-color var(--t),ba
 .chips button.ch:active,.oc-chip:active span{transform:scale(.96)}
 .file.guessed .chips button.ch:active{transform:none}
 button.ev:active,.gm-fix:active:not([aria-disabled="true"]){transform:scale(.98)}
-.gm-opt:active:not([aria-disabled="true"]),.gm-src:active:not([aria-disabled="true"]),.toc-card:active{transform:scale(.985)}
+.gm-opt:active:not([aria-disabled="true"]),.gm-src:active:not([aria-disabled="true"]){transform:scale(.985)}
 .totop.show:active{transform:scale(.94)}
 /* hidden "back to top" is out of the tab order until it shows */
 .totop{visibility:hidden;transition:opacity var(--t),transform var(--t),visibility 0s linear 200ms}
@@ -1292,7 +1278,7 @@ button.ev:active,.gm-fix:active:not([aria-disabled="true"]){transform:scale(.98)
 .nav a.item:active,.strip a:active{background:var(--amber-tint)}
 .topbar button:active{background:rgba(28,37,48,.1)}
 .gm-leave:active{color:var(--on-ink)}
-.btn,.tbtn,.pills a,.share button,.share a.sh,.chips button.ch,.oc-chip span,button.ev,.gm-opt,.gm-fix,.gm-src,.toc-card,.totop{-webkit-tap-highlight-color:transparent}
+.btn,.tbtn,.pills a,.share button,.share a.sh,.chips button.ch,.oc-chip span,button.ev,.gm-opt,.gm-fix,.gm-src,.totop{-webkit-tap-highlight-color:transparent}
 
 /* the phone menu: closed means gone, for the keyboard and screen readers too */
 @media (max-width:1200px){
@@ -1813,14 +1799,14 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
     <div class="prose">
       <p class="lead">Four moves, in order. C and L fit in the first 20-minute conversation. U and E need evidence.</p>
     </div>
-    <nav class="pills no-print" aria-label="On this page"><a href="#clue-c"><i>C</i>Clarify</a><a href="#clue-l"><i>L</i>Look</a><a href="#clue-u"><i>U</i>Uncover</a><a href="#clue-e"><i>E</i>Execute</a><a href="#push-back"><i>!</i>When they push back</a></nav>
+    <nav class="pills no-print" aria-label="On this page"><a href="#clue-c"><i>C</i>Clarify</a><a href="#clue-l"><i>L</i>Look</a><a href="#clue-u"><i>U</i>Uncover</a><a href="#clue-e"><i>E</i>Execute</a><a href="#push-back"><i>!</i>When they push back</a><a href="#intake">Run the intake</a></nav>
     <div>
     <div class="prose"><h3 id="two-sizes">Two sizes of investigation</h3></div>
     <div class="duo">
       <div><h4><span class="t">Size one</span> The quick read, 20 minutes.</h4><p>The C questions plus one L question, inside the conversation you were already having. Covers most requests.</p></div>
       <div><h4><span class="t">Size two</span> The full investigation, one to two weeks.</h4><p>Interviews, shadowing, a look at the data, a Case File. For a big audience, real budget, an executive sponsor, or a monthly number.</p></div>
     </div>
-    <p class="capt">Say which one you're doing. The quick read is a gate, not a verdict. Upgrade it the moment it turns up something expensive.</p>
+    <p class="capt">Say which one you're doing. The quick read is a first filter, not a verdict. Upgrade it the moment it turns up something expensive.</p>
     </div>
 
     <article class="clue" id="clue-c" aria-labelledby="h-c">
@@ -1835,6 +1821,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
           <li><span class="q">Who's losing sleep over that metric?</span></li>
           <li><span class="q">What have you already tried?</span></li>
         </ul>
+        <p class="wo do done"><b>Done when</b><span>"KPI X is at A, needs B, the gap costs Y" and the stakeholder nods. (<a href="#g-string">→ String Board</a>)</span></p>
         <p class="wo"><b>Watch out</b><span>"We need training" is a solution wearing a goal's coat. Don't argue with it, keep asking about the problem until the coat comes off. And some requests are about visibility, not performance. "What does your leadership need to see, and by when?" is a legitimate C question, and a fix that also gives the sponsor something to show wins twice.</span></p>
         <p class="capt"><a href="#cold-01">See cold case 01 →</a></p>
       </div>
@@ -1845,8 +1832,8 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
       <div class="content">
         <h3 id="h-l">L — Look at the environment</h3>
         <p class="goal"><strong>You leave with the gap classified.</strong> Six kinds, adapted from Gilbert. Usually two or three at once.</p>
-        <ul class="chips tags" aria-label="Gap types">
-          <li>Skill</li><li>Knowledge</li><li>Process</li><li>Tools</li><li>Incentives</li><li>Expectations</li>
+        <ul class="chips tags defs" aria-label="Gap types">
+          <li>Skill<span>never done under pressure</span></li><li>Knowledge<span>nobody ever told them</span></li><li>Process<span>broken upstream</span></li><li>Tools<span>fail when used</span></li><li>Incentives<span>point the other way</span></li><li>Expectations<span>never said out loud</span></li>
         </ul>
         <span class="label amber">Ask this</span>
         <ul class="ask">
@@ -1898,6 +1885,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
           <p class="capt done">Three of eight belong to a course. In my intakes that mix is common.</p>
         </div>
 
+        <p class="wo do done"><b>Done when</b><span>the gap type named out loud and agreed, or corrected with evidence.</span></p>
         <p class="wo"><b>Watch out</b><span>Don't run this step from a meeting room. Leaders describe the workflow they designed. The floor runs the workflow that survived. (<a href="#g-dust">→ Fingerprint Dust</a>)</span></p>
         <p class="capt"><a href="#cold-03">See cold case 03 →</a></p>
       </div>
@@ -1915,6 +1903,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
           <li><span class="q">Who would disagree with this explanation?</span><span class="tech"><b>Triangulation.</b> Now go talk to that person.</span></li>
           <li><span class="q plain">Run the 5 Whys chain (<a href="#g-whys">→ File 04</a>)</span></li>
         </ul>
+        <p class="wo do done"><b>Done when</b><span>two independent sources point at the same cause. (<a href="#g-witness">→ Witness Interview</a>)</span></p>
         <p class="wo"><b>Watch out</b><span>The first plausible cause, and especially the cause your sponsor prefers. A detective doesn't close the case on the suspect who confesses fastest.</span></p>
         <p class="capt"><a href="#cold-02">See cold case 02 →</a></p>
       </div>
@@ -1987,6 +1976,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
           <div class="hyp filled"><span class="l">One filled in</span><em>If we pre-brief managers 48 hours before each announcement, then the share of teams hearing it from their own manager within a week moves from a third to 80% in one quarter, measured by a two-question pulse.</em></div>
         </div>
 
+        <p class="wo do done"><b>Done when</b><span>the hypothesis written, threshold and gate signed.</span></p>
         <p class="wo"><b>Watch out</b><span>Scope creeping back toward "a full course". The targeted fix you designed in week one grows modules by week four.</span></p>
       </div>
     </article>
@@ -2332,6 +2322,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
         </tr>
       </tbody>
       </table></div>
+    <p class="capt">Close the Case is ten minutes of work, after the solution ships. The difference between "the training team" and "the people who fixed our discount problem".</p>
   </div>
 </section>
 
@@ -2602,7 +2593,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
   var pillSets=[];
   document.querySelectorAll('nav.pills').forEach(function(pills){
     var items=[];pills.querySelectorAll('a').forEach(function(a){var el=document.getElementById(a.getAttribute('href').slice(1));if(el)items.push({a:a,el:el});});
-    var sec=pills.closest('section');if(items.length&&sec)pillSets.push({sec:sec,items:items});
+    var sec=pills.closest('section');if(items.length&&sec)pillSets.push({sec:sec,items:items,el:pills,cur:null});
   });
   function paintPills(){
     var line=window.innerHeight*0.45;
@@ -2610,9 +2601,26 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
       var cur=null,sr=set.sec.getBoundingClientRect();
       if(sr.top<line&&sr.bottom>line){set.items.forEach(function(it){if(it.el.getBoundingClientRect().top<=line)cur=it;});}
       set.items.forEach(function(it){if(it===cur)it.a.setAttribute('aria-current','true');else it.a.removeAttribute('aria-current');});
+      if(cur&&cur!==set.cur)showPill(set.el,cur.a);
+      set.cur=cur;
     });
   }
+  // on phones a pill strip scrolls sideways; keep the current pill inside it (the strip moves, never the page)
+  function showPill(strip,a){
+    if(strip.scrollWidth<=strip.clientWidth+1)return;
+    var pad=parseFloat(getComputedStyle(strip).scrollPaddingInlineStart)||0;
+    var left=a.offsetLeft,right=left+a.offsetWidth,view=strip.scrollLeft;
+    if(left-pad>=view&&right+pad<=view+strip.clientWidth)return;
+    var still=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    strip.scrollTo({left:Math.max(0,left-pad),behavior:still?'auto':'smooth'});
+  }
   paintPills();
+
+  // The guide in one picture: the right edge fades while more of the row is hidden
+  [].forEach.call(document.querySelectorAll('.strip'),function(st){
+    var edge=function(){st.classList.toggle('more',st.scrollWidth-st.clientWidth-st.scrollLeft>4);};
+    st.addEventListener('scroll',edge,{passive:true});window.addEventListener('resize',edge);edge();
+  });
 
   // Progress bar
   var pbar=document.getElementById('pbar');
@@ -3254,6 +3262,8 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
 
   // #steal pointed at a section that was removed; send old links to the end of File 07
   if(location.hash==='#steal'){history.replaceState(null,'','#is-training');var it=document.getElementById('is-training');if(it)it.scrollIntoView();}
+  // #close-the-case pointed at a block in File 03 that was removed; its four lines are §7 of the Case File
+  if(location.hash==='#close-the-case'){history.replaceState(null,'','#casefile');var cf=document.getElementById('casefile');if(cf)cf.scrollIntoView();}
 
   var shareLink=document.getElementById('shareLink');
   if(shareLink){shareLink.addEventListener('click',function(){copyText(location.origin+location.pathname,shareLink,'Link copied');});}
