@@ -3005,7 +3005,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
     var ROT=['-1.2deg','.9deg','-.6deg','1.1deg','-.9deg','.5deg'];
     var S,sheet,live,track;
     var entryBtn=document.getElementById('takeCase'),bestLine=document.getElementById('caseBest');
-    function paintBest(){var b=store.get('ldd-case');if(b&&typeof b.best==='number'){bestLine.hidden=false;bestLine.textContent='Your best: '+b.best+' of 6.';}}
+    function paintBest(){var b=store.get('ldd-case');if(b&&typeof b.best==='number'){bestLine.hidden=false;bestLine.textContent='Your best: '+b.best+' of 6 right first time.';}}
     paintBest();
     game.innerHTML='<div class="gm-top"><span class="gm-case">The cascade that never landed</span><button type="button" class="gm-leave">Leave the case</button></div>'+
       '<ol class="gm-track">'+STEPS.map(function(s){return '<li><span class="bx" aria-hidden="true">'+s[0]+'</span><span class="lb">'+s[1]+'</span></li>';}).join('')+'</ol>'+
@@ -3059,9 +3059,9 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
       add(sc,'<p class="gm-lead">An email from the executive team:</p>');
       add(sc,'<blockquote class="gm-mail"><span class="clip" aria-hidden="true"></span><p>"Middle managers can\'t communicate. We need communication training for all people managers."</p></blockquote>');
       choice(sc,'request','What do you do?',[
-        {t:'Book the training',fb:'Quick yes. Three months later every manager has a certificate and the survey item hasn\'t moved. Ask about the problem first.'},
+        {t:'Book the training',fb:'Quick yes. Three months later every manager has a certificate and nothing has changed. Ask about the problem first.'},
         {t:'Tell them training won\'t fix it',fb:'You haven\'t looked yet. That\'s a verdict too, just yours.'},
-        {t:'Ask what made this urgent now',ok:1,fb:'Good. Don\'t argue with the request. Keep asking about the problem until the coat comes off.'}
+        {t:'Ask what made this urgent now',ok:1,fb:'Good. Don\'t argue with the request. Keep asking about the problem behind it.'}
       ],function(w){next(w,'Next: Clarify',sClarify);});
       return sc;
     }
@@ -3077,7 +3077,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
     }
     function sLook(){
       var sc=screen(2,'L · Look'),total=5+S.extra;
-      add(sc,'<p class="gm-lead">Five moves before the board meets, six places to look. Each look costs a move. Name the cause as soon as you can back it up. You don\'t have to spend them all.</p>');
+      add(sc,'<p class="gm-lead">Five moves before the board meets, six places to look. Each look costs a move. Name the cause as soon as you can back it up.</p>');
       var meter=add(sc,'<div class="gm-meter"><span class="pins" aria-hidden="true"></span><span class="ml"></span></div>');
       var board=add(sc,'<div class="gm-board"><svg class="gm-strings" aria-hidden="true" focusable="false"></svg><div class="gm-srcs"></div></div>');
       var svg=board.querySelector('svg'),grid=board.querySelector('.gm-srcs');
@@ -3126,17 +3126,17 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
       choice(sc,'uncover','What\'s really going on?',[
         {t:'Managers can\'t communicate',fb:'That\'s the request again. Managers in the 78% department took the same courses as everyone else. Skill alone doesn\'t explain a 37-point gap.'},
         {t:'The strategy itself is unclear',fb:'Then the 78% department would be lost too. Same strategy, very different score. What does that director do that the others don\'t?'},
-        {t:'People don\'t read the updates',fb:'The verbatims say people wanted to hear it from their manager. They asked for more, not less.'},
+        {t:'People don\'t read the updates',fb:'The verbatims say people wanted to hear it from their manager. They wanted more from their manager, not fewer updates.'},
         {t:'Managers are briefed last and armed with nothing',ok:1}
       ],function(w,fb){
         var has=function(k){return S.opened.some(function(i){return SRC[i].ev&&SRC[i].k===k;});};
         if(has('w')&&has('p')){
-          fb.innerHTML='<p><b>Two independent sources, one cause.</b> Managers hear the news with their teams, with 60 slides, no talk track and nowhere to ask. And nobody told them cascading was their job.</p><p class="gap">Gap: process and expectations, plus a thin, real skill need.</p>';
+          fb.innerHTML='<p><b>Two independent sources, one cause.</b> Managers hear the news at the same moment as their teams, get 60 slides, no talk track and nowhere to ask. And nobody told them cascading was their job.</p><p class="gap">Gap: process and expectations, plus a thin, real skill need.</p>';
           next(w,'Build the fix',sExecute);
         }else{
           fb.className='gm-fb part';
           fb.textContent=has('w')?'Right cause, thin case. Witnesses can end up telling each other\'s story. Find it on paper too.':'Right cause, thin case. Paper shows what happened. It doesn\'t show why. Talk to someone who was there.';
-          next(w,S.left>0?'Look again':'Look again · costs a day',function(){if(S.left<=0){S.extra++;S.left++;}sLook();});
+          next(w,S.left>0?'Look again':'Look again · costs an extra move',function(){if(S.left<=0){S.extra++;S.left++;}sLook();});
         }
       });
       land(sc);
@@ -3158,7 +3158,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
         if(all){
           grid.classList.add('locked');cards.forEach(function(b){b.setAttribute('aria-disabled','true');});check.hidden=true;
           var fb=add(sc,'<div class="gm-fb ok"><p>Four fixes, one of them training. Three of the four owners sit outside L&amp;D. Put their names in the recommendation.</p></div>');
-          next(fb,'Write the hypothesis',sPilot);say('Correct. '+fb.textContent);
+          next(fb,'Plan the pilot',sPilot);say('Correct. '+fb.textContent);
         }else{
           say(picked.filter(function(b){return !FIX[+b.dataset.i].ok;}).map(function(b){return FIX[+b.dataset.i].t+'. '+FIX[+b.dataset.i].fb;}).join(' '));
         }
@@ -3213,7 +3213,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
         '<div><dt>Right first time</dt><dd>'+right+' of 6</dd></div>'+
         '<div><dt>Moves used</dt><dd>'+used+' of '+total+'</dd></div>'+
         '<div><dt>Dead ends</dt><dd>'+S.dead+'</dd></div>'+
-        '<div><dt>Extra days</dt><dd>'+S.extra+'</dd></div></dl></div>');
+        '<div><dt>Extra moves</dt><dd>'+S.extra+'</dd></div></dl></div>');
       add(sc,'<p class="gm-rank">'+esc(rank)+'</p>');
       add(sc,'<p class="capt">Training was a quarter of the fix, and it worked because the other three-quarters shipped first.</p>');
       var acts=add(sc,'<div class="gm-acts"></div>');
