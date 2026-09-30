@@ -186,6 +186,15 @@ section.case + section.case{margin-top:24px}
 .file.lost{grid-column:1/-1;border-color:var(--line-2);background:var(--paper)}
 .file.lost dl{grid-template-columns:auto 1fr}
 .dl{display:flex;flex-wrap:wrap;gap:12px;margin:1.2em 0}
+.kit{margin:1.2em 0 0;padding:16px 18px;background:var(--amber-tint);border-radius:var(--r);max-width:720px;break-inside:avoid}
+.kit p{margin:0;font-size:15px;line-height:1.55;color:var(--ink);text-wrap:pretty}
+.kit .kit-h{font:600 11px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--amber-ink);margin:0 0 6px}
+.kit dl{margin:12px 0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 18px;font-size:15px;line-height:1.5}
+.kit dt{font-weight:600;color:var(--ink)}
+.kit dt small{display:block;font-weight:400;font-size:13px;line-height:1.4;color:var(--muted)}
+.kit dd{margin:0;color:var(--ink-2)}
+.kit .kit-f{font-size:14px;color:var(--ink-2)}
+@media (max-width:640px){.kit{padding:14px 16px}.kit dl{grid-template-columns:minmax(0,1fr);gap:2px}.kit dd{margin-bottom:8px}}
 
 /* ---------- footer ---------- */
 footer.credit{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:flex-start}
@@ -1568,7 +1577,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
       <a href="#clue"><span class="n">File 03</span><b>Run CLUE</b></a>
       <a href="#gadgets"><span class="n">Files 04–05</span><b>Get evidence</b></a>
       <a href="#casefile"><span class="n">File 06</span><b>Open the file</b></a>
-      <a href="#closed"><span class="n">File 07</span><b>Close the case</b></a>
+      <a href="#closed"><span class="n">File 07</span><b>Hand over the rest</b></a>
     </nav>
 
     <figure class="iceberg"><div class="ib-scroll"><svg id="waterline" class="ib-wide" viewBox="0 0 720 320" role="img" aria-labelledby="ib-t ib-d">
@@ -2065,7 +2074,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
           <button type="button" class="tbtn" id="ocClear">Clear</button>
         </div>
         <p class="capt oc-note">It stays in this browser. Nothing is sent anywhere.</p>
-        <p class="capt oc-next">Size two? Move it into the <a href="files/case-file-template.docx">Case File template</a>.</p>
+        <p class="capt oc-next">Size two? Move it into the <a href="files/case-file-template.docx">Case File template</a>: your notes fill most of §1.</p>
       </div>
       <div class="oc-print" aria-hidden="true"></div>
     </div>
@@ -2263,6 +2272,17 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
       <p class="lead">Seven sections, each labeled with the CLUE letter it serves. Every one answers a question a steering committee will put to you, so answer it before they ask.</p>
     </div>
 
+    <div class="kit" role="note" aria-labelledby="kit-h">
+      <p class="kit-h" id="kit-h">You won't need all seven</p>
+      <p>Not every case faces a steering committee. The template is the full kit: keep the sections your case needs and delete the rest.</p>
+      <dl>
+        <dt>Every case</dt><dd>The Case · §1 The Motive · §7 Close the Case</dd>
+        <dt>When you build something</dt><dd>add §2 The Targets · §3 The Blueprint</dd>
+        <dt>Big cases<small>real budget, a pilot gate, several teams</small></dt><dd>add §4 The Investigation Plan · §5 The Chain of Command · §6 Risk &amp; Resources</dd>
+      </dl>
+      <p class="kit-f">Ran the <a href="#intake">intake</a>? Your notes fill most of §1.</p>
+    </div>
+
     <div class="dl">
       <a class="btn amber" href="files/case-file-template.docx"><svg class="ico sm" aria-hidden="true"><use href="#i-download"/></svg>Blank Case File template <span class="meta">DOCX</span></a>
     </div>
@@ -2302,7 +2322,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
         <tr role="row">
           <th scope="row" class="c k" role="rowheader" data-l="§">§5</th>
           <td class="c" role="cell" data-l="Section"><strong>The Chain of Command</strong><span class="sub">RACI</span></td>
-          <td class="c muted" role="cell" data-l="What goes in">Approval, KPI definition, pilot launch, scale decision × Sponsor, L&amp;D product owner, HRBP, BU Lead, IT/Data, Finance</td>
+          <td class="c muted" role="cell" data-l="What goes in">Approval, KPI definition, pilot launch, scale and sunset decisions × Sponsor, L&amp;D product owner, HRBP, BU Lead, IT/Data, Finance</td>
           <td class="c k" role="cell" data-l="CLUE">E</td>
         </tr>
         <tr role="row">
@@ -2328,7 +2348,7 @@ p.capt > a[href^="#cold-"],.gt .sub a{padding:12px 4px;margin:0 -4px}
   <div class="hero lite"><div>
     <span class="label amber">File 07</span>
     <h2 id="h-closed">Case Closed</h2>
-    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> you want to see the whole method run once, start to verdict.</span></p><div class="meta-row"><span class="chip">About 4 min</span></div>
+    <p class="when"><svg class="ico" aria-hidden="true"><use href="#i-lamp"/></svg><span><strong>When to use this:</strong> you want to see the whole method run once, then decide what you build and what you hand over.</span></p><div class="meta-row"><span class="chip">About 4 min</span></div>
   </div><div class="art" aria-hidden="true"><svg class="illo"><use href="#illo-closed"/></svg></div></div>
   <div class="body">
     <nav class="pills no-print" aria-label="On this page"><a href="#main-case">The main case</a><a href="#cold-cases">Cold cases</a><a href="#handover">Who makes the fixes</a><a href="#is-training">When to build</a></nav>
